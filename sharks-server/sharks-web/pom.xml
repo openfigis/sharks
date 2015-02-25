@@ -8,4 +8,21 @@
 		<version>0.1</version>
 	</parent>
 	<artifactId>sharks-web</artifactId>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.sharks</groupId>
+			<artifactId>sharks-dao</artifactId>
+			<version>0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit-dep</artifactId>
+			<version>4.10</version>
+		</dependency>
+	</dependencies>
 </project>
