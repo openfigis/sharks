@@ -1,4 +1,4 @@
-package org.sharks;
+package org.sharks.dao;
 
 public class ReaderDao {
 
