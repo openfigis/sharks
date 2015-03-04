@@ -44,7 +44,7 @@ public class MsAccessConnectionProvider {
 			DriverManager.getConnection(url);
 			// DriverManager.getConnection(url, "sa", "");
 
-			this.connection = DriverManager.getConnection(url, "", "");
+			this.connection = DriverManager.getConnection(url, "sa", "");
 			LOG.info("Microsoft Access file : " + dbLocation + "successfully connected!");
 		} catch (SQLException e) {
 			e.printStackTrace();
