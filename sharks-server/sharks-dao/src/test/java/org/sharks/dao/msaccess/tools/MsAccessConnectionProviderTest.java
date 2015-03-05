@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 public class MsAccessConnectionProviderTest {
 
 	@Inject
-	private MsAccessConnectionProvider p;
+	private MsAccessConnectionProducer p;
 
 	@Test
 	public void testGetConnecton() throws ClassNotFoundException {

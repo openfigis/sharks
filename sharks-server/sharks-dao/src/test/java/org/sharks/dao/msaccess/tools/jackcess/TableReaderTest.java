@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -14,9 +15,10 @@ import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.sharks.dao.msaccess.config.MsAccessConfiguration;
-import org.sharks.dao.msaccess.tools.MsAccessConnectionProvider;
+import org.sharks.dao.msaccess.tools.MsAccessConnectionProducer;
 import org.sharks.dao.msaccess.tools.RecordCollection;
 import org.sharks.dao.msaccess.tools.TableReader;
+import org.sharks.dao.table.refArea;
 
 @RunWith(CdiRunner.class)
 public class TableReaderTest {
@@ -28,7 +30,7 @@ public class TableReaderTest {
 	MsAccessConfiguration c;
 
 	@Inject
-	MsAccessConnectionProvider cp;
+	MsAccessConnectionProducer cp;
 
 	@Test
 	public void experiment() throws SQLException {
@@ -51,10 +53,14 @@ public class TableReaderTest {
 	@Test
 	public void testRead() throws SQLException {
 
-		tableReader.setConnection(cp.getConnection());
-
 		RecordCollection table = tableReader.read(c.getTables()[0]);
 		assertEquals(19, table.getObjectList().size());
+		assertEquals(refArea.class, table.getClazz());
+		List<Object> records = table.getObjectList();
+		for (Object record : records) {
+			refArea refArea = (refArea) record;
+			System.out.println(refArea.getCdArea());
+		}
 
 	}
 

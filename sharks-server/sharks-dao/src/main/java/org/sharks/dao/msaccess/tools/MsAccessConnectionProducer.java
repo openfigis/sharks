@@ -15,9 +15,9 @@ import org.sharks.dao.msaccess.config.MsAccessConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MsAccessConnectionProvider {
+public class MsAccessConnectionProducer {
 
-	final static private Logger LOG = LoggerFactory.getLogger(MsAccessConnectionProvider.class);
+	final static private Logger LOG = LoggerFactory.getLogger(MsAccessConnectionProducer.class);
 
 	final static private String UCANACCESS_DRIVER = "net.ucanaccess.jdbc.UcanaccessDriver";
 
