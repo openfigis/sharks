@@ -12,6 +12,7 @@ import net.ucanaccess.jdbc.UcanaccessDriver;
 
 import org.sharks.dao.SharksException;
 import org.sharks.dao.msaccess.config.MsAccessConfiguration;
+import org.sharks.dao.msaccess.config.SharksConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,18 +27,19 @@ public class MsAccessConnectionProducer {
 
 	@Produces
 	@ApplicationScoped
-	final public Connection getConnection() {
+	final public SharksConnection getSharksConnection() {
 		try {
 			Class.forName(UCANACCESS_DRIVER);
 
 			// String url = UcanaccessDriver.URL_PREFIX + c.getDbLocation() + ";newDatabaseVersion=V2003";
 			String url = UcanaccessDriver.URL_PREFIX + c.getDbLocation();
-
-			DriverManager.getConnection(url);
 			Connection connection = DriverManager.getConnection(url);
 			LOG.info("Microsoft Access file : " + c.getDbLocation() + "successfully connected!");
 
-			return connection;
+			SharksConnection sharksConnection = new SharksConnection();
+			sharksConnection.setConnection(connection);
+
+			return sharksConnection;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new SharksException(e);

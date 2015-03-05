@@ -4,25 +4,25 @@ import static org.junit.Assert.assertNotNull;
 
 import javax.inject.Inject;
 
-import net.ucanaccess.jdbc.UcanaccessDriver;
-
+import org.jglue.cdiunit.AdditionalClasses;
 import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.sharks.dao.msaccess.config.SharksConnection;
 
 @RunWith(CdiRunner.class)
-public class MsAccessConnectionProviderTest {
+@AdditionalClasses(MsAccessConnectionProducer.class)
+public class MsAccessConnectionProducerTest {
 
 	@Inject
-	private MsAccessConnectionProducer p;
+	private SharksConnection sharksConnection;
 
 	@Test
 	public void testGetConnecton() throws ClassNotFoundException {
 
-		UcanaccessDriver l;
-
 		Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-		assertNotNull(p.getConnection());
+		assertNotNull(sharksConnection);
+		assertNotNull(sharksConnection.getConnection());
 	}
 
 }

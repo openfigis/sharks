@@ -1,6 +1,5 @@
 package org.sharks.dao.msaccess.tools;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,13 +9,14 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.sharks.dao.SharksException;
+import org.sharks.dao.msaccess.config.SharksConnection;
 
 public class TableReader {
 
 	private final GenericMapper mapper = new GenericMapper();
 
 	@Inject
-	Connection connection;
+	SharksConnection sharksConnection;
 
 	public RecordCollection read(Class<?> clazz) {
 		RecordCollection table = new RecordCollection();
@@ -42,12 +42,14 @@ public class TableReader {
 		// SQL query command
 		String SQL = "SELECT * FROM " + table;
 		try {
-
-			stmt = connection.createStatement();
+			stmt = sharksConnection.getConnection().createStatement();
 			return stmt.executeQuery(SQL);
 		} catch (SQLException e) {
 			throw new SharksException(e);
+		} finally {
+			sharksConnection.release();
 		}
+
 	}
 
 }
