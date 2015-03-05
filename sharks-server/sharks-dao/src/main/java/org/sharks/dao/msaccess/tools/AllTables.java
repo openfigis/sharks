@@ -14,7 +14,7 @@ import org.sharks.dao.msaccess.config.MsAccessConfiguration;
  * @author Erik van Ingen
  * 
  */
-public class TableWhat {
+public class AllTables {
 	@Inject
 	MsAccessConfiguration c;
 
