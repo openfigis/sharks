@@ -15,7 +15,7 @@ import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.sharks.dao.msaccess.config.MsAccessConfiguration;
-import org.sharks.dao.msaccess.tools.MsAccessConnectionProducer;
+import org.sharks.dao.msaccess.config.MsAccessConnectionProducer;
 import org.sharks.dao.msaccess.tools.RecordCollection;
 import org.sharks.dao.msaccess.tools.TableReader;
 import org.sharks.dao.table.refArea;

@@ -1,4 +1,4 @@
-package org.sharks.dao.msaccess.tools;
+package org.sharks.dao.msaccess.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,8 +11,6 @@ import javax.inject.Inject;
 import net.ucanaccess.jdbc.UcanaccessDriver;
 
 import org.sharks.dao.SharksException;
-import org.sharks.dao.msaccess.config.MsAccessConfiguration;
-import org.sharks.dao.msaccess.config.SharksConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
