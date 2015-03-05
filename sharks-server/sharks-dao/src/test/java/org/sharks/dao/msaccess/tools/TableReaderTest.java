@@ -1,4 +1,4 @@
-package org.sharks.dao.msaccess.tools.jackcess;
+package org.sharks.dao.msaccess.tools;
 
 import static org.junit.Assert.assertEquals;
 
