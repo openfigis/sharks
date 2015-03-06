@@ -35,6 +35,10 @@
 		</plugins>
 	</build>
 	<dependencies>
+	<dependency>
+		<groupId>javax.inject</groupId>
+		<artifactId>javax.inject</artifactId>
+	</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
