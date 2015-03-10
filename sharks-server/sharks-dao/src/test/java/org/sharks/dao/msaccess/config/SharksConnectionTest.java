@@ -18,6 +18,7 @@ public class SharksConnectionTest {
 
 	@Test
 	public void testGetConnection() {
+
 		sc.getConnection();
 		try {
 			sc.getConnection();

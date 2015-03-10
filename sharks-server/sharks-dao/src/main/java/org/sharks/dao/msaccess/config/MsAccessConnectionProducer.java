@@ -31,6 +31,7 @@ public class MsAccessConnectionProducer {
 
 			// String url = UcanaccessDriver.URL_PREFIX + c.getDbLocation() + ";newDatabaseVersion=V2003";
 			String url = UcanaccessDriver.URL_PREFIX + c.getDbLocation();
+			System.out.println(url);
 			Connection connection = DriverManager.getConnection(url);
 			LOG.info("Microsoft Access file : " + c.getDbLocation() + "successfully connected!");
 
