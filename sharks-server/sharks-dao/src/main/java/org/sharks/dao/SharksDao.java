@@ -23,14 +23,17 @@ import org.sharks.dao.model.Species;
  */
 public class SharksDao {
 	
-	//tmp solution
-	private static String dbLocation = "../sharks-db/Sharks.accdb";
+	private static String ENV_PROPERTY = "SHARKS_DB";
+	private static String DEV_DB_LOCATION = "../sharks-db/Sharks.accdb";
 
 	private EntityManagerFactory emf;
 	
 	public SharksDao() {
 		
 		try {
+			
+			String dbLocation = getDbLocation();
+		
 			Map<String, String> properties = new HashMap<String, String>();
 			properties.put("javax.persistence.jdbc.url", "jdbc:ucanaccess://"+dbLocation);
 			
@@ -40,6 +43,12 @@ public class SharksDao {
 		} catch (Exception e) {
 			throw new RuntimeException("Access db connection failed", e);
 		}
+	}
+	
+	private String getDbLocation() {
+		String dbLocation = System.getenv(ENV_PROPERTY);
+		if (dbLocation == null) dbLocation = DEV_DB_LOCATION;
+		return dbLocation;
 	}
 	
 	public List<Species> listAllSpecies() {

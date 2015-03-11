@@ -6,6 +6,7 @@ package org.sharks.dao.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
  *
  */
 @Data
+@XmlRootElement
 @NoArgsConstructor
 @Entity(name="refSpecies")
 public class Species {

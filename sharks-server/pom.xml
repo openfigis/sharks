@@ -67,6 +67,13 @@
 				<scope>runtime</scope>
 			</dependency>
 			
+			<dependency>
+				<groupId>org.jboss</groupId>
+				<artifactId>jandex</artifactId>
+				<version>1.2.1.Final</version>
+				<scope>runtime</scope>
+			</dependency>
+			
 			<!-- LOGGING -->
 			<dependency>
 			    <groupId>org.slf4j</groupId>
