@@ -1,1 +1,1 @@
-{"ide":{},"plugins":{"guess-types":{},"angular":{},"grunt":{}},"libs":["ecma5","browser"]}
+{"ide":{"scriptPaths":[{"type":"FOLDER","path":"app"},{"type":"FOLDER","path":"bower_components"}]},"plugins":{"guess-types":{},"angular":{},"grunt":{}},"libs":["ecma5","browser"]}
