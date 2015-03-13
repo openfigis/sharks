@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc function
@@ -7,11 +7,11 @@
  * # AboutCtrl
  * Controller of the sharksClientApp
  */
-angular.module('sharksClientApp')
-  .controller('AboutCtrl', function ($scope) {
+angular.module("sharksClientApp")
+  .controller("AboutCtrl", function ($scope) {
     $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+      "HTML5 Boilerplate",
+      "AngularJS",
+      "Karma"
     ];
   });

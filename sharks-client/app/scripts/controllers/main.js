@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc function
@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the sharksClientApp
  */
-angular.module('sharksClientApp')
-  .controller('MainCtrl', ["speciesservice", function (speciesservice) {
+angular.module("sharksClientApp")
+  .controller("MainCtrl", ["speciesservice", function (speciesservice) {
 	  this.species = speciesservice.query();
   }]);

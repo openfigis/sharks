@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc overview
@@ -9,23 +9,23 @@
  * Main module of the application.
  */
 angular
-  .module('sharksClientApp', [
-    'ngResource',
-    'ngRoute',
-    'services'
+  .module("sharksClientApp", [
+    "ngResource",
+    "ngRoute",
+    "services"
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+      .when("/", {
+        templateUrl: "views/main.html",
+        controller: "MainCtrl",
         controllerAs: "ctrl"
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when("/about", {
+        templateUrl: "views/about.html",
+        controller: "AboutCtrl"
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: "/"
       });
   });
