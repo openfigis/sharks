@@ -8,10 +8,6 @@
  * Controller of the sharksClientApp
  */
 angular.module('sharksClientApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ["speciesservice", function (speciesservice) {
+	  this.species = speciesservice.query();
+  }]);

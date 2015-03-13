@@ -11,13 +11,15 @@
 angular
   .module('sharksClientApp', [
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'services'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        controllerAs: "ctrl"
       })
       .when('/about', {
         templateUrl: 'views/about.html',
