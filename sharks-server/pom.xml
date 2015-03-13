@@ -19,8 +19,8 @@
 
 	<modules>
 		<module>sharks-web</module>
-		<module>sharks-dto</module>
-		<module>sharks-dao</module>
+		<module>sharks-service</module>
+		<module>sharks-storage</module>
 	</modules>
 
 
