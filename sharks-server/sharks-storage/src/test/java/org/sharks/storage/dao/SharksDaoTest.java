@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.jglue.cdiunit.AdditionalClasses;
 import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,6 +13,7 @@ import org.sharks.storage.dao.SharksDao;
 import org.sharks.storage.domain.Species;
 
 @RunWith(CdiRunner.class)
+@AdditionalClasses(Producers.class)
 public class SharksDaoTest {
 
 	@Inject
@@ -22,6 +24,5 @@ public class SharksDaoTest {
 		List<Species> species = dao.listAllSpecies();
 		for (Species s:species) System.out.println(s);
 	}
-
 	
 }

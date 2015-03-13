@@ -8,9 +8,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.jglue.cdiunit.AdditionalClasses;
 import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.sharks.storage.dao.Producers;
 import org.sharks.storage.dao.SharksDao;
 import org.sharks.storage.domain.Species;
 
@@ -19,6 +21,7 @@ import org.sharks.storage.domain.Species;
  *
  */
 @RunWith(CdiRunner.class)
+@AdditionalClasses(Producers.class)
 public class DaoTest {
 
 	@Inject
