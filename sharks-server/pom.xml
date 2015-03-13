@@ -47,6 +47,27 @@
 
 	<dependencyManagement>
 		<dependencies>
+			
+			<!-- MODULES -->
+			
+			<dependency>
+				<groupId>org.sharks</groupId>
+				<artifactId>sharks-storage</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.sharks</groupId>
+				<artifactId>sharks-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		
+			<dependency>
+				<groupId>org.sharks</groupId>
+				<artifactId>sharks-web</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		
 			<!-- CDI -->
 			<dependency>
 				<groupId>javax.enterprise</groupId>

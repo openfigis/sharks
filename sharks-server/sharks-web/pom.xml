@@ -20,13 +20,11 @@
 		<dependency>
 			<groupId>org.sharks</groupId>
 			<artifactId>sharks-service</artifactId>
-			<version>0.1</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.sharks</groupId>
 			<artifactId>sharks-storage</artifactId>
-			<version>0.1</version>
 		</dependency>
 		
 		<!-- REST -->
