@@ -10,7 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.sharks.storage.dao.SharksDao;
+import org.sharks.service.SharksService;
 import org.sharks.storage.domain.Species;
 
 
@@ -23,19 +23,19 @@ import org.sharks.storage.domain.Species;
 public class SpeciesService {
 	
 	@Inject
-	private SharksDao dao;
+	private SharksService service;
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Species> list() {
-		return dao.listAllSpecies();
+		return service.listAllSpecies();
 	}
 	
 	@GET
 	@Path("{code}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Species get(@PathParam("code") String code) {
-		return dao.getSpecies(code);
+		return service.getSpecies(code);
 	}
 
 }
