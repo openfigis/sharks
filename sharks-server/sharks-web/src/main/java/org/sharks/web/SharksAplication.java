@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.sharks.web.service;
+package org.sharks.web;
 
 import javax.ws.rs.ApplicationPath;
 
