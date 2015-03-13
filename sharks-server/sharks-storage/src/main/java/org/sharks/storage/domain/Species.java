@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.sharks.storage.dao.model;
+package org.sharks.storage.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

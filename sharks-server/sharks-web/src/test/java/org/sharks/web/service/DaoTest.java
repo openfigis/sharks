@@ -12,7 +12,7 @@ import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.sharks.storage.dao.SharksDao;
-import org.sharks.storage.dao.model.Species;
+import org.sharks.storage.domain.Species;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"

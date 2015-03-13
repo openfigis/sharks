@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.sharks.storage.dao.SharksDao;
-import org.sharks.storage.dao.model.Species;
+import org.sharks.storage.domain.Species;
 
 
 /**

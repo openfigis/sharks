@@ -15,7 +15,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import org.sharks.storage.dao.model.Species;
+import org.sharks.storage.domain.Species;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
