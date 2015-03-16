@@ -13,24 +13,18 @@ import lombok.Data;
  * 
  */
 @Data
-@Entity(name = "refSpecies")
+@Entity(name = "tbInformationSource")
 @XmlRootElement
-public class Species {
+public class InformationSource {
 
     @Id
-    @Column(name = "cdSpecies")
+    @Column(name = "cdInformationSource")
     private Long code;
-    @Column(name = "3AlphaCode")
-    private String alphaCode;
     @Column
-    private String scientificName;
+    private String url;
     @Column
-    private String nameEn;
+    private String citation;
     @Column
-    private String nameFr;
-    @Column
-    private String nameSp;
-    @Column
-    private String urlFactSheet;
+    private Integer informationSourceYear;
 
 }
