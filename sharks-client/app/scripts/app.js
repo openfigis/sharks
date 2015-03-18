@@ -21,6 +21,11 @@ angular
         controller: "SharkSpeciesSelectionCtrl",
         controllerAs: "ctrl"
       })
+      .when("/species/:id", {
+        templateUrl: "views/shark_species_details.html",
+        controller: "SharkSpeciesDetailsCtrl",
+        controllerAs: "ctrl"
+      })
       .when("/about", {
         templateUrl: "views/about.html",
         controller: "AboutCtrl"

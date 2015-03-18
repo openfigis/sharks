@@ -24,7 +24,8 @@ angular.module("sharksClient")
 	  }
 	  
 	  this.showSpecies = function() {
-		  $log.info("showSpecies: "+this.selected[0]);
-		  $location.path("#/species/"+this.selected[0]);
+		  var hash = "/species/"+this.selected[0];
+		  $log.info("showSpecies: "+this.selected[0]+ " routing to "+hash);
+		  $location.path(hash);
 	  }
   }]);
