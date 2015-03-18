@@ -10,4 +10,11 @@
        {{sp.alphaCode}} - {{sp.scientificName}} - {{sp.nameEn}}
     </li>
   </ul>
+  
+   <div class="panel-footer">
+    <input class="btn btn-default pull-right" type="button" value="View selected" ng-disabled="ctrl.selected.length === 0" 
+    ng-click="ctrl.showSpecies()">
+    <div class="clearfix"></div>
+   </div>
+  
 </div>

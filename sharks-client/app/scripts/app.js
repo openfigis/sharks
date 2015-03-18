@@ -16,9 +16,9 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when("/", {
-        templateUrl: "views/shark_species.html",
-        controller: "SharkSpeciesCtrl",
+      .when("/species", {
+        templateUrl: "views/shark_species_selection.html",
+        controller: "SharkSpeciesSelectionCtrl",
         controllerAs: "ctrl"
       })
       .when("/about", {
@@ -26,6 +26,6 @@ angular
         controller: "AboutCtrl"
       })
       .otherwise({
-        redirectTo: "/"
+        redirectTo: "/species"
       });
   });
