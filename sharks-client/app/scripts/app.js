@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module("sharksClientApp", [
+  .module("sharksClient", [
     "ngResource",
     "ngRoute",
     "services"
@@ -17,8 +17,8 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when("/", {
-        templateUrl: "views/main.html",
-        controller: "MainCtrl",
+        templateUrl: "views/shark_species.html",
+        controller: "SharkSpeciesCtrl",
         controllerAs: "ctrl"
       })
       .when("/about", {

@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Select one or more species:</div>
+
+  <!-- List group -->
+  <ul class="list-group">
+      <li class="list-group-item" 
+       ng-class="{'active':ctrl.isSelected(sp)}"
+      ng-repeat="sp in ctrl.species" 
+      ng-click="ctrl.toggle(sp)">
+       {{sp.alphaCode}} - {{sp.scientificName}} - {{sp.nameEn}}
+    </li>
+  </ul>
+</div>
