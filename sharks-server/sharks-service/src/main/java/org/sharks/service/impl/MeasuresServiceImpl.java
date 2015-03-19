@@ -3,8 +3,10 @@
  */
 package org.sharks.service.impl;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
@@ -46,10 +48,14 @@ public class MeasuresServiceImpl implements MeasuresService {
 
 	@Override
 	public List<EntityMeasures> measureForSpeciesByEntity(List<String> species) {
-		String speciesId = species.get(0);
 		
-		List<Measure> measures = dao.allRelatedToSpecies(speciesId);
+		Set<Measure> measures = new HashSet<Measure>();
 		
+		for (String speciesId:species) {
+			List<Measure> speciesMeasures = dao.allRelatedToSpecies(speciesId);
+			measures.addAll(speciesMeasures);
+		}
+
 		List<EntityMeasures> entityMeasures = 
 				measures.stream().collect(
 						//group by entity
