@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 
 /**
@@ -21,6 +22,7 @@ import lombok.Data;
 @Data
 @Entity(name = "tbPoA")
 @XmlRootElement
+@EqualsAndHashCode(of = "code")
 public class PoA {
 
     @Id

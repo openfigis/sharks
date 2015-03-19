@@ -8,7 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
+
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 
 /**
@@ -16,6 +18,7 @@ import lombok.Data;
  * 
  */
 @Data
+@EqualsAndHashCode(of={"code"})
 @Entity(name = "tbMgmtEntity")
 @XmlRootElement
 public class MgmtEntity {

@@ -11,8 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 
 /**
@@ -22,6 +25,7 @@ import lombok.Data;
 @Data
 @Entity(name = "tbMeasure")
 @XmlRootElement
+@EqualsAndHashCode(of = "code")
 public class Measure {
 
     @Id
@@ -41,10 +45,13 @@ public class Measure {
     private String description;
     @Column
     private String note;
+    @Temporal(TemporalType.DATE)
     @Column(name = "dtAdoption")
     private Date adoption;
+    @Temporal(TemporalType.DATE)
     @Column(name = "dtStart")
     private Date start;
+    @Temporal(TemporalType.DATE)
     @Column(name = "dtEnd")
     private Date end;
     @Column

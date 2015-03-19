@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 
 /**
@@ -15,6 +16,7 @@ import lombok.Data;
 @Data
 @Entity(name = "refCountry")
 @XmlRootElement
+@EqualsAndHashCode(of = "code")
 public class Country {
 
     @Id

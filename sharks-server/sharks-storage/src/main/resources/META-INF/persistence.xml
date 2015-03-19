@@ -2,7 +2,18 @@
 	<persistence-unit name="sharks-storage">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
-		<class>org.sharks.dao.model.Species</class>
+		<class>org.sharks.storage.domain.Area</class>
+		<class>org.sharks.storage.domain.Country</class>
+		<class>org.sharks.storage.domain.DocumentType</class>
+		<class>org.sharks.storage.domain.InformationSource</class>
+		<class>org.sharks.storage.domain.Measure</class>
+		<class>org.sharks.storage.domain.MeasureTag</class>
+		<class>org.sharks.storage.domain.MgmtEntity</class>
+		<class>org.sharks.storage.domain.MgmtEntityType</class>
+		<class>org.sharks.storage.domain.PoA</class>
+		<class>org.sharks.storage.domain.PoAType</class>
+		<class>org.sharks.storage.domain.Species</class>
+		<class>org.sharks.storage.domain.Status</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="net.ucanaccess.jdbc.UcanaccessDriver" />
