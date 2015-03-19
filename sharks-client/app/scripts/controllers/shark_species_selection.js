@@ -15,8 +15,8 @@ angular.module("sharksClient")
 	  this.toggle = function(species) {
 		  $log.info("Selected: "+species.scientificName);
 		  var index = this.selected.indexOf(species.code);
-		  this.selected.length = 0;  
 		  if (index < 0) this.selected.push(species.code);
+		  else this.selected.splice(index, 1);
 	  };
 	  
 	  this.isSelected = function(species) {
@@ -24,8 +24,8 @@ angular.module("sharksClient")
 	  }
 	  
 	  this.showSpecies = function() {
-		  var hash = "/species/"+this.selected[0];
-		  $log.info("showSpecies: "+this.selected[0]+ " routing to "+hash);
+		  var hash = "/species/"+this.selected.join(",");
+		  $log.info("showSpecies: "+this.selected+ " routing to "+hash);
 		  $location.path(hash);
 	  }
   }]);
