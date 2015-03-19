@@ -18,9 +18,9 @@ import javax.persistence.criteria.Root;
  */
 public abstract class AbstractDao<T> {
 	
-	private EntityManagerFactory emf;
+	protected EntityManagerFactory emf;
 	
-	private Class<T> type;
+	protected Class<T> type;
 	
 	public AbstractDao(EntityManagerFactory emf, Class<T> type) {
 		this.emf = emf;

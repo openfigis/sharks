@@ -13,7 +13,7 @@ import org.sharks.storage.domain.Species;
  */
 public interface SpeciesService {
 
-	List<Species> listAllSpecies();
+	List<Species> list();
 
 	Species getSpecies(String code);
 }

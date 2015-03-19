@@ -18,16 +18,16 @@ import org.sharks.storage.domain.Species;
 public class SpeciesServiceImpl implements SpeciesService {
 	
 	@Inject
-	private SpeciesDao speciesDao;
+	private SpeciesDao dao;
 
 	@Override
-	public List<Species> listAllSpecies() {
-		return speciesDao.list();
+	public List<Species> list() {
+		return dao.list();
 	}
 
 	@Override
 	public Species getSpecies(String code) {
-		return speciesDao.get(code);
+		return dao.get(code);
 	}
 
 }

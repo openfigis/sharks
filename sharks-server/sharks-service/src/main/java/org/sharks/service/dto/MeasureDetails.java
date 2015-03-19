@@ -7,7 +7,9 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import org.sharks.storage.domain.InformationSource;
 
@@ -17,12 +19,14 @@ import org.sharks.storage.domain.InformationSource;
  */
 @XmlRootElement
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class MeasureDetails {
 
 	private long id;
 	private String symbol;
 	private String title;
-	private int year;
+	private Integer year;
 	private List<InformationSource> sources;
 	
 }

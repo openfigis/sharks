@@ -17,7 +17,7 @@ import org.sharks.web.util.GenericExceptionMapper;
 public class SharksAplication extends ResourceConfig {
 	
 	public SharksAplication() {
-		packages("org.sharks.web.service");
+		packages("org.sharks.web.resource");
 		register(new CorsFilter());
 		register(new GenericExceptionMapper());
 	}

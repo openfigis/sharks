@@ -28,7 +28,7 @@ public class SpeciesResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Species> list() {
-		return service.listAllSpecies();
+		return service.list();
 	}
 	
 	@GET
