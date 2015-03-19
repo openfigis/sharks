@@ -4,16 +4,28 @@
     <div class="col-md-8">
       <div class="panel panel-default">
         <div class="panel-body">
-          Species x y z
-          {{ctrl.ids}}
+          Species
         </div>
       </div>
       
-      <div class="panel panel-default">
-        <div class="panel-heading">Global</div>
+      <div class="panel panel-default" ng-repeat="em in ctrl.ems">
+        <div class="panel-heading">{{em.entity.acronym}}</div>
         <div class="panel-body">
          <table class="table">
-      
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Title</th><th>Year</th><th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="measure in em.measures">
+            <td>{{measure.symbol}}</td>
+            <td>{{measure.title}}</td>
+            <td>{{measure.year}}</td>
+            <td>todo</td>
+          </tr>
+          
+          </tbody>
 	     </table>
         </div>
       </div>

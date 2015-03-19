@@ -8,8 +8,9 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SharkSpeciesDetailsCtrl", ["speciesservice", "$log", "$location", "$routeParams", 
-                                          function (speciesservice, $log, $location, $routeParams) {
+  .controller("SharkSpeciesDetailsCtrl", ["measuresservice", "$log", "$location", "$routeParams", 
+                                          function (measuresservice, $log, $location, $routeParams) {
 	  this.ids = $routeParams.ids.split(",");
-	  this.sspMeasures = [];
+	  $log.info("ids "+this.ids);
+	  this.ems = measuresservice.groupByEntity({species:this.ids});
   }]);
