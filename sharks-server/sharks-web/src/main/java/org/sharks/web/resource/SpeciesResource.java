@@ -1,4 +1,4 @@
-package org.sharks.web.service;
+package org.sharks.web.resource;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.sharks.service.SharksService;
+import org.sharks.service.SpeciesService;
 import org.sharks.storage.domain.Species;
 
 
@@ -20,10 +20,10 @@ import org.sharks.storage.domain.Species;
  */
 @ApplicationScoped
 @Path("/species")
-public class SpeciesService {
+public class SpeciesResource {
 	
 	@Inject
-	private SharksService service;
+	private SpeciesService service;
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)

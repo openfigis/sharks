@@ -11,7 +11,7 @@ import org.sharks.storage.domain.Species;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public interface SharksService {
+public interface SpeciesService {
 
 	List<Species> listAllSpecies();
 

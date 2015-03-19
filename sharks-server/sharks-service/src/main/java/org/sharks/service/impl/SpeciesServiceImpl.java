@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.sharks.service.SharksService;
+import org.sharks.service.SpeciesService;
 import org.sharks.storage.dao.SpeciesDao;
 import org.sharks.storage.domain.Species;
 
@@ -15,7 +15,7 @@ import org.sharks.storage.domain.Species;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class SharksServiceImpl implements SharksService {
+public class SpeciesServiceImpl implements SpeciesService {
 	
 	@Inject
 	private SpeciesDao speciesDao;
