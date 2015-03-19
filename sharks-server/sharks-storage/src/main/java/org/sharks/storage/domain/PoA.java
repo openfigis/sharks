@@ -4,7 +4,6 @@ package org.sharks.storage.domain;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -32,19 +31,19 @@ public class PoA {
     private String description;
     @Column
     private Integer poAYear;
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany
     @JoinTable(name = "grpPoACountry", joinColumns = @JoinColumn(name = "cdPoA", referencedColumnName = "cdPoA"), inverseJoinColumns = @JoinColumn(name = "cdCountry", referencedColumnName = "cdCountry"))
     private List<Country> countries;
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany
     @JoinTable(name = "grpPoAInformationSource", joinColumns = @JoinColumn(name = "cdPoA", referencedColumnName = "cdPoA"), inverseJoinColumns = @JoinColumn(name = "cdInformationSource", referencedColumnName = "cdInformationSource"))
     private List<InformationSource> informationSources;
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany
     @JoinTable(name = "grpPoAMgmtEntity", joinColumns = @JoinColumn(name = "cdPoA", referencedColumnName = "cdPoA"), inverseJoinColumns = @JoinColumn(name = "cdMgmtEntity", referencedColumnName = "cdMgmtEntity"))
     private List<MgmtEntity> mgmtEntities;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "cdPoAType")
     private PoAType poAType;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "cdStatus")
     private Status status;
 

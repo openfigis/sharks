@@ -3,12 +3,10 @@ package org.sharks.storage.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,9 +16,9 @@ import lombok.EqualsAndHashCode;
  * 
  */
 @Data
-@EqualsAndHashCode(of={"code"})
 @Entity(name = "tbMgmtEntity")
 @XmlRootElement
+@EqualsAndHashCode(of = "code")
 public class MgmtEntity {
 
     @Id
@@ -34,7 +32,7 @@ public class MgmtEntity {
     private String urlWebPage;
     @Column
     private String urlRfmoMapViewer;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "cdMgmtEntityType")
     private MgmtEntityType mgmtEntityType;
 
