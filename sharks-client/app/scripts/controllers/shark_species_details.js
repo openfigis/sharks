@@ -8,7 +8,7 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SharkSpeciesDetailsCtrl", ["measuresservice", "$log", "$location", "$routeParams", 
+  .controller("SharkSpeciesDetailsCtrl", ["measuresresource", "$log", "$location", "$routeParams", 
                                           function (measuresservice, $log, $location, $routeParams) {
 	  this.ids = $routeParams.ids.split(",");
 	  $log.info("ids "+this.ids);

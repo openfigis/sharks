@@ -8,7 +8,7 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SharkSpeciesSelectionCtrl", ["speciesservice", "$log", "$location", function (speciesservice, $log, $location) {
+  .controller("SharkSpeciesSelectionCtrl", ["speciesresource", "$log", "$location", function (speciesservice, $log, $location) {
 	  this.selected = [];
 	  this.species = speciesservice.query();
 	  

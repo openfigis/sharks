@@ -12,6 +12,7 @@ angular
   .module("sharksClient", [
     "ngResource",
     "ngRoute",
+    "resources",
     "services"
   ])
   .config(function ($routeProvider) {
