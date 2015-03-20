@@ -8,19 +8,10 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SharkSpeciesDetailsCtrl", ["measuresresource", "speciesservice", "$log", "$location", "$routeParams", 
-                                          function (measuresservice, speciesservice, $log, $location, $routeParams) {
-	  this.ids = $routeParams.ids.split(",").map(function(item) {
-		    return parseInt(item, 10);
-	  });
-	  speciesservice.selected = this.ids;
-	 
-	  var self = this;
-	  speciesservice.getAll(this.ids).then(function (species) {
-		  self.species = species;
-	  });
-	  
-	  this.ems = measuresservice.groupByEntity({species:this.ids});
+  .controller("SharkSpeciesDetailsCtrl", ["$log", "$location", "ems", "species", 
+                                          function ($log, $location, ems, species) {
+	  this.species = species;
+	  this.ems = ems;
 	  
 	  this.back = function() {
 		  $location.path("/species");
