@@ -8,9 +8,9 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SharkSpeciesSelectionCtrl", ["speciesresource", "$log", "$location", function (speciesservice, $log, $location) {
+  .controller("SharkSpeciesSelectionCtrl", ["speciesservice", "$log", "$location", function (speciesservice, $log, $location) {
 	  this.selected = [];
-	  this.species = speciesservice.query();
+	  this.species = speciesservice.list();
 	  
 	  this.toggle = function(species) {
 		  $log.info("Selected: "+species.scientificName);

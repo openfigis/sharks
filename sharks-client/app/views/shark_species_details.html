@@ -4,7 +4,11 @@
     <div class="col-md-8">
       <div class="panel panel-default">
         <div class="panel-body">
-          Species
+          <ul>
+            <li ng-repeat="sp in ctrl.species">
+            {{sp.alphaCode}} - {{sp.scientificName}} - {{sp.nameEn}}
+            </li>
+          </ul>
         </div>
       </div>
       
