@@ -13,13 +13,13 @@ angular.module("sharksClient")
 	  this.ids = $routeParams.ids.split(",").map(function(item) {
 		    return parseInt(item, 10);
 	  });
-	  
+	  speciesservice.selected = this.ids;
+	 
 	  var self = this;
 	  speciesservice.getAll(this.ids).then(function (species) {
 		  self.species = species;
 	  });
 	  
-	  $log.info("ids "+this.ids);
 	  this.ems = measuresservice.groupByEntity({species:this.ids});
 	  
 	  this.back = function() {

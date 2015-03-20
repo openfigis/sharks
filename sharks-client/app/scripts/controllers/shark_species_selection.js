@@ -9,20 +9,12 @@
  */
 angular.module("sharksClient")
   .controller("SharkSpeciesSelectionCtrl", ["speciesservice", "$log", "$location", function (speciesservice, $log, $location) {
-	  this.selected = [];
+	  this.selected = speciesservice.selected;
+	  this.toggle = speciesservice.toggleSelection;
+	  this.isSelected = speciesservice.isSelected;
+	  
 	  this.species = speciesservice.list();
-	  
-	  this.toggle = function(species) {
-		  $log.info("Selected: "+species.scientificName);
-		  var index = this.selected.indexOf(species.code);
-		  if (index < 0) this.selected.push(species.code);
-		  else this.selected.splice(index, 1);
-	  };
-	  
-	  this.isSelected = function(species) {
-		  return this.selected.indexOf(species.code)>=0;
-	  }
-	  
+
 	  this.showSpecies = function() {
 		  var hash = "/species/"+this.selected.join(",");
 		  $log.info("showSpecies: "+this.selected+ " routing to "+hash);
