@@ -34,7 +34,10 @@ module.exports = function (grunt) {
 	    space: '  ',
 	    wrap: '"use strict";\n\n {%= __ngModule %}',
 	    name: 'config',
+	    serializerOptions: {quote:'"'},
+	    template: grunt.file.read('config/constant.tpl.ejs')
 	  },
+	  
 	  // Environment targets
 	  development: {
 	    options: {
