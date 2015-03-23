@@ -14,7 +14,7 @@ public class Configuration {
 	
 	private static String ENV_PROPERTY = "SHARKS_DB";
 	private static String DEV_DB_LOCATION = "../sharks-db/Sharks.accdb";
-	private static String DEV_DB_LOCATION2 = "db/Sharks.accdb";
+	private static String DEV_DB_LOCATION2 = "/work/FIGIS/sharks/db/Sharks.accdb";
 	
 	public String getDbFileLocation() {
 		System.out.println("current location "+(new File(".").getAbsolutePath()));
