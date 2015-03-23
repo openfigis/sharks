@@ -29,7 +29,7 @@ public class TestUCanAccessDrive {
 	}
 
 	@Test
-	public void testOpenMultipleConnection() throws SQLException {
+	public void testOpenMultipleConnections() throws SQLException {
 		
 		List<Connection> connections = new ArrayList<Connection>();
 		
