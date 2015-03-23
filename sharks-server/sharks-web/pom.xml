@@ -7,53 +7,53 @@
 		<artifactId>sharks-server</artifactId>
 		<version>0.1</version>
 	</parent>
-	
+
 	<artifactId>sharks-web</artifactId>
 	<packaging>war</packaging>
-	
+
 	<properties>
- 		<jersey.version>2.14</jersey.version>
- 	</properties>
-	
+		<jersey.version>2.14</jersey.version>
+	</properties>
+
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>org.sharks</groupId>
 			<artifactId>sharks-service</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.sharks</groupId>
 			<artifactId>sharks-storage</artifactId>
 		</dependency>
-		
+
 		<!-- REST -->
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
 			<artifactId>javax.ws.rs-api</artifactId>
 			<version>2.0.1</version>
 		</dependency>
-				
+
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet</artifactId>
 			<version>${jersey.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-json-jackson</artifactId>
 			<version>${jersey.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.glassfish.jersey.containers.glassfish</groupId>
 			<artifactId>jersey-gf-cdi</artifactId>
 			<version>${jersey.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<!-- required after has been added jersey-gf-cdi -->
 		<dependency>
 			<groupId>javax.transaction</groupId>
@@ -61,29 +61,29 @@
 			<version>1.2</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<!-- WELD -->
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>javax.annotation</groupId>
 			<artifactId>javax.annotation-api</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.jboss</groupId>
 			<artifactId>jandex</artifactId>
 		</dependency>
-		
+
 		<!-- TEST -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -95,8 +95,10 @@
 			<artifactId>cdi-unit</artifactId>
 		</dependency>
 	</dependencies>
-	
+
+
 	<build>
+		<finalName>sharks-web</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
