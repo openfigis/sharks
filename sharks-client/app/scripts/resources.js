@@ -15,6 +15,6 @@ services.factory("speciesresource", ["$resource", "rest", function($resource, re
 
 services.factory("measuresresource", ["$resource", "rest", function($resource, rest) {
 	return $resource(rest.baseUrl + "measures/:id/", null, {
-		groupByEntity: {method:'GET', url:rest.baseUrl + "measures/groupByEntity", isArray:true, cache: true}
+		groupByEntity: {method:"GET", url:rest.baseUrl + "measures/groupByEntity", isArray:true, cache: true}
 	});
 }]);

@@ -15,5 +15,5 @@ angular.module("sharksClient")
 	  
 	  this.back = function() {
 		  $location.path("/species");
-	  }
+	  };
   }]);

@@ -19,5 +19,5 @@ angular.module("sharksClient")
 		  var hash = "/species/"+this.selected.join(",");
 		  $log.info("showSpecies: "+this.selected+ " routing to "+hash);
 		  $location.path(hash);
-	  }
+	  };
   }]);

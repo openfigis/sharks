@@ -16,11 +16,11 @@ services.factory("speciesservice", ["$cacheFactory", "speciesresource", "$log", 
 		
 		this.isSelected = function(species) {
 			return this.selected.indexOf(species.code)>=0;
-		}
+		};
 		
 		this.list = function() {
 			return speciesresource.query();
-		},
+		};
 		
 		this.get = function(code) {
 			var species = speciesresource.query();
