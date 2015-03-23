@@ -3,6 +3,6 @@
 		"name": "production"
 	},
 	"rest": {
-		"baseUrl": "http://hqldvfigis2.hq.un.fao.org/sharks-web/"
+		"baseUrl": "http://figisapps.fao.org/figis/sharks/"
 	}
 }
