@@ -26,6 +26,29 @@ module.exports = function (grunt) {
 
     // Project settings
     yeoman: appConfig,
+    
+    // Env confing
+    ngconstant: {
+	  // Options for all targets
+	  options: {
+	    space: '  ',
+	    wrap: '"use strict";\n\n {%= __ngModule %}',
+	    name: 'config',
+	  },
+	  // Environment targets
+	  development: {
+	    options: {
+	      dest: '<%= yeoman.app %>/scripts/config.js'
+	    },
+	    constants: grunt.file.readJSON('config/development.json')
+	  },
+	  production: {
+	    options: {
+	      dest: '<%= yeoman.dist %>/scripts/config.js'
+	    },
+	    constants: grunt.file.readJSON('config/production.json')
+	  }
+	},
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -397,6 +420,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
       'wiredep',
       'concurrent:server',
       'autoprefixer:server',
@@ -421,6 +445,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',

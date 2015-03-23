@@ -1,9 +1,9 @@
 "use strict";
 
-var services = angular.module("resources", ["ngResource","configuration"]);
+var services = angular.module("resources", ["ngResource","config"]);
 
-services.factory("speciesresource", ["$resource", "config", function($resource, config) {
-	return $resource(config.sharksWebUrl + "species/:id", null, {
+services.factory("speciesresource", ["$resource", "rest", function($resource, rest) {
+	return $resource(rest.baseUrl + "species/:id", null, {
 		query: {
             method: "GET",
             cache: true, 
@@ -13,8 +13,8 @@ services.factory("speciesresource", ["$resource", "config", function($resource, 
 	});
 }]);
 
-services.factory("measuresresource", ["$resource", "config", function($resource, config) {
-	return $resource(config.sharksWebUrl + "measures/:id/", null, {
-		groupByEntity: {method:'GET', url:config.sharksWebUrl + "measures/groupByEntity", isArray:true, cache: true}
+services.factory("measuresresource", ["$resource", "rest", function($resource, rest) {
+	return $resource(rest.baseUrl + "measures/:id/", null, {
+		groupByEntity: {method:'GET', url:rest.baseUrl + "measures/groupByEntity", isArray:true, cache: true}
 	});
 }]);

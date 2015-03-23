@@ -1,0 +1,8 @@
+{
+	"env": {
+		"name": "development"
+	},
+	"rest": {
+		"baseUrl": "http://localhost:8080/sharks-web/"
+	}
+}
