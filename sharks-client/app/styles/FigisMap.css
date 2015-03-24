@@ -1,0 +1,58 @@
+.FigisMapContainer { margin: 1em 0; }
+.FigisSmallMapFrame { border: 1px solid #000; }
+.FigisMap .embed-link { color: black; text-decoration: underline; }
+.olControlLoadingPanel { background-image: url(/fi/website/assets/images/loader.gif); background-position: center; background-repeat: no-repeat; display: none; }
+.FigisMap .mapError { text-align: center; }
+.FigisMap .mapError div { color: #c66; font-weight: bold; margin: 10px; }
+.FigisMap .olControlMousePosition { bottom: 0px; display: block; left: 9px; position: absolute; }
+.FigisMap .olControlAttribution { color: Blue; display: block; font-size: 12px; font-style: normal; left: 50px; position: absolute; top: .5em; }
+.FigisMap .olControlAttribution { display: none; }
+.FigisMap .olPoweredBy { -khtml-opacity: .5; -moz-opacity: .5; color: Blue; display: block; filter: alpha(opacity=20); font-size: 12px; font-style: normal; opacity: .5; position: absolute; }
+/* .FigisSmallMapFrame .olPoweredBy { -khtml-opacity: .3; -moz-opacity: .3; opacity: .3; filter: alpha(opacity=40); }
+*/
+.FigisMapLegend { text-align: center; }
+.FigisMapLegend div { display: inline; margin-right: 1em; text-align: center; white-space: nowrap;}
+.FigisMapLegend div img { margin-right: 3px; vertical-align: middle; }
+.FigisMapCountries div { display: inline; margin-right: .5em; }
+.FigisMapCountries div:after { content: "," ; }
+.FigisMapDisclaimer { margin: .5em 1em; }
+.FigisMapDisclaimer .autoExpandSwitch { text-align: right; }
+.legendMapArea { background-color: #fff; border: 1px solid #ccc; }
+.legendMapAreaTop { background-color: #eee; padding: 5px; }
+.legendMapLegend { }
+.legendMapLegend .legendSection { margin-bottom: 5px; }
+.legendMapLegend .legendSectionTitle { background-color: #eee; font-style: italic; padding: 2px 10px; text-align: left; }
+.legendMapLegend .legendSectionContent { padding: 5px 10px; }
+/*.legendMapLegend div img { vertical-align: -3px; }
+*/
+.legendMapAreaBottom { background-color: #eee; margin-top: 5px; padding: 5px; }
+.legendMapAreaBottom ul { margin-bottom: 0px; margin-top: 3px; }
+.legendMapAreaBottom.legendMapAreaSources { margin-top: 0; }
+@media screen {
+	.legendMapAreaBottom.legendMapAreaSources { font-size: 10px; background-color : #ddd; }
+}
+.legendMapItemTitle { font-weight: bold; margin-top: 2px; }
+
+@media print {
+	.legendMapToggler, .legendMapAreaUseTips,
+	.FigisMap .maximizeDiv, .olControlPanZoom {
+		display: none;
+	}
+	.legendMapArea {
+		margin-top: .5em;
+		display: block !important;
+	}
+	.legendMapArea, .legendMapArea * {
+		font-family: Verdana, Helvetica, sans-serif;
+		font-size: .8em;
+	}
+	.FigisMapDisclaimer .autoExpandSwitch {
+		display: none;
+	}
+	.FigisMapDisclaimer .autoExpandBody {
+		font-size: .7em;
+		display: block !important;
+		opacity: .8;
+	}
+	.legendMapAreaSources { font-size: .7em; }
+}

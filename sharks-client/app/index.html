@@ -13,6 +13,15 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- FAO CSS -->
+    <link href="styles/boxes.css" type="text/css" rel="stylesheet">
+    <link href="styles/FI_head.css" type="text/css" rel="stylesheet">
+    <link href="styles/fi.css" type="text/css" rel="stylesheet">
+    <link href="styles/FigisMap.css" type="text/css" rel="stylesheet">
+    
+    <link href="styles/jumbotron-narrow.css" type="text/css" rel="stylesheet">
+    
     <!-- endbuild -->
   </head>
   <body ng-app="sharksClient">
@@ -20,43 +29,84 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="page-header">
-      <h1>FAO header </h1>
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
+	<div class="container">
+  
+      <div class="header">
+        <div id="screenBanner">
+          <div class="dataOnly noPrint" id="path">
+            <a href="http://www.fao.org/index_en.htm">FAO Home</a>
+            <span style="padding: 2px;">&gt;</span>
+            <a href="http://www.fao.org/fishery/en">Fisheries &amp; Aquaculture</a>
+            <div class="dataOnly" id="fao">
+              <div id="faoLogo"><img src="http://www.fao.org/figis/website/assets/images/templates/shared/fao_logo.gif" class="pointer" alt="FAO of the UN" onclick="location.href='http://www.fao.org/index_en.htm'"></div>
+              <div id="faoState">Food and Agriculture Organization of the United Nations<span>for a world without hunger</span></div></div>
+            <div class="noPrint" id="lang">
+            <a style="border-style:none;font-size:12px;width:25px;" href="http://www.fao.org/fi/website/FIRetrieveAction.do?dom=topic&amp;fid=16000&amp;lang=ar">
+            <img src="http://www.fao.org/figis/shared/assets/images/icons/ar.gif"></a>
+            <a style="" href="http://www.fao.org/fi/website/FIRetrieveAction.do?dom=topic&amp;fid=16000&amp;lang=es">Español</a>
+            <a style="" href="http://www.fao.org/fi/website/FIRetrieveAction.do?dom=topic&amp;fid=16000&amp;lang=fr">Français</a>
+            <a style="font-size:9px" href="http://www.fao.org/fi/website/FIRetrieveAction.do?dom=topic&amp;fid=16000&amp;lang=zh">
+            <img src="http://www.fao.org/figis/shared/assets/images/icons/zh.gif"></a>
+            <a style="" href="http://www.fao.org/fi/website/FIRetrieveAction.do?dom=topic&amp;fid=16000&amp;lang=ru">Русский</a>
+            </div>
           </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/species">Sharks SPP</a></li>
-              <li><a ng-href="#/about">RPOAs</a></li>
-              <li><a ng-href="#/">Decisions & Regulations</a></li>
-              <li><a ng-href="#/">Species ID</a></li>
-              <li><a ng-href="#/">Links</a></li>
-            </ul>
+          <div class="noPrint dataOnly" id="fiLogo">
+            <div id="fiName">Fisheries and</div>
+            <div id="fiName2">Aquaculture Department</div>
           </div>
         </div>
       </div>
-    </div>
+      
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+  
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+  
+        </div>
 
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
+        <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-    <div class="footer">
-      <div class="container">
-        <p>FAO FOOTER</p>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#/species">Sharks SPP</a></li>
+            <li><a ng-href="#/about">RPOAs</a></li>
+            <li><a ng-href="#/">Decisions & Regulations</a></li>
+            <li><a ng-href="#/">Species ID</a></li>
+            <li><a ng-href="#/">Links</a></li>
+          </ul>
+        </div>
       </div>
+
+
+      <div ng-view=""></div>
+
+      <div class="footer">
+        <div class="noPrint" id="bottomBar">
+          <div class="floatLeft noPrint">
+            <a onclick="if(href.indexOf('@')==-1) href = href + '@' + 'fao.org';" href="mailto:FI-Inquiries">Comments/inquiries</a>
+          </div>
+          <div class="floatLeft noPrint">
+            <a href="http://www.fao.org/fi/website/FISiteMap.do?lang=en" title="Site map">Site map</a>
+          </div>
+          <div class="floatLeft noPrint">
+            <a style="cursor:pointer" href="javascript:document.getElementById('logForm').style.display='';scrollBy(0,100);void(0);">Login</a>
+          </div>
+          <div class="floatLeft noPrint">
+            <a href="http://www.fao.org/fishery/topic/16182/en">e-Bulletin</a>
+          </div>
+          <div class="floatRight noPrint">
+            <a target="_blank" href="http://www.fao.org/corp/copyright/en">©&nbsp;FAO, 2015</a>
+          </div>
+          <div class="floatRight noPrint">
+            <a href="http://www.fao.org/fishery/figis/en">powered by FIGIS</a>
+          </div>
+        </div>
+      </div>
+      
     </div>
 
     <!-- build:js(.) scripts/vendor.js -->
