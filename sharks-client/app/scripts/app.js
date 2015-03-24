@@ -27,23 +27,19 @@ angular
         	}
         }
       })
-      .when("/species/:ids", {
+      .when("/species/:alphaCodes", {
         templateUrl: "views/shark_species_details.html",
         controller: "SharkSpeciesDetailsCtrl",
         controllerAs: "ctrl",
         resolve: {
         	ems : function($route, measuresresource) {
-        		var ids = $route.current.params.ids.split(",").map(function(item) {
-        		    return parseInt(item, 10);
-        		});
-        		return measuresresource.groupByEntity({species:ids});
+        		var alphaCodes = $route.current.params.alphaCodes.split(",");
+        		return measuresresource.groupByEntity({speciesAlphaCodes:alphaCodes});
         	},
         	species : function($route, speciesservice) {
-        		var ids = $route.current.params.ids.split(",").map(function(item) {
-        		    return parseInt(item, 10);
-        		});
-        		speciesservice.selected = ids;
-        		return speciesservice.getAll(ids);
+        		var alphaCodes = $route.current.params.alphaCodes.split(",");
+        		speciesservice.selected = alphaCodes;
+        		return speciesservice.getAll(alphaCodes);
         	}
         }
       })

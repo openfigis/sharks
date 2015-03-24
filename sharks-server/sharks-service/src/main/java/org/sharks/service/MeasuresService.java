@@ -19,6 +19,6 @@ public interface MeasuresService {
 	MeasureDetails get(String code);
 	
 	
-	List<EntityMeasures> measureForSpeciesByEntity(List<String> species);
+	List<EntityMeasures> measureForSpeciesByEntity(List<String> speciesAlphaCodes);
 	
 }

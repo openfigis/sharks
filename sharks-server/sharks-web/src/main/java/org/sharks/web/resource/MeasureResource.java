@@ -43,8 +43,8 @@ public class MeasureResource {
 	@GET
 	@Path("groupByEntity")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<EntityMeasures> grouppedByEntity(@QueryParam("species") List<String> species) {
-		return service.measureForSpeciesByEntity(species);
+	public List<EntityMeasures> grouppedByEntity(@QueryParam("speciesAlphaCodes") List<String> speciesAlphaCodes) {
+		return service.measureForSpeciesByEntity(speciesAlphaCodes);
 	}
 
 }

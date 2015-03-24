@@ -9,33 +9,33 @@ services.factory("speciesservice", ["$cacheFactory", "speciesresource", "$log", 
 		this.selected = [];
 		
 		this.toggleSelection = function(species) {
-			var index = this.selected.indexOf(species.code);
-			if (index < 0) this.selected.push(species.code);
+			var index = this.selected.indexOf(species.alphaCode);
+			if (index < 0) this.selected.push(species.alphaCode);
 			else this.selected.splice(index, 1);
 		};
 		
 		this.isSelected = function(species) {
-			return this.selected.indexOf(species.code)>=0;
+			return this.selected.indexOf(species.alphaCode)>=0;
 		};
 		
 		this.list = function() {
 			return speciesresource.query();
 		};
 		
-		this.get = function(code) {
+		this.get = function(alphaCode) {
 			var species = speciesresource.query();
 			for (var i = 0; i < species.length; i++) {
-			    if (species[i].code === code) return species[i];
+			    if (species[i].alphaCode === alphaCode) return species[i];
 			}
 			return null;
 		};
 		
-		this.getAll = function(codes) {
+		this.getAll = function(alphaCodes) {
 			var deferred = $q.defer();
 			speciesresource.query().$promise.then(function(species) {
 				var found = [];
 				for (var i = 0; i < species.length; i++) {
-				    if (codes.indexOf(species[i].code) >= 0) found.push(species[i]);
+				    if (alphaCodes.indexOf(species[i].alphaCode) >= 0) found.push(species[i]);
 				}
 				deferred.resolve(found);
             });

@@ -47,12 +47,12 @@ public class MeasuresServiceImpl implements MeasuresService {
 	}
 
 	@Override
-	public List<EntityMeasures> measureForSpeciesByEntity(List<String> species) {
+	public List<EntityMeasures> measureForSpeciesByEntity(List<String> speciesAlphaCodes) {
 		
 		Set<Measure> measures = new HashSet<Measure>();
 		
-		for (String speciesId:species) {
-			List<Measure> speciesMeasures = dao.allRelatedToSpecies(speciesId);
+		for (String speciesAlphaCode:speciesAlphaCodes) {
+			List<Measure> speciesMeasures = dao.allRelatedToSpeciesAlphaCode(speciesAlphaCode);
 			measures.addAll(speciesMeasures);
 		}
 
