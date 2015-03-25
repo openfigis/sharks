@@ -22,14 +22,6 @@ services.factory("speciesservice", ["speciesresource", "$log", "$q", function(sp
 			return speciesresource.query();
 		};
 		
-		this.get = function(alphaCode) {
-			var species = speciesresource.query();
-			for (var i = 0; i < species.length; i++) {
-			    if (species[i].alphaCode === alphaCode) return species[i];
-			}
-			return null;
-		};
-		
 		this.getAll = function(alphaCodes) {
 			var deferred = $q.defer();
 			speciesresource.query().$promise.then(function(species) {
