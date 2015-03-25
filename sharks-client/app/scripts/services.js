@@ -48,7 +48,7 @@ services.factory("speciesservice", ["speciesresource", "$log", "$q", function(sp
 }]);
 
 
-services.factory("measuresservice", ["measuresresource", "$log", "$q", function(measuresresource, $log, $q) {
+services.factory("measuresservice", ["measuresresource", "$log", function(measuresresource, $log) {
 	
 	function MeasuresService() {
 		
@@ -57,5 +57,22 @@ services.factory("measuresservice", ["measuresresource", "$log", "$q", function(
 		};
 	}
 	return new MeasuresService();
+	
+}]);
+
+
+services.factory("pathservice", ["$log", function($log) {
+	
+	function PathService() {
+		
+		this.decode = function(param) {
+			return param.split(",");
+		};
+		
+		this.encode = function(ids) {
+			return ids.join(",");
+		};
+	}
+	return new PathService();
 	
 }]);

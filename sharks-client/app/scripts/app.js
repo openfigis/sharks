@@ -32,12 +32,12 @@ angular
         controller: "SharkSpeciesDetailsCtrl",
         controllerAs: "ctrl",
         resolve: {
-        	ems : function($route, measuresservice) {
-        		var alphaCodes = $route.current.params.alphaCodes.split(",");
+        	ems : function($route, measuresservice, pathservice) {
+        		var alphaCodes = pathservice.decode($route.current.params.alphaCodes);
         		return measuresservice.listGrouppedByEntity(alphaCodes);
         	},
-        	species : function($route, speciesservice) {
-        		var alphaCodes = $route.current.params.alphaCodes.split(",");
+        	species : function($route, speciesservice, pathservice) {
+        		var alphaCodes = pathservice.decode($route.current.params.alphaCodes);
         		speciesservice.selected = alphaCodes;
         		return speciesservice.getAll(alphaCodes);
         	}
