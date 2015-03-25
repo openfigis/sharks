@@ -3,7 +3,7 @@
 var services = angular.module("services", ["resources"]);
 
 
-services.factory("speciesservice", ["speciesresource", "$log", "$q", function(speciesresource, $log, $q) {
+services.factory("speciesservice", ["speciesresource", "$q", function(speciesresource, $q) {
 	
 	function SpeciesService() {
 		this.selected = [];
@@ -40,7 +40,7 @@ services.factory("speciesservice", ["speciesresource", "$log", "$q", function(sp
 }]);
 
 
-services.factory("measuresservice", ["measuresresource", "$log", function(measuresresource, $log) {
+services.factory("measuresservice", ["measuresresource", function(measuresresource) {
 	
 	function MeasuresService() {
 		
@@ -53,7 +53,7 @@ services.factory("measuresservice", ["measuresresource", "$log", function(measur
 }]);
 
 
-services.factory("pathservice", ["$log", function($log) {
+services.factory("pathservice", [function() {
 	
 	function PathService() {
 		

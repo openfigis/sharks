@@ -1,10 +1,12 @@
+"use strict";
+
 describe("service: speciesservice", function() {
 	
 
 	var mockSpecies1 = {alphaCode: "1"};
 	var mockSpecies2 = {alphaCode: "2"};
 	
-	beforeEach(module('services'));
+	beforeEach(module("services"));
 	
 	var speciesservice;
 
@@ -16,7 +18,7 @@ describe("service: speciesservice", function() {
 	describe("selection", function() {
 		it("start with empty selection", function() {
 			expect(speciesservice.selected.length).toBe(0);
-		})
+		});
 		
 		it("toggle selection", function() {
 			expect(speciesservice.selected.length).toBe(0);
@@ -42,14 +44,12 @@ describe("service: speciesservice", function() {
 	});*/
 
 
-		
-
 });
 
 
 describe("service: pathservice", function() {
 	
-	beforeEach(module('services'));
+	beforeEach(module("services"));
 	
 	var pathservice;
 	

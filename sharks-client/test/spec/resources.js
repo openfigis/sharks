@@ -1,6 +1,8 @@
+"use strict";
+
 describe("resource: speciesresource", function() {
 	
-	beforeEach(module('resources'));
+	beforeEach(module("resources"));
 	
 	var speciesresource, $httpBackend, rest;
 	
@@ -19,7 +21,7 @@ describe("resource: speciesresource", function() {
 	   });
 		
 		it("should call the server", function() {
-			$httpBackend.expectGET(rest.baseUrl+'species').respond([]);
+			$httpBackend.expectGET(rest.baseUrl+"species").respond([]);
 			speciesresource.query();
 			$httpBackend.flush();
 			
@@ -27,7 +29,7 @@ describe("resource: speciesresource", function() {
 		
 		it("should use the cache when called two times", function() {
 			
-			$httpBackend.expectGET(rest.baseUrl+'species').respond([]);
+			$httpBackend.expectGET(rest.baseUrl+"species").respond([]);
 			speciesresource.query();
 			
 			speciesresource.query();
@@ -35,12 +37,12 @@ describe("resource: speciesresource", function() {
 			$httpBackend.verifyNoOutstandingRequest();
 		});
 		
-	})
+	});
 });
 
 describe("resource: measuresresource", function() {
 	
-	beforeEach(module('resources'));
+	beforeEach(module("resources"));
 	
 	var measuresresource, $httpBackend, rest;
 	
@@ -59,7 +61,7 @@ describe("resource: measuresresource", function() {
 	   });
 		
 		it("should call the server", function() {
-			$httpBackend.expectGET(rest.baseUrl+'measures/groupByEntity').respond([]);
+			$httpBackend.expectGET(rest.baseUrl+"measures/groupByEntity").respond([]);
 			measuresresource.groupByEntity();
 			$httpBackend.flush();
 			
@@ -67,7 +69,7 @@ describe("resource: measuresresource", function() {
 		
 		it("should use the cache when called two times", function() {
 			
-			$httpBackend.expectGET(rest.baseUrl+'measures/groupByEntity').respond([]);
+			$httpBackend.expectGET(rest.baseUrl+"measures/groupByEntity").respond([]);
 			measuresresource.groupByEntity();
 			
 			measuresresource.groupByEntity();
@@ -75,5 +77,5 @@ describe("resource: measuresresource", function() {
 			$httpBackend.verifyNoOutstandingRequest();
 		});
 		
-	})
+	});
 });
