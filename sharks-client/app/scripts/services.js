@@ -3,7 +3,7 @@
 var services = angular.module("services", ["resources"]);
 
 
-services.factory("speciesservice", ["$cacheFactory", "speciesresource", "$log", "$q", function($cacheFactory, speciesresource, $log, $q) {
+services.factory("speciesservice", ["speciesresource", "$log", "$q", function(speciesresource, $log, $q) {
 	
 	function SpeciesService() {
 		this.selected = [];
