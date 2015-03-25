@@ -46,3 +46,16 @@ services.factory("speciesservice", ["speciesresource", "$log", "$q", function(sp
 	return new SpeciesService();
 	
 }]);
+
+
+services.factory("measuresservice", ["measuresresource", "$log", "$q", function(measuresresource, $log, $q) {
+	
+	function MeasuresService() {
+		
+		this.listGrouppedByEntity = function(alphaCodes) {
+			return measuresresource.groupByEntity({speciesAlphaCodes:alphaCodes});
+		};
+	}
+	return new MeasuresService();
+	
+}]);
