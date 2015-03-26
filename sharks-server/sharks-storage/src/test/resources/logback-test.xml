@@ -7,7 +7,7 @@
   </appender>
   
   
-  <logger name="org.grade" level="TRACE" />
+  <logger name="org.sharks" level="TRACE" />
  
   <root level="INFO">
     <appender-ref ref="STDOUT" />

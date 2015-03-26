@@ -5,11 +5,14 @@ package org.sharks.storage.config;
 
 import java.io.File;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * TODO should we move this class to a separate project?
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
+@Slf4j
 public class Configuration {
 	
 	private static String ENV_PROPERTY = "SHARKS_DB";
@@ -17,11 +20,12 @@ public class Configuration {
 	private static String DEV_DB_LOCATION2 = "/work/FIGIS/sharks/db/Sharks.accdb";
 	
 	public String getDbFileLocation() {
-		System.out.println("current location "+(new File(".").getAbsolutePath()));
+		log.trace("current application location {}", (new File(".").getAbsolutePath()));
 		String dbLocation = System.getenv(ENV_PROPERTY);
 		//FIXME tmp workaround until we take a decision about configuration
 		if (dbLocation == null && (new File(DEV_DB_LOCATION)).exists()) dbLocation = DEV_DB_LOCATION;
 		if (dbLocation == null && (new File(DEV_DB_LOCATION2)).exists()) dbLocation = DEV_DB_LOCATION2;
+		log.trace("dbLocation {}",dbLocation);
 		return dbLocation;
 	}
 	
