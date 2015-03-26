@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.sharks.storage.dao;
+package org.sharks.storage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,28 +12,22 @@ import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import lombok.extern.slf4j.Slf4j;
-
-import org.sharks.storage.config.Configuration;
+import org.sharks.storage.dao.SharksStorageException;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@Slf4j
 @ApplicationScoped
-public class Producers {
+public class TestProducers {
 
 	@Produces
-	public EntityManagerFactory getEntityManagerFactory(Configuration configuration) {
+	public EntityManagerFactory getEntityManagerFactory() {
 
 		try {
 
-			String dbLocation = configuration.getDbFileLocation();
-			log.trace("dbLocation {}",dbLocation);
-
 			Map<String, String> properties = new HashMap<String, String>();
-			properties.put("javax.persistence.jdbc.url", "jdbc:ucanaccess://" + dbLocation);
+			properties.put("javax.persistence.jdbc.url", "jdbc:ucanaccess://" + TestConstants.TEST_DB_LOCATION);
 
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("sharks-storage", properties);
 

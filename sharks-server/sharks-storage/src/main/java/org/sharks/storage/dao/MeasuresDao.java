@@ -28,21 +28,11 @@ public class MeasuresDao extends AbstractDao<Measure> {
 		super(emf, Measure.class);
 	}
 	
-	public List<Measure> allRelatedToSpecies(String code) {
-		EntityManager em = emf.createEntityManager();
-		
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Measure> cq = cb.createQuery(type);
-		Root<Measure> measure = cq.from(type);
-		Join<Measure, Species> species = measure.join("species");
-		cq.where(cb.equal(species.get("code"), code));
-		
-		CriteriaQuery<Measure> all = cq.select(measure);
-		TypedQuery<Measure> allQuery = em.createQuery(all);
-		return allQuery.getResultList();
-		
-	}
-	
+	/**
+	 * Retrieves all the {@link Measure} related to the specified {@link Species}.
+	 * @param alphaCode the {@link Species} alpha code.
+	 * @return the found {@link Measure}s.
+	 */
 	public List<Measure> allRelatedToSpeciesAlphaCode(String alphaCode) {
 		EntityManager em = emf.createEntityManager();
 		
