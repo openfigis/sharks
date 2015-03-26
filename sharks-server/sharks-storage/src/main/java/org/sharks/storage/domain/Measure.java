@@ -32,14 +32,12 @@ public class Measure {
     private Long code;
     @Column
     private String symbol;
+    @Column
+    private String title;
     @Column(name = "fgBinding")
     private Boolean binding;
     @Column
-    private Long cdMeasureReplaces;
-    @Column
     private String reservation;
-    @Column
-    private String title;
     @Column
     private String description;
     @Column
@@ -55,6 +53,11 @@ public class Measure {
     private Date end;
     @Column
     private Integer measureYear;
+    @Column
+    private Long cdMeasureReplaces;
+    @OneToMany
+    @JoinTable(name = "grpMeasureCustSpecies", joinColumns = @JoinColumn(name = "cdMeasure", referencedColumnName = "cdMeasure"), inverseJoinColumns = @JoinColumn(name = "cdCustomSpeciesGrp", referencedColumnName = "cdCustomSpeciesGrp"))
+    private List<CustomSpeciesGrp> customSpeciesGrps;
     @OneToMany
     @JoinTable(name = "grpMeasureInformationSource", joinColumns = @JoinColumn(name = "cdMeasure", referencedColumnName = "cdMeasure"), inverseJoinColumns = @JoinColumn(name = "cdInformationSource", referencedColumnName = "cdInformationSource"))
     private List<InformationSource> informationSources;

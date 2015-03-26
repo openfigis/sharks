@@ -4,8 +4,6 @@ package org.sharks.storage.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,22 +14,15 @@ import lombok.EqualsAndHashCode;
  * 
  */
 @Data
-@Entity(name = "tbMgmtEntity")
+@Entity(name = "refInformationSourceType")
 @XmlRootElement
 @EqualsAndHashCode(of = "code")
-public class MgmtEntity {
+public class InformationSourceType {
 
     @Id
-    @Column(name = "cdMgmtEntity")
+    @Column(name = "cdInformationType")
     private Long code;
     @Column
-    private String acronym;
-    @Column
-    private String mgmtEntityName;
-    @Column
-    private String urlWebPage;
-    @OneToOne
-    @JoinColumn(name = "cdMgmtEntityType")
-    private MgmtEntityType mgmtEntityType;
+    private String description;
 
 }

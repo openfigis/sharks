@@ -4,6 +4,8 @@ package org.sharks.storage.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -23,10 +25,21 @@ public class InformationSource {
     @Column(name = "cdInformationSource")
     private Long code;
     @Column
+    private String symbol;
+    @Column
+    private String title;
+    @Column
     private String url;
     @Column
-    private String citation;
+    private Integer infoSrcYear;
+    @Column(name = "Abstract")
+    private String abstractField;
     @Column
-    private Integer informationSourceYear;
+    private String note;
+    @Column
+    private String publisher;
+    @OneToOne
+    @JoinColumn(name = "cdInformationType")
+    private InformationSourceType informationType;
 
 }
