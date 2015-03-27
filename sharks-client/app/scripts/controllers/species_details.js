@@ -8,7 +8,7 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SharkSpeciesDetailsCtrl", ["$log", "$location", "ems", "species", 
+  .controller("SpeciesDetailsCtrl", ["$log", "$location", "ems", "species", 
                                           function ($log, $location, ems, species) {
 	  this.species = species;
 	  this.ems = ems;

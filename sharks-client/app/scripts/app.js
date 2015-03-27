@@ -18,8 +18,8 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when("/species", {
-        templateUrl: "views/shark_species_selection.html",
-        controller: "SharkSpeciesSelectionCtrl",
+        templateUrl: "views/species_selection.html",
+        controller: "SpeciesSelectionCtrl",
         controllerAs: "ctrl",
         resolve: {
         	species : function(speciesservice) {
@@ -28,8 +28,8 @@ angular
         }
       })
       .when("/species/:alphaCodes", {
-        templateUrl: "views/shark_species_details.html",
-        controller: "SharkSpeciesDetailsCtrl",
+        templateUrl: "views/species_details.html",
+        controller: "SpeciesDetailsCtrl",
         controllerAs: "ctrl",
         resolve: {
         	ems : function($route, measuresservice, pathservice) {
