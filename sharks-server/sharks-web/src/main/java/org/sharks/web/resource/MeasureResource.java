@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.sharks.service.MeasuresService;
+import org.sharks.service.MeasureService;
 import org.sharks.service.dto.EntityMeasures;
 import org.sharks.service.dto.MeasureDetails;
 
@@ -25,7 +25,7 @@ import org.sharks.service.dto.MeasureDetails;
 public class MeasureResource {
 	
 	@Inject
-	private MeasuresService service;
+	private MeasureService service;
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)

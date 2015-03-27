@@ -21,10 +21,10 @@ import org.sharks.storage.domain.Species;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class MeasuresDao extends AbstractDao<Measure> {
+public class MeasureDao extends AbstractDao<Measure> {
 
 	@Inject
-	public MeasuresDao(EntityManagerFactory emf) {
+	public MeasureDao(EntityManagerFactory emf) {
 		super(emf, Measure.class);
 	}
 	

@@ -11,10 +11,10 @@ import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
-import org.sharks.service.MeasuresService;
+import org.sharks.service.MeasureService;
 import org.sharks.service.dto.EntityMeasures;
 import org.sharks.service.dto.MeasureDetails;
-import org.sharks.storage.dao.MeasuresDao;
+import org.sharks.storage.dao.MeasureDao;
 import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.MgmtEntity;
 
@@ -22,10 +22,10 @@ import org.sharks.storage.domain.MgmtEntity;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class MeasuresServiceImpl implements MeasuresService {
+public class MeasureServiceImpl implements MeasureService {
 	
 	@Inject
-	private MeasuresDao dao;
+	private MeasureDao dao;
 
 	@Override
 	public List<MeasureDetails> list() {

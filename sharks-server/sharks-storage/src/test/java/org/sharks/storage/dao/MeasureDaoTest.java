@@ -18,11 +18,11 @@ import org.sharks.storage.domain.Measure;
 
 @RunWith(CdiRunner.class)
 @AdditionalClasses(TestProducers.class)
-public class MeasuresDaoTest {
+public class MeasureDaoTest {
 
 	
 	@Inject
-	MeasuresDao dao;
+	MeasureDao dao;
 
 	/**
 	 * Retrieves all the measures related to species BTH, we expect measures 3 and 5 as result.

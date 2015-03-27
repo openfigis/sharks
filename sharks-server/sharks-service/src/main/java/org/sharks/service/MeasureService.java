@@ -12,7 +12,7 @@ import org.sharks.service.dto.MeasureDetails;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public interface MeasuresService {
+public interface MeasureService {
 
 	List<MeasureDetails> list();
 
