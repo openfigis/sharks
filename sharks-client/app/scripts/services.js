@@ -88,9 +88,9 @@ services.factory("countriesservice", ["countriesresource", "$q", function(countr
 	
 }]);
 
-services.factory("mgmentitiesservice", ["mgmentitiesresource", "$q", function(mgmentitiesresource, $q) {
+services.factory("entitiesservice", ["entitiesresource", "$q", function(entitiesresource, $q) {
 	
-	function ManagementEntitiesService() {
+	function EntitiesService() {
 		this.selected = [];
 		
 		this.toggleSelection = function(entity) {
@@ -104,12 +104,12 @@ services.factory("mgmentitiesservice", ["mgmentitiesresource", "$q", function(mg
 		};
 		
 		this.list = function() {
-			return mgmentitiesresource.query();
+			return entitiesresource.query();
 		};
 		
 		this.getAll = function(acronyms) {
 			var deferred = $q.defer();
-			mgmentitiesresource.query().$promise.then(function(entities) {
+			entitiesresource.query().$promise.then(function(entities) {
 				var found = [];
 				for (var i = 0; i < entities.length; i++) {
 				    if (acronyms.indexOf(entities[i].acronym) >= 0) found.push(entities[i]);
@@ -120,7 +120,7 @@ services.factory("mgmentitiesservice", ["mgmentitiesresource", "$q", function(mg
 			return deferred.promise;
 		};
 	}
-	return new ManagementEntitiesService();
+	return new EntitiesService();
 	
 }]);
 

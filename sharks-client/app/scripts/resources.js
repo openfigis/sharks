@@ -20,7 +20,7 @@ services.factory("countriesresource", ["$resource", "rest", function($resource, 
 	});
 }]);
 
-services.factory("mgmentitiesresource", ["$resource", "rest", function($resource, rest) {
+services.factory("entitiesresource", ["$resource", "rest", function($resource, rest) {
 	return $resource(rest.baseUrl + "managemententities/:id/", null, {
 		query: {method: "GET", cache: true, isArray:true}
 	});

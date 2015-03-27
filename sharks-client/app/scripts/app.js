@@ -52,7 +52,17 @@ angular
         		return countriesservice.list();
         	}
         }
-      })      
+      })    
+      .when("/entities", {
+        templateUrl: "views/entities_selection.html",
+        controller: "EntitiesSelectionCtrl",
+        controllerAs: "ctrl",
+        resolve: {
+        	entities : function(entitiesservice) {
+        		return entitiesservice.list();
+        	}
+        }
+      }) 
       
       
       .when("/about", {

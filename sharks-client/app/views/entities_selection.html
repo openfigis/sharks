@@ -1,13 +1,13 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Select one or more countries:</div>
+  <div class="panel-heading">Select one or more entities:</div>
 
   <!-- List group -->
   <ul class="list-group">
       <li class="list-group-item" 
-      ng-repeat="country in ctrl.countries" 
-       ng-class="{'active':ctrl.isSelected(country)}"
-      ng-click="ctrl.toggle(country)">
-       {{country.code}} - {{country.unName}}
+      ng-repeat="entity in ctrl.entities" 
+       ng-class="{'active':ctrl.isSelected(entity)}"
+      ng-click="ctrl.toggle(entity)">
+       {{entity.acronym}} - {{entity.mgmtEntityName}}
     </li>
   </ul>
   
