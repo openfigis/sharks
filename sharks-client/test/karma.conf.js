@@ -25,6 +25,7 @@ module.exports = function(config) {
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/streamjs/stream.js',
       // endbower
       'app/scripts/**/*.js',
       'test/mock/**/*.js',

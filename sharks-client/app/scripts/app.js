@@ -43,6 +43,7 @@ angular
         	}
         }
       })
+      
       .when("/countries", {
         templateUrl: "views/countries_selection.html",
         controller: "CountriesSelectionCtrl",
@@ -52,7 +53,22 @@ angular
         		return countriesservice.list();
         	}
         }
-      })    
+      }) 
+      .when("/countries/:code", {
+        templateUrl: "views/country_details.html",
+        controller: "CountryDetailsCtrl",
+        controllerAs: "ctrl",
+        resolve: {
+        	country : function($route, countriesservice) {
+        		return countriesservice.get($route.current.params.code);
+        	},
+        	groupedPoas : function($route, countriesservice) {
+        		return countriesservice.poasGroupedByType($route.current.params.code);
+        	}
+        }
+      })
+      
+      
       .when("/entities", {
         templateUrl: "views/entities_selection.html",
         controller: "EntitiesSelectionCtrl",

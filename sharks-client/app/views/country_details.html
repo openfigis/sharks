@@ -1,0 +1,57 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Country details</div>
+  <div class="panel-body">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-body">
+            {{ctrl.country.code}} - {{ctrl.country.unName}}
+        </div>
+      </div>
+      
+      <div class="panel panel-default" ng-repeat="(type, poas) in ctrl.groupedPoas">
+        <div class="panel-heading">{{type}}</div>
+        <div class="panel-body">
+         <table class="table">
+          <thead>
+            <tr>
+               <th>Title</th><th>Year</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="poa in poas">
+            <td>{{poa.description}}</td>
+            <td>{{poa.poAYear}}</td>
+            <td>{{poa.status.description}}</td>
+          </tr>
+          
+          </tbody>
+       </table>
+        </div>
+      </div>
+
+    
+    
+    </div>
+	<div class="col-md-4">
+      <div class="panel panel-default">
+      <div class="panel-heading">List of RFBs</div>
+        <div class="panel-body">
+          <ul>
+          <li ng-repeat="country in ctrl.countries">
+            {{country.code}} - {{country.unName}}
+          </li>
+          </ul>
+          <br>
+        </div>
+      </div>
+	</div>
+  </div>
+
+
+  
+   <div class="panel-footer">
+    <input class="btn btn-default pull-right" type="button" value="Back" ng-click="ctrl.back()" >
+    <div class="clearfix"></div>
+   </div>
+  
+</div>

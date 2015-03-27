@@ -17,7 +17,7 @@ angular.module("sharksClient")
 	  this.countries = countries;
 
 	  this.showSelected = function() {
-		  var hash = "/countries/"+pathservice.encode(this.selected);
+		  var hash = "/countries/"+this.selected;
 		  $log.info("showSelected: "+this.selected+ " routing to "+hash);
 		  $location.path(hash);
 	  };

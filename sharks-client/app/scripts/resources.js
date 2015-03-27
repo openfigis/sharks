@@ -15,8 +15,9 @@ services.factory("measuresresource", ["$resource", "rest", function($resource, r
 }]);
 
 services.factory("countriesresource", ["$resource", "rest", function($resource, rest) {
-	return $resource(rest.baseUrl + "countries/:id/", null, {
-		query: {method: "GET", cache: true, isArray:true}
+	return $resource(rest.baseUrl + "countries/:code/", null, {
+		query: {method: "GET", cache: true, isArray:true},
+		poas: {method: "GET",  url:rest.baseUrl + "countries/:code/poas", cache: true, isArray:true}
 	});
 }]);
 

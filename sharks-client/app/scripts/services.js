@@ -52,24 +52,50 @@ services.factory("measuresservice", ["measuresresource", function(measuresresour
 	
 }]);
 
-services.factory("countriesservice", ["countriesresource", "$q", function(countriesresource, $q) {
+services.factory("countriesservice", ["countriesresource", "$q", "$log", function(countriesresource, $q, $log) {
 	
 	function CountriesService() {
-		this.selected = [];
+		this.selected = null;
 		
 		this.toggleSelection = function(country) {
-			var index = this.selected.indexOf(country.code);
-			if (index < 0) this.selected.push(country.code);
-			else this.selected.splice(index, 1);
+			this.selected = country.code;
 		};
 		
 		this.isSelected = function(country) {
-			return this.selected.indexOf(country.code)>=0;
+			return this.selected === country.code;
 		};
 		
 		this.list = function() {
 			return countriesresource.query();
 		};
+		
+		this.poasGroupedByType = function(code) {
+			var deferred = $q.defer();
+			
+			countriesresource.poas({code:code}).$promise.then(function(poas) {
+				var grouped = Stream(poas).groupBy(function (poa) {
+				      return poa.poAType.description;
+				  });
+				deferred.resolve(grouped);
+			});
+			
+			return deferred.promise;
+		};
+		
+		this.get = function(code) {
+			var deferred = $q.defer();
+			$log.info("get "+code);
+			countriesresource.query().$promise.then(function(countries) {
+				var found = Stream(countries).filter(function (country) {
+				      return country.code === code;
+				   }).findFirst();
+				if (found.isPresent()) deferred.resolve(found.get());
+				deferred.reject("Country with code "+code+" not found");
+			});
+			
+			return deferred.promise;
+		};
+		
 		
 		this.getAll = function(codes) {
 			var deferred = $q.defer();
