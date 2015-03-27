@@ -37,9 +37,6 @@ public class PoA {
     @OneToMany
     @JoinTable(name = "grpPoAInformationSource", joinColumns = @JoinColumn(name = "cdPoA", referencedColumnName = "cdPoA"), inverseJoinColumns = @JoinColumn(name = "cdInformationSource", referencedColumnName = "cdInformationSource"))
     private List<InformationSource> informationSources;
-    @OneToMany
-    @JoinTable(name = "grpPoAMgmtEntity", joinColumns = @JoinColumn(name = "cdPoA", referencedColumnName = "cdPoA"), inverseJoinColumns = @JoinColumn(name = "cdMgmtEntity", referencedColumnName = "cdMgmtEntity"))
-    private List<MgmtEntity> mgmtEntities;
     @OneToOne
     @JoinColumn(name = "cdPoAType")
     private PoAType poAType;
