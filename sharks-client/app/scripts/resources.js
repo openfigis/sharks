@@ -24,5 +24,6 @@ services.factory("entitiesresource", ["$resource", "rest", function($resource, r
 	return $resource(rest.baseUrl + "managemententities/:acronym/", null, {
 		query: {method: "GET", cache: true, isArray:true},
 		measures: {method: "GET",  url:rest.baseUrl + "managemententities/:acronym/measures", cache: true, isArray:true},
+		countries: {method: "GET",  url:rest.baseUrl + "managemententities/:acronym/countries", cache: true, isArray:true}
 	});
 }]);

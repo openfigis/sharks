@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Species details</div>
+  <div class="panel-heading">Entity details</div>
   <div class="panel-body">
     <div class="col-md-8">
       <div class="panel panel-default">
@@ -35,19 +35,13 @@
     </div>
 	<div class="col-md-4">
       <div class="panel panel-default">
+      <div class="panel-heading">Member countries</div>
         <div class="panel-body">
-          <br>
-          Photo
-          <br>
-        </div>
-      </div>
-      
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <br>
-          <br>
-          Map
-          <br>
+          <ul>
+          <li ng-repeat="country in ctrl.countries">
+            {{country.code}} - {{country.unName}}
+          </li>
+          </ul>
           <br>
         </div>
       </div>

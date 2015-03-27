@@ -24,5 +24,4 @@ public class CountryServiceImp implements CountryService {
 	public List<Country> list() {
 		return dao.list();
 	}
-
 }

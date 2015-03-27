@@ -47,10 +47,6 @@ services.factory("measuresservice", ["measuresresource", function(measuresresour
 		this.listGrouppedByEntity = function(alphaCodes) {
 			return measuresresource.groupByEntity({speciesAlphaCodes:alphaCodes});
 		};
-		
-		this.listForEntity = function(acronym) {
-			return measuresresource.query({entityAcronym:acronym});
-		};
 	}
 	return new MeasuresService();
 	
@@ -112,6 +108,10 @@ services.factory("entitiesservice", ["entitiesresource", "$q", "$log", function(
 		
 		this.measures = function(acronym) {
 			return entitiesresource.measures({acronym:acronym});
+		};
+		
+		this.countries = function(acronym) {
+			return entitiesresource.countries({acronym:acronym});
 		};
 		
 		this.getAll = function(acronyms) {

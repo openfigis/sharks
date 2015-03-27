@@ -14,6 +14,7 @@ import org.sharks.service.ManagementEntityService;
 import org.sharks.service.MeasureService;
 import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.MeasureDetails;
+import org.sharks.storage.domain.Country;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -38,8 +39,15 @@ public class ManagementEntityResource {
 	@GET
 	@Path("{acronym}/measures")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<MeasureDetails> get(@PathParam("acronym") String acronym) {
+	public List<MeasureDetails> getMeasures(@PathParam("acronym") String acronym) {
 		return measureService.measuresForManagementEntity(acronym);
+	}
+	
+	@GET
+	@Path("{acronym}/countries")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Country> getCountries(@PathParam("acronym") String acronym) {
+		return service.getCountries(acronym);
 	}
 
 }

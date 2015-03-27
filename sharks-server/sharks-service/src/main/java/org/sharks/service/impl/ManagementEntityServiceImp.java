@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import org.sharks.service.ManagementEntityService;
 import org.sharks.service.dto.EntityDetails;
 import org.sharks.storage.dao.ManagementEntityDao;
+import org.sharks.storage.domain.Country;
 import org.sharks.storage.domain.MgmtEntity;
 
 /**
@@ -32,6 +33,12 @@ public class ManagementEntityServiceImp implements ManagementEntityService {
 		return new EntityDetails(entity.getCode(), 
 				entity.getAcronym(), 
 				entity.getMgmtEntityName());
+	}
+
+	@Override
+	public List<Country> getCountries(String acronym) {
+		MgmtEntity entity = dao.getByAcronym(acronym);
+		return entity.getCountries();
 	}
 
 

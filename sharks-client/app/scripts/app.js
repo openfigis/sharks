@@ -73,6 +73,9 @@ angular
         	},
         	measures : function($route, entitiesservice) {
         		return entitiesservice.measures($route.current.params.acronym);
+        	},
+        	countries : function($route, entitiesservice) {
+        		return entitiesservice.countries($route.current.params.acronym);
         	}
         }
       })
