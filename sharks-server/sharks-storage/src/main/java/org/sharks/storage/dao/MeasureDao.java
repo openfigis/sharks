@@ -15,6 +15,7 @@ import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Root;
 
 import org.sharks.storage.domain.Measure;
+import org.sharks.storage.domain.MgmtEntity;
 import org.sharks.storage.domain.Species;
 
 /**
@@ -41,6 +42,21 @@ public class MeasureDao extends AbstractDao<Measure> {
 		Root<Measure> measure = cq.from(type);
 		Join<Measure, Species> species = measure.join("species");
 		cq.where(cb.equal(species.get("alphaCode"), alphaCode));
+		
+		CriteriaQuery<Measure> all = cq.select(measure);
+		TypedQuery<Measure> allQuery = em.createQuery(all);
+		return allQuery.getResultList();
+		
+	}
+	
+	public List<Measure> allRelatedToManagementEntityAcronym(String acronym) {
+		EntityManager em = emf.createEntityManager();
+		
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Measure> cq = cb.createQuery(type);
+		Root<Measure> measure = cq.from(type);
+		Join<Measure, MgmtEntity> entities = measure.join("mgmtEntity");
+		cq.where(cb.equal(entities.get("acronym"), acronym));
 		
 		CriteriaQuery<Measure> all = cq.select(measure);
 		TypedQuery<Measure> allQuery = em.createQuery(all);

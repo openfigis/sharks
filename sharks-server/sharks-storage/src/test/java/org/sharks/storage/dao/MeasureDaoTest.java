@@ -25,18 +25,32 @@ public class MeasureDaoTest {
 	MeasureDao dao;
 
 	/**
-	 * Retrieves all the measures related to species BTH, we expect measures 3 and 5 as result.
+	 * Retrieves all the measures related to species WCPFC, we expect measure 2 as result.
 	 */
 	@Test
 	public void testAllRelatedToSpeciesAlphaCode() {
-		List<Measure> measures = dao.allRelatedToSpeciesAlphaCode("BTH");
+		List<Measure> measures = dao.allRelatedToSpeciesAlphaCode("OCS");
+		assertNotNull(measures);
+		assertEquals(1, measures.size());
+
+		List<Long> ids = measures.stream().map(Measure::getCode).collect(Collectors.toList());
+
+		assertTrue(ids.contains(2l));
+	}
+	
+	/**
+	 * Retrieves all the measures related to Management entity CCAMLR, we expect measures 3 and 4 as result.
+	 */
+	@Test
+	public void testAllRelatedToManagementEntityAcronym() {
+		List<Measure> measures = dao.allRelatedToManagementEntityAcronym("CCAMLR");
 		assertNotNull(measures);
 		assertEquals(2, measures.size());
 
 		List<Long> ids = measures.stream().map(Measure::getCode).collect(Collectors.toList());
 
 		assertTrue(ids.contains(3l));
-		assertTrue(ids.contains(5l));
+		assertTrue(ids.contains(4l));
 	}
 
 }
