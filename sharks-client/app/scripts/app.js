@@ -43,6 +43,18 @@ angular
         	}
         }
       })
+      .when("/countries", {
+        templateUrl: "views/countries_selection.html",
+        controller: "CountriesSelectionCtrl",
+        controllerAs: "ctrl",
+        resolve: {
+        	countries : function(countriesservice) {
+        		return countriesservice.list();
+        	}
+        }
+      })      
+      
+      
       .when("/about", {
         templateUrl: "views/about.html",
         controller: "AboutCtrl"

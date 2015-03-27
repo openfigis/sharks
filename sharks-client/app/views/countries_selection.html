@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Select one or more species:</div>
+
+  <!-- List group -->
+  <ul class="list-group">
+      <li class="list-group-item" 
+      ng-repeat="country in ctrl.countries" 
+       ng-class="{'active':ctrl.isSelected(country)}"
+      ng-click="ctrl.toggle(country)">
+       {{country.code}} - {{country.unName}}
+    </li>
+  </ul>
+  
+   <div class="panel-footer">
+    <input class="btn btn-default pull-right" type="button" value="View selected" ng-disabled="ctrl.selected.length === 0" 
+    ng-click="ctrl.showSelected()">
+    <div class="clearfix"></div>
+   </div>
+  
+</div>
