@@ -29,8 +29,7 @@ public class MeasureResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<MeasureDetails> list(@QueryParam("entityAcronym") String entityAcronym) {
-		if (entityAcronym!=null) return service.measuresForManagementEntity(entityAcronym);
+	public List<MeasureDetails> list() {
 		return service.list();
 	}
 	

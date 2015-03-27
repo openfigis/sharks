@@ -71,8 +71,8 @@ angular
         	entity : function($route, entitiesservice) {
         		return entitiesservice.get($route.current.params.acronym);
         	},
-        	measures : function($route, measuresservice) {
-        		return measuresservice.listForEntity($route.current.params.acronym);
+        	measures : function($route, entitiesservice) {
+        		return entitiesservice.measures($route.current.params.acronym);
         	}
         }
       })

@@ -110,6 +110,10 @@ services.factory("entitiesservice", ["entitiesresource", "$q", "$log", function(
 			return entitiesresource.query();
 		};
 		
+		this.measures = function(acronym) {
+			return entitiesresource.measures({acronym:acronym});
+		};
+		
 		this.getAll = function(acronyms) {
 			var deferred = $q.defer();
 			entitiesresource.query().$promise.then(function(entities) {
