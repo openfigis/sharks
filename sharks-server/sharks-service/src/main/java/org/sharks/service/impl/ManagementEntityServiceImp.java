@@ -41,5 +41,10 @@ public class ManagementEntityServiceImp implements ManagementEntityService {
 		return entity.getCountries();
 	}
 
+	@Override
+	public List<EntityDetails> getEntitiesForCountry(String countryCode) {
+		return dao.allRelatedToCountry(countryCode).stream().map(e->toDetails(e)).collect(Collectors.toList());
+	}
+
 
 }

@@ -11,7 +11,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.CountryService;
+import org.sharks.service.ManagementEntityService;
 import org.sharks.service.PoAService;
+import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.PoADetails;
 import org.sharks.storage.domain.Country;
 
@@ -29,6 +31,9 @@ public class CountryResource {
 	@Inject
 	private PoAService poaService;
 	
+	@Inject
+	private ManagementEntityService entityService;
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Country> list() {
@@ -40,6 +45,13 @@ public class CountryResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<PoADetails> getPoAs(@PathParam("code") String code) {
 		return poaService.poasForCountry(code);
+	}
+	
+	@GET
+	@Path("{code}/entities")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<EntityDetails> getEntities(@PathParam("code") String code) {
+		return entityService.getEntitiesForCountry(code);
 	}
 
 }

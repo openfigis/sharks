@@ -17,4 +17,6 @@ public interface ManagementEntityService {
 	List<EntityDetails> list();
 	
 	List<Country> getCountries(String acronym);
+	
+	List<EntityDetails> getEntitiesForCountry(String countryCode);
 }

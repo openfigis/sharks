@@ -20,7 +20,6 @@ import org.sharks.storage.domain.PoA;
 @AdditionalClasses(TestProducers.class)
 public class PoADaoTest {
 
-	
 	@Inject
 	PoADao dao;
 
