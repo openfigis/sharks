@@ -17,7 +17,7 @@ angular.module("sharksClient")
 	  this.entities = entities;
 
 	  this.showSelected = function() {
-		  var hash = "/entities/"+pathservice.encode(this.selected);
+		  var hash = "/entities/"+this.selected;
 		  $log.info("showSelected: "+this.selected+ " routing to "+hash);
 		  $location.path(hash);
 	  };

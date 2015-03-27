@@ -1,0 +1,64 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Species details</div>
+  <div class="panel-body">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-body">
+            {{ctrl.entity.acronym}} - {{ctrl.entity.mgmtEntityName}}
+        </div>
+      </div>
+      
+      <div class="panel panel-default">
+        <div class="panel-heading">Measures</div>
+        <div class="panel-body">
+         <table class="table">
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Title</th><th>Year</th><th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="measure in ctrl.measures">
+            <td>{{measure.symbol}}</td>
+            <td>{{measure.title}}</td>
+            <td>{{measure.year}}</td>
+            <td>todo</td>
+          </tr>
+          
+          </tbody>
+	     </table>
+        </div>
+      </div>
+
+    
+    
+    </div>
+	<div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <br>
+          Photo
+          <br>
+        </div>
+      </div>
+      
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <br>
+          <br>
+          Map
+          <br>
+          <br>
+        </div>
+      </div>
+	</div>
+  </div>
+
+
+  
+   <div class="panel-footer">
+    <input class="btn btn-default pull-right" type="button" value="Back" ng-click="ctrl.back()" >
+    <div class="clearfix"></div>
+   </div>
+  
+</div>

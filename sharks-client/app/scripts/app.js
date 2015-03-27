@@ -63,6 +63,21 @@ angular
         	}
         }
       }) 
+      .when("/entities/:acronym", {
+        templateUrl: "views/entity_details.html",
+        controller: "EntityDetailsCtrl",
+        controllerAs: "ctrl",
+        resolve: {
+        	entity : function($route, entitiesservice) {
+        		return entitiesservice.get($route.current.params.acronym);
+        	},
+        	measures : function($route, measuresservice) {
+        		return measuresservice.listForEntity($route.current.params.acronym);
+        	}
+        }
+      })
+      
+      
       
       
       .when("/about", {

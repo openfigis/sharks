@@ -47,6 +47,10 @@ services.factory("measuresservice", ["measuresresource", function(measuresresour
 		this.listGrouppedByEntity = function(alphaCodes) {
 			return measuresresource.groupByEntity({speciesAlphaCodes:alphaCodes});
 		};
+		
+		this.listForEntity = function(acronym) {
+			return measuresresource.query({entityAcronym:acronym});
+		};
 	}
 	return new MeasuresService();
 	
@@ -88,19 +92,18 @@ services.factory("countriesservice", ["countriesresource", "$q", function(countr
 	
 }]);
 
-services.factory("entitiesservice", ["entitiesresource", "$q", function(entitiesresource, $q) {
+services.factory("entitiesservice", ["entitiesresource", "$q", "$log", function(entitiesresource, $q, $log) {
 	
 	function EntitiesService() {
-		this.selected = [];
+		this.selected = null;
 		
 		this.toggleSelection = function(entity) {
-			var index = this.selected.indexOf(entity.acronym);
-			if (index < 0) this.selected.push(entity.acronym);
-			else this.selected.splice(index, 1);
+			$log.info("toggleSelection "+entity.acronym);
+			this.selected = entity.acronym;
 		};
 		
-		this.isSelected = function(country) {
-			return this.selected.indexOf(country.code)>=0;
+		this.isSelected = function(entity) {
+			return this.selected === entity.acronym;
 		};
 		
 		this.list = function() {
@@ -113,6 +116,22 @@ services.factory("entitiesservice", ["entitiesresource", "$q", function(entities
 				var found = [];
 				for (var i = 0; i < entities.length; i++) {
 				    if (acronyms.indexOf(entities[i].acronym) >= 0) found.push(entities[i]);
+				}
+				deferred.resolve(found);
+            });
+			
+			return deferred.promise;
+		};
+		
+		this.get = function(acronym) {
+			var deferred = $q.defer();
+			entitiesresource.query().$promise.then(function(entities) {
+				var found = null;
+				for (var i = 0; i < entities.length; i++) {
+				    if (entities[i].acronym === acronym) {
+				    	found = entities[i];
+				    	break;
+				    }
 				}
 				deferred.resolve(found);
             });
