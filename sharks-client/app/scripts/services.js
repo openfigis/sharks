@@ -82,6 +82,10 @@ services.factory("countriesservice", ["countriesresource", "$q", "$log", functio
 			return deferred.promise;
 		};
 		
+		this.entities = function(country) {
+			return countriesresource.entities({code:country});
+		};
+		
 		this.get = function(code) {
 			var deferred = $q.defer();
 			$log.info("get "+code);

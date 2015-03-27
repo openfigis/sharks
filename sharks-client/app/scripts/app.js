@@ -64,6 +64,9 @@ angular
         	},
         	groupedPoas : function($route, countriesservice) {
         		return countriesservice.poasGroupedByType($route.current.params.code);
+        	},
+        	entities :  function($route, countriesservice) {
+        		return countriesservice.entities($route.current.params.code);
         	}
         }
       })
