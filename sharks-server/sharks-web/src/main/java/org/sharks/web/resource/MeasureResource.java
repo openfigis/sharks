@@ -29,7 +29,8 @@ public class MeasureResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<MeasureDetails> list() {
+	public List<MeasureDetails> list(@QueryParam("entityAcronym") String entityAcronym) {
+		if (entityAcronym!=null) return service.measuresForManagementEntity(entityAcronym);
 		return service.list();
 	}
 	
@@ -44,7 +45,7 @@ public class MeasureResource {
 	@Path("groupByEntity")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<EntityMeasures> grouppedByEntity(@QueryParam("speciesAlphaCodes") List<String> speciesAlphaCodes) {
-		return service.measureForSpeciesByEntity(speciesAlphaCodes);
+		return service.measuresForSpeciesByEntity(speciesAlphaCodes);
 	}
 
 }

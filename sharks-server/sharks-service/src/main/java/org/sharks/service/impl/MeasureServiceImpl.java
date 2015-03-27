@@ -47,7 +47,7 @@ public class MeasureServiceImpl implements MeasureService {
 	}
 
 	@Override
-	public List<EntityMeasures> measureForSpeciesByEntity(List<String> speciesAlphaCodes) {
+	public List<EntityMeasures> measuresForSpeciesByEntity(List<String> speciesAlphaCodes) {
 		
 		Set<Measure> measures = new HashSet<Measure>();
 		
@@ -69,6 +69,11 @@ public class MeasureServiceImpl implements MeasureService {
 
 		
 		return entityMeasures;
+	}
+
+	@Override
+	public List<MeasureDetails> measuresForManagementEntity(String acronym) {
+		return dao.allRelatedToManagementEntityAcronym(acronym) .stream().map(m->toDetails(m)).collect(Collectors.toList());
 	}
 
 }
