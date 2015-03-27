@@ -5,7 +5,7 @@ package org.sharks.service;
 
 import java.util.List;
 
-import org.sharks.storage.domain.MgmtEntity;
+import org.sharks.service.dto.EntityDetails;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -13,5 +13,5 @@ import org.sharks.storage.domain.MgmtEntity;
  */
 public interface ManagementEntityService {
 	
-	List<MgmtEntity> list();
+	List<EntityDetails> list();
 }

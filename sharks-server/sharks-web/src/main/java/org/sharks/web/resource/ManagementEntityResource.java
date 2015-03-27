@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.ManagementEntityService;
-import org.sharks.storage.domain.MgmtEntity;
+import org.sharks.service.dto.EntityDetails;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -25,7 +25,7 @@ public class ManagementEntityResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<MgmtEntity> list() {
+	public List<EntityDetails> list() {
 		return service.list();
 	}
 
