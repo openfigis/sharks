@@ -6,40 +6,27 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.sharks.service.CountryService;
 import org.sharks.service.PoAService;
 import org.sharks.service.dto.PoADetails;
-import org.sharks.storage.domain.Country;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
 @ApplicationScoped
-@Path("/countries")
-public class CountryResource {
+@Path("/poa")
+public class PoAResource {
 	
 	@Inject
-	private CountryService service;
-	
-	@Inject
-	private PoAService poaService;
+	private PoAService service;
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Country> list() {
+	public List<PoADetails> list() {
 		return service.list();
-	}
-	
-	@GET
-	@Path("{code}/poas")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<PoADetails> getPoAs(@PathParam("code") String code) {
-		return poaService.poasForCountry(code);
 	}
 
 }
