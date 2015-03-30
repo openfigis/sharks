@@ -98,11 +98,17 @@ angular
         	}
         }
       })
-
-      .when("/comingsoon", {
+      
+      .when("/speciesid", {
         templateUrl: "views/coming_soon.html",
         controller: "ComingSoonCtrl"
       })
+
+      .when("/links", {
+        templateUrl: "views/coming_soon.html",
+        controller: "ComingSoonCtrl"
+      })
+      
       .otherwise({
         redirectTo: "/species"
       });
