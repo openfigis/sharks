@@ -71,10 +71,10 @@
 
         <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#/species">Sharks SPP</a></li>
-            <li><a ng-href="#/countries">Countries</a></li>
-            <li><a ng-href="#/entities">Decisions &amp; Regulations</a></li>
+          <ul class="nav navbar-nav" ng-controller="NavigationBarCtrl">
+            <li ng-class="{ active: isActive('#/species')}"><a ng-href="#/species">Sharks SPP</a></li>
+            <li ng-class="{ active: isActive('#/countries')}"><a ng-href="#/countries">Countries</a></li>
+            <li ng-class="{ active: isActive('#/entities')}"><a ng-href="#/entities">Decisions &amp; Regulations</a></li>
             <li><a ng-href="#/">Species ID</a></li>
             <li><a ng-href="#/">Links</a></li>
           </ul>
@@ -125,6 +125,7 @@
         <script src="scripts/resources.js"></script>
         <script src="scripts/services.js"></script>
         <script src="scripts/config.js"></script>
+        <script src="scripts/controllers/navigation_bar.js"></script>
         <script src="scripts/controllers/species_selection.js"></script>
         <script src="scripts/controllers/species_details.js"></script>
         <script src="scripts/controllers/countries_selection.js"></script>
