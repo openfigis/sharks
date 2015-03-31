@@ -4,7 +4,13 @@
     <div class="col-md-8">
       <div class="panel panel-default">
         <div class="panel-body">
-            {{ctrl.country.code}} - {{ctrl.country.unName}}
+            {{ctrl.country.code}} - {{ctrl.country.name}}<br>
+            <b>Official names</b>
+            <ul>
+              <li ng-repeat="(lang, name) in ctrl.country.officialNames">
+                {{name}}
+               </li>
+            </ul>
         </div>
       </div>
       
