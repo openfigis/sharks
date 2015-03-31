@@ -13,9 +13,9 @@ import javax.ws.rs.core.MediaType;
 import org.sharks.service.CountryService;
 import org.sharks.service.ManagementEntityService;
 import org.sharks.service.PoAService;
+import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.PoADetails;
-import org.sharks.storage.domain.Country;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -36,7 +36,7 @@ public class CountryResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Country> list() {
+	public List<CountryDetails> list() {
 		return service.list();
 	}
 	

@@ -5,7 +5,7 @@ package org.sharks.service;
 
 import java.util.List;
 
-import org.sharks.storage.domain.Country;
+import org.sharks.service.dto.CountryDetails;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -13,5 +13,5 @@ import org.sharks.storage.domain.Country;
  */
 public interface CountryService {
 	
-	List<Country> list();
+	List<CountryDetails> list();
 }
