@@ -1,4 +1,4 @@
-package org.sharks.service.refpub.dto;
+package org.sharks.service.refpub;
 
 import java.io.InputStream;
 
@@ -8,6 +8,8 @@ import javax.xml.bind.Unmarshaller;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.sharks.service.refpub.dto.RefPubCountries;
+import org.sharks.service.refpub.dto.RefPubCountry;
 
 import static org.junit.Assert.*;
 

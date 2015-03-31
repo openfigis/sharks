@@ -1,4 +1,4 @@
-package org.sharks.service.refpub.rest;
+package org.sharks.service.refpub;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,7 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.sharks.service.refpub.dto.RefPubCountry;
+import org.sharks.service.refpub.rest.RefPubRestClient;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
