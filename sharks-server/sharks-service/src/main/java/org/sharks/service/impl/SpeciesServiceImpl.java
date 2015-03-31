@@ -21,8 +21,8 @@ public class SpeciesServiceImpl implements SpeciesService {
 	private SpeciesDao dao;
 
 	@Override
-	public List<Species> list() {
-		return dao.list();
+	public List<Species> list(boolean onlyWithMeasure) {
+		return onlyWithMeasure?dao.listWithMeasures():dao.list();
 	}
 
 	@Override

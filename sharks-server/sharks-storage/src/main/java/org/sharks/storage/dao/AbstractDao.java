@@ -28,13 +28,14 @@ public abstract class AbstractDao<T> {
 	}
 	
 	public List<T> list() {
-		EntityManager em = emf.createEntityManager();
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<T> cq = cb.createQuery(type);
-        Root<T> rootEntry = cq.from(type);
-        CriteriaQuery<T> all = cq.select(rootEntry);
-        TypedQuery<T> allQuery = em.createQuery(all);
-        return allQuery.getResultList();
+		
+		EntityManager entityManager = emf.createEntityManager();
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(type);
+        Root<T> rootEntry = criteriaQuery.from(type);
+        CriteriaQuery<T> all = criteriaQuery.select(rootEntry);
+		TypedQuery<T> query = entityManager.createQuery(all);
+		return query.getResultList();
 	}
 
 	public T get(String code) {

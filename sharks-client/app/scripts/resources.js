@@ -4,7 +4,7 @@ var services = angular.module("resources", ["ngResource","config"]);
 
 services.factory("speciesresource", ["$resource", "rest", function($resource, rest) {
 	return $resource(rest.baseUrl + "species/:id", null, {
-		query: {method: "GET", cache: true, isArray:true}
+		query: {method: "GET", cache: true, params: {onlyWithMeasure:true}, isArray:true}
 	});
 }]);
 
