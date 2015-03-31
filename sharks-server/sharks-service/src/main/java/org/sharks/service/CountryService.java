@@ -13,5 +13,5 @@ import org.sharks.service.dto.CountryDetails;
  */
 public interface CountryService {
 	
-	List<CountryDetails> list();
+	List<CountryDetails> list(boolean onyWithPoas);
 }

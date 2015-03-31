@@ -26,8 +26,8 @@ public class CountryServiceImp implements CountryService {
 	private CountryComplementService complementService;
 
 	@Override
-	public List<CountryDetails> list() {
-		List<Country> countries = dao.list();
+	public List<CountryDetails> list(boolean onyWithPoas) {
+		List<Country> countries = onyWithPoas?dao.listWithPoAs():dao.list();
 		return complementService.complement(countries);
 	}
 }

@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.CountryService;
@@ -36,8 +38,9 @@ public class CountryResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<CountryDetails> list() {
-		return service.list();
+	public List<CountryDetails> list(@DefaultValue("false") @QueryParam("onlyWithPoAs") String onlyWithPoAs) {
+		boolean onlyWithPoAsFlag = Boolean.parseBoolean(onlyWithPoAs);
+		return service.list(onlyWithPoAsFlag);
 	}
 	
 	@GET
