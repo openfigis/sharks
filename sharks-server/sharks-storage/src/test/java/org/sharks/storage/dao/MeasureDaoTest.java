@@ -25,17 +25,18 @@ public class MeasureDaoTest {
 	MeasureDao dao;
 
 	/**
-	 * Retrieves all the measures related to species WCPFC, we expect measure 2 as result.
+	 * Retrieves all the measures related to species OCS, we expect measure 19 as result.
 	 */
 	@Test
 	public void testAllRelatedToSpeciesAlphaCode() {
 		List<Measure> measures = dao.allRelatedToSpeciesAlphaCode("OCS");
 		assertNotNull(measures);
-		assertEquals(1, measures.size());
+		assertEquals(2, measures.size());
 
 		List<Long> ids = measures.stream().map(Measure::getCode).collect(Collectors.toList());
 
 		assertTrue(ids.contains(2l));
+		assertTrue(ids.contains(18l));
 	}
 	
 	/**

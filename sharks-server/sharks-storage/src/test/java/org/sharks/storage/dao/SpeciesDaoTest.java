@@ -20,12 +20,11 @@ import org.sharks.storage.domain.Species;
 @AdditionalClasses(TestProducers.class)
 public class SpeciesDaoTest {
 
-	
 	@Inject
 	SpeciesDao dao;
 
 	/**
-	 * Retrieves all the measures related to species WCPFC, we expect measure 2 as result.
+	 * Retrieves all the measures related to species, we expect measure 2 as result.
 	 */
 	@Test
 	public void testListWithMeasures() {
@@ -34,7 +33,7 @@ public class SpeciesDaoTest {
 		System.out.println(species);
 		
 		assertNotNull(species);
-		assertEquals(2, species.size());
+		assertEquals(12, species.size());
 		
 
 		List<Long> ids = species.stream().map(Species::getCode).collect(Collectors.toList());

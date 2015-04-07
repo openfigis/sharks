@@ -29,6 +29,6 @@ public class CountryDaoTest {
 	public void testListWithPoAs() {
 		List<Country> countries = dao.listWithPoAs();
 		assertNotNull(countries);
-		assertEquals(24, countries.size());
+		assertEquals(32, countries.size());
 	}
 }
