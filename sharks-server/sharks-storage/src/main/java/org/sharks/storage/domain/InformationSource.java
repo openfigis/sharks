@@ -31,6 +31,8 @@ public class InformationSource {
     @Column
     private String url;
     @Column
+    private String citation;
+    @Column
     private Integer infoSrcYear;
     @Column(name = "Abstract")
     private String abstractField;
@@ -41,5 +43,8 @@ public class InformationSource {
     @OneToOne
     @JoinColumn(name = "cdInformationType")
     private InformationSourceType informationType;
+    @OneToOne
+    @JoinColumn(name = "cdMgmtEntity")
+    private MgmtEntity mgmtEntity;
 
 }

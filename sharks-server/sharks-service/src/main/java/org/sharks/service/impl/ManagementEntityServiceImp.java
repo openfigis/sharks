@@ -3,6 +3,7 @@
  */
 package org.sharks.service.impl;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,8 +38,7 @@ public class ManagementEntityServiceImp implements ManagementEntityService {
 
 	@Override
 	public List<Country> getCountries(String acronym) {
-		MgmtEntity entity = dao.getByAcronym(acronym);
-		return entity.getCountries();
+		return Collections.emptyList();
 	}
 
 	@Override
