@@ -6,7 +6,8 @@ package org.sharks.service;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 
-import org.sharks.service.moniker.rest.MonikerRestClient;
+import org.sharks.config.Configuration;
+import org.sharks.service.moniker.rest.MonikersRestClient;
 import org.sharks.service.refpub.rest.RefPubRestClient;
 
 /**
@@ -17,13 +18,13 @@ import org.sharks.service.refpub.rest.RefPubRestClient;
 public class Producers {
 	
 	@Produces
-	public RefPubRestClient getRefPubRestClient() {
-		return new RefPubRestClient("http://figisapps.fao.org/refpub-web/rest/");
+	public RefPubRestClient getRefPubRestClient(Configuration configuration) {
+		return new RefPubRestClient(configuration.getRefPubUrl());
 	}
 	
 	@Produces
-	public MonikerRestClient getMonikerRestClient() {
-		return new MonikerRestClient("http://figisapps.fao.org/figis/moniker/");
+	public MonikersRestClient getMonikerRestClient(Configuration configuration) {
+		return new MonikersRestClient(configuration.getMonikersUrl());
 	}
 
 }

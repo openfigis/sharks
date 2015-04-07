@@ -12,9 +12,9 @@ import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import lombok.extern.slf4j.Slf4j;
+import org.sharks.config.Configuration;
 
-import org.sharks.storage.config.Configuration;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"

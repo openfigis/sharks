@@ -21,6 +21,10 @@
 	</repositories>
 
 	<dependencies>
+		<dependency>
+		    <groupId>org.sharks</groupId>
+		    <artifactId>sharks-config</artifactId>
+		</dependency>
 	
 		<!-- PERSISTENCE -->
 		<dependency>

@@ -21,12 +21,12 @@ import org.sharks.service.moniker.dto.Rfb;
  *
  */
 @Slf4j
-public class MonikerRestClient {
+public class MonikersRestClient {
 
 	private String restUrl;
 	private Unmarshaller unmarshaller;
 
-	public MonikerRestClient(String restUrl) {
+	public MonikersRestClient(String restUrl) {
 		this.restUrl = restUrl;
 
 		try {

@@ -16,13 +16,12 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
-
 	<modules>
 		<module>sharks-web</module>
 		<module>sharks-service</module>
 		<module>sharks-storage</module>
+		<module>sharks-config</module>
 	</modules>
-
 
 	<build>
 		<plugins>
@@ -39,6 +38,7 @@
 	</build>
 	
 	<dependencies>
+	
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
@@ -87,6 +87,12 @@
 		<dependencies>
 			
 			<!-- MODULES -->
+			<dependency>
+				<groupId>org.sharks</groupId>
+				<artifactId>sharks-config</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			
 			<dependency>
 				<groupId>org.sharks</groupId>
 				<artifactId>sharks-storage</artifactId>
