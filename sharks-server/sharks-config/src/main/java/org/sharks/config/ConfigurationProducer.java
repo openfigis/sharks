@@ -7,8 +7,6 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import org.jboss.weld.exceptions.IllegalStateException;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**
