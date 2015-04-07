@@ -28,7 +28,7 @@ public class PoA {
     @Column(name = "cdPoA")
     private Long code;
     @Column
-    private String description;
+    private String title;
     @Column
     private Integer poAYear;
     @OneToMany
@@ -43,5 +43,8 @@ public class PoA {
     @OneToOne
     @JoinColumn(name = "cdStatus")
     private Status status;
+    @OneToOne
+    @JoinColumn(name = "cdMgmtEntity")
+    private MgmtEntity mgmtEntity;
 
 }

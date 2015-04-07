@@ -35,7 +35,7 @@ public class PoAServiceImpl implements PoAService {
 	private PoADetails toDetails(PoA poa) {
 		if (poa == null) return null;
 		return new PoADetails(poa.getCode(), 
-				poa.getDescription(), 
+				poa.getTitle(), 
 				poa.getPoAYear(), 
 				poa.getPoAType(),
 				poa.getStatus());

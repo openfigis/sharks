@@ -23,7 +23,7 @@ import org.sharks.storage.domain.Status;
 public class PoADetails {
 
     private Long code;
-    private String description;
+    private String title;
     private Integer poAYear;
     private PoAType poAType;
     private Status status;
