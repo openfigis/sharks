@@ -6,6 +6,8 @@ package org.sharks.service;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.sharks.config.Configuration;
 import org.sharks.service.indexing.IndexingService;
 import org.sharks.service.indexing.SolrIndexingService;
@@ -17,6 +19,7 @@ import org.sharks.service.refpub.rest.RefPubRestClient;
  *
  */
 @ApplicationScoped
+@Slf4j
 public class Producers {
 	
 	@Produces
@@ -31,6 +34,10 @@ public class Producers {
 	
 	@Produces
 	public IndexingService getIndexingService(Configuration configuration) {
+		if (configuration.getSolrUrl() == null) {
+			log.warn("Solr Url missing from configuration");
+			return null;
+		}
 		return new SolrIndexingService(configuration.getSolrUrl());
 	}
 

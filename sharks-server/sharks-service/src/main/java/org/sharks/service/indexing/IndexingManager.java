@@ -26,6 +26,12 @@ public class IndexingManager {
 	private CountryDao countryDao;
 	
 	void startIndexing(@Observes ApplicationEvent.Startup startup) {
+		
+		if (indexingService == null) {
+			log.warn("Indexing service not available");
+			return;
+		}
+		
 		log.info("starting indexing");
 		
 		log.trace("deleting all documents");
