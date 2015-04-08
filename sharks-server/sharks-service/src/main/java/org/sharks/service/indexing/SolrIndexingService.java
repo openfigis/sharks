@@ -4,7 +4,9 @@
 package org.sharks.service.indexing;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
@@ -17,18 +19,31 @@ import org.apache.solr.common.SolrInputDocument;
 public class SolrIndexingService implements IndexingService {
 	
 	private SolrClient solr;
+	private Map<Class<?>,SolrDocumentProvider<?>> indexedProviders;
 	
-	public SolrIndexingService(String clientUri) {
+	public SolrIndexingService(String clientUri, Iterable<SolrDocumentProvider<?>> providers) {
 		solr = new HttpSolrClient(clientUri);
+		
+		indexedProviders = new HashMap<Class<?>, SolrDocumentProvider<?>>();
+		for (SolrDocumentProvider<?> provider:providers) {
+			indexedProviders.put(provider.getType(), provider);
+		}
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	private <T> SolrDocumentProvider<T> getProvider(Class<T> type) {
+		return (SolrDocumentProvider<T>) indexedProviders.get(type);
+	}
+	
 	@Override
-	public <T> void index(List<T> items, FieldProvider<T> fieldProvider) {
+	public <T> void index(List<T> items, Class<T> type) {
 		
 		List<SolrInputDocument> documents = new ArrayList<SolrInputDocument>();
 		
+		SolrDocumentProvider<T> provider = getProvider(type);
+		
 		for (T item:items) {
-			SolrInputDocument document = createDocument(item, fieldProvider);
+			SolrInputDocument document = provider.getDocument(item);
 			documents.add(document);
 		}
 		
@@ -49,17 +64,11 @@ public class SolrIndexingService implements IndexingService {
 		}
 	}
 	
-	private <T> SolrInputDocument createDocument(T item, FieldProvider<T> fieldProvider) {
-		SolrInputDocument document = new SolrInputDocument();
+	public interface SolrDocumentProvider<T> {
 		
-		document.addField("documentType", fieldProvider.getTypeName());
+		public Class<T> getType();
 		
-		for (String fieldName:fieldProvider.getFieldsName()) {
-			String fieldValue = fieldProvider.getFieldValue(item, fieldName);
-			document.addField(fieldName, fieldValue);
-		}
-		
-		return document;
+		public SolrInputDocument getDocument(T item);
 	}
 	
 }

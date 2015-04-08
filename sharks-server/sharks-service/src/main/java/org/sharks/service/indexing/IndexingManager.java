@@ -9,8 +9,10 @@ import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.service.event.ApplicationEvent;
-import org.sharks.storage.dao.CountryDao;
-import org.sharks.storage.domain.Country;
+import org.sharks.storage.dao.MeasureDao;
+import org.sharks.storage.dao.PoADao;
+import org.sharks.storage.domain.Measure;
+import org.sharks.storage.domain.PoA;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -23,7 +25,10 @@ public class IndexingManager {
 	private IndexingService indexingService;
 	
 	@Inject
-	private CountryDao countryDao;
+	private MeasureDao measureDao;
+	
+	@Inject
+	private PoADao poaDao;
 	
 	void startIndexing(@Observes ApplicationEvent.Startup startup) {
 		
@@ -37,8 +42,11 @@ public class IndexingManager {
 		log.trace("deleting all documents");
 		indexingService.deleteAllDocuments();
 		
-		log.trace("indexing countries...");
-		indexingService.index(countryDao.list(), FieldProviders.byReflection(Country.class));
+		log.trace("indexing measures...");
+		indexingService.index(measureDao.list(), Measure.class);
+		
+		log.trace("indexing poas...");
+		indexingService.index(poaDao.list(), PoA.class);
 		
 		log.info("indexing complete.");
 	}
