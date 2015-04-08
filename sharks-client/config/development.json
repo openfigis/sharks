@@ -4,5 +4,8 @@
 	},
 	"rest": {
 		"baseUrl": "http://localhost:8080/sharks-web/"
+	},
+	"solr": {
+		"baseUrl": "http://localhost:8983/solr/sharks/"
 	}
 }

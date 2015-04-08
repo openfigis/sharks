@@ -177,6 +177,18 @@ services.factory("entitiesservice", ["entitiesresource", "$q", "$log", function(
 	
 }]);
 
+services.factory("searchservice", ["searchresource",  function(searchresource) {
+	
+	function SearchService() {
+		
+		this.query = function(query) {
+			return searchresource.query({q:query});
+		};
+	}
+	return new SearchService();
+	
+}]);
+
 
 
 services.factory("pathservice", [function() {

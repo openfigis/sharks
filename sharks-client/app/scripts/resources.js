@@ -29,3 +29,9 @@ services.factory("entitiesresource", ["$resource", "rest", function($resource, r
 		countries: {method: "GET",  url:rest.baseUrl + "managemententities/:acronym/countries", cache: true, isArray:true}
 	});
 }]);
+
+services.factory("searchresource", ["$resource", "solr", function($resource, solr) {
+	return $resource(solr.baseUrl + "select", null, {
+		query: {method: "JSONP", cache: true, params: {wt:"json", "json.wrf": "JSON_CALLBACK"}},
+	});
+}]);
