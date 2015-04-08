@@ -20,6 +20,7 @@ public class ConfigurationImpl implements Configuration {
 	public static final String DB_FILE_LOCATION = "storage.dbfile";
 	public static final String REFPUB_URL = "service.refpub";
 	public static final String MONIKERS_URL = "service.monikers";
+	public static final String SOLR_URL = "service.solr";
 	
 	private Properties properties;
 	
@@ -38,28 +39,24 @@ public class ConfigurationImpl implements Configuration {
 		}
 	}
 	
-	/* (non-Javadoc)
-	 * @see org.sharks.config.Configuration#getDbFileLocation()
-	 */
 	@Override
 	public String getDbFileLocation() {
 		return properties.getProperty(DB_FILE_LOCATION);
 	}
 	
-	/* (non-Javadoc)
-	 * @see org.sharks.config.Configuration#getRefPubUrl()
-	 */
 	@Override
 	public String getRefPubUrl() {
 		return properties.getProperty(REFPUB_URL);
 	}
 	
-	/* (non-Javadoc)
-	 * @see org.sharks.config.Configuration#getMonikersUrl()
-	 */
 	@Override
 	public String getMonikersUrl() {
 		return properties.getProperty(MONIKERS_URL);
+	}
+
+	@Override
+	public String getSolrUrl() {
+		return properties.getProperty(SOLR_URL);
 	}
 
 }

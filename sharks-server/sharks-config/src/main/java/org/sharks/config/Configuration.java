@@ -11,5 +11,7 @@ public interface Configuration {
 	public String getRefPubUrl();
 
 	public String getMonikersUrl();
+	
+	public String getSolrUrl();
 
 }
