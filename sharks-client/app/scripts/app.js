@@ -109,6 +109,12 @@ angular
         controller: "ComingSoonCtrl"
       })
       
+      .when("/search", {
+        templateUrl: "views/search.html",
+        controller: "SearchCtrl",
+        controllerAs: "ctrl"
+      })
+      
       .otherwise({
         redirectTo: "/species"
       });
