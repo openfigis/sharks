@@ -6,6 +6,6 @@
 		"baseUrl": "http://figisapps.fao.org/figis/sharks/"
 	},
 	"solr": {
-		"baseUrl": "http://localhost:8983/solr/sharks/"
+		"baseUrl": "/figis/sharks-solr/"
 	}
 }
