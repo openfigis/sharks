@@ -3,19 +3,11 @@
 
   <!-- List group -->
   <ul class="list-group">
-      <li class="list-group-item" 
-
-       ng-class="{'active':ctrl.isSelected(entity)} pointer"
+      <li class="list-group-item pointer" 
              ng-repeat="entity in ctrl.entities" 
-      ng-click="ctrl.toggle(entity)">
+      ng-click="ctrl.show(entity)">
        {{entity.acronym}} - {{entity.name}}
     </li>
   </ul>
-  
-   <div class="panel-footer">
-    <input class="btn btn-default pull-right" type="button" value="View selected" ng-disabled="ctrl.selected.length === 0" 
-    ng-click="ctrl.showSelected()">
-    <div class="clearfix"></div>
-   </div>
-  
+
 </div>

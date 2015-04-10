@@ -15,9 +15,31 @@ angular
     "resources",
     "services"
   ])
-  .config(function ($routeProvider) {
+  .constant("paths", {
+				species: {
+					all:"/species",
+					single:"/species/:alphaCode",
+					id: function(species) {return species.alphaCode;}
+				},
+				countries: {
+					all:"/countries",
+					single:"/countries/:code",
+					id: function(country) {return country.code;}
+				},
+				entities: {
+					all:"/entities",
+					single:"/entities/:acronym",
+					id: function(entity) {return entity.acronym;}
+				},
+				measures: {
+					all:"/measures",
+					single:"/measures/:id",
+					id: function(measure) {return measure.id;}
+				}
+  })
+  .config(function ($routeProvider, paths) {
     $routeProvider
-      .when("/species", {
+      .when(paths.species.all, {
         templateUrl: "views/species_selection.html",
         controller: "SpeciesSelectionCtrl",
         controllerAs: "ctrl",
@@ -27,7 +49,7 @@ angular
         	}
         }
       })
-      .when("/species/:alphaCode", {
+      .when(paths.species.single, {
         templateUrl: "views/species_details.html",
         controller: "SpeciesDetailsCtrl",
         controllerAs: "ctrl",
@@ -41,7 +63,7 @@ angular
         }
       })
       
-      .when("/countries", {
+      .when(paths.countries.all, {
         templateUrl: "views/countries_selection.html",
         controller: "CountriesSelectionCtrl",
         controllerAs: "ctrl",
@@ -51,7 +73,7 @@ angular
         	}
         }
       }) 
-      .when("/countries/:code", {
+      .when(paths.countries.single, {
         templateUrl: "views/country_details.html",
         controller: "CountryDetailsCtrl",
         controllerAs: "ctrl",
@@ -69,7 +91,7 @@ angular
       })
       
       
-      .when("/entities", {
+      .when(paths.entities.all, {
         templateUrl: "views/entities_selection.html",
         controller: "EntitiesSelectionCtrl",
         controllerAs: "ctrl",
@@ -79,7 +101,7 @@ angular
         	}
         }
       }) 
-      .when("/entities/:acronym", {
+      .when(paths.entities.single, {
         templateUrl: "views/entity_details.html",
         controller: "EntityDetailsCtrl",
         controllerAs: "ctrl",
@@ -112,18 +134,18 @@ angular
         controllerAs: "ctrl"
       })
       
-      .when("/measures/:measure", {
+      .when(paths.measures.single, {
         templateUrl: "views/measure_details.html",
         controller: "MeasureDetailsCtrl",
         controllerAs: "ctrl",
         resolve: {
         	measure : function($route, measuresservice) {
-        		return measuresservice.get($route.current.params.measure);
+        		return measuresservice.get($route.current.params.id);
         	}
         }
       })
       
       .otherwise({
-        redirectTo: "/species"
+        redirectTo: paths.species.all
       });
   });

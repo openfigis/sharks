@@ -8,17 +8,12 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("EntitiesSelectionCtrl", ["entitiesservice", "pathservice", "$log", "$location", "entities", 
-                                         function (entitiesservice, pathservice, $log, $location, entities) {
-	  this.selected = entitiesservice.selected;
-	  this.toggle = entitiesservice.toggleSelection;
-	  this.isSelected = entitiesservice.isSelected;
+  .controller("EntitiesSelectionCtrl", ["routingservice", "entities", 
+                                         function (routingservice, entities) {
 	  
 	  this.entities = entities;
 
-	  this.showSelected = function() {
-		  var hash = "/entities/"+this.selected;
-		  $log.info("showSelected: "+this.selected+ " routing to "+hash);
-		  $location.path(hash);
+	  this.show = function(entity) {
+		  routingservice.toSingle("entities", entity);
 	  };
   }]);

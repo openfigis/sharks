@@ -8,13 +8,13 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("CountryDetailsCtrl", ["$log", "$location", "country", "groupedPoas", "entities",
-                                          function ($log, $location, country, groupedPoas, entities) {
+  .controller("CountryDetailsCtrl", ["routingservice", "country", "groupedPoas", "entities",
+                                          function (routingservice, country, groupedPoas, entities) {
 	  this.country = country;
 	  this.groupedPoas = groupedPoas;
 	  this.entities = entities;
 	  
 	  this.back = function() {
-		  $location.path("/countries");
+		  routingservice.goBack();
 	  };
   }]);

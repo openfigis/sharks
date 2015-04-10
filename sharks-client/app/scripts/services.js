@@ -60,15 +60,6 @@ services.factory("measuresservice", ["measuresresource", function(measuresresour
 services.factory("countriesservice", ["countriesresource", "$q", "$log", function(countriesresource, $q, $log) {
 	
 	function CountriesService() {
-		this.selected = null;
-		
-		this.toggleSelection = function(country) {
-			this.selected = country.code;
-		};
-		
-		this.isSelected = function(country) {
-			return this.selected === country.code;
-		};
 		
 		this.list = function() {
 			return countriesresource.query();
@@ -123,19 +114,9 @@ services.factory("countriesservice", ["countriesresource", "$q", "$log", functio
 	
 }]);
 
-services.factory("entitiesservice", ["entitiesresource", "$q", "$log", function(entitiesresource, $q, $log) {
+services.factory("entitiesservice", ["entitiesresource", "$q", function(entitiesresource, $q) {
 	
 	function EntitiesService() {
-		this.selected = null;
-		
-		this.toggleSelection = function(entity) {
-			$log.info("toggleSelection "+entity.acronym);
-			this.selected = entity.acronym;
-		};
-		
-		this.isSelected = function(entity) {
-			return this.selected === entity.acronym;
-		};
 		
 		this.list = function() {
 			return entitiesresource.query();
@@ -196,18 +177,28 @@ services.factory("searchservice", ["searchresource",  function(searchresource) {
 
 
 
-services.factory("pathservice", [function() {
+services.factory("routingservice", ["paths", "$location", "$window", "$log", function(paths, $location, $window, $log) {
 	
-	function PathService() {
+	function RoutingService() {
 		
-		this.decode = function(param) {
-			return param.split(",");
+		this.toAll = function(type) {
+		  var hash = paths[type].all;
+		  $log.info("show "+type+" routing to "+hash);
+		  $location.path(hash);
 		};
 		
-		this.encode = function(ids) {
-			return ids.join(",");
+		this.toSingle = function(type, item) {
+			var id = paths[type].id(item);
+			var hash = paths[type].all+"/"+id;
+			$log.info("show "+type+" with id "+id+" routing to "+hash);
+			$location.path(hash);
+		};
+		
+		this.goBack = function() {
+		  $log.info("go back");
+		  $window.history.back();
 		};
 	}
-	return new PathService();
+	return new RoutingService();
 	
 }]);

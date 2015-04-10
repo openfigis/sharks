@@ -37,7 +37,7 @@
             <li>
             <b>Document Type</b>:{{ctrl.measure.documentTyper}}
             </li>     
-            <li>
+            <li ng-click="ctrl.showEntity(ctrl.measure.mgmtEntity)" class="pointer">
             <b>Management Entity</b>:{{ctrl.measure.mgmtEntity.acronym}}
             </li>                  
           </ul>
@@ -87,7 +87,7 @@
             </tr>
           </thead>
           <tbody>
-          <tr ng-repeat="species in ctrl.measure.species"  class="pointer" ng-click="ctrl.goSpecies(species)">
+          <tr ng-repeat="species in ctrl.measure.species"  class="pointer" ng-click="ctrl.showSpecies(species)">
             <td>{{species.alphaCode}}</td>
             <td>{{species.scientificName}}</td>
             <td>{{species.nameEn}}</td>

@@ -8,13 +8,17 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("EntityDetailsCtrl", ["$log", "$location", "entity", "measures", "countries",
-                                          function ($log, $location, entity, measures, countries) {
+  .controller("EntityDetailsCtrl", ["routingservice", "entity", "measures", "countries",
+                                          function (routingservice, entity, measures, countries) {
 	  this.entity = entity;
 	  this.measures = measures;
 	  this.countries = countries;
 	  
 	  this.back = function() {
-		  $location.path("/entities");
+		routingservice.goBack();
+	  };
+	  
+	  this.showMeasure = function(measure) {
+		routingservice.toSingle("measures", measure);  
 	  };
   }]);

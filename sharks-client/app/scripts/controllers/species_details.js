@@ -8,16 +8,16 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SpeciesDetailsCtrl", ["$log", "$location", "ems", "species", 
-                                          function ($log, $location, ems, species) {
+  .controller("SpeciesDetailsCtrl", ["routingservice", "ems", "species", 
+                                          function (routingservice, ems, species) {
 	  this.species = species;
 	  this.ems = ems;
 	  
 	  this.back = function() {
-		  $location.path("/species");
+		  routingservice.goBack();
 	  };
 	  
 	  this.goMeasure = function(measure) {
-		  $location.path("measures/"+measure.id);
+		  routingservice.toSingle("measures",measure);
 	  };
   }]);
