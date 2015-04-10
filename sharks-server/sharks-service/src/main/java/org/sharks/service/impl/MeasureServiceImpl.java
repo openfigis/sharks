@@ -33,8 +33,8 @@ public class MeasureServiceImpl implements MeasureService {
 	}
 
 	@Override
-	public MeasureEntry get(String code) {
-		return toEntry(dao.get(code));
+	public Measure get(String code) {
+		return dao.get(code);
 	}
 	
 	private MeasureEntry toEntry(Measure measure) {

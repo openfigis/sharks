@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import org.sharks.service.MeasureService;
 import org.sharks.service.dto.EntityMeasures;
 import org.sharks.service.dto.MeasureEntry;
+import org.sharks.storage.domain.Measure;
 
 
 /**
@@ -36,7 +37,7 @@ public class MeasureResource {
 	@GET
 	@Path("{measure}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public MeasureEntry get(@PathParam("measure") String id) {
+	public Measure get(@PathParam("measure") String id) {
 		return service.get(id);
 	}
 	
