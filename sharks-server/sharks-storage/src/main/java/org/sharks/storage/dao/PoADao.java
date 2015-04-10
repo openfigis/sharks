@@ -21,7 +21,7 @@ import org.sharks.storage.domain.Species;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class PoADao extends AbstractDao<PoA, String> {
+public class PoADao extends AbstractDao<PoA, Long> {
 
 	@Inject
 	public PoADao(EntityManagerFactory emf) {

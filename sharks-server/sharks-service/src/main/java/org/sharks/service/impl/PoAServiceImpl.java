@@ -40,4 +40,9 @@ public class PoAServiceImpl implements PoAService {
 				poa.getPoAType(),
 				poa.getStatus());
 	}
+
+	@Override
+	public PoA get(Long code) {
+		return dao.get(code);
+	}
 }
