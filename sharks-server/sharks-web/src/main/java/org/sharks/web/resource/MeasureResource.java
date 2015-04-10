@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.MeasureService;
 import org.sharks.service.dto.EntityMeasures;
-import org.sharks.service.dto.MeasureDetails;
+import org.sharks.service.dto.MeasureEntry;
 
 
 /**
@@ -29,14 +29,14 @@ public class MeasureResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<MeasureDetails> list() {
+	public List<MeasureEntry> list() {
 		return service.list();
 	}
 	
 	@GET
 	@Path("{measure}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public MeasureDetails get(@PathParam("measure") String id) {
+	public MeasureEntry get(@PathParam("measure") String id) {
 		return service.get(id);
 	}
 	

@@ -9,7 +9,7 @@ import javax.inject.Inject;
 
 import org.sharks.service.CountryComplementService;
 import org.sharks.service.CountryService;
-import org.sharks.service.dto.CountryDetails;
+import org.sharks.service.dto.CountryEntry;
 import org.sharks.storage.dao.CountryDao;
 import org.sharks.storage.domain.Country;
 
@@ -26,7 +26,7 @@ public class CountryServiceImp implements CountryService {
 	private CountryComplementService complementService;
 
 	@Override
-	public List<CountryDetails> list(boolean onyWithPoas) {
+	public List<CountryEntry> list(boolean onyWithPoas) {
 		List<Country> countries = onyWithPoas?dao.listWithPoAs():dao.list();
 		return complementService.complement(countries);
 	}

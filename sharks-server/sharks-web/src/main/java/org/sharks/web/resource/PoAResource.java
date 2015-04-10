@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.PoAService;
-import org.sharks.service.dto.PoADetails;
+import org.sharks.service.dto.PoAEntry;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -25,7 +25,7 @@ public class PoAResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<PoADetails> list() {
+	public List<PoAEntry> list() {
 		return service.list();
 	}
 

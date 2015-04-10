@@ -20,6 +20,6 @@ import org.sharks.storage.domain.MgmtEntity;
 public class EntityMeasures {
 	
 	private final MgmtEntity entity;
-	private final List<MeasureDetails> measures;
+	private final List<MeasureEntry> measures;
 	
 }

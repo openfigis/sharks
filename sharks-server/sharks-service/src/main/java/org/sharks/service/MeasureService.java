@@ -6,7 +6,7 @@ package org.sharks.service;
 import java.util.List;
 
 import org.sharks.service.dto.EntityMeasures;
-import org.sharks.service.dto.MeasureDetails;
+import org.sharks.service.dto.MeasureEntry;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -14,12 +14,12 @@ import org.sharks.service.dto.MeasureDetails;
  */
 public interface MeasureService {
 
-	List<MeasureDetails> list();
+	List<MeasureEntry> list();
 
-	MeasureDetails get(String code);
+	MeasureEntry get(String code);
 	
 	List<EntityMeasures> measuresForSpeciesByEntity(List<String> speciesAlphaCodes);
 	
-	List<MeasureDetails> measuresForManagementEntity(String acronym);
+	List<MeasureEntry> measuresForManagementEntity(String acronym);
 	
 }

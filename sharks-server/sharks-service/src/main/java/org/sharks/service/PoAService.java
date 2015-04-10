@@ -5,7 +5,7 @@ package org.sharks.service;
 
 import java.util.List;
 
-import org.sharks.service.dto.PoADetails;
+import org.sharks.service.dto.PoAEntry;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -13,8 +13,8 @@ import org.sharks.service.dto.PoADetails;
  */
 public interface PoAService {
 
-	List<PoADetails> poasForCountry(String countryCode);
+	List<PoAEntry> poasForCountry(String countryCode);
 
-	List<PoADetails> list();
+	List<PoAEntry> list();
 	
 }

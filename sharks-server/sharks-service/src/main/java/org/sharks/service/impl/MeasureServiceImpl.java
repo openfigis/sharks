@@ -13,7 +13,7 @@ import javax.inject.Inject;
 
 import org.sharks.service.MeasureService;
 import org.sharks.service.dto.EntityMeasures;
-import org.sharks.service.dto.MeasureDetails;
+import org.sharks.service.dto.MeasureEntry;
 import org.sharks.storage.dao.MeasureDao;
 import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.MgmtEntity;
@@ -28,18 +28,18 @@ public class MeasureServiceImpl implements MeasureService {
 	private MeasureDao dao;
 
 	@Override
-	public List<MeasureDetails> list() {
-		return dao.list().stream().map(m->toDetails(m)).collect(Collectors.toList());
+	public List<MeasureEntry> list() {
+		return dao.list().stream().map(m->toEntry(m)).collect(Collectors.toList());
 	}
 
 	@Override
-	public MeasureDetails get(String code) {
-		return toDetails(dao.get(code));
+	public MeasureEntry get(String code) {
+		return toEntry(dao.get(code));
 	}
 	
-	private MeasureDetails toDetails(Measure measure) {
+	private MeasureEntry toEntry(Measure measure) {
 		if (measure == null) return null;
-		return new MeasureDetails(measure.getCode(), 
+		return new MeasureEntry(measure.getCode(), 
 				measure.getSymbol(), 
 				measure.getTitle(), 
 				measure.getMeasureYear(), 
@@ -61,10 +61,10 @@ public class MeasureServiceImpl implements MeasureService {
 						//group by entity
 						Collectors.groupingBy(Measure::getMgmtEntity,
 								//map Measure to MeasureDetails
-								Collectors.mapping(m->toDetails(m), Collectors.toList())
+								Collectors.mapping(m->toEntry(m), Collectors.toList())
 				)).entrySet().stream()
 				//map entry to EntityMeasures
-				.map((Entry<MgmtEntity, List<MeasureDetails>> e) -> new EntityMeasures(e.getKey(), e.getValue()))
+				.map((Entry<MgmtEntity, List<MeasureEntry>> e) -> new EntityMeasures(e.getKey(), e.getValue()))
 				.collect(Collectors.toList());
 
 		
@@ -72,8 +72,8 @@ public class MeasureServiceImpl implements MeasureService {
 	}
 
 	@Override
-	public List<MeasureDetails> measuresForManagementEntity(String acronym) {
-		return dao.allRelatedToManagementEntityAcronym(acronym) .stream().map(m->toDetails(m)).collect(Collectors.toList());
+	public List<MeasureEntry> measuresForManagementEntity(String acronym) {
+		return dao.allRelatedToManagementEntityAcronym(acronym) .stream().map(m->toEntry(m)).collect(Collectors.toList());
 	}
 
 }

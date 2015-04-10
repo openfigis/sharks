@@ -9,6 +9,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import org.sharks.storage.domain.PoAType;
+import org.sharks.storage.domain.Status;
+
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
@@ -17,10 +20,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EntityDetails {
-	
-	private long id;
-	private String acronym;
-	private String name;
+public class PoAEntry {
 
+    private Long code;
+    private String title;
+    private Integer poAYear;
+    private PoAType poAType;
+    private Status status;
+	
 }

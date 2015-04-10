@@ -12,8 +12,8 @@ import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.ManagementEntityService;
 import org.sharks.service.MeasureService;
-import org.sharks.service.dto.EntityDetails;
-import org.sharks.service.dto.MeasureDetails;
+import org.sharks.service.dto.EntityEntry;
+import org.sharks.service.dto.MeasureEntry;
 import org.sharks.storage.domain.Country;
 
 /**
@@ -32,14 +32,14 @@ public class ManagementEntityResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<EntityDetails> list() {
+	public List<EntityEntry> list() {
 		return service.list();
 	}
 	
 	@GET
 	@Path("{acronym}/measures")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<MeasureDetails> getMeasures(@PathParam("acronym") String acronym) {
+	public List<MeasureEntry> getMeasures(@PathParam("acronym") String acronym) {
 		return measureService.measuresForManagementEntity(acronym);
 	}
 	

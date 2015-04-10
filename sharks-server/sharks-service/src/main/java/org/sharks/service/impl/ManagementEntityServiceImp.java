@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import javax.inject.Inject;
 
 import org.sharks.service.ManagementEntityService;
-import org.sharks.service.dto.EntityDetails;
+import org.sharks.service.dto.EntityEntry;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.domain.Country;
 import org.sharks.storage.domain.MgmtEntity;
@@ -25,13 +25,13 @@ public class ManagementEntityServiceImp implements ManagementEntityService {
 	private ManagementEntityDao dao;
 
 	@Override
-	public List<EntityDetails> list() {
-		return dao.list().stream().map(e->toDetails(e)).collect(Collectors.toList());
+	public List<EntityEntry> list() {
+		return dao.list().stream().map(e->toEntry(e)).collect(Collectors.toList());
 	}
 	
-	private EntityDetails toDetails(MgmtEntity entity) {
+	private EntityEntry toEntry(MgmtEntity entity) {
 		if (entity == null) return null;
-		return new EntityDetails(entity.getCode(), 
+		return new EntityEntry(entity.getCode(), 
 				entity.getAcronym(), 
 				entity.getMgmtEntityName());
 	}
@@ -42,7 +42,7 @@ public class ManagementEntityServiceImp implements ManagementEntityService {
 	}
 
 	@Override
-	public List<EntityDetails> getEntitiesForCountry(String countryCode) {
+	public List<EntityEntry> getEntitiesForCountry(String countryCode) {
 		return Collections.emptyList();
 	}
 

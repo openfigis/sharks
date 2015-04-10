@@ -3,15 +3,11 @@
  */
 package org.sharks.service.dto;
 
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import org.sharks.storage.domain.InformationSource;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -21,12 +17,10 @@ import org.sharks.storage.domain.InformationSource;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MeasureDetails {
-
-	private long id;
-	private String symbol;
-	private String title;
-	private Integer year;
-	private List<InformationSource> sources;
+public class EntityEntry {
 	
+	private long id;
+	private String acronym;
+	private String name;
+
 }

@@ -3,14 +3,15 @@
  */
 package org.sharks.service.dto;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.sharks.storage.domain.PoAType;
-import org.sharks.storage.domain.Status;
+import org.sharks.storage.domain.InformationSource;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -20,12 +21,12 @@ import org.sharks.storage.domain.Status;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PoADetails {
+public class MeasureEntry {
 
-    private Long code;
-    private String title;
-    private Integer poAYear;
-    private PoAType poAType;
-    private Status status;
+	private long id;
+	private String symbol;
+	private String title;
+	private Integer year;
+	private List<InformationSource> sources;
 	
 }

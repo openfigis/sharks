@@ -5,7 +5,7 @@ package org.sharks.service;
 
 import java.util.List;
 
-import org.sharks.service.dto.EntityDetails;
+import org.sharks.service.dto.EntityEntry;
 import org.sharks.storage.domain.Country;
 
 /**
@@ -14,9 +14,9 @@ import org.sharks.storage.domain.Country;
  */
 public interface ManagementEntityService {
 	
-	List<EntityDetails> list();
+	List<EntityEntry> list();
 	
 	List<Country> getCountries(String acronym);
 	
-	List<EntityDetails> getEntitiesForCountry(String countryCode);
+	List<EntityEntry> getEntitiesForCountry(String countryCode);
 }

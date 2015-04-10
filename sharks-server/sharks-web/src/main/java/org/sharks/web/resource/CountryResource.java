@@ -15,9 +15,9 @@ import javax.ws.rs.core.MediaType;
 import org.sharks.service.CountryService;
 import org.sharks.service.ManagementEntityService;
 import org.sharks.service.PoAService;
-import org.sharks.service.dto.CountryDetails;
-import org.sharks.service.dto.EntityDetails;
-import org.sharks.service.dto.PoADetails;
+import org.sharks.service.dto.CountryEntry;
+import org.sharks.service.dto.EntityEntry;
+import org.sharks.service.dto.PoAEntry;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -38,7 +38,7 @@ public class CountryResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<CountryDetails> list(@DefaultValue("false") @QueryParam("onlyWithPoAs") String onlyWithPoAs) {
+	public List<CountryEntry> list(@DefaultValue("false") @QueryParam("onlyWithPoAs") String onlyWithPoAs) {
 		boolean onlyWithPoAsFlag = Boolean.parseBoolean(onlyWithPoAs);
 		return service.list(onlyWithPoAsFlag);
 	}
@@ -46,14 +46,14 @@ public class CountryResource {
 	@GET
 	@Path("{code}/poas")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<PoADetails> getPoAs(@PathParam("code") String code) {
+	public List<PoAEntry> getPoAs(@PathParam("code") String code) {
 		return poaService.poasForCountry(code);
 	}
 	
 	@GET
 	@Path("{code}/entities")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<EntityDetails> getEntities(@PathParam("code") String code) {
+	public List<EntityEntry> getEntities(@PathParam("code") String code) {
 		return entityService.getEntitiesForCountry(code);
 	}
 
