@@ -24,7 +24,7 @@
           <tbody>
           <tr ng-repeat="measure in em.measures">
             <td>{{measure.symbol}}</td>
-            <td>{{measure.title}}</td>
+            <td ng-click="ctrl.goMeasure(measure)" class="pointer">{{measure.title}}</td>
             <td>{{measure.year}}</td>
             <td>
               <ul>

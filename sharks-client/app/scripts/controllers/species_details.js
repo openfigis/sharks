@@ -16,4 +16,8 @@ angular.module("sharksClient")
 	  this.back = function() {
 		  $location.path("/species");
 	  };
+	  
+	  this.goMeasure = function(measure) {
+		  $location.path("measures/"+measure.id);
+	  };
   }]);

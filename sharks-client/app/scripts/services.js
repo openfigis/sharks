@@ -48,6 +48,10 @@ services.factory("measuresservice", ["measuresresource", function(measuresresour
 		this.listGrouppedByEntity = function(alphaCode) {
 			return measuresresource.groupByEntity({speciesAlphaCodes:[alphaCode]});
 		};
+		
+		this.get = function(code) {
+			return measuresresource.query({id:code});
+		};
 	}
 	return new MeasuresService();
 	

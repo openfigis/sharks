@@ -5,7 +5,7 @@
   <ul class="list-group">
       <li class="list-group-item" 
 
-       ng-class="{'active':ctrl.isSelected(entity)}"
+       ng-class="{'active':ctrl.isSelected(entity)} pointer"
              ng-repeat="entity in ctrl.entities" 
       ng-click="ctrl.toggle(entity)">
        {{entity.acronym}} - {{entity.name}}

@@ -112,6 +112,17 @@ angular
         controllerAs: "ctrl"
       })
       
+      .when("/measures/:measure", {
+        templateUrl: "views/measure_details.html",
+        controller: "MeasureDetailsCtrl",
+        controllerAs: "ctrl",
+        resolve: {
+        	measure : function($route, measuresservice) {
+        		return measuresservice.get($route.current.params.measure);
+        	}
+        }
+      })
+      
       .otherwise({
         redirectTo: "/species"
       });
