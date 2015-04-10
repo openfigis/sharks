@@ -24,7 +24,7 @@
             </tr>
           </thead>
           <tbody>
-          <tr ng-repeat="poa in poas">
+          <tr ng-repeat="poa in poas" ng-click="ctrl.showPoa(poa)" class="pointer">
             <td>{{poa.title}}</td>
             <td>{{poa.poAYear}}</td>
             <td>{{poa.status.description}}</td>

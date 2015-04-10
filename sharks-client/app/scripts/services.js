@@ -163,6 +163,18 @@ services.factory("entitiesservice", ["entitiesresource", "$q", function(entities
 	
 }]);
 
+services.factory("poasservice", ["poasresource", function(poasresource) {
+	
+	function PoaService() {
+		
+		this.get = function(code) {
+			return poasresource.query({code:code});
+		};
+	}
+	return new PoaService();
+	
+}]);
+
 services.factory("searchservice", ["searchresource",  function(searchresource) {
 	
 	function SearchService() {

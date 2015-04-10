@@ -35,6 +35,11 @@ angular
 					all:"/measures",
 					single:"/measures/:id",
 					id: function(measure) {return measure.id;}
+				},
+				poas: {
+					all:"/poas",
+					single:"/poas/:code",
+					id: function(poa) {return poa.code;}
 				}
   })
   .config(function ($routeProvider, paths) {
@@ -141,6 +146,17 @@ angular
         resolve: {
         	measure : function($route, measuresservice) {
         		return measuresservice.get($route.current.params.id);
+        	}
+        }
+      })
+      
+      .when(paths.poas.single, {
+        templateUrl: "views/poa_details.html",
+        controller: "PoaDetailsCtrl",
+        controllerAs: "ctrl",
+        resolve: {
+        	poa : function($route, poasservice) {
+        		return poasservice.get($route.current.params.code);
         	}
         }
       })

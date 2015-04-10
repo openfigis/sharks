@@ -14,5 +14,6 @@ angular.module("sharksClient")
 	  
 	  this.showItem = function(item) {
 		  if (item.documentType[0] === "Measure") routingservice.toSingleById("measures", item.id);
+		  if (item.documentType[0] === "PoA") routingservice.toSingleById("poas", item.id);
 	  };
   }]);

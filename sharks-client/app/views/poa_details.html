@@ -1,0 +1,83 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Measure details</div>
+  <div class="panel-body">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <ul>
+            <li>
+            <b>Title</b>: {{ctrl.poa.title}}
+            </li>
+            <li>
+            <b>Year</b>: {{ctrl.poa.poAYear}}
+            </li>
+            <li>
+            <b>Type</b>: {{ctrl.poa.poAType.description}}
+            </li>
+            <li>
+            <b>Status</b>: {{ctrl.poa.status.description}}
+            </li>
+            <li ng-click="ctrl.showEntity(ctrl.poa.mgmtEntity)" class="pointer">
+            <b>Management Entity</b>: {{ctrl.poa.mgmtEntity.acronym}}
+            </li>             
+          </ul>
+        </div>
+      </div>
+     
+      <div class="panel panel-default">
+        <div class="panel-heading">Sources:</div>
+        <div class="panel-body">
+         <table class="table">
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Title</th><th>Citation</th><th>Year</th><th>Abstract</th><th>Note</th><th>Publisher</th><th>Information Type</th><th>Entity</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="source in ctrl.poa.informationSources">
+            <td>{{source.symbol}}</td>
+            <td><a href="{{source.url}}">{{source.title}}</a></td>
+            <td>{{source.citation}}</td>
+            <td>{{source.infoSrcYear}}</td>
+            <td>{{source.abstractField}}</td>
+            <td>{{source.node}}</td>
+            <td>{{source.publisher}}</td>
+            <td>{{source.informationType.description}}</td>
+            <td>{{source.mgmtEntity}}</td>
+          </tr>
+          
+          </tbody>
+	     </table>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-if="ctrl.poa.countries.length!=0">
+        <div class="panel-heading">Related countries:</div>
+        <div class="panel-body">
+         <table class="table">
+          <thead>
+            <tr>
+              <th>Code</th><th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="country in ctrl.poa.countries"  class="pointer" ng-click="ctrl.showCountry(country)">
+            <td>{{country.code}}</td>
+            <td>{{country.unName}}</td>
+          </tr>
+          
+          </tbody>
+       </table>
+        </div>
+      </div>
+      
+      
+  </div>
+
+
+  
+     <div class="panel-footer">
+      <input class="btn btn-default pull-right" type="button" value="Back" ng-click="ctrl.back()" >
+      <div class="clearfix"></div>
+     </div>
+
+</div>

@@ -17,4 +17,8 @@ angular.module("sharksClient")
 	  this.back = function() {
 		  routingservice.goBack();
 	  };
+	  
+	  this.showPoa = function(poa) {
+		routingservice.toSingle("poas", poa);  
+	  };
   }]);

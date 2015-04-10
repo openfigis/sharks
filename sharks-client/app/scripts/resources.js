@@ -31,6 +31,12 @@ services.factory("entitiesresource", ["$resource", "rest", function($resource, r
 	});
 }]);
 
+services.factory("poasresource", ["$resource", "rest", function($resource, rest) {
+	return $resource(rest.baseUrl + "poa/:code/", null, {
+		query: {method: "GET", cache: true}
+	});
+}]);
+
 services.factory("searchresource", ["$resource", "solr", function($resource, solr) {
 	return $resource(solr.baseUrl + "select", null, {
 		query: {method: "JSONP", cache: true, params: {wt:"json", "json.wrf": "JSON_CALLBACK"}},
