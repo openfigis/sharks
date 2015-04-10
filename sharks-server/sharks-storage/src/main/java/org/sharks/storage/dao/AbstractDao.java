@@ -16,7 +16,7 @@ import javax.persistence.criteria.Root;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public abstract class AbstractDao<T> {
+public abstract class AbstractDao<T, I> {
 	
 	protected EntityManagerFactory emf;
 	
@@ -38,7 +38,7 @@ public abstract class AbstractDao<T> {
 		return query.getResultList();
 	}
 
-	public T get(String code) {
+	public T get(I code) {
 		EntityManager em = emf.createEntityManager();
 		return em.find(type, code);
 	}

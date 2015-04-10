@@ -37,7 +37,7 @@ public class MeasureResource {
 	@GET
 	@Path("{measure}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Measure get(@PathParam("measure") String id) {
+	public Measure get(@PathParam("measure") Long id) {
 		return service.get(id);
 	}
 	

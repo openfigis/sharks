@@ -23,7 +23,7 @@ import org.sharks.storage.domain.PoA;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class CountryDao extends AbstractDao<Country> {
+public class CountryDao extends AbstractDao<Country, String> {
 
 	@Inject
 	public CountryDao(EntityManagerFactory emf) {

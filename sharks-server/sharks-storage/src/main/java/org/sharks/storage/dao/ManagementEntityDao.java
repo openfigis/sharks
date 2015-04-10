@@ -17,7 +17,7 @@ import org.sharks.storage.domain.MgmtEntity;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class ManagementEntityDao extends AbstractDao<MgmtEntity> {
+public class ManagementEntityDao extends AbstractDao<MgmtEntity, String> {
 
 	@Inject
 	public ManagementEntityDao(EntityManagerFactory emf) {

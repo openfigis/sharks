@@ -33,7 +33,7 @@ public class MeasureServiceImpl implements MeasureService {
 	}
 
 	@Override
-	public Measure get(String code) {
+	public Measure get(Long code) {
 		return dao.get(code);
 	}
 	

@@ -22,7 +22,7 @@ import org.sharks.storage.domain.Species;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class SpeciesDao extends AbstractDao<Species> {
+public class SpeciesDao extends AbstractDao<Species, String> {
 
 	@Inject
 	public SpeciesDao(EntityManagerFactory emf) {
