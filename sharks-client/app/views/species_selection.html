@@ -1,20 +1,10 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Select one or more species:</div>
+  <div class="panel-heading">Select a species:</div>
 
   <!-- List group -->
   <ul class="list-group">
-      <li class="list-group-item" 
-       ng-class="{'active':ctrl.isSelected(sp)}"
-      ng-repeat="sp in ctrl.species" 
-      ng-click="ctrl.toggle(sp)">
-       {{sp.alphaCode}} - {{sp.scientificName}} - {{sp.nameEn}}
+    <li class="list-group-item" ng-repeat="sp in ctrl.species" ng-click="ctrl.show(sp)">
+      {{sp.alphaCode}} - {{sp.scientificName}} - {{sp.nameEn}}
     </li>
   </ul>
-  
-   <div class="panel-footer">
-    <input class="btn btn-default pull-right" type="button" value="View selected" ng-disabled="ctrl.selected.length === 0" 
-    ng-click="ctrl.showSpecies()">
-    <div class="clearfix"></div>
-   </div>
-  
 </div>

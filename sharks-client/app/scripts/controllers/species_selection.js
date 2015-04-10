@@ -8,16 +8,12 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SpeciesSelectionCtrl", ["speciesservice", "pathservice", "$log", "$location", "species", function (speciesservice, pathservice, $log, $location, species) {
-	  this.selected = speciesservice.selected;
-	  this.toggle = speciesservice.toggleSelection;
-	  this.isSelected = speciesservice.isSelected;
-	  
+  .controller("SpeciesSelectionCtrl", ["$log", "$location", "species", function ($log, $location, species) {
 	  this.species = species;
-
-	  this.showSpecies = function() {
-		  var hash = "/species/"+pathservice.encode(this.selected);
-		  $log.info("showSpecies: "+this.selected+ " routing to "+hash);
+	  $log.info("found "+species+" species");
+	  this.show = function(species) {
+		  var hash = "/species/"+species.alphaCode;
+		  $log.info("show species: "+species+ " routing to "+hash);
 		  $location.path(hash);
 	  };
   }]);

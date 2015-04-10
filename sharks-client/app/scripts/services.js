@@ -6,20 +6,21 @@ var services = angular.module("services", ["resources"]);
 services.factory("speciesservice", ["speciesresource", "$q", function(speciesresource, $q) {
 	
 	function SpeciesService() {
-		this.selected = [];
-		
-		this.toggleSelection = function(species) {
-			var index = this.selected.indexOf(species.alphaCode);
-			if (index < 0) this.selected.push(species.alphaCode);
-			else this.selected.splice(index, 1);
-		};
-		
-		this.isSelected = function(species) {
-			return this.selected.indexOf(species.alphaCode)>=0;
-		};
 		
 		this.list = function() {
 			return speciesresource.query();
+		};
+		
+		this.get = function(alphaCode) {
+			var deferred = $q.defer();
+			speciesresource.query().$promise.then(function(species) {
+				for (var i = 0; i < species.length; i++) {
+				    if (alphaCode.indexOf(species[i].alphaCode) >= 0) deferred.resolve(species[i]);
+				}
+				deferred.reject("alphaCode "+alphaCode+" not found");
+            });
+			
+			return deferred.promise;
 		};
 		
 		this.getAll = function(alphaCodes) {
@@ -44,8 +45,8 @@ services.factory("measuresservice", ["measuresresource", function(measuresresour
 	
 	function MeasuresService() {
 		
-		this.listGrouppedByEntity = function(alphaCodes) {
-			return measuresresource.groupByEntity({speciesAlphaCodes:alphaCodes});
+		this.listGrouppedByEntity = function(alphaCode) {
+			return measuresresource.groupByEntity({speciesAlphaCodes:[alphaCode]});
 		};
 	}
 	return new MeasuresService();
