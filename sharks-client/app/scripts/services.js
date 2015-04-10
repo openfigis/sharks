@@ -187,11 +187,15 @@ services.factory("routingservice", ["paths", "$location", "$window", "$log", fun
 		  $location.path(hash);
 		};
 		
-		this.toSingle = function(type, item) {
-			var id = paths[type].id(item);
+		this.toSingleById = function(type, id) {
 			var hash = paths[type].all+"/"+id;
 			$log.info("show "+type+" with id "+id+" routing to "+hash);
 			$location.path(hash);
+		};
+		
+		this.toSingle = function(type, item) {
+			var id = paths[type].id(item);
+			this.toSingleById(type,id);
 		};
 		
 		this.goBack = function() {

@@ -1,6 +1,6 @@
 <input type="text" class="form-control" placeholder="Search" 
 ng-model="ctrl.searchValue" 
-ng-model-options="{ debounce: 1000 }"
+ng-model-options="{ debounce: 200 }"
 ng-change="ctrl.search()"
 >
 
@@ -9,11 +9,10 @@ ng-change="ctrl.search()"
   <div class="panel-heading">Results</div>
   <div class="panel-body">
 
-<div class="panel panel-default" ng-repeat="doc in ctrl.searchResults">
+<div class="panel panel-default pointer" ng-repeat="doc in ctrl.searchResults" ng-click="ctrl.showItem(doc)">
         <div class="panel-heading">{{doc.title[0]}}</div>
         <div class="panel-body">
          {{doc.description[0]}}
-       </table>
         </div>
       </div>
     
