@@ -9,12 +9,12 @@ ng-change="ctrl.search()"
   <div class="panel-heading">Results</div>
   <div class="panel-body">
 
-<div class="panel panel-default pointer" ng-repeat="doc in ctrl.searchResults" ng-click="ctrl.showItem(doc)">
-        <div class="panel-heading">{{doc.title[0]}}</div>
-        <div class="panel-body">
-         {{doc.description[0]}}
-        </div>
+    <div class="panel panel-default pointer" ng-repeat="doc in ctrl.searchResults" ng-click="ctrl.showItem(doc)">
+      <div class="panel-heading">{{doc.title[0]}}</div>
+      <div class="panel-body">
+       {{doc.description[0]}}
       </div>
+    </div>
     
     
     
