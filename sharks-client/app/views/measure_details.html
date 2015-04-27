@@ -14,12 +14,6 @@
             <b>Binding</b>: {{ctrl.measure.binding}}
             </li>
             <li>
-            <b>Reservation</b>: {{ctrl.measure.reservation}}
-            </li>
-            <li>
-            <b>Description</b>: {{ctrl.measure.description}}
-            </li>
-            <li>
             <b>Note</b>:{{ctrl.measure.note}}
             </li>
             <li>
@@ -59,7 +53,7 @@
          <table class="table">
           <thead>
             <tr>
-              <th>Symbol</th><th>Title</th><th>Citation</th><th>Year</th><th>Abstract</th><th>Note</th><th>Publisher</th><th>Information Type</th><th>Entity</th>
+              <th>Symbol</th><th>Title</th><th>Citation</th><th>Year</th><th>Author</th><th>Note</th><th>Publisher</th><th>Information Type</th><th>Entity</th>
             </tr>
           </thead>
           <tbody>
@@ -68,11 +62,11 @@
             <td><a href="{{source.url}}">{{source.title}}</a></td>
             <td>{{source.citation}}</td>
             <td>{{source.infoSrcYear}}</td>
-            <td>{{source.abstractField}}</td>
+            <td>{{source.author}}</td>
             <td>{{source.node}}</td>
             <td>{{source.publisher}}</td>
             <td>{{source.informationType.description}}</td>
-            <td>{{source.mgmtEntity}}</td>
+            <td class="pointer" ng-click="ctrl.showEntity(source.mgmtEntity)">{{source.mgmtEntity.acronym}}</td>
           </tr>
           
           </tbody>

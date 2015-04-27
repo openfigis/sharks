@@ -29,13 +29,13 @@ public class InformationSource {
     @Column
     private String title;
     @Column
+    private String author;
+    @Column
     private String url;
     @Column
     private String citation;
     @Column
     private Integer infoSrcYear;
-    @Column(name = "Abstract")
-    private String abstractField;
     @Column
     private String note;
     @Column

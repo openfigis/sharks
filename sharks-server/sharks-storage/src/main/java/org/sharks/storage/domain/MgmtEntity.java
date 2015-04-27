@@ -28,10 +28,11 @@ public class MgmtEntity {
     private String acronym;
     @Column
     private String mgmtEntityName;
-    @Column
-    private String urlWebPage;
     @OneToOne
     @JoinColumn(name = "cdMgmtEntityType")
     private MgmtEntityType mgmtEntityType;
+    @OneToOne
+    @JoinColumn(name = "cdGeoCoverage")
+    private GeoCoverageType geoCoverage;
 
 }

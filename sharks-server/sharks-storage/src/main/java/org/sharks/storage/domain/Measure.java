@@ -37,10 +37,6 @@ public class Measure {
     @Column(name = "fgBinding")
     private Boolean binding;
     @Column
-    private String reservation;
-    @Column
-    private String description;
-    @Column
     private String note;
     @Temporal(TemporalType.DATE)
     @Column(name = "dtAdoption")
