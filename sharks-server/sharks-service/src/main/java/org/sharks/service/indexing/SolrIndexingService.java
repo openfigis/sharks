@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.common.SolrInputDocument;
@@ -16,6 +18,7 @@ import org.apache.solr.common.SolrInputDocument;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
+@Slf4j
 public class SolrIndexingService implements IndexingService {
 	
 	private SolrClient solr;
@@ -56,10 +59,12 @@ public class SolrIndexingService implements IndexingService {
 	}
 	
 	public void deleteAllDocuments() {
+		log.trace("deleteAllDocuments");
 		try {
 			solr.deleteByQuery("*:*");
 			solr.commit();
 		} catch (Exception e) {
+			log.error("Failed deleting all indexed documents", e);
 			throw new RuntimeException("Failed deleting all documents", e);
 		}
 	}

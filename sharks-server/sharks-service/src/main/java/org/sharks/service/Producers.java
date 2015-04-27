@@ -48,7 +48,12 @@ public class Producers {
 		log.trace("providers:");
 		for (SolrDocumentProvider<?> provider:providers) log.trace("provider for {}",provider.getType().getSimpleName());
 		
-		return new SolrIndexingService(configuration.getSolrUrl(), providers);
+		try {
+			return new SolrIndexingService(configuration.getSolrUrl(), providers);
+		} catch(Exception e) {
+			log.error("Solar indexing service failed", e);
+			return null;
+		}
 	}
 
 }

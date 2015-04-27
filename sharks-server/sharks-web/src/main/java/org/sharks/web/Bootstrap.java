@@ -5,6 +5,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.sharks.service.ApplicationLifecycle;
 
 /**
@@ -12,6 +14,7 @@ import org.sharks.service.ApplicationLifecycle;
  *
  */
 @WebListener
+@Slf4j
 public class Bootstrap implements ServletContextListener {
 
 	@Inject
@@ -19,7 +22,13 @@ public class Bootstrap implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		app.start();
+		log.info("Application startup...");
+		try {
+			app.start();
+			log.info("Application startup complete");
+		}catch(Exception e) {
+			log.error("application initialization failed", e);
+		}
 	}
 
 	@Override
