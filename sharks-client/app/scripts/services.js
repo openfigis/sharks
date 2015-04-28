@@ -207,3 +207,21 @@ services.factory("routingservice", ["paths", "$location", "$window", "$log", fun
 	return new RoutingService();
 	
 }]);
+
+services.factory("imagesservice", [function() {
+	
+	function ImagesService() {
+		
+		this.speciesSmallImageUrl = function(species) {
+		  var sn = species.scientificName.toLowerCase().replace(" ", "_");
+		  return "images/species/"+sn+"-drawing-small.gif";  
+		};
+		
+		this.speciesMediumImageUrl = function(species) {
+		  var sn = species.scientificName.toLowerCase().replace(" ", "_");
+		  return "images/species/"+sn+"-drawing-medium.gif";  
+		};
+	}
+	return new ImagesService();
+	
+}]);

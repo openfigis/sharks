@@ -8,8 +8,8 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SpeciesDetailsCtrl", ["routingservice", "ems", "species", 
-                                          function (routingservice, ems, species) {
+  .controller("SpeciesDetailsCtrl", ["routingservice", "imagesservice", "ems", "species", 
+                                          function (routingservice, imagesservice, ems, species) {
 	  this.species = species;
 	  this.ems = ems;
 	  
@@ -20,4 +20,6 @@ angular.module("sharksClient")
 	  this.goMeasure = function(measure) {
 		  routingservice.toSingle("measures",measure);
 	  };
+	  
+	  this.imageUrl = imagesservice.speciesMediumImageUrl;
   }]);
