@@ -73,10 +73,8 @@
 
           <ul class="nav navbar-nav" ng-controller="NavigationBarCtrl as ctrl">
             <li ng-class="{ active: ctrl.isActive('/species')}"><a ng-href="#/species">Sharks SPP</a></li>
+            <li ng-class="{ active: ctrl.isActive('/entities')}"><a ng-href="#/entities">Entity</a></li>
             <li ng-class="{ active: ctrl.isActive('/countries')}"><a ng-href="#/countries">Countries</a></li>
-            <li ng-class="{ active: ctrl.isActive('/entities')}"><a ng-href="#/entities">Decisions &amp; Regulations</a></li>
-            <li ng-class="{ active: ctrl.isActive('/speciesid')}"><a ng-href="#/speciesid">Species ID</a></li>
-            <li ng-class="{ active: ctrl.isActive('/links')}"><a ng-href="#/links">Links</a></li>
             <li ng-class="{ active: ctrl.isActive('/search')}"><a ng-href="#/search">Search</a></li>
           </ul>
         </div>

@@ -122,16 +122,6 @@ angular
         }
       })
       
-      .when("/speciesid", {
-        templateUrl: "views/coming_soon.html",
-        controller: "ComingSoonCtrl"
-      })
-
-      .when("/links", {
-        templateUrl: "views/coming_soon.html",
-        controller: "ComingSoonCtrl"
-      })
-      
       .when("/search", {
         templateUrl: "views/search.html",
         controller: "SearchCtrl",
