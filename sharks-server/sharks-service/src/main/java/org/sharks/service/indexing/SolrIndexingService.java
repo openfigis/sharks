@@ -57,7 +57,8 @@ public class SolrIndexingService implements IndexingService {
 			throw new RuntimeException("Failed indexing documents", e);
 		}
 	}
-	
+
+	@Override
 	public void deleteAllDocuments() {
 		log.trace("deleteAllDocuments");
 		try {

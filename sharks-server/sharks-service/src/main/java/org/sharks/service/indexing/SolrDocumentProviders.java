@@ -24,8 +24,10 @@ public class SolrDocumentProviders {
 	public static final String TITLE_FIELD = "title";
 	public static final String DESCRIPTION_FIELD = "description";
 	public static final String TYPE_FIELD = "documentType";
+	
+	private SolrDocumentProviders() {}
 
-	public static SolrDocumentProvider<Measure> MEASURE = new SolrDocumentProvider<Measure>() {
+	public static final SolrDocumentProvider<Measure> MEASURE = new SolrDocumentProvider<Measure>() {
 
 		@Override
 		public Class<Measure> getType() {
@@ -44,7 +46,7 @@ public class SolrDocumentProviders {
 		}
 	};
 
-	public static SolrDocumentProvider<PoA> POA = new SolrDocumentProvider<PoA>() {
+	public static final SolrDocumentProvider<PoA> POA = new SolrDocumentProvider<PoA>() {
 
 		@Override
 		public Class<PoA> getType() {

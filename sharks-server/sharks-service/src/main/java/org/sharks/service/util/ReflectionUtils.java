@@ -68,6 +68,8 @@ public class ReflectionUtils {
 			throw new RuntimeException("Failed getting property value "+descriptor.getName(), e);
 		}
 	}
+	
+	private ReflectionUtils(){}
 
 
 }
