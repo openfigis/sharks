@@ -163,4 +163,16 @@ angular
       .otherwise({
         redirectTo: paths.species.all
       });
-  });
+  })
+  //missing images handling
+  .directive("errSrc", function() {
+  return {
+	    link: function(scope, element, attrs) {
+	      element.bind("error", function() {
+	        if (attrs.src !== attrs.errSrc) {
+	          attrs.$set("src", attrs.errSrc);
+	        }
+	      });
+	    }
+	  };
+	});
