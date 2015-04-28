@@ -22,7 +22,13 @@
             <td>{{measure.symbol}}</td>
             <td>{{measure.title}}</td>
             <td>{{measure.year}}</td>
-            <td>todo</td>
+            <td>
+              <ul>
+                <li ng-repeat="source in measure.sources">
+                  <a href="{{source.url}}">{{source.symbol}}</a>
+                </li>
+              </ul>
+            </td>
           </tr>
           
           </tbody>
