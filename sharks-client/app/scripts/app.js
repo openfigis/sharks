@@ -95,7 +95,6 @@ angular
         }
       })
       
-      
       .when(paths.entities.all, {
         templateUrl: "views/entities_selection.html",
         controller: "EntitiesSelectionCtrl",

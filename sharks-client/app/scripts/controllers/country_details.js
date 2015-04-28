@@ -21,4 +21,8 @@ angular.module("sharksClient")
 	  this.showPoa = function(poa) {
 		routingservice.toSingle("poas", poa);  
 	  };
+	  
+	  this.showEntity = function(acronym) {
+		routingservice.toSingleById("entities", acronym);  
+	  };
   }]);

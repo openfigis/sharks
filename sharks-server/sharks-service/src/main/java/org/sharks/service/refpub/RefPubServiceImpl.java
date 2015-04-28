@@ -8,10 +8,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-
-import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.rest.RefPubRestClient;
@@ -20,7 +17,6 @@ import org.sharks.service.refpub.rest.RefPubRestClient;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@Slf4j
 public class RefPubServiceImpl implements RefPubService {
 	
 	@Inject
@@ -28,13 +24,6 @@ public class RefPubServiceImpl implements RefPubService {
 	
 	@Inject
 	private RefPubCache cache;
-	
-	@PostConstruct
-	private void initCache() {
-		log.trace("init cache");
-		restClient.listAllCountries().forEach(country->cache.put(country));
-		log.trace("cache size {}", cache.size());
-	}
 
 	@Override
 	public RefPubCountry getCountry(String iso3Code) {

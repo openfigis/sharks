@@ -43,8 +43,8 @@
       <div class="panel-heading">List of RFBs</div>
         <div class="panel-body">
           <ul>
-          <li ng-repeat="entity in ctrl.entities">
-            {{entity.acronym}} - {{entity.name}}
+          <li ng-repeat="rfb in ctrl.country.rfbs" ng-click="ctrl.showEntity(rfb)" class="pointer">
+            {{rfb}}
           </li>
           </ul>
           <br>

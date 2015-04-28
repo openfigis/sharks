@@ -37,6 +37,11 @@ public class TestRefPubParsing {
 		assertNotNull(country.getMultilingualName().getArabic());
 		assertNotNull(country.getCodeList());
 		assertNotNull(country.getUnIso3Code());
+		
+		assertNotNull(country.getHierarchy());
+		
+		assertNotNull(country.getFisheryCommissions());
+		assertFalse(country.getFisheryCommissions().isEmpty());
 	}
 	
 	@Test

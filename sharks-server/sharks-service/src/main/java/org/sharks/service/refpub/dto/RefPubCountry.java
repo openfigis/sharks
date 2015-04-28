@@ -3,7 +3,9 @@
  */
 package org.sharks.service.refpub.dto;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -34,12 +36,27 @@ public class RefPubCountry {
 	@XmlElement
 	private Codes codeList;
 	
+	@XmlElement
+	private Hierarchy hierarchy;
+	
 	public Code getUnIso3Code() {
 		return findCode("UN-ISO3");
 	}
 	
 	private Code findCode(String name) {
 		return codeList.getCodes().stream().filter(code->code.getName().equals(name)).findFirst().orElse(null);
+	}
+	
+	public List<String> getFisheryCommissions() {
+		return findParents("Fishery commission").stream().map(parent -> parent.getMultilingualName().getEnglish()).collect(Collectors.toList());
+	}
+	
+	private List<Parent> findParents(String name) {
+		if (hierarchy == null 
+				|| hierarchy.getParents() == null 
+				|| hierarchy.getParents().getItems() == null 
+				|| hierarchy.getParents().getItems().isEmpty()) return Collections.emptyList();
+		return hierarchy.getParents().getItems().stream().filter(parent->parent.getType().equals(name)).collect(Collectors.toList());
 	}
 	
 	@Data
@@ -61,5 +78,41 @@ public class RefPubCountry {
 		
 		@XmlAttribute
 		private String concept;
+	}
+	
+	@Data
+	@XmlRootElement
+	@XmlAccessorType(XmlAccessType.NONE)
+	public static class Hierarchy {
+		
+		@XmlElement
+		private Parents parents;
+	}
+	
+	@Data
+	@XmlRootElement
+	@XmlAccessorType(XmlAccessType.NONE)
+	public static class Parents {
+		
+		@XmlElement(name="parent")
+		private List<Parent> items;
+	}
+	
+	@Data
+	@XmlRootElement
+	@XmlAccessorType(XmlAccessType.NONE)
+	public static class Parent {
+		
+		@XmlAttribute(name="type")
+		private String type;
+		
+		@XmlElement(name="multilingualName")
+		private MultiLingualName multilingualName;
+		
+		@XmlElement(name="multilingualLongName")
+		private MultiLingualName multilingualLongName;
+		
+		@XmlElement(name="multilingualOfficialName")
+		private MultiLingualName multilingualOfficialName;
 	}
 }

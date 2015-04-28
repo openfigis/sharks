@@ -57,12 +57,12 @@ services.factory("measuresservice", ["measuresresource", function(measuresresour
 	
 }]);
 
-services.factory("countriesservice", ["countriesresource", "$q", "$log", function(countriesresource, $q, $log) {
+services.factory("countriesservice", ["countriesresource", "$q", function(countriesresource, $q) {
 	
 	function CountriesService() {
 		
 		this.list = function() {
-			return countriesresource.query();
+			return countriesresource.list();
 		};
 		
 		this.poasGroupedByType = function(code) {
@@ -83,19 +83,8 @@ services.factory("countriesservice", ["countriesresource", "$q", "$log", functio
 		};
 		
 		this.get = function(code) {
-			var deferred = $q.defer();
-			$log.info("get "+code);
-			countriesresource.query().$promise.then(function(countries) {
-				var found = Stream(countries).filter(function (country) {
-				      return country.code === code;
-				   }).findFirst();
-				if (found.isPresent()) deferred.resolve(found.get());
-				deferred.reject("Country with code "+code+" not found");
-			});
-			
-			return deferred.promise;
+			return countriesresource.query({code:code});
 		};
-		
 		
 		this.getAll = function(codes) {
 			var deferred = $q.defer();

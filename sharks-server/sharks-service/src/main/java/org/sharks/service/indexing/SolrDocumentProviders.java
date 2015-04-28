@@ -39,7 +39,6 @@ public class SolrDocumentProviders {
 			document.addField(TYPE_FIELD, getType().getSimpleName());
 			document.addField(ID_FIELD, measure.getCode());
 			document.addField(TITLE_FIELD, measure.getTitle());
-			System.out.println("indexing "+measure.getTitle());
 			
 			return document;
 		}

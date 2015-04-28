@@ -6,8 +6,6 @@ package org.sharks.service.refpub.rest;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
@@ -15,7 +13,6 @@ import javax.xml.bind.Unmarshaller;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.service.refpub.dto.RefPubCountries;
-import org.sharks.service.refpub.dto.RefPubCountries.Link;
 import org.sharks.service.refpub.dto.RefPubCountry;
 
 /**
@@ -52,13 +49,16 @@ public class RefPubRestClient {
 		}
 	}
 
-	public List<RefPubCountry> listAllCountries() {
+	/*public List<RefPubCountry> listAllCountries() {
 		try {
 			List<RefPubCountry> countries = new ArrayList<RefPubCountry>();
 
 			String nextPageUrl = restUrl+"concept/Country/xml?page=1";
+
 			while(nextPageUrl!=null) {
 				URL pageUrl = new URL(nextPageUrl);
+				log.trace("getting first batch of countries from {} ", pageUrl);
+				
 				try (InputStream is = pageUrl.openStream()) {
 					RefPubCountries pageCountries =  (RefPubCountries) unmarshaller.unmarshal(is);
 
@@ -72,7 +72,7 @@ public class RefPubRestClient {
 		} catch(Exception e) {
 			throw new RefPubRestClientException("Error retrieving countries list", e);
 		}
-	}
+	}*/
 
 
 	//http://figisapps.fao.org/refpub-web/rest/concept/Country/codesystem/UN-ISO3/code/AFG/xml

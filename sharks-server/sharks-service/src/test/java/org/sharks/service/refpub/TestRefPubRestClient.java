@@ -1,11 +1,8 @@
 package org.sharks.service.refpub;
 
-import static org.junit.Assert.*;
-
-import java.util.List;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.rest.RefPubRestClient;
@@ -23,18 +20,12 @@ public class TestRefPubRestClient {
 		client = new RefPubRestClient("http://figisapps.fao.org/refpub-web/rest/");
 	}
 
-	@Test @Ignore
+	@Test 
 	public void testGetCountry() {
-		RefPubCountry country = client.getCountry("AFG");
+		RefPubCountry country = client.getCountry("ALB");
 		assertNotNull(country);
 		System.out.println(country);
-	}
-	
-	@Test @Ignore
-	public void testListAllCountries() {
-		List<RefPubCountry> countries = client.listAllCountries();
-		assertNotNull(countries);
-		System.out.println(countries.size());
+		System.out.println(country.getFisheryCommissions());
 	}
 
 }
