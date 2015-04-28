@@ -15,5 +15,5 @@ angular.module("sharksClient")
 	  };
 	  
 	  this.imageUrl = imagesservice.speciesSmallImageUrl;
-	  this.missingUrl = imagesservice.speciesMissingSmallImageUrl;
+	  this.missingImageUrl = imagesservice.speciesMissingSmallImageUrl;
   }]);

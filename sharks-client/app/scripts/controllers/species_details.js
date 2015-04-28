@@ -22,4 +22,5 @@ angular.module("sharksClient")
 	  };
 	  
 	  this.imageUrl = imagesservice.speciesMediumImageUrl;
+	  this.missingImageUrl = imagesservice.speciesMissingMediumImageUrl;
   }]);

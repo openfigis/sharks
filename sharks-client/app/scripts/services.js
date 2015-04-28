@@ -213,6 +213,7 @@ services.factory("imagesservice", [function() {
 	function ImagesService() {
 		
 		this.speciesMissingSmallImageUrl = "images/species/missing-small.gif";
+		this.speciesMissingMediumImageUrl = "images/species/missing-medium.gif";
 		
 		this.speciesSmallImageUrl = function(species) {
 		  var sn = species.scientificName.toLowerCase().replace(" ", "_");
