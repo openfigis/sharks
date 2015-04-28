@@ -1,10 +1,12 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Select a species:</div>
 
-  <!-- List group -->
-  <ul class="list-group">
-    <li class="list-group-item pointer" ng-repeat="sp in ctrl.species" ng-click="ctrl.show(sp)">
-      {{sp.alphaCode}} - {{sp.scientificName}} - {{sp.nameEn}}
-    </li>
-  </ul>
+<div class="row">
+  <div class="col-lg-4 col-sm-5 col-xs-7" ng-repeat="sp in ctrl.species" ng-click="ctrl.show(sp)">
+    <div class="thumbnail pointer">
+      <div style="height:70px; overflow:hidden;" class="vertical-align">
+        <img ng-src="{{ctrl.imageUrl(sp)}}" class="img-responsive center-block" >
+      </div>
+      <div>{{sp.scientificName}}</div>
+      <div>{{sp.nameEn}}</div>
+    </div>
+  </div>
 </div>
