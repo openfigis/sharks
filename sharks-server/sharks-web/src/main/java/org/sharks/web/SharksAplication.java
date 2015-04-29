@@ -27,6 +27,7 @@ public class SharksAplication extends ResourceConfig {
 		register(new GenericExceptionMapper());
         
         BeanConfig beanConfig = new BeanConfig();
+        beanConfig.setTitle("Sharks rest API documentation");
         beanConfig.setVersion("1.0.0");
         beanConfig.setSchemes(new String[]{"http"});
         beanConfig.setHost("localhost:8080");
