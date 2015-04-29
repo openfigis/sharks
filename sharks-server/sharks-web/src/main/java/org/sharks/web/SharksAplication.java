@@ -30,8 +30,8 @@ public class SharksAplication extends ResourceConfig {
         beanConfig.setTitle("Sharks rest API documentation");
         beanConfig.setVersion("1.0.0");
         beanConfig.setSchemes(new String[]{"http"});
-        beanConfig.setHost("localhost:8080");
-        beanConfig.setBasePath("/sharks-web/rest");
+        beanConfig.setHost("figisapps.fao.org");
+        beanConfig.setBasePath("/figis/sharks/rest");
         beanConfig.setResourcePackage("org.sharks.web.resource");
         beanConfig.setScan(true);
 	}
