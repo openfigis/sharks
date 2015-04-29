@@ -20,11 +20,15 @@ import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.PoAEntry;
 
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
 @ApplicationScoped
+@Api(value = "/countries", description = "Operations about countries")
 @Path("/countries")
 public class CountryResource {
 	
@@ -39,7 +43,9 @@ public class CountryResource {
 	
 	@GET
 	@Path("{code}")
+	
 	@Produces(MediaType.APPLICATION_JSON)
+	@ApiOperation(value = "Get a specific Country by code", response = CountryDetails.class)
 	public CountryDetails get(@PathParam("code") String code) {
 		return service.get(code);
 	}

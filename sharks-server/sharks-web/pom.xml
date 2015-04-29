@@ -45,6 +45,20 @@
 			<artifactId>jersey-media-json-jackson</artifactId>
 			<version>${jersey.version}</version>
 			<scope>runtime</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>jackson-jaxrs-base</artifactId>
+					<groupId>com.fasterxml.jackson.jaxrs</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jackson-jaxrs-json-provider</artifactId>
+					<groupId>com.fasterxml.jackson.jaxrs</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jackson-annotations</artifactId>
+					<groupId>com.fasterxml.jackson.core</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -89,12 +103,47 @@
 			<scope>provided</scope>
 		</dependency>
 		
+		<!-- SWAGGER -->
+		<dependency>
+		    <groupId>com.wordnik</groupId>
+		    <artifactId>swagger-jersey2-jaxrs</artifactId>
+		    <version>1.5.3-M1</version>
+		    <exclusions>
+		    	<exclusion>
+		    		<artifactId>jersey-server</artifactId>
+		    		<groupId>org.glassfish.jersey.core</groupId>
+		    	</exclusion>
+		    	<exclusion>
+		    		<artifactId>
+		    			jersey-container-servlet-core
+		    		</artifactId>
+		    		<groupId>org.glassfish.jersey.containers</groupId>
+		    	</exclusion>
+		    	<exclusion>
+		    		<artifactId>jersey-media-multipart</artifactId>
+		    		<groupId>org.glassfish.jersey.media</groupId>
+		    	</exclusion>
+		    </exclusions>
+		</dependency>
+		
 		<!-- TEST -->
 		<dependency>
 		    <groupId>org.glassfish.jersey.test-framework</groupId>
 		    <artifactId>jersey-test-framework-core</artifactId>
 		    <version>${jersey.version}</version>
 		    <scope>test</scope>
+		    <exclusions>
+		    	<exclusion>
+		    		<artifactId>jersey-server</artifactId>
+		    		<groupId>org.glassfish.jersey.core</groupId>
+		    	</exclusion>
+		    	<exclusion>
+		    		<artifactId>
+		    			jersey-container-servlet-core
+		    		</artifactId>
+		    		<groupId>org.glassfish.jersey.containers</groupId>
+		    	</exclusion>
+		    </exclusions>
 		</dependency>
 		
 		<dependency>

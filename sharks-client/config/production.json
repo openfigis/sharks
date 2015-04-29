@@ -3,7 +3,7 @@
 		"name": "production"
 	},
 	"rest": {
-		"baseUrl": "http://figisapps.fao.org/figis/sharks/"
+		"baseUrl": "http://figisapps.fao.org/figis/sharks/rest/"
 	},
 	"solr": {
 		"baseUrl": "/figis/sharks-solr/"
