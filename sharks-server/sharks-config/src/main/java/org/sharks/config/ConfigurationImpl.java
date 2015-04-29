@@ -6,6 +6,7 @@ package org.sharks.config;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.Properties;
 
 import javax.enterprise.inject.Alternative;
@@ -18,6 +19,7 @@ import javax.enterprise.inject.Alternative;
 public class ConfigurationImpl implements Configuration {
 	
 	public static final String DB_FILE_LOCATION = "storage.dbfile";
+	public static final String SHARKS_URL = "service.sharks";
 	public static final String REFPUB_URL = "service.refpub";
 	public static final String MONIKERS_URL = "service.monikers";
 	public static final String SOLR_URL = "service.solr";
@@ -42,6 +44,18 @@ public class ConfigurationImpl implements Configuration {
 	@Override
 	public String getDbFileLocation() {
 		return properties.getProperty(DB_FILE_LOCATION);
+	}
+	
+	@Override
+	public URL getSharksRestUrl() {
+		String sharksRestUrlProperty = properties.getProperty(SHARKS_URL);
+		if (sharksRestUrlProperty == null) return null;
+		
+		try {
+			return new URL(sharksRestUrlProperty);
+		} catch (Exception e) {
+			throw new RuntimeException("Wrong Sharks URL value in configuration "+sharksRestUrlProperty, e);
+		}
 	}
 	
 	@Override

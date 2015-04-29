@@ -1,5 +1,7 @@
 package org.sharks.config;
 
+import java.net.URL;
+
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
@@ -13,5 +15,7 @@ public interface Configuration {
 	public String getMonikersUrl();
 	
 	public String getSolrUrl();
+
+	public URL getSharksRestUrl();
 
 }
