@@ -34,11 +34,11 @@ public class MeasureResource {
 	private MeasureService service;
 	
 	@GET
-	@Path("{measure}")
+	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@ApiOperation(value = "get a specific measure by his id", response = Measure.class)
 	public Measure get(
-			@PathParam("measure") 
+			@PathParam("id") 
 			@ApiParam(value = "the measure id", required = true)
 			Long id) {
 		return service.get(id);

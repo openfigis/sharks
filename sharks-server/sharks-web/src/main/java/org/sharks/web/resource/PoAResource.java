@@ -31,11 +31,11 @@ public class PoAResource {
 	private PoAService service;
 	
 	@GET
-	@Path("{poa}")
+	@Path("{code}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@ApiOperation(value = "get a specific PoA by his code", response = PoA.class)
 	public PoA get(
-			@PathParam("poa") 
+			@PathParam("code") 
 			@ApiParam(value = "the PoA code", required = true)
 			Long code) {
 		return service.get(code);
