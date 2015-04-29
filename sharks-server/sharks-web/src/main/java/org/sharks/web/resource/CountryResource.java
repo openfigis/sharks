@@ -22,14 +22,15 @@ import org.sharks.service.dto.PoAEntry;
 
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
 @ApplicationScoped
-@Api(value = "/countries", description = "Operations about countries")
 @Path("/countries")
+@Api(value = "countries", description = "Operations about countries")
 public class CountryResource {
 	
 	@Inject
@@ -43,16 +44,23 @@ public class CountryResource {
 	
 	@GET
 	@Path("{code}")
-	
 	@Produces(MediaType.APPLICATION_JSON)
-	@ApiOperation(value = "Get a specific Country by code", response = CountryDetails.class)
-	public CountryDetails get(@PathParam("code") String code) {
+	@ApiOperation(value = "get a specific country by his code", response = CountryDetails.class)
+	public CountryDetails get(
+			@PathParam("code") 
+			@ApiParam(value = "the country code", required = true)
+			String code) {
 		return service.get(code);
 	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<CountryEntry> list(@DefaultValue("false") @QueryParam("onlyWithPoAs") String onlyWithPoAs) {
+	@ApiOperation(value = "list all the countries", notes="the list of countries can be filtered through the onlyWithPoAs flag", response = CountryEntry.class, responseContainer="List")
+	public List<CountryEntry> list(
+			@DefaultValue("false") 
+			@QueryParam("onlyWithPoAs") 
+			@ApiParam(value = "a flag to select only countries connected to a PoA", required = false)
+			String onlyWithPoAs) {
 		boolean onlyWithPoAsFlag = Boolean.parseBoolean(onlyWithPoAs);
 		return service.list(onlyWithPoAsFlag);
 	}
@@ -60,14 +68,22 @@ public class CountryResource {
 	@GET
 	@Path("{code}/poas")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<PoAEntry> getPoAs(@PathParam("code") String code) {
+	@ApiOperation(value = "list all the PoAs related to the specified country", response = PoAEntry.class, responseContainer="List")
+	public List<PoAEntry> getPoAs(
+			@PathParam("code") 
+			@ApiParam(value = "the country code", required = true)
+			String code) {
 		return poaService.poasForCountry(code);
 	}
 	
 	@GET
 	@Path("{code}/entities")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<EntityEntry> getEntities(@PathParam("code") String code) {
+	@ApiOperation(value = "list all the management entities related to the specified country", response = EntityEntry.class, responseContainer="List")
+	public List<EntityEntry> getEntities(
+			@PathParam("code") 
+			@ApiParam(value = "the country code", required = true)
+			String code) {
 		return entityService.getEntitiesForCountry(code);
 	}
 
