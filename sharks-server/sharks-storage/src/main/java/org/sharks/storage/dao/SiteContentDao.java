@@ -16,7 +16,10 @@ public class SiteContentDao {
 	
 	private static final Map<String, SiteContent> contents = new HashMap<String, SiteContent>();
 	
-	static {
+	static {		
+		contents.put("TITLE", new SiteContent(
+			"TITLE",
+			"Database on conservation and management of Sharks"));
 		contents.put("FOOTER_1", new SiteContent(
 				"FOOTER_1",
 				"The database provides a collection of information on instruments for conservation and management of sharks. "
