@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -28,6 +29,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.reflections.Reflections;
 import org.reflections.scanners.SubTypesScanner;
+import org.reflections.scanners.TypeAnnotationsScanner;
 import org.sharks.storage.TestConstants;
 
 /**
@@ -51,9 +53,12 @@ public class DomainClassTest {
 	
 	@Parameters(name= "{0}")
 	public static Collection<Object[]> getDomainClasses() {
-		Reflections reflections = new Reflections(TestConstants.DOMAIN_PACKAGE, new SubTypesScanner(false));
+		Reflections reflections = new Reflections(TestConstants.DOMAIN_PACKAGE, new SubTypesScanner(false), new TypeAnnotationsScanner());
 		Collection<Object[]> classes = new ArrayList<Object[]>();
-		for (Class<? extends Object> dclass:reflections.getSubTypesOf(Object.class)) classes.add(new Object[]{dclass});
+		for (Class<? extends Object> dclass:reflections.getTypesAnnotatedWith(Entity.class)) {
+			
+			classes.add(new Object[]{dclass});
+		}
 		return classes;
 	}
 
