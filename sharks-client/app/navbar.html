@@ -1,0 +1,22 @@
+<div class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+  </div>
+
+  <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+    <ul class="nav navbar-nav" ng-controller="NavigationBarCtrl as ctrl">
+      <li ng-class="{ active: ctrl.isActive('/species')}"><a ng-href="#/species">Sharks SPP</a></li>
+      <li ng-class="{ active: ctrl.isActive('/entities')}"><a ng-href="#/entities">Entity</a></li>
+      <li ng-class="{ active: ctrl.isActive('/countries')}"><a ng-href="#/countries">Countries</a></li>
+      <li ng-class="{ active: ctrl.isActive('/search')}"><a ng-href="#/search">Search</a></li>
+    </ul>
+  </div>
+</div>

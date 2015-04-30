@@ -1,1 +1,1 @@
-{"ide":{"scriptPaths":[{"type":"FOLDER","path":"app"},{"type":"FOLDER","path":"bower_components"},{"type":"FOLDER","path":"test"},{"type":"FOLDER","path":"test/spec"},{"type":"FOLDER","path":"test/spec/controllers"}]},"plugins":{"guess-types":{},"jasmine":{},"angular":{},"grunt":{}},"libs":["ecma5","browser"]}
+{"ide":{"scriptPaths":[{"type":"FOLDER","path":"app"},{"type":"FOLDER","path":"bower_components"}]},"plugins":{"guess-types":{},"jasmine":{},"grunt":{},"angular":{}},"libs":["ecma5","browser"]}
