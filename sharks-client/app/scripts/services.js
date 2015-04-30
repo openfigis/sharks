@@ -176,6 +176,18 @@ services.factory("searchservice", ["searchresource",  function(searchresource) {
 	
 }]);
 
+services.factory("contentservice", ["contentresource",  function(contentresource) {
+	
+	function ContentService() {
+		
+		this.get = function(keyword) {
+			return contentresource.query({keyword:keyword});
+		};
+	}
+	return new ContentService();
+	
+}]);
+
 
 
 services.factory("routingservice", ["paths", "$location", "$window", "$log", function(paths, $location, $window, $log) {
