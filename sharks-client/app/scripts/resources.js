@@ -43,3 +43,9 @@ services.factory("searchresource", ["$resource", "solr", function($resource, sol
 		query: {method: "JSONP", cache: true, params: {wt:"json", "json.wrf": "JSON_CALLBACK"}},
 	});
 }]);
+
+services.factory("contentresource", ["$resource", "rest", function($resource, rest) {
+	return $resource(rest.baseUrl + "contents/:keyword/", null, {
+		query: {method: "GET", cache: true}
+	});
+}]);
