@@ -33,7 +33,7 @@ services.factory("entitiesresource", ["$resource", "rest", function($resource, r
 }]);
 
 services.factory("poasresource", ["$resource", "rest", function($resource, rest) {
-	return $resource(rest.baseUrl + "poa/:code/", null, {
+	return $resource(rest.baseUrl + "poas/:code/", null, {
 		query: {method: "GET", cache: true}
 	});
 }]);

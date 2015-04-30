@@ -23,7 +23,7 @@ import com.wordnik.swagger.annotations.ApiParam;
  *
  */
 @ApplicationScoped
-@Path("/poa")
+@Path("/poas")
 @Api(value = "poas", description = "Operations about PoAs")
 public class PoAResource {
 	
