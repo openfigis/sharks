@@ -541,3 +541,18 @@ FileETag None
 # <IfModule mod_headers.c>
 #    Header set Connection Keep-Alive
 # </IfModule>
+
+
+# ------------------------------------------------------------------------------
+# | rewrite rule for HTML5 browser history URL bookmarkability                 |
+# ------------------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+	Options +FollowSymLinks
+	RewriteEngine On
+	RewriteBase /
+	RewriteRule ^(js|css|img|svc)($|/) - [L]
+	RewriteRule ^(.*)$ index.html [L]
+</IfModule>
+
+
