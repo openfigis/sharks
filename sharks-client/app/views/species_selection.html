@@ -40,11 +40,7 @@ border-radius: 3px;
 <!-- class="mobile" -->
 <section>
 <ul id="sharkSelection">
-<li class="families">Deep sea sharks</li>
-<li class="families">Skates and Rays</li>
-<li class="families">Hammerhead sharks</li>
-<li class="families">Thresher sharks</li>
-
+<li class="families" ng-repeat="group in ctrl.groups" ng-click="ctrl.showGroup(group)">{{group.customSpeciesGrp}}</li>
 <li ng-repeat="sp in ctrl.species" ng-click="ctrl.show(sp)">{{sp.nameEn}}</li>
 </ul>
 </section>

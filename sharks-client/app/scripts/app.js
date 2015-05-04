@@ -51,7 +51,10 @@ angular
         resolve: {
         	species : function(speciesservice) {
         		return speciesservice.list();
-        	}
+        	},
+      		groups : function(groupsservice) {
+      			return groupsservice.list();
+      		}
         }
       })
       .when(paths.species.single, {

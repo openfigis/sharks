@@ -40,6 +40,19 @@ services.factory("speciesservice", ["speciesresource", "$q", function(speciesres
 	
 }]);
 
+services.factory("groupsservice", ["groupsresource", function(groupsresource) {
+	
+	function GroupsService() {
+		
+		this.list = function() {
+			return groupsresource.query();
+		};
+	}
+	return new GroupsService();
+	
+}]);
+
+
 
 services.factory("measuresservice", ["measuresresource", function(measuresresource) {
 	

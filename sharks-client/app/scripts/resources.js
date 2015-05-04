@@ -8,6 +8,12 @@ resources.factory("speciesresource", ["$resource", "rest", function($resource, r
 	});
 }]);
 
+resources.factory("groupsresource", ["$resource", "rest", function($resource, rest) {
+	return $resource(rest.baseUrl + "groups", null, {
+		query: {method: "GET", cache: true, isArray:true}
+	});
+}]);
+
 resources.factory("measuresresource", ["$resource", "rest", function($resource, rest) {
 	return $resource(rest.baseUrl + "measures/:id/", null, {
 		query: {method: "GET", cache: true},
