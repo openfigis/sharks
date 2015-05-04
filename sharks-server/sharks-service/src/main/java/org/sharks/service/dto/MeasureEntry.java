@@ -27,6 +27,7 @@ public class MeasureEntry {
 	private String symbol;
 	private String title;
 	private Integer year;
+	private boolean binding;
 	private List<InformationSource> sources;
 	
 }

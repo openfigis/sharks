@@ -43,6 +43,7 @@ public class MeasureServiceImpl implements MeasureService {
 				measure.getSymbol(), 
 				measure.getTitle(), 
 				measure.getMeasureYear(), 
+				measure.getBinding(),
 				measure.getInformationSources());
 	}
 
