@@ -1,13 +1,50 @@
 
-<div class="row">
-  <div class="col-lg-4 col-sm-5 col-xs-7" ng-repeat="sp in ctrl.species" ng-click="ctrl.show(sp)">
-    <div class="thumbnail pointer">
-      <div style="height:70px; overflow:hidden;" class="vertical-align">
-        <img ng-src="{{ctrl.imageUrl(sp)}}" err-src="{{ctrl.missingImageUrl}}" class="img-responsive center-block" >
-      </div>
-      <div><em>{{sp.scientificName}}</em></div>
-      <div>{{sp.nameEn}}</div>
-    </div>
-  </div>
-  
-</div>
+<!--   This is the species selection for mobile --> 
+
+<style>
+#sharkSelection{
+  width: 100%;
+  max-width: 1200px;
+  height: 400px;
+  overflow: hidden;
+  display: -webkit-flex;
+-webkit-flex: 1;
+-webkit-flex-flow:wrap;
+}
+
+ul#sharkSelection li{
+  list-style-type: none;
+  padding: 20px 10px 0;
+  margin:  2px;
+border-radius: 3px;
+  float: left;
+  font-size: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  height: 33px;
+}
+
+ul#sharkSelection li.families{
+  background-color: rgba(96,156,203,1);
+}
+
+ul#sharkSelection{
+padding: 0px 0px 0px;
+margin: 0.5%;
+width: 100%;
+float: left;
+border-radius: 3px;
+}
+
+</style>
+
+<!-- class="mobile" -->
+<section>
+<ul id="sharkSelection">
+<li class="families">Deep sea sharks</li>
+<li class="families">Skates and Rays</li>
+<li class="families">Hammerhead sharks</li>
+<li class="families">Thresher sharks</li>
+
+<li ng-repeat="sp in ctrl.species" ng-click="ctrl.show(sp)">{{sp.nameEn}}</li>
+</ul>
+</section>

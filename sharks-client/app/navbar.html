@@ -1,22 +1,16 @@
-<div class="navbar navbar-default" role="navigation">
-  <div class="navbar-header">
-
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-
-  </div>
-
-  <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-    <ul class="nav navbar-nav" ng-controller="NavigationBarCtrl as ctrl">
-      <li ng-class="{ active: ctrl.isActive('/species')}"><a ng-href="#/species">Sharks SPP</a></li>
-      <li ng-class="{ active: ctrl.isActive('/entities')}"><a ng-href="#/entities">Entity</a></li>
-      <li ng-class="{ active: ctrl.isActive('/countries')}"><a ng-href="#/countries">Countries</a></li>
-      <li ng-class="{ active: ctrl.isActive('/search')}"><a ng-href="#/search">Search</a></li>
-    </ul>
-  </div>
+<div id="topMenu">
+  <ul>
+    <li><a ng-href="#/species" ><img src="http://www.fao.org/fileadmin/templates/faoweb/images/icons/home-w.png"></a></li> 
+    <li><a id="show" href="index.html#">☰ <b>browse</b></a></li>
+  </ul>
 </div>
+
+<!--  three labels for the tabbing nav -->
+<div id="bx-pager" ng-controller="NavigationBarCtrl as ctrl">
+  <div class="label"><a ng-href="#/species" ng-class="{ active: ctrl.isActive('/species')}">Species</a></div>
+  <div class="label"><a ng-href="#/entities" ng-class="{ active: ctrl.isActive('/entities')}">Entity</a></div>
+  <div class="label"><a ng-href="#/countries" ng-class="{ active: ctrl.isActive('/countries')}">Countries</a></div>
+</div>
+
+  
+  
