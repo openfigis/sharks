@@ -157,6 +157,9 @@ angular
         redirectTo: paths.species.all
       });
   })
+  .config(function ($locationProvider) {
+	  $locationProvider.html5Mode(true);
+  })
   //missing images handling
   .directive("errSrc", function() {
   return {

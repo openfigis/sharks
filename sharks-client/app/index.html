@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="sharksClient">
 
   <head>
     <meta charset="utf-8">
@@ -25,11 +25,18 @@
     <link rel="stylesheet" href="styles/shark.css"> 
     <!-- endbuild -->
     
-<!--     <base href="/"> -->
+    <!-- @if env.name='development' -->
+    <base href="/">
+    <!-- @endif -->
+    
+    <!-- @if env.name='production' !>
+    <base href="/fishery/ipoa-sharks/measures/sharks-client/">
+    <!-- @endif -->
     
   </head>
   
-  <body ng-app="sharksClient" class="home">
+  <body class="home">
+  
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -70,24 +77,24 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/resources.js"></script>
-        <script src="scripts/services.js"></script>
-        <script src="scripts/config.js"></script>
-        <script src="scripts/controllers/header.js"></script>
-        <script src="scripts/controllers/footer.js"></script>
-        <script src="scripts/controllers/navigation_bar.js"></script>
-        <script src="scripts/controllers/species_selection.js"></script>
-        <script src="scripts/controllers/species_details.js"></script>
-        <script src="scripts/controllers/countries_selection.js"></script>
-        <script src="scripts/controllers/country_details.js"></script>
-        <script src="scripts/controllers/entities_selection.js"></script>
-        <script src="scripts/controllers/entity_details.js"></script>
-        <script src="scripts/controllers/coming_soon.js"></script>
-        <script src="scripts/controllers/search.js"></script>
-        <script src="scripts/controllers/measure_details.js"></script>
-        <script src="scripts/controllers/poa_details.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/resources.js"></script>
+    <script src="scripts/services.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/controllers/header.js"></script>
+    <script src="scripts/controllers/footer.js"></script>
+    <script src="scripts/controllers/navigation_bar.js"></script>
+    <script src="scripts/controllers/species_selection.js"></script>
+    <script src="scripts/controllers/species_details.js"></script>
+    <script src="scripts/controllers/countries_selection.js"></script>
+    <script src="scripts/controllers/country_details.js"></script>
+    <script src="scripts/controllers/entities_selection.js"></script>
+    <script src="scripts/controllers/entity_details.js"></script>
+    <script src="scripts/controllers/coming_soon.js"></script>
+    <script src="scripts/controllers/search.js"></script>
+    <script src="scripts/controllers/measure_details.js"></script>
+    <script src="scripts/controllers/poa_details.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

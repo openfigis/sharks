@@ -1,6 +1,7 @@
 {
 	"env": {
-		"name": "production"
+		"name": "production",
+		"baseUrl": "/fishery/ipoa-sharks/measures/sharks-client/"
 	},
 	"rest": {
 		"baseUrl": "http://figisapps.fao.org/figis/sharks/rest/"

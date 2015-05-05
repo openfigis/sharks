@@ -20,6 +20,8 @@ module.exports = function (grunt) {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist'
   };
+  
+  var modRewrite = require('connect-modrewrite');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -27,7 +29,7 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
     
-    // Env confing
+    // Env config
     ngconstant: {
 	  // Options for all targets
 	  options: {
@@ -51,6 +53,23 @@ module.exports = function (grunt) {
 	    },
 	    constants: grunt.file.readJSON('config/production.json')
 	  }
+	},
+	
+	preprocess : {
+		  options: {
+		    context : {
+		      DEBUG: true
+		    }
+		  },
+		 
+		 production: {
+			 src : [ '<%= yeoman.dist %>/index.html' ],
+				    options: {
+				    	inline : true,
+				      context : grunt.file.readJSON('config/production.json')
+				    }
+				  
+		 }
 	},
 
     // Watches files for changes and runs tasks based on the changed files
@@ -102,6 +121,7 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
+              modRewrite(['^[^\\.]*$ /index.html [L]']),
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -432,11 +452,6 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
-  });
-
   grunt.registerTask('test', [
     'clean:server',
     'wiredep',
@@ -456,6 +471,7 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
+    'preprocess:production',
     'cdnify',
     'cssmin',
     'uglify',
