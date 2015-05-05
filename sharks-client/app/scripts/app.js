@@ -17,28 +17,28 @@ angular
   ])
   .constant("paths", {
 				species: {
-					all:"species",
-					single:"species/:alphaCode",
+					all:"/species",
+					single:"/species/:alphaCode",
 					id: function(species) {return species.alphaCode;}
 				},
 				countries: {
-					all:"countries",
-					single:"countries/:code",
+					all:"/countries",
+					single:"/countries/:code",
 					id: function(country) {return country.code;}
 				},
 				entities: {
-					all:"entities",
-					single:"entities/:acronym",
+					all:"/entities",
+					single:"/entities/:acronym",
 					id: function(entity) {return entity.acronym;}
 				},
 				measures: {
-					all:"measures",
-					single:"measures/:id",
+					all:"/measures",
+					single:"/measures/:id",
 					id: function(measure) {return measure.id;}
 				},
 				poas: {
-					all:"poas",
-					single:"poas/:code",
+					all:"/poas",
+					single:"/poas/:code",
 					id: function(poa) {return poa.code;}
 				}
   })
@@ -125,7 +125,7 @@ angular
         }
       })
       
-      .when("search", {
+      .when("/search", {
         templateUrl: "views/search.html",
         controller: "SearchCtrl",
         controllerAs: "ctrl"
@@ -157,9 +157,9 @@ angular
         redirectTo: paths.species.all
       });
   })
-  .config(function ($locationProvider) {
+  /*.config(function ($locationProvider) {
 	  $locationProvider.html5Mode(true);
-  })
+  })*/
   //missing images handling
   .directive("errSrc", function() {
   return {
