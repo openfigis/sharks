@@ -9,6 +9,14 @@
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0">
     
+    <!-- @if env.name='development' -->
+    <base href="/">
+    <!-- @endif -->
+    
+    <!-- @if env.name='production' !>
+    <base href="/fishery/ipoa-sharks/measures/sharks-client/">
+    <!-- @endif -->
+    
     <!--this uploads the font Open sans-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
     
@@ -24,15 +32,7 @@
     <link rel="stylesheet" href="styles/boilerplate.css">
     <link rel="stylesheet" href="styles/shark.css"> 
     <!-- endbuild -->
-    
-    <!-- @if env.name='development' -->
-    <base href="/">
-    <!-- @endif -->
-    
-    <!-- @if env.name='production' !>
-    <base href="/fishery/ipoa-sharks/measures/sharks-client/">
-    <!-- @endif -->
-    
+
   </head>
   
   <body class="home">

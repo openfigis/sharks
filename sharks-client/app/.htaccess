@@ -548,12 +548,16 @@ FileETag None
 # ------------------------------------------------------------------------------
 
 
-#<IfModule mod_rewrite.c>
-#	Options +FollowSymLinks
-#	RewriteEngine On
-#	RewriteBase /
-#	RewriteRule ^(js|css|img|svc)($|/) - [L]
-#	RewriteRule ^(.*)$ index.html [L]
-#</IfModule>
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    # Don't rewrite files or directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Rewrite everything else to index.html to allow html5 state links
+    RewriteRule ^ index.html [L]
+</IfModule>
 
 
