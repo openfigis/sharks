@@ -1,15 +1,15 @@
 <div id="topMenu">
   <ul>
-    <li><a ng-href="species" ><img src="http://www.fao.org/fileadmin/templates/faoweb/images/icons/home-w.png"></a></li> 
+    <li><a ng-href="{{ctrl.paths.species.all}}" ><img src="http://www.fao.org/fileadmin/templates/faoweb/images/icons/home-w.png"></a></li> 
     <li><a id="show" href="index.html#">☰ <b>browse</b></a></li>
   </ul>
 </div>
 
 <!--  three labels for the tabbing nav -->
 <div id="bx-pager" ng-controller="NavigationBarCtrl as ctrl">
-  <div class="label"><a href="species" ng-class="{ active: ctrl.isActive('/species')}">Species</a></div>
-  <div class="label"><a href="rfbs" ng-class="{ active: ctrl.isActive('/rfbs')}">Entity</a></div>
-  <div class="label"><a href="countries" ng-class="{ active: ctrl.isActive('/countries')}">Countries</a></div>
+  <div class="label"><a ng-href="{{ctrl.paths.species.all}}" ng-class="{ active: ctrl.isActive(ctrl.paths.species)}">Species</a></div>
+  <div class="label"><a ng-href="{{ctrl.paths.entities.all}}" ng-class="{ active: ctrl.isActive(ctrl.paths.entities)}">Entity</a></div>
+  <div class="label"><a ng-href="{{ctrl.paths.countries.all}}" ng-class="{ active: ctrl.isActive(ctrl.paths.countries)}">Countries</a></div>
 </div>
 
   
