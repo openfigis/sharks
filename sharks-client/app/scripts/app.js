@@ -29,9 +29,9 @@ angular
 					id: function(country) {return country.code;}
 				},
 				entities: {
-					all:"/entities",
-					single:"/entity/:acronym",
-					singlePath:"/entity/",
+					all:"/rfbs",
+					single:"/rfb/:acronym",
+					singlePath:"/rfb/",
 					id: function(entity) {return entity.acronym;}
 				},
 				measures: {
