@@ -19,26 +19,31 @@ angular
 				species: {
 					all:"/species",
 					single:"/species/:alphaCode",
+					singlePath:"/species/",
 					id: function(species) {return species.alphaCode;}
 				},
 				countries: {
 					all:"/countries",
-					single:"/countries/:code",
+					single:"/country/:code",
+					singlePath:"/country/",
 					id: function(country) {return country.code;}
 				},
 				entities: {
 					all:"/entities",
-					single:"/entities/:acronym",
+					single:"/entity/:acronym",
+					singlePath:"/entity/",
 					id: function(entity) {return entity.acronym;}
 				},
 				measures: {
 					all:"/measures",
-					single:"/measures/:id",
+					single:"/measure/:id",
+					singlePath:"/measure/",
 					id: function(measure) {return measure.id;}
 				},
 				poas: {
 					all:"/poas",
 					single:"/poas/:code",
+					singlePath:"/poa/",
 					id: function(poa) {return poa.code;}
 				}
   })

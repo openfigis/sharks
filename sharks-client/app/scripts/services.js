@@ -214,7 +214,7 @@ services.factory("routingservice", ["paths", "$location", "$window", "$log", fun
 		};
 		
 		this.toSingleById = function(type, id) {
-			var hash = paths[type].all+"/"+id;
+			var hash = paths[type].singlePath+id;
 			$log.info("show "+type+" with id "+id+" routing to "+hash);
 			$location.path(hash);
 		};
