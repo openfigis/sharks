@@ -11,5 +11,5 @@
     "angular-mocks": "^1.3.0"
   },
   "appPath": "app",
-  "moduleName": "sharksClientApp"
+  "moduleName": "sharksClient"
 }
