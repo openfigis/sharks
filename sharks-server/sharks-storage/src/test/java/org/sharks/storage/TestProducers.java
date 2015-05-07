@@ -22,12 +22,13 @@ import org.sharks.storage.dao.SharksStorageException;
 public class TestProducers {
 
 	@Produces
-	public EntityManagerFactory getEntityManagerFactory() {
+	public static EntityManagerFactory getEntityManagerFactory() {
 
 		try {
 
 			Map<String, String> properties = new HashMap<String, String>();
-			properties.put("javax.persistence.jdbc.url", "jdbc:ucanaccess://" + TestConstants.TEST_DB_LOCATION);
+			System.out.println("LOCATION **************************** "+TestConstants.TEST_DB_LOCATION);
+			properties.put("hibernate.hikari.dataSource.accessPath", TestConstants.TEST_DB_LOCATION);
 
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("sharks-storage", properties);
 

@@ -8,14 +8,11 @@ import static org.junit.Assert.assertNotNull;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -31,6 +28,7 @@ import org.reflections.Reflections;
 import org.reflections.scanners.SubTypesScanner;
 import org.reflections.scanners.TypeAnnotationsScanner;
 import org.sharks.storage.TestConstants;
+import org.sharks.storage.TestProducers;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -44,11 +42,7 @@ public class DomainClassTest {
 	@BeforeClass
 	public static void emfSetup() throws Exception {
 		Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-		
-		Map<String, String> properties = new HashMap<String, String>();
-		properties.put("javax.persistence.jdbc.url", "jdbc:ucanaccess://" + TestConstants.TEST_DB_LOCATION);
-
-		emf = Persistence.createEntityManagerFactory("sharks-storage", properties);
+		emf = TestProducers.getEntityManagerFactory();
 	}
 	
 	@Parameters(name= "{0}")
