@@ -11,6 +11,10 @@
 	</parent>
 
 	<artifactId>sharks-storage</artifactId>
+	
+	<properties>
+		<hibernate.version>4.3.8.Final</hibernate.version>
+	</properties>
 
 
 	<dependencies>
@@ -23,7 +27,20 @@
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-entitymanager</artifactId>
-		    <version>4.3.8.Final</version>
+		    <version>${hibernate.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-hikaricp</artifactId>
+		    <version>${hibernate.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.zaxxer</groupId>
+		    <artifactId>HikariCP</artifactId>
+		    <version>2.3.7</version>
+		    <scope>compile</scope>
 		</dependency>
 	
 		<dependency>

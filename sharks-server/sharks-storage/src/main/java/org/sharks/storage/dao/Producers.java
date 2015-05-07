@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
+import javax.inject.Singleton;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -24,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @ApplicationScoped
 public class Producers {
 
-	@Produces
+	@Produces @Singleton
 	public EntityManagerFactory getEntityManagerFactory(Configuration configuration) {
 
 		try {
@@ -33,7 +34,7 @@ public class Producers {
 			log.trace("dbLocation {}",dbLocation);
 
 			Map<String, String> properties = new HashMap<String, String>();
-			properties.put("javax.persistence.jdbc.url", "jdbc:ucanaccess://" + dbLocation);
+			properties.put("hibernate.hikari.dataSource.accessPath", dbLocation);
 
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("sharks-storage", properties);
 
