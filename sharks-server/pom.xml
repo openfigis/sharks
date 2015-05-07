@@ -10,7 +10,7 @@
 
 	<properties>
 		<version>${project.version}</version>
-		<weld.version>2.2.5.Final</weld.version>
+		<weld.version>2.2.10.Final</weld.version>
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
