@@ -7,13 +7,10 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Unmarshaller;
-
 import lombok.extern.slf4j.Slf4j;
 
-import org.sharks.service.refpub.dto.RefPubCountries;
 import org.sharks.service.refpub.dto.RefPubCountry;
+import org.sharks.service.refpub.dto.RefPubSpecies;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -23,17 +20,11 @@ import org.sharks.service.refpub.dto.RefPubCountry;
 public class RefPubRestClient {
 
 	private String restUrl;
-	private Unmarshaller unmarshaller;
+	private RefPubParser parser;
 
 	public RefPubRestClient(String restUrl) {
 		this.restUrl = restUrl;
-
-		try {
-			JAXBContext context = JAXBContext.newInstance(RefPubCountry.class, RefPubCountries.class);
-			unmarshaller = context.createUnmarshaller();
-		} catch(Exception e) {
-			throw new RefPubRestClientException("Error initializing JAXB", e);
-		}
+		this.parser = new RefPubParser();
 	}
 
 	public RefPubCountry getCountry(String iso3Code) {
@@ -41,43 +32,35 @@ public class RefPubRestClient {
 			URL countryUrl = getCountryUrl(iso3Code);
 			log.trace("getting country {} from {}", iso3Code, countryUrl);
 			try (InputStream is = countryUrl.openStream()) {
-				RefPubCountry country = (RefPubCountry) unmarshaller.unmarshal(is);
+				RefPubCountry country = parser.parseCountry(is);
 				return country;
 			}
 		} catch(Exception e) {
 			throw new RefPubRestClientException("Error retrieving country "+iso3Code, e);
 		}
 	}
-
-	/*public List<RefPubCountry> listAllCountries() {
+	
+	public RefPubSpecies getSpecies(String alpha3Code) {
 		try {
-			List<RefPubCountry> countries = new ArrayList<RefPubCountry>();
-
-			String nextPageUrl = restUrl+"concept/Country/xml?page=1";
-
-			while(nextPageUrl!=null) {
-				URL pageUrl = new URL(nextPageUrl);
-				log.trace("getting first batch of countries from {} ", pageUrl);
-				
-				try (InputStream is = pageUrl.openStream()) {
-					RefPubCountries pageCountries =  (RefPubCountries) unmarshaller.unmarshal(is);
-
-					countries.addAll(pageCountries.getCountries());
-
-					Link nextLink = pageCountries.getNextLink();
-					nextPageUrl = nextLink!=null?nextLink.getHref():null;
-				}
+			URL speciesUrl = getSpeciesUrl(alpha3Code);
+			log.trace("getting species {} from {}", alpha3Code, speciesUrl);
+			try (InputStream is = speciesUrl.openStream()) {
+				RefPubSpecies species = parser.parseSpecies(is);
+				return species;
 			}
-			return countries;
 		} catch(Exception e) {
-			throw new RefPubRestClientException("Error retrieving countries list", e);
+			throw new RefPubRestClientException("Error retrieving species "+alpha3Code, e);
 		}
-	}*/
-
+	}
 
 	//http://figisapps.fao.org/refpub-web/rest/concept/Country/codesystem/UN-ISO3/code/AFG/xml
 	private URL getCountryUrl(String iso3Code) throws MalformedURLException {
 		return new URL(restUrl+"concept/Country/codesystem/UN-ISO3/code/"+iso3Code+"/xml");
+	}
+	
+	//http://figisapps.fao.org/refpub-web/rest/concept/Country/codesystem/UN-ISO3/code/AFG/xml
+	private URL getSpeciesUrl(String alpha3Code) throws MalformedURLException {
+		return new URL(restUrl+"concept/Species/codesystem/ASFIS/code/"+alpha3Code+"/xml");
 	}
 
 	public class RefPubRestClientException extends RuntimeException {

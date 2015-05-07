@@ -3,116 +3,33 @@
  */
 package org.sharks.service.refpub.dto;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
-import lombok.Data;
+import org.sharks.service.refpub.dto.RefPubConcept.Code;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@Data
-@XmlRootElement(name="concept",namespace="http://www.fao.org/fi/refpub/webservice")
-@XmlAccessorType(XmlAccessType.NONE)
 public class RefPubCountry {
 	
-	@XmlElement(name="multilingualName")
-	private MultiLingualName multilingualName;
+	private RefPubConcept concept;
 	
-	@XmlElement(name="multilingualLongName")
-	private MultiLingualName multilingualLongName;
-	
-	@XmlElement(name="multilingualOfficialName")
-	private MultiLingualName multilingualOfficialName;
-	
-	@XmlElement
-	private Codes codeList;
-	
-	@XmlElement
-	private Hierarchy hierarchy;
+	public RefPubCountry(RefPubConcept concept) {
+		this.concept = concept;
+	}
 	
 	public Code getUnIso3Code() {
-		return findCode("UN-ISO3");
+		return concept.findCode("UN-ISO3");
 	}
-	
-	private Code findCode(String name) {
-		return codeList.getCodes().stream().filter(code->code.getName().equals(name)).findFirst().orElse(null);
-	}
-	
+
 	public List<String> getFisheryCommissions() {
-		return findParents("Fishery commission").stream().map(parent -> parent.getMultilingualName().getEnglish()).collect(Collectors.toList());
+		return concept.findParents("Fishery commission").stream().map(parent -> parent.getMultilingualName().getEnglish()).collect(Collectors.toList());
+	}
+
+	public MultiLingualName getMultilingualOfficialName() {
+		return concept.getMultilingualOfficialName();
 	}
 	
-	private List<Parent> findParents(String name) {
-		if (hierarchy == null 
-				|| hierarchy.getParents() == null 
-				|| hierarchy.getParents().getItems() == null 
-				|| hierarchy.getParents().getItems().isEmpty()) return Collections.emptyList();
-		return hierarchy.getParents().getItems().stream().filter(parent->parent.getType().equals(name)).collect(Collectors.toList());
-	}
-	
-	@Data
-	@XmlRootElement
-	@XmlAccessorType(XmlAccessType.NONE)
-	public static class Codes {
-		
-		@XmlElement(name="code")
-		private List<Code> codes;
-	}
-	
-	@Data
-	@XmlRootElement
-	@XmlAccessorType(XmlAccessType.NONE)
-	public static class Code {
-		
-		@XmlAttribute
-		private String name;
-		
-		@XmlAttribute
-		private String concept;
-	}
-	
-	@Data
-	@XmlRootElement
-	@XmlAccessorType(XmlAccessType.NONE)
-	public static class Hierarchy {
-		
-		@XmlElement
-		private Parents parents;
-	}
-	
-	@Data
-	@XmlRootElement
-	@XmlAccessorType(XmlAccessType.NONE)
-	public static class Parents {
-		
-		@XmlElement(name="parent")
-		private List<Parent> items;
-	}
-	
-	@Data
-	@XmlRootElement
-	@XmlAccessorType(XmlAccessType.NONE)
-	public static class Parent {
-		
-		@XmlAttribute(name="type")
-		private String type;
-		
-		@XmlElement(name="multilingualName")
-		private MultiLingualName multilingualName;
-		
-		@XmlElement(name="multilingualLongName")
-		private MultiLingualName multilingualLongName;
-		
-		@XmlElement(name="multilingualOfficialName")
-		private MultiLingualName multilingualOfficialName;
-	}
 }

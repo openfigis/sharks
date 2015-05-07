@@ -3,19 +3,17 @@
  */
 package org.sharks.service.refpub;
 
-import org.sharks.service.refpub.dto.RefPubCountry;
-
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public interface RefPubCache {
+public interface RefPubCache<T> {
 	
-	public boolean contains(String iso3Code);
+	public boolean contains(String code);
 	
-	public RefPubCountry get(String iso3Code);	
+	public T get(String code);	
 
-	public void put(RefPubCountry country);
+	public void put(String code, T item);
 	
 	public int size();
 
