@@ -16,13 +16,6 @@
 		<hibernate.version>4.3.8.Final</hibernate.version>
 	</properties>
 
-	<repositories>
-		<repository>
-			<!-- UnOfficial maven repository for uncanaccess -->
-			<id>bastengao-mvn-repository</id>
-			<url>https://raw.github.com/bastengao/mvn-repository/master/releases</url>
-		</repository>
-	</repositories>
 
 	<dependencies>
 		<dependency>
