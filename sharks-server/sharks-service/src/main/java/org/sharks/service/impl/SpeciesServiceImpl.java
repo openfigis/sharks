@@ -7,7 +7,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.sharks.service.SpeciesComplementService;
 import org.sharks.service.SpeciesService;
+import org.sharks.service.dto.SpeciesDetails;
 import org.sharks.storage.dao.SpeciesDao;
 import org.sharks.storage.domain.Species;
 
@@ -19,6 +21,9 @@ public class SpeciesServiceImpl implements SpeciesService {
 	
 	@Inject
 	private SpeciesDao dao;
+	
+	@Inject
+	private SpeciesComplementService complementService; 
 
 	@Override
 	public List<Species> list(boolean onlyWithMeasure) {
@@ -26,8 +31,9 @@ public class SpeciesServiceImpl implements SpeciesService {
 	}
 
 	@Override
-	public Species getSpecies(String code) {
-		return dao.get(code);
+	public SpeciesDetails getSpecies(String alpha3Code) {
+		Species species = dao.getByAlphaCode(alpha3Code);
+		return complementService.complement(species);
 	}
 
 }

@@ -13,6 +13,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.SpeciesService;
+import org.sharks.service.dto.SpeciesDetails;
 import org.sharks.storage.domain.Species;
 
 import com.wordnik.swagger.annotations.Api;
@@ -33,14 +34,14 @@ public class SpeciesResource {
 	private SpeciesService service;
 	
 	@GET
-	@Path("{code}")
+	@Path("{alphacode}")
 	@Produces(MediaType.APPLICATION_JSON)
-	@ApiOperation(value = "get a specific species by his code", response = Species.class)
-	public Species get(
-			@PathParam("code") 
-			@ApiParam(value = "the species code", required = true)
-			String code) {
-		return service.getSpecies(code);
+	@ApiOperation(value = "get a specific species by his 3 alpha code", response = Species.class)
+	public SpeciesDetails get(
+			@PathParam("alphacode") 
+			@ApiParam(value = "the species 3 alpha code", required = true)
+			String alphacode) {
+		return service.getSpecies(alphacode);
 	}
 	
 	@GET

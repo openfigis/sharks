@@ -42,5 +42,19 @@ public abstract class AbstractDao<T, I> {
 		EntityManager em = emf.createEntityManager();
 		return em.find(type, code);
 	}
+	
+	
+	protected T getByField(String fieldName, String value) {
+		EntityManager em = emf.createEntityManager();
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<T> cq = cb.createQuery(type);
+        Root<T> rootEntry = cq.from(type);
+        CriteriaQuery<T> all = cq.select(rootEntry);
+        cq.where(cb.equal(rootEntry.get(fieldName), value));
+        
+        TypedQuery<T> allQuery = em.createQuery(all);
+        List<T> result = allQuery.getResultList();
+        return result.isEmpty()?null:result.get(0);
+	}
 
 }

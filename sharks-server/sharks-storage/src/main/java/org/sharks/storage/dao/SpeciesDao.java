@@ -22,7 +22,7 @@ import org.sharks.storage.domain.Species;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class SpeciesDao extends AbstractDao<Species, String> {
+public class SpeciesDao extends AbstractDao<Species, Long> {
 
 	@Inject
 	public SpeciesDao(EntityManagerFactory emf) {
@@ -47,6 +47,10 @@ public class SpeciesDao extends AbstractDao<Species, String> {
 		
 		TypedQuery<Species> query = entityManager.createQuery(criteriaQuery);
 		return query.getResultList();
+	}
+	
+	public Species getByAlphaCode(String alphaCode) {
+		return getByField("alphaCode", alphaCode);
 	}
 
 }

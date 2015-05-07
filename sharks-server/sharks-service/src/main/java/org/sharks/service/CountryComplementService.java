@@ -4,7 +4,6 @@
 package org.sharks.service;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -14,8 +13,8 @@ import javax.inject.Singleton;
 
 import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.refpub.RefPubService;
-import org.sharks.service.refpub.dto.MultiLingualName;
 import org.sharks.service.refpub.dto.RefPubCountry;
+import org.sharks.service.util.ComplementUtil;
 import org.sharks.storage.domain.Country;
 
 /**
@@ -29,6 +28,9 @@ public class CountryComplementService {
 	
 	@Inject
 	private RefPubService refPubService;
+	
+	@Inject
+	private ComplementUtil util;
 
 	public CountryDetails complement(Country country) {
 		
@@ -47,19 +49,9 @@ public class CountryComplementService {
 	}
 	
 	private CountryDetails complement(Country country, RefPubCountry refPubCountry) {
-		Map<String,String> officialNames = refPubCountry!=null?toNameMap(refPubCountry.getMultilingualOfficialName()):Collections.emptyMap();
+		Map<String,String> officialNames = refPubCountry!=null?util.toNameMap(refPubCountry.getMultilingualOfficialName()):Collections.emptyMap();
 		List<String> rfbs = refPubCountry!=null?refPubCountry.getFisheryCommissions():Collections.emptyList();
 		return new CountryDetails(country.getCode(), country.getUnName(), officialNames, rfbs);		
 	}
 	
-	private Map<String, String> toNameMap(MultiLingualName name) {
-		Map<String, String> names = new HashMap<String, String>();
-		names.put("en", name.getEnglish());
-		names.put("fr", name.getFrench());
-		names.put("es", name.getSpanish());
-		names.put("ar", name.getArabic());
-		names.put("zh", name.getChinese());
-		names.put("ru", name.getRussian());
-		return names;
-	}
 }

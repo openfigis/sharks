@@ -5,6 +5,7 @@ package org.sharks.service;
 
 import java.util.List;
 
+import org.sharks.service.dto.SpeciesDetails;
 import org.sharks.storage.domain.Species;
 
 /**
@@ -15,5 +16,5 @@ public interface SpeciesService {
 
 	List<Species> list(boolean onlyWithMeasure);
 
-	Species getSpecies(String code);
+	SpeciesDetails getSpecies(String alphacode);
 }
