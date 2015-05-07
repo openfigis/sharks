@@ -34,7 +34,7 @@ public class Producers {
 			log.trace("dbLocation {}",dbLocation);
 
 			Map<String, String> properties = new HashMap<String, String>();
-			properties.put("hibernate.hikari.dataSource.accessPath", dbLocation);
+			properties.put("javax.persistence.jdbc.url", "jdbc:ucanaccess://" + dbLocation);
 
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("sharks-storage", properties);
 
