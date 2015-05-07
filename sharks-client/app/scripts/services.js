@@ -8,24 +8,16 @@ services.factory("speciesservice", ["speciesresource", "$q", function(speciesres
 	function SpeciesService() {
 		
 		this.list = function() {
-			return speciesresource.query();
+			return speciesresource.list();
 		};
-		
+
 		this.get = function(alphaCode) {
-			var deferred = $q.defer();
-			speciesresource.query().$promise.then(function(species) {
-				for (var i = 0; i < species.length; i++) {
-				    if (alphaCode.indexOf(species[i].alphaCode) >= 0) deferred.resolve(species[i]);
-				}
-				deferred.reject("alphaCode "+alphaCode+" not found");
-            });
-			
-			return deferred.promise;
+			return speciesresource.query({alphaCode:alphaCode}).$promise;
 		};
 		
 		this.getAll = function(alphaCodes) {
 			var deferred = $q.defer();
-			speciesresource.query().$promise.then(function(species) {
+			speciesresource.list().$promise.then(function(species) {
 				var found = [];
 				for (var i = 0; i < species.length; i++) {
 				    if (alphaCodes.indexOf(species[i].alphaCode) >= 0) found.push(species[i]);
@@ -45,7 +37,7 @@ services.factory("groupsservice", ["groupsresource", function(groupsresource) {
 	function GroupsService() {
 		
 		this.list = function() {
-			return groupsresource.query();
+			return groupsresource.query().$promise;
 		};
 	}
 	return new GroupsService();
@@ -59,11 +51,11 @@ services.factory("measuresservice", ["measuresresource", function(measuresresour
 	function MeasuresService() {
 		
 		this.listGrouppedByEntity = function(alphaCode) {
-			return measuresresource.groupByEntity({speciesAlphaCodes:[alphaCode]});
+			return measuresresource.groupByEntity({speciesAlphaCodes:[alphaCode]}).$promise;
 		};
 		
 		this.get = function(code) {
-			return measuresresource.query({id:code});
+			return measuresresource.query({id:code}).$promise;
 		};
 	}
 	return new MeasuresService();
@@ -75,7 +67,7 @@ services.factory("countriesservice", ["countriesresource", "$q", function(countr
 	function CountriesService() {
 		
 		this.list = function() {
-			return countriesresource.list();
+			return countriesresource.list().$promise;
 		};
 		
 		this.poasGroupedByType = function(code) {
@@ -92,11 +84,11 @@ services.factory("countriesservice", ["countriesresource", "$q", function(countr
 		};
 		
 		this.entities = function(country) {
-			return countriesresource.entities({code:country});
+			return countriesresource.entities({code:country}).$promise;
 		};
 		
 		this.get = function(code) {
-			return countriesresource.query({code:code});
+			return countriesresource.query({code:code}).$promise;
 		};
 		
 		this.getAll = function(codes) {
@@ -121,15 +113,15 @@ services.factory("entitiesservice", ["entitiesresource", "$q", function(entities
 	function EntitiesService() {
 		
 		this.list = function() {
-			return entitiesresource.query();
+			return entitiesresource.query().$promise;
 		};
 		
 		this.measures = function(acronym) {
-			return entitiesresource.measures({acronym:acronym});
+			return entitiesresource.measures({acronym:acronym}).$promise;
 		};
 		
 		this.countries = function(acronym) {
-			return entitiesresource.countries({acronym:acronym});
+			return entitiesresource.countries({acronym:acronym}).$promise;
 		};
 		
 		this.getAll = function(acronyms) {
@@ -170,7 +162,7 @@ services.factory("poasservice", ["poasresource", function(poasresource) {
 	function PoaService() {
 		
 		this.get = function(code) {
-			return poasresource.query({code:code});
+			return poasresource.query({code:code}).$promise;
 		};
 	}
 	return new PoaService();
@@ -182,7 +174,7 @@ services.factory("searchservice", ["searchresource",  function(searchresource) {
 	function SearchService() {
 		
 		this.query = function(query) {
-			return searchresource.query({q:query});
+			return searchresource.query({q:query}).$promise;
 		};
 	}
 	return new SearchService();
@@ -194,7 +186,7 @@ services.factory("contentservice", ["contentresource",  function(contentresource
 	function ContentService() {
 		
 		this.get = function(keyword) {
-			return contentresource.query({keyword:keyword});
+			return contentresource.query({keyword:keyword}).$promise;
 		};
 	}
 	return new ContentService();
@@ -246,9 +238,10 @@ services.factory("imagesservice", [function() {
 		};
 		
 		this.speciesMediumImageUrl = function(species) {
-		  var sn = species.scientificName.toLowerCase().replace(" ", "_");
-		  return "images/species/"+sn+"-drawing-medium.gif";  
+			var sn = species.scientificName.toLowerCase().replace(" ", "_");
+			return "images/species/"+sn+"-drawing-medium.gif"; 
 		};
+		
 	}
 	return new ImagesService();
 	

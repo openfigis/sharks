@@ -3,8 +3,9 @@
 var resources = angular.module("resources", ["ngResource","config"]);
 
 resources.factory("speciesresource", ["$resource", "rest", function($resource, rest) {
-	return $resource(rest.baseUrl + "species/:id", null, {
-		query: {method: "GET", cache: true, params: {onlyWithMeasure:true}, isArray:true}
+	return $resource(rest.baseUrl + "species/:alphaCode", null, {
+		query: {method: "GET", cache: true},
+		list: {method: "GET", cache: true, params: {onlyWithMeasure:true}, isArray:true}
 	});
 }]);
 
