@@ -15,11 +15,9 @@
           
           <h4>Common names</h4> 
           <ul class="commonNames">
-            <li class="en">TODO Basking shark
-            <!-- Sub-species for family pages -->
-            <i>Scalloped hammerhead, Great hammerhead, Smooth hammerhead, Winghead shark</i></li>
-            <li class="fr">TODO Pèlerin</li>
-            <li class="es">TODO Peregrino</li>
+          <li ng-repeat="(lang, name) in ctrl.species.officialNames">
+                {{name}}
+               </li>
           </ul>
         </div>
       </section>
