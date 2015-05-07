@@ -27,8 +27,7 @@ public class TestProducers {
 		try {
 
 			Map<String, String> properties = new HashMap<String, String>();
-			System.out.println("LOCATION **************************** "+TestConstants.TEST_DB_LOCATION);
-			properties.put("hibernate.hikari.dataSource.accessPath", TestConstants.TEST_DB_LOCATION);
+			properties.put("javax.persistence.jdbc.url", "jdbc:ucanaccess://" + TestConstants.TEST_DB_LOCATION);
 
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("sharks-storage", properties);
 
