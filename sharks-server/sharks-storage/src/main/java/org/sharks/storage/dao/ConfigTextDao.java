@@ -3,6 +3,8 @@
  */
 package org.sharks.storage.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -33,6 +35,7 @@ public class ConfigTextDao extends AbstractDao<ConfigText, Long>{
         cq.where(cb.equal(rootEntry.get("cdMnemonicKey"), keyword));
         
         TypedQuery<ConfigText> allQuery = em.createQuery(all);
-        return allQuery.getSingleResult();
+        List<ConfigText> result = allQuery.getResultList();
+        return result.isEmpty()?null:result.get(0);
 	}
 }
