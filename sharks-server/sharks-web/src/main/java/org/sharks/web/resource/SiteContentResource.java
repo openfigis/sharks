@@ -12,7 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.SiteContentService;
-import org.sharks.storage.domain.SiteContent;
+import org.sharks.service.dto.SiteContent;
 
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;

@@ -3,7 +3,7 @@
  */
 package org.sharks.service;
 
-import org.sharks.storage.domain.SiteContent;
+import org.sharks.service.dto.SiteContent;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"

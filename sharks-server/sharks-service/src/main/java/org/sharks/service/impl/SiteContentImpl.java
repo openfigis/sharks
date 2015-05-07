@@ -6,8 +6,9 @@ package org.sharks.service.impl;
 import javax.inject.Inject;
 
 import org.sharks.service.SiteContentService;
-import org.sharks.storage.dao.SiteContentDao;
-import org.sharks.storage.domain.SiteContent;
+import org.sharks.service.dto.SiteContent;
+import org.sharks.storage.dao.ConfigTextDao;
+import org.sharks.storage.domain.ConfigText;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -16,11 +17,12 @@ import org.sharks.storage.domain.SiteContent;
 public class SiteContentImpl implements SiteContentService {
 	
 	@Inject
-	private SiteContentDao dao;
+	private ConfigTextDao dao;
 
 	@Override
 	public SiteContent get(String keyword) {
-		return dao.get(keyword);
+		ConfigText text = dao.getByKeyword(keyword);
+		return text!=null?new SiteContent(keyword, text.getDescription()):null;
 	}
 
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.sharks.storage.domain;
+package org.sharks.service.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
