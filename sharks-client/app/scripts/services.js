@@ -8,11 +8,11 @@ services.factory("speciesservice", ["speciesresource", "$q", function(speciesres
 	function SpeciesService() {
 		
 		this.list = function() {
-			return speciesresource.list();
+			return speciesresource.query().$promise;
 		};
 
 		this.get = function(alphaCode) {
-			return speciesresource.query({alphaCode:alphaCode}).$promise;
+			return speciesresource.get({alphaCode:alphaCode}).$promise;
 		};
 		
 		this.getAll = function(alphaCodes) {
@@ -55,7 +55,7 @@ services.factory("measuresservice", ["measuresresource", function(measuresresour
 		};
 		
 		this.get = function(code) {
-			return measuresresource.query({id:code}).$promise;
+			return measuresresource.get({id:code}).$promise;
 		};
 	}
 	return new MeasuresService();
@@ -67,7 +67,7 @@ services.factory("countriesservice", ["countriesresource", "$q", function(countr
 	function CountriesService() {
 		
 		this.list = function() {
-			return countriesresource.list().$promise;
+			return countriesresource.query().$promise;
 		};
 		
 		this.poasGroupedByType = function(code) {
@@ -88,7 +88,7 @@ services.factory("countriesservice", ["countriesresource", "$q", function(countr
 		};
 		
 		this.get = function(code) {
-			return countriesresource.query({code:code}).$promise;
+			return countriesresource.get({code:code}).$promise;
 		};
 		
 		this.getAll = function(codes) {
@@ -162,7 +162,7 @@ services.factory("poasservice", ["poasresource", function(poasresource) {
 	function PoaService() {
 		
 		this.get = function(code) {
-			return poasresource.query({code:code}).$promise;
+			return poasresource.get({code:code}).$promise;
 		};
 	}
 	return new PoaService();
