@@ -186,7 +186,7 @@ services.factory("contentservice", ["contentresource",  function(contentresource
 	function ContentService() {
 		
 		this.get = function(keyword) {
-			return contentresource.query({keyword:keyword}).$promise;
+			return contentresource.query({keyword:keyword});
 		};
 	}
 	return new ContentService();
