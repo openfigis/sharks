@@ -34,8 +34,17 @@ public class CountryComplementService {
 
 	public CountryDetails complement(Country country) {
 		
-		RefPubCountry refPubCountry = isAvailable(country)?refPubService.getCountry(country.getCode()):null;
+		RefPubCountry refPubCountry = getCountry(country);
 		return complement(country, refPubCountry);
+	}
+	
+	private RefPubCountry getCountry(Country country) {
+		return isAvailable(country)?refPubService.getCountry(country.getCode()):null;
+	}
+	
+	public String getContinent(Country country) {
+		RefPubCountry refPubCountry = getCountry(country);
+		return refPubCountry!=null?refPubCountry.getContinent():null;
 	}
 	
 	public List<CountryDetails> complement(List<Country> countries) {

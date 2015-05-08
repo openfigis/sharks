@@ -51,7 +51,8 @@ public class CountryServiceImp implements CountryService {
 	}
 	
 	private CountryEntry toEntry(Country country) {
-		return new CountryEntry(country.getCode(), country.getUnName());
+		String continent = complementService.getContinent(country);
+		return new CountryEntry(country.getCode(), country.getUnName(), continent);
 	}
 
 
