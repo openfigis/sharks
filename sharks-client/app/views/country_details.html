@@ -1,63 +1,111 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Country details</div>
-  <div class="panel-body">
-    <div class="col-md-8">
-      <div class="panel panel-default">
-        <div class="panel-body">
-            {{ctrl.country.code}} - {{ctrl.country.name}}<br>
-            <b>Official names</b>
-            <ul>
-              <li ng-repeat="(lang, name) in ctrl.country.officialNames">
-                {{name}}
-               </li>
-            </ul>
-        </div>
-      </div>
-      
-      <div class="panel panel-default" ng-repeat="(type, poas) in ctrl.groupedPoas">
-        <div class="panel-heading">{{type}}</div>
-        <div class="panel-body">
-         <table class="table">
-          <thead>
-            <tr>
-               <th>Title</th><th>Year</th><th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-          <tr ng-repeat="poa in poas" ng-click="ctrl.showPoa(poa)" class="pointer">
-            <td>{{poa.title}}</td>
-            <td>{{poa.poAYear}}</td>
-            <td>{{poa.status.description}}</td>
-          </tr>
-          
-          </tbody>
-       </table>
-        </div>
-      </div>
 
+<div id="main">
+  <header>
+    <h2 class="pagetitle">{{ctrl.country.name}}</h2>
+    <div class="clear"></div>
+  </header>
+
+  <section id="primary">
+  
+    <section ng-repeat="(type, poas) in ctrl.groupedPoas">
+      <h2>{{type}}</h2>
+      <section class="measure" ng-repeat="poa in poas" ng-click="ctrl.showPoa(poa)">
+        <div class="title">
+          <h4>{{poa.title}}</h4> 
+          <p>{{poa.status.description}}</p> 
+          <div class="year">year <b>{{poa.poAYear}}</b></div>
+          <div class="download"><a href="#"><img src="images/download-icon.png"> </a>  </div>
+         </div> 
+      </section>
+    </section>
+        
+    <h2>Others</h2>
+    <section class="measure"> 
+      <div class="title">
+        <h4>Report</h4>
+        <p>2009 Shark assessment Report for the Australian National Plan of action for the conservation and Management of Sharks</p> 
+        <div class="year">year <b>1975</b></div>
+        <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
+      </div> 
+    </section>
     
+    <section class="measure"> 
+      <div class="title">
+        <h4>Operational Strategy</h4>
+        <p>National Plan of Action for the conservation and management of sharks 2012-plan 2</p> 
+        <div class="year">year <b>1975</b></div>
+        <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
+      </div> 
+    </section>
+
+
+    <h2>Legislation for specific shark (Faolex)</h2>
+    <section class="measure"> 
+      <div class="title">
+        <h4>type</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p> 
+        <div class="year">year <b>1975</b></div>
+        <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
+      </div> 
+    </section>
     
+    <h2>Related Legislation</h2>
+    <section class="measure"> 
+      <div class="title">
+        <h4>type</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p> 
+        <div class="year">year <b>1975</b></div>
+        <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
+      </div> 
+    </section>
+    
+    <footer>
+
+      <ul class="links">
+        <li><a href="http://www.fao.org/" target="_blank">Country FI Legislation</a></li> 
+      </ul>
+
+    </footer> 
+  </section>
+
+
+
+<section id="secondary">
+  
+  <!-- On species page it will be a map -->
+  
+    <div id="sidemap">
+      <h2>Map of Australia</h2> 
+      <iframe width='100%' height='400px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/maxtudio.lm4on1eb/attribution,zoompan,geocoder,share.html?access_token=pk.eyJ1IjoibWF4dHVkaW8iLCJhIjoiZlpwbklYSSJ9.tnEdYapHqPgn15mgv8X-hA'></iframe>
     </div>
-	<div class="col-md-4">
-      <div class="panel panel-default">
-      <div class="panel-heading">List of RFBs</div>
-        <div class="panel-body">
-          <ul>
-          <li ng-repeat="rfb in ctrl.country.rfbs" ng-click="ctrl.showEntity(rfb)" class="pointer">
-            {{rfb}}
-          </li>
-          </ul>
-          <br>
-        </div>
-      </div>
-	</div>
-  </div>
+  
 
 
+
+
+    <div id="listOfRFBs">
+      <h2>List of RFBs</h2> 
+      <ul class="list">
+      <li>WCPFC</li>  
+      <li>CCAMLR</li> 
+      <li>CCSBT</li>  
+      <li>IOCT</li> 
+      <li>SPRFMO</li>
+      </ul>
+    </div>
+    
+<!--
+    <div id="globalInstruments">
+      <h2>Global Instruments</h2> 
+      <ul class="list">
+      <li>CITES</li>  
+      <li>CMS</li>  
+      </ul>
+    </div>
+-->
+
   
-   <div class="panel-footer">
-    <input class="btn btn-default pull-right" type="button" value="Back" ng-click="ctrl.back()" >
-    <div class="clearfix"></div>
-   </div>
-  
+
+</section>
 </div>
+

@@ -6,6 +6,8 @@ body {
     background-position: 0% 0%;
     background-repeat: inherit inherit;
     position: relative;
+    /*     font-family: 'Open Sans', verdana, sans-serif; */
+    font-family: verdana, sans-serif;
 }
 
 .primaryContainer {
@@ -43,7 +45,8 @@ h1{
     font-size: 2em;
     font-weight: 200;
     line-height: 1.0em;
-    font-family: 'Open Sans', sans-serif;
+/*     font-family: 'Open Sans', verdana, sans-serif; */
+    font-family: verdana, sans-serif;
 	color: white;
 	margin: 0;
 	padding-right: 200px;
@@ -52,7 +55,8 @@ h1 i{
     font-size: 0.4em;
     font-weight: 200;
     line-height: 1.0em;
-    font-family: 'Open Sans', sans-serif;
+/*     font-family: 'Open Sans', verdana, sans-serif; */
+    font-family: verdana, sans-serif;
 	color: white;
 	margin: 0;
 	display: block;
@@ -64,7 +68,8 @@ h2{
     text-align: left;
     font-weight: 200;
     line-height: 1.5em;
-    font-family: 'Open Sans', sans-serif;
+/*     font-family: 'Open Sans', verdana, sans-serif; */
+    font-family: verdana, sans-serif;
     color: white;
     text-transform: uppercase;
 }
@@ -79,20 +84,42 @@ h2.pagetitle{
 	color: #077ab3;
 	padding: 3px
 }
+
+.entity-page h2.pagetitle, .country-page h2.pagetitle {
+	margin-bottom: 0px;
+	padding: 0;
+}
+
+
+.country-page #primary h2{
+	margin-top: 10px;
+}
+
+
+
 h3{
     font-size: 1em;
     text-align: left;
     font-weight: 600;
     line-height: 1.5em;
-    font-family: 'Open Sans', sans-serif;
+/*     font-family: 'Open Sans', verdana, sans-serif; */
+        font-family: verdana, sans-serif;
     margin: 5px 10px 0;
+}
+h3.subtitle{
+	display: block;
+	font-size: 1.2em;
+	font-weight: 400;
+	margin: 0;
+	width: 60%;
 }
 h4{
    font-size: 0.9em;
 	text-align: left;
 	font-weight: 400;
 	line-height: 1.5em;
-	font-family: 'Open Sans', sans-serif;
+/*     font-family: 'Open Sans', verdana, sans-serif; */
+        font-family: verdana, sans-serif;
 	color: white;
 	margin: 30px 15% 10px 20px;
 }
@@ -101,7 +128,8 @@ p{
     text-align: left;
     font-weight: 400;
     line-height: 1.5em;
-    font-family: 'Open Sans', sans-serif;
+/*     font-family: 'Open Sans', verdana, sans-serif; */
+        font-family: verdana, sans-serif;
     margin: 0px 10px 5px;
 }
 
@@ -114,25 +142,38 @@ p{
 
 /* QUICK List menu */
 #listMenu{
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 29, 64, 0.9);
 	color: white;
-	padding: 50px;
+	padding: 10px 25px;
 	display: none;
-	position: fixed;
-	z-index: 999
+	z-index: 999;
+	 width: 87.055261%;
+max-width: 1150px; 
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    margin-top: 135px;
+	    
+	    
 }
 #listMenu h2{
 	display: block;
 	font-weight: 500;
+	margin: 3px 0;
+	padding: 0;
 }
 #listMenu ul{
 	margin: 0; padding: 0;
 }
 #listMenu ul li{
-	padding: 3px 5px;
-	margin: 4px;
+	padding: 3px 4px;
+	margin: 3px;
 	border: 1px solid white;
 	border-radius: 3px;
 	color: white;
@@ -310,35 +351,35 @@ font-size: 23px;
 
 .spacer{margin: 5px;}
 .africa{
-	background-image: url("../images/images/africa.jpg");
+	background-image: url("../images/africa.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
 	
 .america{
-	background-image: url("../images/images/america.jpg");
+	background-image: url("../images/america.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
 	
 .asia{
-	background-image: url("../images/images/asia.jpg");
+	background-image: url("../images/asia.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
 	
 .europe{
-	background-image: url("../images/images/europe.jpg");
+	background-image: url("../images/europe.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
 	
 .oceania{
-	background-image: url("../images/images/oceania.jpg");
+	background-image: url("../images/oceania.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -392,13 +433,25 @@ footer ul.links li{
 	padding: 0 20px;
 	position: relative;
 	height: auto;
-	display: table-cell;
+		display: table-cell;
 }
 
+
+
 #main header{
-	height: 120px;
+	height: 140px;
 	margin-top: 0;
 	padding: 0
+}
+
+.country-page #main header{
+	height: auto;
+	margin-bottom: 0;
+}
+
+.entity-page #main header{
+	height: auto;
+	margin-bottom: 0;
 }
 
 
@@ -460,6 +513,12 @@ section#infoBox{
 	font-size: 0.7em;
 	font-weight: 700;
 }
+#main .sharkInfo ul.commonNames b{
+	text-transform:capitalize;
+	font-weight: 700;
+		color: #999;
+}
+
 #main .sharkInfo ul li{
 	list-style-type: none;
 	position: relative;
@@ -501,12 +560,42 @@ section#infoBox{
 	padding: 5px;
 }
 
+#main .factSheet{
+padding: 2px;
+background-color: #4fc5ff;
+color: white;
+text-transform: none;
+font-size: 12px;
+font-weight: 500;
+width: 100px;
+padding: 5px 10px;
+margin: 5px 0;
+font-weight: 500;
+float: right;
+}
+
 #main h5.lat{
 	background-color: #edf5fe;
 	color: #077ab3;
 	padding: 6px;
 	height:14px;
+	font-style: italic;
 }
+
+
+
+
+div.logo{
+	width: 25%;
+	float: right;
+}
+
+div.logo img{
+text-align: right;
+}
+
+
+
 
 
 
@@ -523,20 +612,24 @@ section#infoBox{
 .measure{
 	width: 100%;
 	position: relative;
-	margin-bottom: 0px;
+	margin-bottom: 2px;
 	border-bottom: 1px solid white;
+	padding-bottom: 20px;
+		background-color: #077ab3;
 }
 
+
+
 .measure div.symbol{
-	width: 60px;
-	height: 40px;
 	background-color: #4fc5ff;
 	color: white;
 	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 10px;
-	font-size: 13px
+	bottom: 0;
+	left: 90px;
+	padding: 8px;
+	font-size: 10px;
+	font-weight: bold;
+	color: #0e4b77;
 }
 .measure div.year{
 	color: rgba(255,255,255,0.7);
@@ -549,24 +642,35 @@ section#infoBox{
 }
 
 .measure div.binding{
-	width: 60px;
+	width: 90px;
 	position: absolute;
-	top: 40px;
+	bottom: 0;
 	left: 0;
-	padding: 0px 8px;
-	font-size: 13px
+	padding: 8px;
+	font-size: 10px;
+	color: #888;
+	font-weight: 700;
+	text-align: center;
+	background: white;
 }
 .measure div.binding img{
 	max-width: 100%;
 
 }
 .measure .title{
-	background-color: #077ab3;
 	color: white;
 	display: inline-block;
-	padding: 10px 60px 10px 10px;
-	margin-left: 60px;
+	padding: 10px 80px 6px 10px;
+	margin-left: 0px;
+	//min-height: 80px;
 }
+
+
+
+.country-page .measure .title{
+	margin-left: 0px;
+}
+
 
 .measure h4{
 	font-size: 0.7em;
@@ -625,7 +729,6 @@ section#infoBox{
 
 
 
-
 @media only screen and (max-width: 1053px) {
 
 body {
@@ -649,7 +752,7 @@ body {
 }
 	
 .primaryContainer {
-     background-image:url("../images/images/underwaterbackground.jpg");
+     background-image:url("../images/underwaterbackground.jpg");
     background-attachment: fixed;
     -webkit-background-size: cover;
     background-size: cover;
@@ -670,8 +773,8 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    overflow-y: scroll;
-    margin-top: 132px;
+    overflow: hidden;
+    margin-top: 295px;
 }
 
 #image {
@@ -705,7 +808,8 @@ body {
     
 #listMenu{
     width: 94%;
-    max-width: none;}
+    max-width: none;
+    margin-top: 145px;}
     
 header{
 	padding: 0 20px;
@@ -742,12 +846,15 @@ h2.pagetitle{
 	text-transform: lowercase;
 }
 
-/* sharks selector for mobile*/
+
+
+
+/* sharks and RFBs selectors for mobile*/
 
 .mobile{display: block;}
 .desktop{display: none;}
 
-#sharkSelection{
+#sharkSelection,{
 	width: 100%;
 	max-width: 1200px;
 	height: 400px;
@@ -779,6 +886,52 @@ width: 100%;
 float: left;
 border-radius: 3px;
 }
+
+
+
+
+#RFBsSelection,{
+	width: 100%;
+	max-width: 1200px;
+	height: 400px;
+	overflow: hidden;
+	display: -webkit-flex;
+-webkit-flex: 1;
+-webkit-flex-flow:wrap;
+}
+
+ul#RFBsSelection li{
+list-style-type: none;
+	padding: 10px;
+	margin:  2px;
+border-radius: 3px;
+	float: left;;
+	width: 45%;
+	font-size: 12px;
+	background-color: rgba(255, 255, 255, 1);
+	height: 33px;
+}
+ul#RFBsSelection li b{
+display: block;
+}
+
+ul#RFBsSelection li.families{
+	background-color: rgba(96,156,203,1);
+}
+
+ul#RFBsSelection{
+padding: 0px 0px 0px;
+margin: 0.5%;
+width: 100%;
+float: left;
+border-radius: 3px;
+}
+
+
+
+
+
+
 
 
 /* Labels for Tabs nav*/
@@ -848,6 +1001,10 @@ font-size: 14px;
 	font-family: arial, sans-serif;
 }
 
+
+#Stage_legend_slidelegend_buttonhide{
+	display: block;
+}
 
 
 
