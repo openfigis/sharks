@@ -220,6 +220,13 @@ services.factory("routingservice", ["paths", "$location", "$window", "$log", fun
 		  $log.info("go back");
 		  $window.history.back();
 		};
+		
+		this.getArea = function() {
+			for (var path in paths) {
+				if ($location.path().startsWith(path.all) || $location.path().startsWith(path.singlePath)) return path;
+			}
+			return null;
+		};
 	}
 	return new RoutingService();
 	
@@ -244,5 +251,16 @@ services.factory("imagesservice", [function() {
 		
 	}
 	return new ImagesService();
+	
+}]);
+
+services.factory("footerservice", [function() {
+	
+	function FooterService() {
+		
+		this.footer = {text:""};
+		
+	}
+	return new FooterService();
 	
 }]);

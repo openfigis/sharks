@@ -8,8 +8,10 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SpeciesSelectionCtrl", ["routingservice", "imagesservice", "species", "groups",
-                                       function (routingservice, imagesservice, species, groups) {
+  .controller("SpeciesSelectionCtrl", ["routingservice", "imagesservice", "footerservice", "species", "groups", "footer",
+                                       function (routingservice, imagesservice, footerservice, species, groups, footer) {
+	  footerservice.footer = footer;
+	  
 	  this.species = species;
 	  this.groups = groups;
 	  

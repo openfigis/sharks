@@ -20,18 +20,21 @@ angular
 					all:"/species",
 					single:"/species/:alphaCode",
 					singlePath:"/species/",
+					footerKey: "SPECIES_FOOTER",
 					id: function(species) {return species.alphaCode;}
 				},
 				countries: {
 					all:"/countries",
 					single:"/country/:code",
 					singlePath:"/country/",
+					footerKey: "COUNTRIES_FOOTER",
 					id: function(country) {return country.code;}
 				},
 				entities: {
 					all:"/rfbs",
 					single:"/rfb/:acronym",
 					singlePath:"/rfb/",
+					footerKey: "ENTITIES_FOOTER",
 					id: function(entity) {return entity.acronym;}
 				},
 				measures: {
@@ -59,6 +62,9 @@ angular
         	},
       		groups : function(groupsservice) {
       			return groupsservice.list();
+      		},
+      		footer : function(contentservice) {
+      			return contentservice.get(paths.species.footerKey);
       		}
         }
       })
@@ -72,7 +78,10 @@ angular
         	},
         	species : function($route, speciesservice) {
         		return speciesservice.get($route.current.params.alphaCode);
-        	}
+        	},
+      		footer : function(contentservice) {
+      			return contentservice.get(paths.species.footerKey);
+      		}
         }
       })
       
@@ -83,7 +92,10 @@ angular
         resolve: {
         	countries : function(countriesservice) {
         		return countriesservice.list();
-        	}
+        	},
+      		footer : function(contentservice) {
+      			return contentservice.get(paths.countries.footerKey);
+      		}
         }
       }) 
       .when(paths.countries.single, {
@@ -99,7 +111,10 @@ angular
         	},
         	entities :  function($route, countriesservice) {
         		return countriesservice.entities($route.current.params.code);
-        	}
+        	},
+      		footer : function(contentservice) {
+      			return contentservice.get(paths.countries.footerKey);
+      		}
         }
       })
       
@@ -110,7 +125,10 @@ angular
         resolve: {
         	entities : function(entitiesservice) {
         		return entitiesservice.list();
-        	}
+        	},
+      		footer : function(contentservice) {
+      			return contentservice.get(paths.entities.footerKey);
+      		}
         }
       }) 
       .when(paths.entities.single, {
@@ -126,7 +144,10 @@ angular
         	},
         	countries : function($route, entitiesservice) {
         		return entitiesservice.countries($route.current.params.acronym);
-        	}
+        	},
+      		footer : function(contentservice) {
+      			return contentservice.get(paths.entities.footerKey);
+      		}
         }
       })
       

@@ -8,8 +8,10 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("CountryDetailsCtrl", ["routingservice", "country", "groupedPoas", "entities",
-                                          function (routingservice, country, groupedPoas, entities) {
+  .controller("CountryDetailsCtrl", ["routingservice", "footerservice", "country", "groupedPoas", "entities", "footer",
+                                          function (routingservice, footerservice, country, groupedPoas, entities, footer) {
+	  footerservice.footer = footer;
+	  
 	  this.country = country;
 	  this.groupedPoas = groupedPoas;
 	  this.entities = entities;

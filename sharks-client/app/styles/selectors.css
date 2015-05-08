@@ -1,0 +1,244 @@
+/*
+Species SELECTOR
+*/
+
+
+#SpeciesSelector{
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 400px;
+	width: 100%;
+	position: relative;
+	background-image: url(images/coral2.png);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+#SpeciesSelector ul{
+width: 70%;
+//outline: 1px solid red;
+margin: 25px 0;
+text-align: left;
+padding: 0;
+position: absolute;
+bottom: 0;
+left: 20px;
+}
+
+
+#SpeciesSelector ul li{
+	width: 44px;
+	height: 44px;
+	border-radius: 5px;
+	margin: 2px;
+	background-color: white;
+	list-style-type: none;
+	box-shadow: 1px 1px 1px black;
+	float: left;
+}
+
+
+#SpeciesSelector ul li.selectorfamily{
+	background-color: rgb(96, 156, 203);
+}
+
+.singlespecies{
+	clear: both;
+}
+
+div#sharksIllu{
+	width: 80%;
+	margin:  5px 10%;
+	position: absolute;
+	top: 0;
+}
+
+div#sharksInfo{
+	width: auto;
+	//border: 1px solid white;
+	position: absolute;
+	right: 0;
+	bottom: 0
+}
+div#sharksInfo h1{
+	padding: 0;
+	margin: 0;
+	color: white;
+	font-weight: 300;
+	font-size: 2em;
+}
+div#sharksInfo h2{
+	padding: 0;
+	margin: 0;
+	color: white;
+	font-weight: 300;
+	font-size: 1.1em;
+}
+
+
+
+div#sharksIllu img{max-width: 100%}
+
+
+span.mobile{display: none;}
+
+
+
+
+/*
+Entities SELECTOR
+*/
+
+
+
+#entitySelector{
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 400px;
+	width: 100%;
+	position: relative;
+}
+
+
+#map{
+	width: 70%;
+	height: 400px;
+	float: left;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+
+#legend{
+	width: 30%;
+	height: 400px;
+	background-color: rgba(96, 156, 203, 0.6);
+	float: right;
+		margin: 0;
+	padding: 0;
+}
+
+#entitySelector ul{
+	margin: 10px 5px;
+	padding: 0;
+}
+
+#entitySelector ul li{
+	width: auto;
+	border-radius: 5px;
+	margin: 3px;
+	background-color: white;
+	list-style-type: none;
+	box-shadow: 1px 1px 1px black;
+	float: left;	
+	font-size: 0.8em;
+	width: 47%;
+}
+
+#entitySelector ul li.cites{
+	background-color: rgb(147, 182, 84);
+	width: 35%;
+}
+
+#entitySelector ul li.cms{
+	background-color: rgb(84, 150, 182);
+	width: 35%;	
+}
+
+#entitySelector ul li a.entity{
+margin: 5px;
+line-height: 30px;
+
+}
+
+div.eye{
+	border-radius: 5px;
+	background-color: rgba(96, 156, 203, 0.6);
+	height: 30px;
+	width: 30px;
+	float: right;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1053px) {
+
+   
+   
+}
+
+@media only screen and (max-width: 659px) {
+	
+	/*
+Species SELECTOR
+*/
+
+#sharksIllu{
+	display: none;
+}
+
+#SpeciesSelector ul{
+width: 96%;
+margin: 2%;
+text-align: left;
+padding: 10px 0;
+position: relative;
+left: 0;
+}
+
+
+#SpeciesSelector ul li{
+	width: auto;
+	height: 44px;
+	border-radius: 5px;
+	margin: 2px;
+	background-color: white;
+	list-style-type: none;
+	box-shadow: 1px 1px 1px black;
+	float: left;	
+}
+
+#SpeciesSelector ul li img{
+	width: 44px;
+	height: 44px;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	float: left;
+}
+
+span.mobile{display: block;
+	padding: 10px 5px 5px 50px;
+}
+
+
+
+/*
+Entities SELECTOR
+*/
+
+#map{
+	display: none;
+}
+
+
+#legend{
+	width: 100%;
+	height: 400px;
+	background-color: rgba(96, 156, 203, 0.6);
+	float: left;
+		margin: 0;
+	padding: 0;
+}
+
+
+.eye{display: none;}
+
+
+
+    
+}
+
