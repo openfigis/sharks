@@ -8,7 +8,7 @@ Species SELECTOR
 	height: 400px;
 	width: 100%;
 	position: relative;
-	background-image: url(images/coral2.png);
+	background-image: url(../images/coral2.png);
 	background-repeat: no-repeat;
 	background-position: right bottom;
 }

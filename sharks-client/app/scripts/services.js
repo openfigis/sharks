@@ -236,8 +236,10 @@ services.factory("imagesservice", [function() {
 	
 	function ImagesService() {
 		
+		this.missingThumbImageUrl = "images/species/missing-thumb.png";
 		this.speciesMissingSmallImageUrl = "images/species/missing-small.gif";
 		this.speciesMissingMediumImageUrl = "images/species/missing-medium.gif";
+		
 		
 		this.speciesSmallImageUrl = function(species) {
 		  var sn = species.scientificName.toLowerCase().replace(" ", "_");
@@ -247,6 +249,11 @@ services.factory("imagesservice", [function() {
 		this.speciesMediumImageUrl = function(species) {
 			var sn = species.scientificName.toLowerCase().replace(" ", "_");
 			return "images/species/"+sn+"-drawing-medium.gif"; 
+		};
+		
+		this.speciesThumbImageUrl = function(species) {
+			var sn = species.scientificName.toLowerCase().replace(" ", "_");
+			return "images/species/"+sn+"-drawing-thumb.png"; 
 		};
 		
 	}

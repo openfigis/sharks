@@ -1,46 +1,31 @@
 
-<!--   This is the species selection for mobile --> 
-
-<style>
-#sharkSelection{
-  width: 100%;
-  max-width: 1200px;
-  height: 400px;
-  overflow: hidden;
-  display: -webkit-flex;
--webkit-flex: 1;
--webkit-flex-flow:wrap;
-}
-
-ul#sharkSelection li{
-  list-style-type: none;
-  padding: 20px 10px 0;
-  margin:  2px;
-border-radius: 3px;
-  float: left;
-  font-size: 12px;
-  background-color: rgba(255, 255, 255, 1);
-  height: 33px;
-}
-
-ul#sharkSelection li.families{
-  background-color: rgba(96,156,203,1);
-}
-
-ul#sharkSelection{
-padding: 0px 0px 0px;
-margin: 0.5%;
-width: 100%;
-float: left;
-border-radius: 3px;
-}
-
-</style>
-
-<!-- class="mobile" -->
-<section>
-<ul id="sharkSelection">
-<li class="families" ng-repeat="group in ctrl.groups" ng-click="ctrl.showGroup(group)">{{group.customSpeciesGrp}}</li>
-<li ng-repeat="sp in ctrl.species" ng-click="ctrl.show(sp)">{{sp.nameEn}}</li>
-</ul>
-</section>
+<section id="SpeciesSelector">
+  <div id="sharksIllu">
+    <img src="images/shark_image_0000_Cetorhinus_maximus_pri2.png">
+    <div id="sharksInfo">
+      <h1>{{ctrl.title}}</h1>
+      <h2>{{ctrl.subTitle}}</h2>
+    </div>
+  </div>  
+  
+  <ul>
+   <li class="selectorspecies selectorfamily" 
+   ng-repeat="group in ctrl.groups" 
+   ng-click="ctrl.showGroup(group)" 
+   ng-mouseover="ctrl.hoverGroup(group)">
+      <img src="images/shark_thumb_0000_Cetorhinus_maximus_pri2.png">
+      <span class="mobile">{{group.customSpeciesGrp}}</span>
+    </li>
+    <li class="selectorspecies" 
+     ng-class="{ singlespecies: $first}"
+    ng-repeat="sp in ctrl.species" 
+    ng-click="ctrl.show(sp)"
+    ng-mouseover="ctrl.hoverSpecies(sp)"
+    >
+      <img ng-src="{{ctrl.speciesThumbUrl(sp)}}" err-src="{{ctrl.missingThumbUrl}}">
+      <span class="mobile">{{sp.nameEn}}</span>
+      
+      
+    </li>
+  </ul>
+</section> 
