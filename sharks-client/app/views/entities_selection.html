@@ -1,13 +1,18 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Select one or more entities:</div>
 
-  <!-- List group -->
-  <ul class="list-group">
-      <li class="list-group-item pointer" 
-             ng-repeat="entity in ctrl.entities" 
-      ng-click="ctrl.show(entity)">
-       {{entity.acronym}} - {{entity.name}}
-    </li>
-  </ul>
-
-</div>
+<section id="entitySelector">
+  
+  <div id="map">
+    <img src="images/TMP_the-world-map.png">
+  </div>
+        
+  <div id="legend">
+    <ul>          
+      <li class="entity" ng-repeat="entity in ctrl.entities" ng-click="ctrl.show(entity)">
+        {{entity.acronym}}
+        <div class="eye">
+          <img id="eye" src="images/eye.png">
+        </div>
+      </li>
+    </ul>
+  </div>            
+</section>
