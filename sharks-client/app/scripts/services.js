@@ -103,6 +103,18 @@ services.factory("countriesservice", ["countriesresource", "$q", function(countr
 			
 			return deferred.promise;
 		};
+		
+		this.countriesGroupedByContinent = function() {
+			var deferred = $q.defer();
+			countriesresource.query().$promise.then(function(countries) {
+				var grouped = Stream(countries).groupBy(function (country) {
+				      return country.continent;
+				  });
+				deferred.resolve(grouped);
+            });
+			
+			return deferred.promise;
+		};
 	}
 	return new CountriesService();
 	

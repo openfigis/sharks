@@ -1,12 +1,13 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Select one or more countries:</div>
 
-  <!-- List group -->
-  <ul class="list-group">
-      <li class="list-group-item pointer" 
-      ng-repeat="country in ctrl.countries" 
-      ng-click="ctrl.show(country)">
-       {{country.code}} - {{country.name}}
-    </li>
+<section id="countriesMap">
+
+  <ul class="africa" ng-repeat="(continent, countries) in ctrl.groupedCountries">
+    <div class="spacer">
+      <h2>{{continent | uppercase}}</h2>
+        <li ng-repeat="country in countries"ng-click="ctrl.show(country)">{{country.name}}</li>
+
+    </div>
   </ul>
-</div>
+</section>
+
+ 

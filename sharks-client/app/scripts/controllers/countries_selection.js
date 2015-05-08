@@ -8,11 +8,11 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("CountriesSelectionCtrl", ["routingservice", "footerservice", "countries", "footer", 
-                                         function (routingservice, footerservice, countries, footer) {
+  .controller("CountriesSelectionCtrl", ["routingservice", "footerservice", "groupedCountries", "footer", 
+                                         function (routingservice, footerservice, groupedCountries, footer) {
 	  footerservice.footer = footer;
 	  
-	  this.countries = countries;
+	  this.groupedCountries = groupedCountries;
 
 	  this.show = function(country) {
 		  routingservice.toSingle("countries", country);
