@@ -37,6 +37,8 @@ public class TestRefPubParser {
 		
 		assertNotNull(country.getFisheryCommissions());
 		assertFalse(country.getFisheryCommissions().isEmpty());
+		
+		assertNotNull(country.getContinent());
 	}
 	
 	@Test

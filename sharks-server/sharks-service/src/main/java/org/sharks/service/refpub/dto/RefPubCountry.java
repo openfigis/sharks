@@ -32,4 +32,8 @@ public class RefPubCountry {
 		return concept.getMultilingualOfficialName();
 	}
 	
+	public String getContinent() {
+		return concept.findParents("Continent").stream().map(parent -> parent.getMultilingualName().getEnglish()).findFirst().orElse(null);
+	}
+	
 }
