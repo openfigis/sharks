@@ -9,7 +9,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import org.sharks.storage.domain.InformationSource;
 
@@ -19,15 +18,15 @@ import org.sharks.storage.domain.InformationSource;
  */
 @XmlRootElement
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class MeasureEntry {
 
-	private long id;
-	private String symbol;
-	private String title;
-	private Integer year;
-	private boolean binding;
-	private List<InformationSource> sources;
+	private final long id;
+	private final String symbol;
+	private final String title;
+	private final String documentType;
+	private final Integer year;
+	private final boolean binding;
+	private final List<InformationSource> sources;
 	
 }
