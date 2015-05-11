@@ -1,64 +1,73 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Entity details</div>
-  <div class="panel-body">
-    <div class="col-md-8">
-      <div class="panel panel-default">
-        <div class="panel-body">
-            {{ctrl.entity.acronym}} - {{ctrl.entity.name}}
-        </div>
-      </div>
-      
-      <div class="panel panel-default">
-        <div class="panel-heading">Measures</div>
-        <div class="panel-body">
-         <table class="table">
-          <thead>
-            <tr>
-              <th>Symbol</th><th>Title</th><th>Year</th><th>Link</th>
-            </tr>
-          </thead>
-          <tbody>
-          <tr ng-repeat="measure in ctrl.measures" ng-click="ctrl.showMeasure(measure)" class="pointer">
-            <td>{{measure.symbol}}</td>
-            <td>{{measure.title}}</td>
-            <td>{{measure.year}}</td>
-            <td>
-              <ul>
-                <li ng-repeat="source in measure.sources">
-                  <a href="{{source.url}}">{{source.symbol}}</a>
-                </li>
-              </ul>
-            </td>
-          </tr>
+<div id="main">
+  <header>
+    <h2 class="pagetitle">{{ctrl.entity.acronym}}</h2> 
+    <h3 class="subtitle">{{ctrl.entity.name}}</h3>
           
-          </tbody>
-	     </table>
-        </div>
-      </div>
+    <section id="infoBox">
+      <div class="logo"><img src="images/BannIccat.gif"></div>
+    </section>
+    <div class="clear"></div>
+  </header>
 
+  <section id="primary">
+    <h2>Measures</h2>
+    <section class="measure" ng-repeat="measure in ctrl.measures" ng-click="ctrl.showMeasure(measure)" class="pointer">
+      <div class="symbol">{{measure.symbol}}</div> 
+      <div class="binding">{{measure.binding?'Binding':'Non Binding'}}</div>
+      <div class="title">
+        <h4>{{measure.documentType}}</h4> 
+        <p>{{measure.title}}</p> 
+        <div class="year">year <b>{{measure.year}}</b></div>
+        <div class="download">
+          <a ng-repeat="source in measure.sources" href="{{source.url}}">
+            <img src="images/download-icon.png"> 
+          </a>  
+        </div>
+      </div> 
+    </section>
     
-    
+    <h2>Others</h2>
+    <section class="measure">
+    <div class="title">
+    <h4>Report</h4>
+    <p>Report of the by-catch coordination study</p> 
+    <div class="year">year <b>2010</b></div>
+    <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
+    </div> 
+    </section>
+    <section class="measure">
+    <div class="title">
+    <h4>Identification</h4>
+    <p>Guide for identification of Atlantic ocean sharks</p> 
+    <div class="year">year <b>2012</b></div>
+    <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
+    </div> 
+    </section>
+
+
+  </section>
+
+
+
+  <section id="secondary">
+  
+  <!-- On species page it will be a map -->
+  
+    <div id="sidemap">
+      <h2>Map </h2>  
+      <iframe width='100%' height='400px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/maxtudio.lm4on1eb/attribution,zoompan,geocoder,share.html?access_token=pk.eyJ1IjoibWF4dHVkaW8iLCJhIjoiZlpwbklYSSJ9.tnEdYapHqPgn15mgv8X-hA'></iframe>
     </div>
-	<div class="col-md-4">
-      <div class="panel panel-default">
-      <div class="panel-heading">Member countries</div>
-        <div class="panel-body">
-          <ul>
-          <li ng-repeat="country in ctrl.countries">
-            {{country.code}} - {{country.unName}}
-          </li>
-          </ul>
-          <br>
-        </div>
-      </div>
-	</div>
-  </div>
-
-
   
-   <div class="panel-footer">
-    <input class="btn btn-default pull-right" type="button" value="Back" ng-click="ctrl.back()" >
-    <div class="clearfix"></div>
-   </div>
-  
-</div>
+  <!-- On RFBs page it will be a list of counties -->
+
+    <div id="memberCountries">
+      <h2>Member countries</h2> 
+      <ul class="list">
+      <li>Japan</li>  
+      <li>South Africa</li> 
+      <li>Ghana</li>  
+      </ul>
+    </div>
+
+  </section>
+</div>  
