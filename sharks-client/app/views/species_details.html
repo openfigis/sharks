@@ -29,9 +29,9 @@
       
       <section class="measure" ng-repeat="measure in em.measures">
         <div class="symbol">{{measure.symbol}}</div> 
-        <div class="binding"><img ng-src="{{measure.binding?'images/binding-yes.png':'images/binding-no.png'}}"></div>
+        <div class="binding">{{measure.binding?'Binding':'Non Binding'}}</div>
         <div class="title">
-        <h4>Appendices</h4> 
+        <h4>{{measure.documentType}}</h4> 
           <p>{{measure.title}}</p> 
           <div class="year">year <b>{{measure.year}}</b></div>
           <div class="download" ng-repeat="source in measure.sources"><a href="{{source.url}}"><img src="images/download-icon.png"></a></div>
