@@ -42,7 +42,7 @@ public class MeasureServiceImpl implements MeasureService {
 		return new MeasureEntry(measure.getCode(), 
 				measure.getSymbol(), 
 				measure.getTitle(), 
-				measure.getDocumentType().getDescription(),
+				measure.getDocumentType()!=null?measure.getDocumentType().getDescription():null,
 				measure.getMeasureYear(), 
 				measure.getBinding(),
 				measure.getInformationSources());
