@@ -14,12 +14,12 @@
    ng-click="ctrl.showGroup(group)" 
    ng-mouseover="ctrl.hoverGroup(group)">
       <img src="images/shark_thumb_0000_Cetorhinus_maximus_pri2.png">
-      <span class="mobile">{{group.customSpeciesGrp}}</span>
+      <span class="mobile">{{group.name}}</span>
     </li>
     <li class="selectorspecies" 
      ng-class="{ singlespecies: $first}"
     ng-repeat="sp in ctrl.species" 
-    ng-click="ctrl.show(sp)"
+    ng-click="ctrl.showSpecies(sp)"
     ng-mouseover="ctrl.hoverSpecies(sp)"
     >
       <img ng-src="{{ctrl.speciesThumbUrl(sp)}}" err-src="{{ctrl.missingThumbUrl}}">

@@ -30,6 +30,12 @@ angular
 					footerKey: "SPECIES_FOOTER",
 					id: function(species) {return species.alphaCode;}
 				},
+				groups: {
+					single:"/group/:code",
+					singlePath:"/group/",
+					footerKey: "SPECIES_FOOTER",
+					id: function(group) {return group.code;}
+				},
 				countries: {
 					all:"/countries",
 					single:"/country/:code",
@@ -126,6 +132,19 @@ angular
         	},
         	species : function($route, speciesservice) {
         		return speciesservice.get($route.current.params.alphaCode);
+        	}
+        }
+      })
+      .when(paths.groups.single, {
+        templateUrl: "views/group_details.html",
+        controller: "GroupDetailsCtrl",
+        controllerAs: "ctrl",
+        resolve: {
+        	ems : function($route, measuresservice) {
+        		return measuresservice.listGrouppedByEntity($route.current.params.code);
+        	},
+        	group : function($route, groupsservice) {
+        		return groupsservice.get($route.current.params.code);
         	}
         }
       })

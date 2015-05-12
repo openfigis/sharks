@@ -19,8 +19,12 @@ angular.module("sharksClient")
 	  this.footer = footer;
 	  this.showUrls = showUrls;
 	  
-	  this.show = function(species) {
+	  this.showSpecies = function(species) {
 		  routingservice.toSingle("species", species);
+	  };
+	  
+	  this.showGroup = function(group) {
+		  routingservice.toSingle("groups", group);
 	  };
 	  
 	  this.hoverSpecies = function(species) {

@@ -10,7 +10,8 @@ resources.factory("speciesresource", ["$resource", "rest", function($resource, r
 }]);
 
 resources.factory("groupsresource", ["$resource", "rest", function($resource, rest) {
-	return $resource(rest.baseUrl + "groups", null, {
+	return $resource(rest.baseUrl + "groups/:code", null, {
+		get: {method: "GET", cache: true},
 		query: {method: "GET", cache: true, isArray:true}
 	});
 }]);
