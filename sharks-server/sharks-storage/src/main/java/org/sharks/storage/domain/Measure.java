@@ -52,9 +52,6 @@ public class Measure {
     @Column
     private Long cdMeasureReplaces;
     @OneToMany
-    @JoinTable(name = "grpMeasureCustSpecies", joinColumns = @JoinColumn(name = "cdMeasure", referencedColumnName = "cdMeasure"), inverseJoinColumns = @JoinColumn(name = "cdCustomSpeciesGrp", referencedColumnName = "cdCustomSpeciesGrp"))
-    private List<CustomSpeciesGrp> customSpeciesGrps;
-    @OneToMany
     @JoinTable(name = "grpMeasureInformationSource", joinColumns = @JoinColumn(name = "cdMeasure", referencedColumnName = "cdMeasure"), inverseJoinColumns = @JoinColumn(name = "cdInformationSource", referencedColumnName = "cdInformationSource"))
     private List<InformationSource> informationSources;
     @OneToMany
