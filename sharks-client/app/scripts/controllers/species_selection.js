@@ -17,6 +17,7 @@ angular.module("sharksClient")
 	  this.subTitle = "";
 	  
 	  this.footer = footer;
+	  this.showUrls = true;
 	  
 	  this.show = function(species) {
 		  routingservice.toSingle("species", species);
