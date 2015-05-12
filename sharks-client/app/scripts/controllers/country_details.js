@@ -15,10 +15,6 @@ angular.module("sharksClient")
 	  this.groupedPoas = groupedPoas;
 	  this.entities = entities;
 	  
-	  this.back = function() {
-		  routingservice.goBack();
-	  };
-	  
 	  this.showPoa = function(poa) {
 		routingservice.toSingle("poas", poa);  
 	  };

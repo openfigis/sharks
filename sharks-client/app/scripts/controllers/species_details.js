@@ -13,11 +13,7 @@ angular.module("sharksClient")
 	  
 	  this.species = species;
 	  this.ems = ems;
-	  
-	  this.back = function() {
-		  routingservice.goBack();
-	  };
-	  
+
 	  this.goMeasure = function(measure) {
 		  routingservice.toSingle("measures",measure);
 	  };

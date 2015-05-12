@@ -15,10 +15,6 @@ angular.module("sharksClient")
 	  this.measures = measures;
 	  this.countries = countries;
 	  
-	  this.back = function() {
-		routingservice.goBack();
-	  };
-	  
 	  this.showMeasure = function(measure) {
 		routingservice.toSingle("measures", measure);  
 	  };
