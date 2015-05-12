@@ -121,7 +121,9 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
-              modRewrite(['^[^\\.]*$ /index.html [L]']),
+              modRewrite(['^[^\\.]*$ /index.html [L]',
+                          '^/figis/(.*)$ http://figisapps.fao.org/figis/$1 [P]',
+                          '^/fi/(.*)$ http://figisapps.fao.org/fi/$1 [P]']),
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
