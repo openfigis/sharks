@@ -16,6 +16,10 @@ angular
     "services"
   ])
   .constant("paths", {
+				home: {
+					all: "/home",
+					footerKey: "HOME_FOOTER"
+				},
 				species: {
 					all:"/species",
 					single:"/species/:alphaCode",
@@ -52,6 +56,25 @@ angular
   })
   .config(function ($routeProvider, paths) {
     $routeProvider
+    .when(paths.home.all, {
+        templateUrl: "views/species_selection.html",
+        controller: "SpeciesSelectionCtrl",
+        controllerAs: "ctrl",
+        resolve: {
+        	species : function(speciesservice) {
+        		return speciesservice.list();
+        	},
+      		groups : function(groupsservice) {
+      			return groupsservice.list();
+      		},
+      		footer : function(contentservice) {
+      			return contentservice.get(paths.home.footerKey);
+      		},
+      		showUrls: function() {
+      			return true;
+      		}
+        }
+      })
       .when(paths.species.all, {
         templateUrl: "views/species_selection.html",
         controller: "SpeciesSelectionCtrl",
@@ -65,6 +88,9 @@ angular
       		},
       		footer : function(contentservice) {
       			return contentservice.get(paths.species.footerKey);
+      		},
+      		showUrls: function() {
+      			return false;
       		}
         }
       })
@@ -180,7 +206,7 @@ angular
       })
       
       .otherwise({
-        redirectTo: paths.species.all
+        redirectTo: paths.home.all
       });
   })
   .config(function ($locationProvider) {
