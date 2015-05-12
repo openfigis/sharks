@@ -91,19 +91,6 @@ services.factory("countriesservice", ["countriesresource", "$q", function(countr
 			return countriesresource.get({code:code}).$promise;
 		};
 		
-		this.getAll = function(codes) {
-			var deferred = $q.defer();
-			countriesresource.query().$promise.then(function(countries) {
-				var found = [];
-				for (var i = 0; i < countries.length; i++) {
-				    if (codes.indexOf(countries[i].code) >= 0) found.push(countries[i]);
-				}
-				deferred.resolve(found);
-            });
-			
-			return deferred.promise;
-		};
-		
 		this.countriesGroupedByContinent = function() {
 			var deferred = $q.defer();
 			countriesresource.query().$promise.then(function(countries) {

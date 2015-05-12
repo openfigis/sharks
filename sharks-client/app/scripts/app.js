@@ -20,6 +20,9 @@ angular
 					all: "/home",
 					footerKey: "HOME_FOOTER"
 				},
+				browse: {
+					all: "/browse"
+				},
 				species: {
 					all:"/species",
 					single:"/species/:alphaCode",
@@ -73,6 +76,25 @@ angular
       		showUrls: function() {
       			return true;
       		}
+        }
+      })
+    .when(paths.browse.all, {
+        templateUrl: "views/browse.html",
+        controller: "BrowseCtrl",
+        controllerAs: "ctrl",
+        resolve: {
+        	species : function(speciesservice) {
+        		return speciesservice.list();
+        	},
+      		groups : function(groupsservice) {
+      			return groupsservice.list();
+      		},
+      		countries : function(countriesservice) {
+        		return countriesservice.list();
+        	},
+        	entities : function(entitiesservice) {
+        		return entitiesservice.list();
+        	}
         }
       })
       .when(paths.species.all, {
