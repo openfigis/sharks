@@ -45,9 +45,15 @@
     <div id="primaryContainer" class="primaryContainer clearfix">
       
       <!--this contains the fisheries header, it is just a image only for visual purposes -->
-      <div id="header" class="clearfix">
-        <ng-include src="'fao-header.html'"></ng-include>
-      </div>
+     
+      <!-- @if env.name='development' -->
+      <ng-include src="'fao-header.html'"></ng-include>
+      <!-- @endif -->
+      
+      <!-- @if env.name='production' !>
+      <ng-include src="'/figis/moniker.html/figisbanner/en'"></ng-include>
+      <!-- @endif -->
+      
 
       <header>   
         <ng-include src="'header.html'"></ng-include>
