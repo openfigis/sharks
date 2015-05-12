@@ -8,9 +8,8 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SpeciesDetailsCtrl", ["routingservice", "imagesservice", "footerservice", "ems", "species", "footer", 
-                                          function (routingservice, imagesservice, footerservice, ems, species, footer) {
-	  footerservice.footer = footer;
+  .controller("SpeciesDetailsCtrl", ["routingservice", "imagesservice", "ems", "species",  
+                                          function (routingservice, imagesservice, ems, species) {
 	  
 	  this.species = species;
 	  this.ems = ems;

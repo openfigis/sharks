@@ -104,10 +104,7 @@ angular
         	},
         	species : function($route, speciesservice) {
         		return speciesservice.get($route.current.params.alphaCode);
-        	},
-      		footer : function(contentservice) {
-      			return contentservice.get(paths.species.footerKey);
-      		}
+        	}
         }
       })
       
@@ -137,10 +134,7 @@ angular
         	},
         	entities :  function($route, countriesservice) {
         		return countriesservice.entities($route.current.params.code);
-        	},
-      		footer : function(contentservice) {
-      			return contentservice.get(paths.countries.footerKey);
-      		}
+        	}
         }
       })
       
@@ -170,10 +164,7 @@ angular
         	},
         	countries : function($route, entitiesservice) {
         		return entitiesservice.countries($route.current.params.acronym);
-        	},
-      		footer : function(contentservice) {
-      			return contentservice.get(paths.entities.footerKey);
-      		}
+        	}
         }
       })
       
