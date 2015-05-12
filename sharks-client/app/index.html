@@ -43,7 +43,7 @@
     <![endif]-->
     
     <!-- @if env.name='development' -->
-    <ng-include src="'fao-header.html'"></ng-include>
+    <ng-include src="'partials/fao-header.html'"></ng-include>
     <!-- @endif -->
       
     <!-- @if env.name='production' !>
@@ -53,21 +53,21 @@
     <div id="primaryContainer" class="primaryContainer clearfix">
 
       <header>   
-        <ng-include src="'header.html'"></ng-include>
+        <ng-include src="'partials/header.html'"></ng-include>
       </header>
 
-      <ng-include src="'navbar.html'"></ng-include>
+      <ng-include src="'partials/navbar.html'"></ng-include>
       <div class="bx-pager-divider"></div>
 
       <div ng-view=""></div>
 
       <footer>
-        <ng-include src="'footer.html'"></ng-include>
+        <ng-include src="'partials/footer.html'"></ng-include>
       </footer>
       
       <!--this contains the fisheries header, it is just a image only for visual purposes -->
       <div id="footer">
-      <ng-include src="'fao-footer.html'"></ng-include>
+      <ng-include src="'partials/fao-footer.html'"></ng-include>
       </div>
       
     </div>
