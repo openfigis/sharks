@@ -8,11 +8,12 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("EntitiesSelectionCtrl", ["routingservice", "footerservice", "entities", "footer", 
-                                         function (routingservice, footerservice, entities, footer) {
-	  footerservice.footer = footer;
+  .controller("EntitiesSelectionCtrl", ["routingservice", "entities", "footer", 
+                                         function (routingservice, entities, footer) {
 	  
 	  this.entities = entities;
+	  
+	  this.footer = footer;
 
 	  this.show = function(entity) {
 		  routingservice.toSingle("entities", entity);

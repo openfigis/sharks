@@ -272,14 +272,3 @@ services.factory("imagesservice", [function() {
 	return new ImagesService();
 	
 }]);
-
-services.factory("footerservice", [function() {
-	
-	function FooterService() {
-		
-		this.footer = {text:""};
-		
-	}
-	return new FooterService();
-	
-}]);

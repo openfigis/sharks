@@ -8,15 +8,15 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SpeciesSelectionCtrl", ["routingservice", "imagesservice", "footerservice", "species", "groups", "footer",
-                                       function (routingservice, imagesservice, footerservice, species, groups, footer) {
-	  footerservice.footer = footer;
-	  
+  .controller("SpeciesSelectionCtrl", ["routingservice", "imagesservice", "species", "groups", "footer",
+                                       function (routingservice, imagesservice, species, groups, footer) {
 	  this.species = species;
 	  this.groups = groups;
 
 	  this.title = "";
 	  this.subTitle = "";
+	  
+	  this.footer = footer;
 	  
 	  this.show = function(species) {
 		  routingservice.toSingle("species", species);
