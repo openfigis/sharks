@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html> -->
 <html class="no-js" ng-app="sharksClient">
 
   <head>
@@ -41,19 +41,16 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    
+    <!-- @if env.name='development' -->
+    <ng-include src="'fao-header.html'"></ng-include>
+    <!-- @endif -->
+      
+    <!-- @if env.name='production' !>
+    <ng-include src="'/figis/moniker.html/figisbanner/en'"></ng-include>
+    <!-- @endif -->
   
     <div id="primaryContainer" class="primaryContainer clearfix">
-      
-      <!--this contains the fisheries header, it is just a image only for visual purposes -->
-     
-      <!-- @if env.name='development' -->
-      <ng-include src="'fao-header.html'"></ng-include>
-      <!-- @endif -->
-      
-      <!-- @if env.name='production' !>
-      <ng-include src="'/figis/moniker.html/figisbanner/en'"></ng-include>
-      <!-- @endif -->
-      
 
       <header>   
         <ng-include src="'header.html'"></ng-include>
