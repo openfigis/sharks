@@ -15,7 +15,7 @@ import org.sharks.service.refpub.dto.RefPubSpecies;
 import org.sharks.service.util.ComplementUtil;
 import org.sharks.storage.domain.Species;
 
-import static org.sharks.service.EntryConverters.*;
+import static org.sharks.service.producer.EntryProducers.*;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"

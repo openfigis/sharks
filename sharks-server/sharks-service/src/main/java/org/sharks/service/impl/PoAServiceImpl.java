@@ -12,7 +12,7 @@ import org.sharks.service.dto.PoAEntry;
 import org.sharks.storage.dao.PoADao;
 import org.sharks.storage.domain.PoA;
 
-import static org.sharks.service.EntryConverters.*;
+import static org.sharks.service.producer.EntryProducers.*;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"

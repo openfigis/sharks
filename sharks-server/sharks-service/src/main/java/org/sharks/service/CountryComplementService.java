@@ -17,7 +17,7 @@ import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.util.ComplementUtil;
 import org.sharks.storage.domain.Country;
 
-import static org.sharks.service.EntryConverters.*;
+import static org.sharks.service.producer.EntryProducers.*;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"

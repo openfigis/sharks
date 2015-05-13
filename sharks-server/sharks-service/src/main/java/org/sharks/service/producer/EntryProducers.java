@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.sharks.service;
+package org.sharks.service.producer;
 
 import java.util.Collection;
 import java.util.List;
@@ -23,24 +23,24 @@ import org.sharks.storage.domain.Species;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class EntryConverters {
+public class EntryProducers {
 	
-	public static <I,O> List<O> convert(Collection<I> input, EntryConverter<I, O> converter) {
+	public static <I,O> List<O> convert(Collection<I> input, EntryProducer<I, O> converter) {
 		return input.stream().map(converter).collect(Collectors.toList());
 	}
 	
-	public static final EntryConverter<Species, SpeciesEntry> TO_SPECIES_ENTRY = new AbstractEntryConverter<Species, SpeciesEntry>() {
+	public static final EntryProducer<Species, SpeciesEntry> TO_SPECIES_ENTRY = new AbstractEntryProducer<Species, SpeciesEntry>() {
 
 		@Override
-		public SpeciesEntry convert(Species species) {
+		public SpeciesEntry produce(Species species) {
 			return new SpeciesEntry(species.getAlphaCode(), species.getAlphaCode(), species.getNameEn());
 		}
 	};
 	
-	public static final EntryConverter<Measure, MeasureEntry> TO_MEASURE_ENTRY = new AbstractEntryConverter<Measure, MeasureEntry>() {
+	public static final EntryProducer<Measure, MeasureEntry> TO_MEASURE_ENTRY = new AbstractEntryProducer<Measure, MeasureEntry>() {
 
 		@Override
-		public MeasureEntry convert(Measure measure) {
+		public MeasureEntry produce(Measure measure) {
 			return new MeasureEntry(measure.getCode(), 
 					measure.getSymbol(), 
 					measure.getTitle(), 
@@ -51,19 +51,19 @@ public class EntryConverters {
 		}
 	};
 	
-	public static final EntryConverter<CustomSpeciesGrp, GroupEntry> TO_GROUP_ENTRY = new AbstractEntryConverter<CustomSpeciesGrp, GroupEntry>() {
+	public static final EntryProducer<CustomSpeciesGrp, GroupEntry> TO_GROUP_ENTRY = new AbstractEntryProducer<CustomSpeciesGrp, GroupEntry>() {
 
 		@Override
-		public GroupEntry convert(CustomSpeciesGrp group) {
+		public GroupEntry produce(CustomSpeciesGrp group) {
 			return new GroupEntry(group.getCode(), 
 					group.getCustomSpeciesGrp());
 		}
 	};
 	
-	public static final EntryConverter<PoA, PoAEntry> TO_POA_ENTRY = new AbstractEntryConverter<PoA, PoAEntry>() {
+	public static final EntryProducer<PoA, PoAEntry> TO_POA_ENTRY = new AbstractEntryProducer<PoA, PoAEntry>() {
 
 		@Override
-		public PoAEntry convert(PoA poa) {
+		public PoAEntry produce(PoA poa) {
 			return new PoAEntry(poa.getCode(), 
 					poa.getTitle(), 
 					poa.getPoAYear(), 
@@ -72,10 +72,10 @@ public class EntryConverters {
 		}
 	};
 	
-	public static final EntryConverter<MgmtEntity, EntityEntry> TO_ENTITY_ENTRY = new AbstractEntryConverter<MgmtEntity, EntityEntry>() {
+	public static final EntryProducer<MgmtEntity, EntityEntry> TO_ENTITY_ENTRY = new AbstractEntryProducer<MgmtEntity, EntityEntry>() {
 
 		@Override
-		public EntityEntry convert(MgmtEntity entity) {
+		public EntityEntry produce(MgmtEntity entity) {
 			return new EntityEntry(entity.getCode(), 
 					entity.getAcronym(), 
 					entity.getMgmtEntityName());
@@ -83,15 +83,15 @@ public class EntryConverters {
 
 	};
 	
-	private static abstract class AbstractEntryConverter<I,O> implements EntryConverter<I,O> {
+	private static abstract class AbstractEntryProducer<I,O> implements EntryProducer<I,O> {
 
 		@Override
 		public O apply(I t) {
-			return convert(t);
+			return produce(t);
 		}
 	}
 	
-	public interface EntryConverter<I,O> extends Function<I, O>{
-		public O convert(I item);
+	public interface EntryProducer<I,O> extends Function<I, O>{
+		public O produce(I item);
 	}
 }

@@ -3,10 +3,10 @@
  */
 package org.sharks.service.impl;
 
-import static org.sharks.service.EntryConverters.TO_GROUP_ENTRY;
-import static org.sharks.service.EntryConverters.TO_MEASURE_ENTRY;
-import static org.sharks.service.EntryConverters.TO_SPECIES_ENTRY;
-import static org.sharks.service.EntryConverters.convert;
+import static org.sharks.service.producer.EntryProducers.TO_GROUP_ENTRY;
+import static org.sharks.service.producer.EntryProducers.TO_MEASURE_ENTRY;
+import static org.sharks.service.producer.EntryProducers.TO_SPECIES_ENTRY;
+import static org.sharks.service.producer.EntryProducers.convert;
 
 import java.util.List;
 

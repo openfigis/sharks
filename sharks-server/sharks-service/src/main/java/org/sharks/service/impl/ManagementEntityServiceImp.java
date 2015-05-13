@@ -3,9 +3,9 @@
  */
 package org.sharks.service.impl;
 
-import static org.sharks.service.EntryConverters.TO_ENTITY_ENTRY;
-import static org.sharks.service.EntryConverters.TO_MEASURE_ENTRY;
-import static org.sharks.service.EntryConverters.convert;
+import static org.sharks.service.producer.EntryProducers.TO_ENTITY_ENTRY;
+import static org.sharks.service.producer.EntryProducers.TO_MEASURE_ENTRY;
+import static org.sharks.service.producer.EntryProducers.convert;
 
 import java.util.List;
 
