@@ -31,7 +31,6 @@ public class GroupResource {
 	@Inject
 	private GroupService service;
 	
-	
 	@GET
 	@Path("{code}")
 	@Produces(MediaType.APPLICATION_JSON)

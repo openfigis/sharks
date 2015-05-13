@@ -2,10 +2,9 @@ package org.sharks.storage.dao;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -23,23 +22,27 @@ public class SpeciesDaoTest {
 	@Inject
 	SpeciesDao dao;
 
-	/**
-	 * Retrieves all the measures related to species, we expect measure 2 as result.
-	 */
 	@Test
 	public void testListWithMeasures() {
 		List<Species> species = dao.listWithMeasures();
 		
-		System.out.println(species);
-		
 		assertNotNull(species);
 		assertEquals(12, species.size());
+	}
+	
+	@Test
+	public void testGetByAlphaCode() {
+		Species species = dao.getByAlphaCode("ALV");
 		
-
-		List<Long> ids = species.stream().map(Species::getCode).collect(Collectors.toList());
-
-		assertTrue(ids.contains(4l));
-		assertTrue(ids.contains(15l));
+		assertNotNull(species);
+		assertEquals("ALV", species.getAlphaCode());
+		assertEquals(new Long(1), species.getCode());
+	}
+	
+	@Test
+	public void testGetByAlphaCodeWithWrongAlphaCode() {
+		Species species = dao.getByAlphaCode("NOT_EXISTS");
+		assertNull(species);
 	}
 	
 }

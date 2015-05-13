@@ -11,9 +11,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Subquery;
 
 import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.Species;
@@ -29,6 +27,10 @@ public class SpeciesDao extends AbstractDao<Species, Long> {
 		super(emf, Species.class);
 	}
 	
+	/**
+	 * Retrieves all the {@link Species} with almost a {@link Measure} related.
+	 * @return the list of {@link Species}.
+	 */
 	public List<Species> listWithMeasures() {
 		
 		EntityManager entityManager = emf.createEntityManager();
@@ -36,19 +38,18 @@ public class SpeciesDao extends AbstractDao<Species, Long> {
 		
 		CriteriaQuery<Species> criteriaQuery = criteriaBuilder.createQuery(type);
 		Root<Species> species = criteriaQuery.from(type);
-		
-        Subquery<Measure> measureCriteriaQuery = criteriaQuery.subquery(Measure.class);
-        Root<Measure> measure = measureCriteriaQuery.from(Measure.class);
-        measureCriteriaQuery.select(measure);
-		Join<Measure, Species> measuresSpeciesJoin = measure.join("species");
-		measureCriteriaQuery.where(criteriaBuilder.equal(measuresSpeciesJoin.get("code"), species.get("code")));
-		
-		criteriaQuery.where(criteriaBuilder.exists(measureCriteriaQuery));
+			
+		criteriaQuery.where(criteriaBuilder.isNotEmpty(species.get("measures")));
 		
 		TypedQuery<Species> query = entityManager.createQuery(criteriaQuery);
 		return query.getResultList();
 	}
 	
+	/**
+	 * Returns the {@link Species} with the specified alpha code.
+	 * @param alphaCode the species alpha code.
+	 * @return the found {@link Species}, <code>null</code> otherwise.
+	 */
 	public Species getByAlphaCode(String alphaCode) {
 		return getByField("alphaCode", alphaCode);
 	}

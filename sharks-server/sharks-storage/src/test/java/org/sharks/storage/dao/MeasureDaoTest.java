@@ -20,31 +20,15 @@ import org.sharks.storage.domain.Measure;
 @AdditionalClasses(TestProducers.class)
 public class MeasureDaoTest {
 
-	
 	@Inject
 	MeasureDao dao;
-
-	/**
-	 * Retrieves all the measures related to species OCS, we expect measure 19 as result.
-	 */
-	@Test
-	public void testAllRelatedToSpeciesAlphaCode() {
-		List<Measure> measures = dao.allRelatedToSpeciesAlphaCode("OCS");
-		assertNotNull(measures);
-		assertEquals(2, measures.size());
-
-		List<Long> ids = measures.stream().map(Measure::getCode).collect(Collectors.toList());
-
-		assertTrue(ids.contains(2l));
-		assertTrue(ids.contains(18l));
-	}
 	
 	/**
 	 * Retrieves all the measures related to Management entity CCAMLR, we expect measures 3 and 4 as result.
 	 */
 	@Test
-	public void testAllRelatedToManagementEntityAcronym() {
-		List<Measure> measures = dao.allRelatedToManagementEntityAcronym("CCAMLR");
+	public void testListRelatedToManagementEntityAcronym() {
+		List<Measure> measures = dao.listRelatedToManagementEntityAcronym("CCAMLR");
 		assertNotNull(measures);
 		assertEquals(2, measures.size());
 
@@ -52,6 +36,13 @@ public class MeasureDaoTest {
 
 		assertTrue(ids.contains(3l));
 		assertTrue(ids.contains(4l));
+	}
+	
+	@Test
+	public void testListRelatedToManagementEntityAcronymWithWrongAcronym() {
+		List<Measure> measures = dao.listRelatedToManagementEntityAcronym("NOT_EXISTS");
+		assertNotNull(measures);
+		assertTrue(measures.isEmpty());
 	}
 
 }

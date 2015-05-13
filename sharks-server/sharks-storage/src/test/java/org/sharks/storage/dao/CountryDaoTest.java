@@ -14,11 +14,14 @@ import org.junit.runner.RunWith;
 import org.sharks.storage.TestProducers;
 import org.sharks.storage.domain.Country;
 
+/**
+ * @author "Federico De Faveri federico.defaveri@fao.org"
+ *
+ */
 @RunWith(CdiRunner.class)
 @AdditionalClasses(TestProducers.class)
 public class CountryDaoTest {
 
-	
 	@Inject
 	CountryDao dao;
 

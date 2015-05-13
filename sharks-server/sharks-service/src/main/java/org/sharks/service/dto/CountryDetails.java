@@ -22,4 +22,5 @@ public class CountryDetails {
 	private final String name;
 	private final Map<String, String> officialNames;
 	private final List<String> rfbs;
+	private final List<PoAEntry> poas;
 }

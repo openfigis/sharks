@@ -13,11 +13,9 @@ import org.sharks.storage.domain.PoA;
  *
  */
 public interface PoAService {
-
-	List<PoAEntry> poasForCountry(String countryCode);
-
-	List<PoAEntry> list();
 	
 	PoA get(Long code);
+
+	List<PoAEntry> list();
 	
 }

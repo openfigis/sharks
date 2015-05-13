@@ -19,7 +19,12 @@ public class ConfigTextDao extends AbstractDao<ConfigText, Long>{
 		super(emf, ConfigText.class);
 	}
 	
-	public ConfigText getByKeyword(String keyword) {
-		return getByField("cdMnemonicKey", keyword);
+	/**
+	 * Gets a {@link ConfigText} by his mnemonicKey.
+	 * @param mnemonicKey the mnemonic key, null if the text is not found.
+	 * @return the text.
+	 */
+	public ConfigText getByKeyword(String mnemonicKey) {
+		return getByField("cdMnemonicKey", mnemonicKey);
 	}
 }

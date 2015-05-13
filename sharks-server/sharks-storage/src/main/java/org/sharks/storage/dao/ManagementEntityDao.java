@@ -19,6 +19,11 @@ public class ManagementEntityDao extends AbstractDao<MgmtEntity, String> {
 		super(emf, MgmtEntity.class);
 	}
 	
+	/**
+	 * Gets a {@link MgmtEntity} by his acronym.
+	 * @param acronym the acronym.
+	 * @return the found {@link MgmtEntity} or <code>null</code> if not found.
+	 */
 	public MgmtEntity getByAcronym(String acronym) {
 		return getByField("acronym", acronym);
 	}

@@ -11,10 +11,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.ManagementEntityService;
-import org.sharks.service.MeasureService;
+import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
-import org.sharks.service.dto.MeasureEntry;
-import org.sharks.storage.domain.Country;
 
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -32,8 +30,17 @@ public class ManagementEntityResource {
 	@Inject
 	private ManagementEntityService service;
 	
-	@Inject
-	private MeasureService measureService;
+	
+	@GET
+	@Path("{acronym}")
+	@Produces(MediaType.APPLICATION_JSON)
+	@ApiOperation(value = "get a specific entity by his acronym", response = EntityDetails.class)
+	public EntityDetails get(
+			@PathParam("acronym") 
+			@ApiParam(value = "the entity acronym", required = true)
+			String acronym) {
+		return service.get(acronym);
+	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -41,27 +48,4 @@ public class ManagementEntityResource {
 	public List<EntityEntry> list() {
 		return service.list();
 	}
-	
-	@GET
-	@Path("{acronym}/measures")
-	@Produces(MediaType.APPLICATION_JSON)
-	@ApiOperation(value = "list all the measures related to the specified management entity", response = MeasureEntry.class, responseContainer="List")
-	public List<MeasureEntry> getMeasures(
-			@PathParam("acronym") 
-			@ApiParam(value = "the management entity acronym", required = true)
-			String acronym) {
-		return measureService.measuresForManagementEntity(acronym);
-	}
-	
-	@GET
-	@Path("{acronym}/countries")
-	@Produces(MediaType.APPLICATION_JSON)
-	@ApiOperation(value = "list all the countries related to the specified management entity", response = Country.class, responseContainer="List")
-	public List<Country> getCountries(
-			@PathParam("acronym")
-			@ApiParam(value = "the management entity acronym", required = true)
-			String acronym) {
-		return service.getCountries(acronym);
-	}
-
 }

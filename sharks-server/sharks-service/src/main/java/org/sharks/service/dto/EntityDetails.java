@@ -15,11 +15,11 @@ import lombok.Data;
  */
 @Data
 @XmlRootElement
-public class GroupDetails {
+public class EntityDetails {
 	
-	private final Long code;
+	private final long id;
+	private final String acronym;
 	private final String name;
-	private final List<SpeciesEntry> species;
 	private final List<MeasureEntry> measures;
 
 }

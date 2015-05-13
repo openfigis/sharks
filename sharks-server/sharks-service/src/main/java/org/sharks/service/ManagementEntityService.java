@@ -5,8 +5,8 @@ package org.sharks.service;
 
 import java.util.List;
 
+import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
-import org.sharks.storage.domain.Country;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -14,9 +14,8 @@ import org.sharks.storage.domain.Country;
  */
 public interface ManagementEntityService {
 	
+	EntityDetails get(String acronym);
+	
 	List<EntityEntry> list();
-	
-	List<Country> getCountries(String acronym);
-	
-	List<EntityEntry> getEntitiesForCountry(String countryCode);
+
 }

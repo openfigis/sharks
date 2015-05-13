@@ -1,9 +1,14 @@
 
 package org.sharks.storage.domain;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -34,5 +39,11 @@ public class Species {
     private String nameSp;
     @Column
     private String urlFactSheet;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "grpCustSpeciesSpecies", joinColumns = @JoinColumn(name = "cdSpecies", referencedColumnName = "cdSpecies"), inverseJoinColumns = @JoinColumn(name = "cdCustomSpeciesGrp", referencedColumnName = "cdCustomSpeciesGrp"))
+    private List<CustomSpeciesGrp> customSpeciesGrps;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "grpMeasureSpecies", joinColumns = @JoinColumn(name = "cdSpecies", referencedColumnName = "cdSpecies"), inverseJoinColumns = @JoinColumn(name = "cdMeasure", referencedColumnName = "cdMeasure"))
+    private List<Measure> measures;
 
 }

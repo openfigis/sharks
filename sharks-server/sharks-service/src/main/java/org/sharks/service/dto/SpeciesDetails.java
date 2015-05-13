@@ -3,6 +3,7 @@
  */
 package org.sharks.service.dto;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -20,4 +21,5 @@ public class SpeciesDetails {
 	private final String alphaCode;
 	private final String scientificName;
 	private final Map<String, String> officialNames;
+	private final List<MeasureEntry> measures;
 }

@@ -16,7 +16,6 @@ import javax.persistence.criteria.Root;
 
 import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.MgmtEntity;
-import org.sharks.storage.domain.Species;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -30,26 +29,11 @@ public class MeasureDao extends AbstractDao<Measure, Long> {
 	}
 	
 	/**
-	 * Retrieves all the {@link Measure} related to the specified {@link Species}.
-	 * @param alphaCode the {@link Species} alpha code.
-	 * @return the found {@link Measure}s.
+	 * Retrieves all the {@link Measure} related to the specified {@link MgmtEntity} acronym.
+	 * @param acronym the {@link MgmtEntity} acronym.
+	 * @return the list of {@link Measure} found, or an empty list if the acronym does not exist.
 	 */
-	public List<Measure> allRelatedToSpeciesAlphaCode(String alphaCode) {
-		EntityManager em = emf.createEntityManager();
-		
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Measure> cq = cb.createQuery(type);
-		Root<Measure> measure = cq.from(type);
-		Join<Measure, Species> species = measure.join("species");
-		cq.where(cb.equal(species.get("alphaCode"), alphaCode));
-		
-		CriteriaQuery<Measure> all = cq.select(measure);
-		TypedQuery<Measure> allQuery = em.createQuery(all);
-		return allQuery.getResultList();
-		
-	}
-	
-	public List<Measure> allRelatedToManagementEntityAcronym(String acronym) {
+	public List<Measure> listRelatedToManagementEntityAcronym(String acronym) {
 		EntityManager em = emf.createEntityManager();
 		
 		CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -61,7 +45,6 @@ public class MeasureDao extends AbstractDao<Measure, Long> {
 		CriteriaQuery<Measure> all = cq.select(measure);
 		TypedQuery<Measure> allQuery = em.createQuery(all);
 		return allQuery.getResultList();
-		
 	}
 
 }

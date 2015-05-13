@@ -3,16 +3,20 @@
  */
 package org.sharks.service.impl;
 
-import java.util.Collections;
+import static org.sharks.service.EntryConverters.TO_ENTITY_ENTRY;
+import static org.sharks.service.EntryConverters.TO_MEASURE_ENTRY;
+import static org.sharks.service.EntryConverters.convert;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
 import org.sharks.service.ManagementEntityService;
+import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.storage.dao.ManagementEntityDao;
-import org.sharks.storage.domain.Country;
+import org.sharks.storage.dao.MeasureDao;
+import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.MgmtEntity;
 
 /**
@@ -23,28 +27,27 @@ public class ManagementEntityServiceImp implements ManagementEntityService {
 	
 	@Inject
 	private ManagementEntityDao dao;
+	
+	@Inject
+	private MeasureDao measureDao;
+	
+
+	@Override
+	public EntityDetails get(String acronym) {
+		MgmtEntity entity = dao.getByAcronym(acronym);
+		
+		List<Measure> measures = measureDao.listRelatedToManagementEntityAcronym(acronym);
+		
+		return new EntityDetails(entity.getCode(), 
+				entity.getAcronym(), 
+				entity.getMgmtEntityName(),
+				convert(measures, TO_MEASURE_ENTRY)
+				);
+	}
 
 	@Override
 	public List<EntityEntry> list() {
-		return dao.list().stream().map(e->toEntry(e)).collect(Collectors.toList());
+		return convert(dao.list(), TO_ENTITY_ENTRY);
 	}
 	
-	private EntityEntry toEntry(MgmtEntity entity) {
-		if (entity == null) return null;
-		return new EntityEntry(entity.getCode(), 
-				entity.getAcronym(), 
-				entity.getMgmtEntityName());
-	}
-
-	@Override
-	public List<Country> getCountries(String acronym) {
-		return Collections.emptyList();
-	}
-
-	@Override
-	public List<EntityEntry> getEntitiesForCountry(String countryCode) {
-		return Collections.emptyList();
-	}
-
-
 }

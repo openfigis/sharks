@@ -13,12 +13,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.CountryService;
-import org.sharks.service.ManagementEntityService;
-import org.sharks.service.PoAService;
 import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.dto.CountryEntry;
-import org.sharks.service.dto.EntityEntry;
-import org.sharks.service.dto.PoAEntry;
 
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -35,12 +31,6 @@ public class CountryResource {
 	
 	@Inject
 	private CountryService service;
-	
-	@Inject
-	private PoAService poaService;
-	
-	@Inject
-	private ManagementEntityService entityService;
 	
 	@GET
 	@Path("{code}")
@@ -63,28 +53,6 @@ public class CountryResource {
 			String onlyWithPoAs) {
 		boolean onlyWithPoAsFlag = Boolean.parseBoolean(onlyWithPoAs);
 		return service.list(onlyWithPoAsFlag);
-	}
-	
-	@GET
-	@Path("{code}/poas")
-	@Produces(MediaType.APPLICATION_JSON)
-	@ApiOperation(value = "list all the PoAs related to the specified country", response = PoAEntry.class, responseContainer="List")
-	public List<PoAEntry> getPoAs(
-			@PathParam("code") 
-			@ApiParam(value = "the country code", required = true)
-			String code) {
-		return poaService.poasForCountry(code);
-	}
-	
-	@GET
-	@Path("{code}/entities")
-	@Produces(MediaType.APPLICATION_JSON)
-	@ApiOperation(value = "list all the management entities related to the specified country", response = EntityEntry.class, responseContainer="List")
-	public List<EntityEntry> getEntities(
-			@PathParam("code") 
-			@ApiParam(value = "the country code", required = true)
-			String code) {
-		return entityService.getEntitiesForCountry(code);
 	}
 
 }

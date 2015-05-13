@@ -4,6 +4,7 @@ package org.sharks.storage.domain;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -30,8 +31,11 @@ public class CustomSpeciesGrp {
     private String customSpeciesGrp;
     @Column
     private String description;
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "grpCustSpeciesSpecies", joinColumns = @JoinColumn(name = "cdCustomSpeciesGrp", referencedColumnName = "cdCustomSpeciesGrp"), inverseJoinColumns = @JoinColumn(name = "cdSpecies", referencedColumnName = "cdSpecies"))
     private List<Species> species;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "grpMeasureCustSpecies", joinColumns = @JoinColumn(name = "cdCustomSpeciesGrp", referencedColumnName = "cdCustomSpeciesGrp"), inverseJoinColumns = @JoinColumn(name = "cdMeasure", referencedColumnName = "cdMeasure"))
+    private List<Measure> measures;
 
 }

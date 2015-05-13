@@ -4,6 +4,7 @@ package org.sharks.storage.domain;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -31,10 +32,7 @@ public class PoA {
     private String title;
     @Column
     private Integer poAYear;
-    @OneToMany
-    @JoinTable(name = "grpPoACountry", joinColumns = @JoinColumn(name = "cdPoA", referencedColumnName = "cdPoA"), inverseJoinColumns = @JoinColumn(name = "cdCountry", referencedColumnName = "cdCountry"))
-    private List<Country> countries;
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "grpPoAInformationSource", joinColumns = @JoinColumn(name = "cdPoA", referencedColumnName = "cdPoA"), inverseJoinColumns = @JoinColumn(name = "cdInformationSource", referencedColumnName = "cdInformationSource"))
     private List<InformationSource> informationSources;
     @OneToOne

@@ -17,6 +17,8 @@ import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.util.ComplementUtil;
 import org.sharks.storage.domain.Country;
 
+import static org.sharks.service.EntryConverters.*;
+
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
@@ -60,7 +62,11 @@ public class CountryComplementService {
 	private CountryDetails complement(Country country, RefPubCountry refPubCountry) {
 		Map<String,String> officialNames = refPubCountry!=null?util.toNameMap(refPubCountry.getMultilingualOfficialName()):Collections.emptyMap();
 		List<String> rfbs = refPubCountry!=null?refPubCountry.getFisheryCommissions():Collections.emptyList();
-		return new CountryDetails(country.getCode(), country.getUnName(), officialNames, rfbs);		
+		return new CountryDetails(country.getCode(), 
+				country.getUnName(), 
+				officialNames, 
+				rfbs,
+				convert(country.getPoAs(), TO_POA_ENTRY));		
 	}
 	
 }
