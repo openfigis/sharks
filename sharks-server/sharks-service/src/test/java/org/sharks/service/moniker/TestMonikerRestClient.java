@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.sharks.service.moniker.dto.Rfb;
+import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
 
 /**
@@ -25,7 +25,7 @@ public class TestMonikerRestClient {
 
 	@Test @Ignore
 	public void testGetRfbs() {
-		List<Rfb> rfbs = client.getRfbs("USA");
+		List<RfbEntry> rfbs = client.getRfbs("USA");
 		assertNotNull(rfbs);
 		System.out.println(rfbs);
 	}

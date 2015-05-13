@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.sharks.service.moniker.dto.Rfb;
+import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
 
 /**
@@ -20,7 +20,7 @@ public class DefaultMonikerService implements MonikerService {
 	private MonikersRestClient restClient;
 
 	@Override
-	public List<Rfb> getRfbs(String countryIso3) {
+	public List<RfbEntry> getRfbs(String countryIso3) {
 		return restClient.getRfbs(countryIso3);
 	}
 

@@ -9,7 +9,7 @@ import javax.xml.bind.Unmarshaller;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.sharks.service.moniker.dto.MonikerResponse;
-import org.sharks.service.moniker.dto.Rfb;
+import org.sharks.service.moniker.dto.RfbEntry;
 
 import static org.junit.Assert.*;
 
@@ -23,7 +23,7 @@ public class TestMonikerDtoParsing {
 	
 	@BeforeClass
 	public static void setupContext() throws JAXBException {
-		JAXBContext context = JAXBContext.newInstance(Rfb.class, MonikerResponse.class);
+		JAXBContext context = JAXBContext.newInstance(RfbEntry.class, MonikerResponse.class);
 		unmarshaller = context.createUnmarshaller();
 	}
 
@@ -31,13 +31,13 @@ public class TestMonikerDtoParsing {
 	@Test
 	public void testRfbResponseParsing() throws JAXBException {
 		InputStream file = TestMonikerDtoParsing.class.getResourceAsStream("/moniker_rfb4iso3.xml");
-		MonikerResponse<Rfb> response = (MonikerResponse<Rfb>) unmarshaller.unmarshal(file);
+		MonikerResponse<RfbEntry> response = (MonikerResponse<RfbEntry>) unmarshaller.unmarshal(file);
 		
 		assertNotNull(response);
 		assertNotNull(response.getOutput());
 		assertFalse(response.getOutput().getItems().isEmpty());
 		
-		Rfb first = response.getOutput().getItems().get(0);
+		RfbEntry first = response.getOutput().getItems().get(0);
 
 		assertNotNull(first.getFigisId());
 		assertNotNull(first.getUri());

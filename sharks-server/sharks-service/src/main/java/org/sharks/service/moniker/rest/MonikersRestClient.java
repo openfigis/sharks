@@ -14,7 +14,7 @@ import javax.xml.bind.Unmarshaller;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.service.moniker.dto.MonikerResponse;
-import org.sharks.service.moniker.dto.Rfb;
+import org.sharks.service.moniker.dto.RfbEntry;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -30,7 +30,7 @@ public class MonikersRestClient {
 		this.restUrl = restUrl;
 
 		try {
-			JAXBContext context = JAXBContext.newInstance(MonikerResponse.class, Rfb.class);
+			JAXBContext context = JAXBContext.newInstance(MonikerResponse.class, RfbEntry.class);
 			unmarshaller = context.createUnmarshaller();
 		} catch(Exception e) {
 			throw new MonikerRestClientException("Error initializing JAXB", e);
@@ -38,12 +38,12 @@ public class MonikersRestClient {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Rfb> getRfbs(String iso3Code) {
+	public List<RfbEntry> getRfbs(String iso3Code) {
 		try {
 			URL rfb4iso3Url = getRfb4Iso3Url(iso3Code);
 			log.trace("getting rfbs {} from {}", iso3Code, rfb4iso3Url);
 			try (InputStream is = rfb4iso3Url.openStream()) {
-				MonikerResponse<Rfb> response = (MonikerResponse<Rfb>) unmarshaller.unmarshal(is);
+				MonikerResponse<RfbEntry> response = (MonikerResponse<RfbEntry>) unmarshaller.unmarshal(is);
 				return response.getOutput().getItems();
 			}
 		} catch(Exception e) {

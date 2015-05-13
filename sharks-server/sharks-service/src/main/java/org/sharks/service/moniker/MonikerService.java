@@ -5,7 +5,7 @@ package org.sharks.service.moniker;
 
 import java.util.List;
 
-import org.sharks.service.moniker.dto.Rfb;
+import org.sharks.service.moniker.dto.RfbEntry;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -13,6 +13,6 @@ import org.sharks.service.moniker.dto.Rfb;
  */
 public interface MonikerService {
 	
-	public List<Rfb> getRfbs(String countryIso3);
+	public List<RfbEntry> getRfbs(String countryIso3);
 
 }
