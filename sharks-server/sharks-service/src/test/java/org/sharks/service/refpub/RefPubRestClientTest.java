@@ -13,7 +13,7 @@ import org.sharks.service.refpub.rest.RefPubRestClient;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class TestRefPubRestClient {
+public class RefPubRestClientTest {
 	
 	private static RefPubRestClient client;
 

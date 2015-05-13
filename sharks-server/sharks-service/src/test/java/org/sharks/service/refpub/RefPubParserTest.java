@@ -17,7 +17,7 @@ import org.sharks.service.refpub.rest.RefPubParser;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class TestRefPubParser {
+public class RefPubParserTest {
 	
 	private static RefPubParser parser;
 	
@@ -28,7 +28,7 @@ public class TestRefPubParser {
 
 	@Test
 	public void testRefPubCountryParsing() throws JAXBException {
-		InputStream file = TestRefPubParser.class.getResourceAsStream("/country.xml");
+		InputStream file = RefPubParserTest.class.getResourceAsStream("/country.xml");
 		RefPubCountry country = parser.parseCountry(file);
 		
 		assertNotNull(country);
@@ -43,7 +43,7 @@ public class TestRefPubParser {
 	
 	@Test
 	public void testRefPubSpeciesParsing() throws JAXBException {
-		InputStream file = TestRefPubParser.class.getResourceAsStream("/species.xml");
+		InputStream file = RefPubParserTest.class.getResourceAsStream("/species.xml");
 		RefPubSpecies species = parser.parseSpecies(file);
 		
 		assertNotNull(species);

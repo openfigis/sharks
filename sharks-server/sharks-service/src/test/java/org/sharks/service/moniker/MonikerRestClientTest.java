@@ -14,7 +14,7 @@ import org.sharks.service.moniker.rest.MonikersRestClient;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class TestMonikerRestClient {
+public class MonikerRestClientTest {
 	
 	private static MonikersRestClient client;
 

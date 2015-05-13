@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class TestMonikerDtoParsing {
+public class MonikerDtoParsingTest {
 	
 	private static Unmarshaller unmarshaller;
 	
@@ -30,7 +30,7 @@ public class TestMonikerDtoParsing {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testRfbResponseParsing() throws JAXBException {
-		InputStream file = TestMonikerDtoParsing.class.getResourceAsStream("/moniker_rfb4iso3.xml");
+		InputStream file = MonikerDtoParsingTest.class.getResourceAsStream("/moniker_rfb4iso3.xml");
 		MonikerResponse<RfbEntry> response = (MonikerResponse<RfbEntry>) unmarshaller.unmarshal(file);
 		
 		assertNotNull(response);
