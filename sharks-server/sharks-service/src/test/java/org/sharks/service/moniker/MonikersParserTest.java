@@ -57,6 +57,7 @@ public class MonikersParserTest {
 		assertNotNull(doc.getFigisId());
 		assertNotNull(doc.getAcronym());
 		assertNotNull(doc.getWebsite());
+		assertNotNull(doc.getImageId());
 		
 		assertNotNull(doc.getMembers());
 		assertFalse(doc.getMembers().isEmpty());

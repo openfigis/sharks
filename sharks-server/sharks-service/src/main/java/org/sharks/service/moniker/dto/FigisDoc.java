@@ -30,6 +30,9 @@ public class FigisDoc {
 	
 	@XmlPath("fi:Org/fi:OrgIdent/fi:OrgRef/fi:ContactEntry/fi:Website/text()")
 	private String website;
+	
+	@XmlPath("fi:Org/fi:OrgIdent/fi:Image/@IID")
+	private String imageId;
 
 	@XmlPath("fi:Org/fi:OrgsInvolved/fi:OrgsInvolvedEntry/fi:LandAreaRef")
 	private List<Member> members;
