@@ -24,8 +24,6 @@ import static org.sharks.service.EntryConverters.*;
 @Singleton
 public class SpeciesComplementService {
 	
-	public static final String NOT_AVAILABLE_CODE = "N/A"; 
-	
 	@Inject
 	private RefPubService refPubService;
 	

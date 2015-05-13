@@ -14,7 +14,8 @@ import org.sharks.storage.domain.Species;
  */
 public interface SpeciesService {
 
+	SpeciesDetails getSpecies(String alphacode);
+
 	List<Species> list(boolean onlyWithMeasure);
 
-	SpeciesDetails getSpecies(String alphacode);
 }
