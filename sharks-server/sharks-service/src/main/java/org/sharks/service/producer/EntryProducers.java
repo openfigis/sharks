@@ -12,12 +12,10 @@ import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.GroupEntry;
 import org.sharks.service.dto.MeasureEntry;
 import org.sharks.service.dto.PoAEntry;
-import org.sharks.service.dto.SpeciesEntry;
 import org.sharks.storage.domain.CustomSpeciesGrp;
 import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.MgmtEntity;
 import org.sharks.storage.domain.PoA;
-import org.sharks.storage.domain.Species;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -28,14 +26,6 @@ public class EntryProducers {
 	public static <I,O> List<O> convert(Collection<I> input, EntryProducer<I, O> converter) {
 		return input.stream().map(converter).collect(Collectors.toList());
 	}
-	
-	public static final EntryProducer<Species, SpeciesEntry> TO_SPECIES_ENTRY = new AbstractEntryProducer<Species, SpeciesEntry>() {
-
-		@Override
-		public SpeciesEntry produce(Species species) {
-			return new SpeciesEntry(species.getAlphaCode(), species.getAlphaCode(), species.getNameEn());
-		}
-	};
 	
 	public static final EntryProducer<Measure, MeasureEntry> TO_MEASURE_ENTRY = new AbstractEntryProducer<Measure, MeasureEntry>() {
 
@@ -83,7 +73,7 @@ public class EntryProducers {
 
 	};
 	
-	private static abstract class AbstractEntryProducer<I,O> implements EntryProducer<I,O> {
+	public static abstract class AbstractEntryProducer<I,O> implements EntryProducer<I,O> {
 
 		@Override
 		public O apply(I t) {

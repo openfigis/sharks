@@ -14,7 +14,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlValue;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -43,6 +45,10 @@ public class RefPubConcept {
 	@XmlElement(name="attr")
 	private Attributes attributes;
 	
+	//Species specific
+	@XmlElement(name="scientific_name")
+	private String scientificName;
+	
 	public Code findCode(String name) {
 		return codeList.getCodes().stream().filter(code->code.getName().equals(name)).findFirst().orElse(null);
 	}
@@ -70,6 +76,8 @@ public class RefPubConcept {
 	}
 	
 	@Data
+	@NoArgsConstructor
+	@AllArgsConstructor
 	@XmlRootElement(name="value")
 	@XmlAccessorType(XmlAccessType.NONE)
 	public static class Attribute {

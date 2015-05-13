@@ -14,12 +14,12 @@ import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.SpeciesService;
 import org.sharks.service.dto.SpeciesDetails;
+import org.sharks.service.dto.SpeciesEntry;
 import org.sharks.storage.domain.Species;
 
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
-
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -46,13 +46,12 @@ public class SpeciesResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@ApiOperation(value = "list all the species", response = Species.class, responseContainer="List")
-	public List<Species> list(
+	@ApiOperation(value = "list all the species", response = SpeciesEntry.class, responseContainer="List")
+	public List<SpeciesEntry> list(
 			@DefaultValue("false") 
 			@QueryParam("onlyWithMeasure") 
 			@ApiParam(value = "select only the species related to a measure", required = false)
-			String onlyWithMeasure) {
-		boolean onlyWithMeasureFlag = Boolean.parseBoolean(onlyWithMeasure);
-		return service.list(onlyWithMeasureFlag);
+			Boolean onlyWithMeasure) {
+		return service.list(onlyWithMeasure);
 	}
 }

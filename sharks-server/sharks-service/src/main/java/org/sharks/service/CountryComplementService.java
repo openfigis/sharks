@@ -14,10 +14,10 @@ import javax.inject.Singleton;
 import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.refpub.dto.RefPubCountry;
-import org.sharks.service.util.ComplementUtil;
 import org.sharks.storage.domain.Country;
 
 import static org.sharks.service.producer.EntryProducers.*;
+import static org.sharks.service.util.ConversionUtil.*;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -30,9 +30,6 @@ public class CountryComplementService {
 	
 	@Inject
 	private RefPubService refPubService;
-	
-	@Inject
-	private ComplementUtil util;
 
 	public CountryDetails complement(Country country) {
 		
@@ -60,7 +57,7 @@ public class CountryComplementService {
 	}
 	
 	private CountryDetails complement(Country country, RefPubCountry refPubCountry) {
-		Map<String,String> officialNames = refPubCountry!=null?util.toNameMap(refPubCountry.getMultilingualOfficialName()):Collections.emptyMap();
+		Map<String,String> officialNames = refPubCountry!=null?toNamesMap(refPubCountry.getMultilingualOfficialName()):Collections.emptyMap();
 		List<String> rfbs = refPubCountry!=null?refPubCountry.getFisheryCommissions():Collections.emptyList();
 		return new CountryDetails(country.getCode(), 
 				country.getUnName(), 

@@ -6,7 +6,7 @@ package org.sharks.service;
 import java.util.List;
 
 import org.sharks.service.dto.SpeciesDetails;
-import org.sharks.storage.domain.Species;
+import org.sharks.service.dto.SpeciesEntry;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -14,8 +14,13 @@ import org.sharks.storage.domain.Species;
  */
 public interface SpeciesService {
 
+	/**
+	 * Returns the {@link SpeciesDetails} for the species with the specified 3alpha code.
+	 * @param alphacode the species alpha code.
+	 * @return the found {@link SpeciesDetails}, otherwise <code>null</code> if the species has not be found.
+	 */
 	SpeciesDetails getSpecies(String alphacode);
 
-	List<Species> list(boolean onlyWithMeasure);
+	List<SpeciesEntry> list(boolean onlyWithMeasure);
 
 }

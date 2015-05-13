@@ -3,10 +3,9 @@
  */
 package org.sharks.service.util;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.inject.Singleton;
 
 import org.sharks.service.refpub.dto.MultiLingualName;
 
@@ -14,10 +13,10 @@ import org.sharks.service.refpub.dto.MultiLingualName;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@Singleton
-public class ComplementUtil {
+public class ConversionUtil {
 	
-	public Map<String, String> toNameMap(MultiLingualName name) {
+	public static Map<String, String> toNamesMap(MultiLingualName name) {
+		if (name == null) return Collections.emptyMap();
 		Map<String, String> names = new HashMap<String, String>();
 		names.put("en", name.getEnglish());
 		names.put("fr", name.getFrench());

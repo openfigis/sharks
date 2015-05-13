@@ -5,10 +5,12 @@ package org.sharks.service.refpub.rest;
 
 import java.io.InputStream;
 
+import javax.inject.Inject;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
 import org.sharks.service.refpub.dto.RefPubConcept;
+import org.sharks.service.refpub.dto.RefPubConverter;
 import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.dto.RefPubSpecies;
 
@@ -17,6 +19,9 @@ import org.sharks.service.refpub.dto.RefPubSpecies;
  *
  */
 public class RefPubParser {
+	
+	@Inject
+	private RefPubConverter converter;
 	
 	private Unmarshaller unmarshaller;
 	
@@ -31,12 +36,12 @@ public class RefPubParser {
 	
 	public RefPubCountry parseCountry(InputStream is) {
 		RefPubConcept concept = parseConcept(is);
-		return new RefPubCountry(concept);
+		return converter.toCountry(concept);
 	}
 	
 	public RefPubSpecies parseSpecies(InputStream is) {
 		RefPubConcept concept = parseConcept(is);
-		return new RefPubSpecies(concept);
+		return converter.toSpecies(concept);
 	}
 	
 	private RefPubConcept parseConcept(InputStream is) {
