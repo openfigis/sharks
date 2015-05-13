@@ -1,37 +1,35 @@
 package org.sharks.service.moniker;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+
 import java.io.InputStream;
 
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.sharks.service.moniker.dto.MonikerResponse;
 import org.sharks.service.moniker.dto.RfbEntry;
-
-import static org.junit.Assert.*;
+import org.sharks.service.moniker.rest.MonikersParser;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class MonikerDtoParsingTest {
+public class MonikersParserTest {
 	
-	private static Unmarshaller unmarshaller;
+	private static MonikersParser parser;
 	
 	@BeforeClass
-	public static void setupContext() throws JAXBException {
-		JAXBContext context = JAXBContext.newInstance(RfbEntry.class, MonikerResponse.class);
-		unmarshaller = context.createUnmarshaller();
+	public static void setupContext() {
+		parser = new MonikersParser();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Test
 	public void testRfbResponseParsing() throws JAXBException {
-		InputStream file = MonikerDtoParsingTest.class.getResourceAsStream("/moniker_rfb4iso3.xml");
-		MonikerResponse<RfbEntry> response = (MonikerResponse<RfbEntry>) unmarshaller.unmarshal(file);
+		InputStream file = MonikersParserTest.class.getResourceAsStream("/moniker_rfb4iso3.xml");
+		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(file);
 		
 		assertNotNull(response);
 		assertNotNull(response.getOutput());

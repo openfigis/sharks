@@ -8,9 +8,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Unmarshaller;
-
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.service.moniker.dto.MonikerResponse;
@@ -24,26 +21,19 @@ import org.sharks.service.moniker.dto.RfbEntry;
 public class MonikersRestClient {
 
 	private String restUrl;
-	private Unmarshaller unmarshaller;
+	private MonikersParser parser;
 
 	public MonikersRestClient(String restUrl) {
 		this.restUrl = restUrl;
-
-		try {
-			JAXBContext context = JAXBContext.newInstance(MonikerResponse.class, RfbEntry.class);
-			unmarshaller = context.createUnmarshaller();
-		} catch(Exception e) {
-			throw new MonikerRestClientException("Error initializing JAXB", e);
-		}
+		this.parser = new MonikersParser();
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<RfbEntry> getRfbs(String iso3Code) {
 		try {
 			URL rfb4iso3Url = getRfb4Iso3Url(iso3Code);
 			log.trace("getting rfbs {} from {}", iso3Code, rfb4iso3Url);
 			try (InputStream is = rfb4iso3Url.openStream()) {
-				MonikerResponse<RfbEntry> response = (MonikerResponse<RfbEntry>) unmarshaller.unmarshal(is);
+				MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(is);
 				return response.getOutput().getItems();
 			}
 		} catch(Exception e) {

@@ -15,7 +15,7 @@ import lombok.Data;
  *
  */
 @Data
-@XmlRootElement
+@XmlRootElement(name="rfb")
 @XmlAccessorType(XmlAccessType.NONE)
 public class RfbEntry {
 	
