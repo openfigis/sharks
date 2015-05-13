@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.function.Predicate;
 
 import org.sharks.service.refpub.dto.MultiLingualName;
+import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.dto.RefPubSpecies;
+import org.sharks.storage.domain.Country;
 import org.sharks.storage.domain.Species;
 
 /**
@@ -25,6 +27,10 @@ public class TestUtils {
 		return buildSpecies("ALV", "Alopias vulpinus", "Thresher");
 	}
 	
+	public static RefPubCountry aRefPubCountry() {
+		return createRefPubCountry("AFG", "Asia", "Afghanistan");
+	}
+	
 	public static RefPubSpecies createRefPubSpecies(String scientificName, String ficItem, String english, String french, String spanish) {
 		return new RefPubSpecies(scientificName, ficItem, new MultiLingualName(english, french, spanish, "arabic", "chinese", "russian"));
 	}
@@ -38,6 +44,18 @@ public class TestUtils {
 		if (names.length>3) species.setNameSp(names[3]);
 		species.setMeasures(Collections.emptyList());
 		return species;
+	}
+	
+	public static Country buildCountry(String iso3code, String unName) {
+		Country country = new Country();
+		country.setCode(iso3code);
+		country.setUnName(unName);
+		country.setPoAs(Collections.emptyList());
+		return country;
+	}
+	
+	public static RefPubCountry createRefPubCountry(String unIso3Code, String continent, String english) {
+		return new RefPubCountry(unIso3Code, continent, Collections.emptyList(), new MultiLingualName(english, "french", "spanish", "arabic", "chinese", "russian"));
 	}
 	
 	public static <T> T findFirst(List<T> items, Predicate<T> predicate) {

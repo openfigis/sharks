@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import javax.inject.Singleton;
 
 import org.sharks.service.refpub.dto.RefPubConcept.Attribute;
+import org.sharks.service.refpub.dto.RefPubConcept.Code;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -23,9 +24,10 @@ public class RefPubConverter {
 	}
 	
 	public RefPubCountry toCountry(RefPubConcept concept) {
+		Code code = concept.findCode("UN-ISO3");
 		String continent = concept.findParents("Continent").stream().map(parent -> parent.getMultilingualName().getEnglish()).findFirst().orElse(null);
 		List<String> fisheryCommissions = concept.findParents("Fishery commission").stream().map(parent -> parent.getMultilingualName().getEnglish()).collect(Collectors.toList());
-		return new RefPubCountry(concept.findCode("UN-ISO3"), continent, fisheryCommissions, concept.getMultilingualOfficialName());
+		return new RefPubCountry(code!=null?code.getConcept():null, continent, fisheryCommissions, concept.getMultilingualOfficialName());
 	}
 
 }

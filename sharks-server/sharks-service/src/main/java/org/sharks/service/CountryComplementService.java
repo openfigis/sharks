@@ -3,10 +3,13 @@
  */
 package org.sharks.service;
 
+import static org.sharks.service.producer.EntryProducers.TO_POA_ENTRY;
+import static org.sharks.service.producer.EntryProducers.convert;
+import static org.sharks.service.util.ConversionUtil.toNamesMap;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -15,9 +18,6 @@ import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.storage.domain.Country;
-
-import static org.sharks.service.producer.EntryProducers.*;
-import static org.sharks.service.util.ConversionUtil.*;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -44,12 +44,6 @@ public class CountryComplementService {
 	public String getContinent(Country country) {
 		RefPubCountry refPubCountry = getCountry(country);
 		return refPubCountry!=null?refPubCountry.getContinent():null;
-	}
-	
-	public List<CountryDetails> complement(List<Country> countries) {
-		List<String> codes = countries.stream().filter(country->isAvailable(country)).map(Country::getCode).collect(Collectors.toList());
-		Map<String, RefPubCountry> refPubCountries = refPubService.getCountries(codes);
-		return countries.stream().map(c -> complement(c, refPubCountries.get(c.getCode()))).collect(Collectors.toList());
 	}
 	
 	private boolean isAvailable(Country country) {

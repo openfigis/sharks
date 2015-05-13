@@ -3,8 +3,9 @@
  */
 package org.sharks.service.impl;
 
+import static org.sharks.service.producer.EntryProducers.convert;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
@@ -16,6 +17,7 @@ import org.sharks.service.CountryService;
 import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.event.ApplicationEvent;
+import org.sharks.service.producer.CountryEntryProducer;
 import org.sharks.storage.dao.CountryDao;
 import org.sharks.storage.domain.Country;
 
@@ -28,6 +30,9 @@ public class CountryServiceImp implements CountryService {
 	
 	@Inject
 	private CountryDao dao;
+	
+	@Inject
+	private CountryEntryProducer entryProducer;
 	
 	@Inject
 	private CountryComplementService complementService;
@@ -47,13 +52,7 @@ public class CountryServiceImp implements CountryService {
 	@Override
 	public List<CountryEntry> list(boolean onyWithPoas) {
 		List<Country> countries = onyWithPoas?dao.listWithPoAs():dao.list();
-		return countries.stream().map(country->toEntry(country)).collect(Collectors.toList());
+		return convert(countries, entryProducer);
 	}
-	
-	private CountryEntry toEntry(Country country) {
-		String continent = complementService.getContinent(country);
-		return new CountryEntry(country.getCode(), country.getUnName(), continent);
-	}
-
 
 }

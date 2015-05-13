@@ -3,11 +3,6 @@
  */
 package org.sharks.service.refpub;
 
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
 import javax.inject.Inject;
 
 import org.sharks.service.refpub.dto.RefPubCountry;
@@ -37,12 +32,6 @@ public class RefPubServiceImpl implements RefPubService {
 		countryCache.put(iso3Code, country);
 		return country;
 	}
-
-	@Override
-	public Map<String, RefPubCountry> getCountries(List<String> iso3Codes) {
-		return iso3Codes.stream().collect(Collectors.toMap(Function.identity(), code->getCountry(code)));
-	}
-	
 
 	@Override
 	public RefPubSpecies getSpecies(String alpha3Code) {

@@ -47,9 +47,7 @@ public class SpeciesEntryProducerTest {
 	 */
 	@Test
 	public void testProduceUsingRefPubService() {
-		Species species = new Species();
-		species.setAlphaCode("ALV");
-		species.setScientificName("A_SCIENTIFIC_NAME");
+		Species species = buildSpecies("ALV", "A_SCIENTIFIC_NAME");
 		
 		SpeciesEntry entry = producer.produce(species);
 		assertNotNull(entry);
@@ -66,9 +64,7 @@ public class SpeciesEntryProducerTest {
 	 */
 	@Test
 	public void testProduceWithouthRefPubService() {
-		Species species = new Species();
-		species.setAlphaCode("LOCAL");
-		species.setScientificName("A_SCIENTIFIC_NAME");
+		Species species = buildSpecies("LOCAL", "A_SCIENTIFIC_NAME");
 		
 		SpeciesEntry entry = producer.produce(species);
 		assertNotNull(entry);
