@@ -17,6 +17,5 @@ public class EntityEntry {
 	
 	private final long id;
 	private final String acronym;
-	private final String name;
 
 }

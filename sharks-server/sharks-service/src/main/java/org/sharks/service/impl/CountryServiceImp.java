@@ -3,8 +3,10 @@
  */
 package org.sharks.service.impl;
 
+import static org.sharks.service.producer.EntryProducers.TO_POA_ENTRY;
 import static org.sharks.service.producer.EntryProducers.convert;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.enterprise.event.Observes;
@@ -12,7 +14,6 @@ import javax.inject.Inject;
 
 import lombok.extern.slf4j.Slf4j;
 
-import org.sharks.service.CountryComplementService;
 import org.sharks.service.CountryService;
 import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.dto.CountryEntry;
@@ -34,9 +35,6 @@ public class CountryServiceImp implements CountryService {
 	@Inject
 	private CountryEntryProducer entryProducer;
 	
-	@Inject
-	private CountryComplementService complementService;
-	
 	void cacheWarmup(@Observes ApplicationEvent.Startup startup) {
 		log.trace("cache warmup");
 		for (Country country:dao.listWithPoAs()) get(country.getCode());
@@ -46,7 +44,10 @@ public class CountryServiceImp implements CountryService {
 	@Override
 	public CountryDetails get(String code) {
 		Country country = dao.get(code);
-		return complementService.complement(country);
+		return new CountryDetails(country.getCode(), 
+				country.getUnName(), 
+				Collections.emptyList(),
+				convert(country.getPoAs(), TO_POA_ENTRY));
 	}
 
 	@Override
