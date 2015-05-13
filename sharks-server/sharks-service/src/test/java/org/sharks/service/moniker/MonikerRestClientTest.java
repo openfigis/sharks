@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
 
@@ -28,6 +29,13 @@ public class MonikerRestClientTest {
 		List<RfbEntry> rfbs = client.getRfbs("USA");
 		assertNotNull(rfbs);
 		System.out.println(rfbs);
+	}
+	
+	@Test @Ignore
+	public void testGetFigisDoc() {
+		FigisDoc doc = client.getFigisDoc("9294");
+		assertNotNull(doc);
+		System.out.println(doc);
 	}
 
 

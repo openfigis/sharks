@@ -1,0 +1,1380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	FIGIS moniker source: 	http://localhost/fishery/xml/organization/9294/en
+-->
+<fi:FIGISDoc xmlns:fi="http://www.fao.org/fi/figis/devcon/" xmlns:agls="http://www.naa.gov.au/recordkeeping/gov_online/agls/1.1" xmlns:ags="http://www.purl.org/agmes/1.1/" xmlns:aida="http://www.idmlinitiative.org/resources/dtds/AIDA22.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:fint="http://www.fao.org/fi/figis/internal/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en" xsi:schemaLocation="http://www.fao.org/fi/figis/devcon/ http://www.fao.org/fi/figis/devcon/schema/3_6/fi.xsd">
+	<fi:DataEntry>
+		<fi:Editor>FIGIS Team</fi:Editor>
+		<dcterms:Created>2010-07-15</dcterms:Created>
+		<dcterms:Modified>2015-05-08</dcterms:Modified>
+	</fi:DataEntry>
+	<fi:ObjectSource>
+		<fi:Owner>
+			<fi:CollectionRef>
+<fi:FigisID MetaID="264000">2290</fi:FigisID>
+<dc:Title xml:lang="en">Regional Fishery Bodies (RFB) - Fact Sheets</dc:Title>
+<fi:ForeignID Code="RFB_FS" CodeSystem="acronym"/>
+<fi:OrgRef Office="Not Specified" Role="Funding_organization" Type="U.N. Organization">
+<fi:FigisID MetaID="104000">6426</fi:FigisID>
+<dc:Title xml:lang="en">Food and Agriculture Organization (FAO)</dc:Title>
+<dc:Title xml:lang="fr">Food and Agriculture Organization (FAO)</dc:Title>
+<dc:Title xml:lang="es">Food and Agriculture Organization (FAO)</dc:Title>
+<dc:Title xml:lang="ar">Food and Agriculture Organization (FAO)</dc:Title>
+<dc:Title xml:lang="zh">Food and Agriculture Organization (FAO)</dc:Title>
+<dc:Title xml:lang="ru">Food and Agriculture Organization (FAO)</dc:Title>
+<fi:ForeignID Code="FAO" CodeSystem="acronym"/>
+<fi:ContactEntry>
+<fi:Telephone>(+39) 06 57051</fi:Telephone>
+<fi:Fax>(+39) 06 570 53152</fi:Fax>
+<fi:Email>FAO-HQ@fao.org</fi:Email>
+<fi:Website>http://www.fao.org</fi:Website>
+</fi:ContactEntry>
+</fi:OrgRef>
+</fi:CollectionRef>
+		</fi:Owner>
+		<fi:CorporateCoverPage>
+<fi:FigisID MetaID="280000">310</fi:FigisID>
+<dc:Title xml:lang="en">Regional Fishery Bodies summary descriptions</dc:Title>
+<dc:Title xml:lang="fr">Descriptions succinctes des Organismes Régionaux des Pêches</dc:Title>
+<dc:Title xml:lang="es">Descripciónes resumidas de los Órganos Regionales de la Pesca</dc:Title>
+<ags:CreatorCorporate xml:lang="en">Food and Agriculture Organization of the United Nations (FAO-UN)</ags:CreatorCorporate>
+<fi:Series xml:lang="en">Fishery Governance Fact Sheets</fi:Series>
+<dc:Publisher>FAO</dc:Publisher>
+</fi:CorporateCoverPage>
+		<fi:CoverPage>
+			<dcterms:Created>2001-01-01</dcterms:Created>
+			<!--<dcterms:Modified>2013-08-22</dcterms:Modified>-->
+			<dcterms:Modified>2015-05-08</dcterms:Modified>
+		</fi:CoverPage>
+	</fi:ObjectSource>
+	<fi:Org>
+		<fi:OrgIdent>
+			<fi:FigisID>9294</fi:FigisID>
+			<fi:OrgRef Office="Main" Type="Inter-Governmental Organization">
+<fi:FigisID MetaID="104000">9294</fi:FigisID>
+<dc:Title xml:lang="en">International Commission for the Conservation of Atlantic Tunas (ICCAT)</dc:Title>
+<dc:Title xml:lang="fr">International Commission for the Conservation of Atlantic Tunas (ICCAT)</dc:Title>
+<dc:Title xml:lang="es">International Commission for the Conservation of Atlantic Tunas (ICCAT)</dc:Title>
+<dc:Title xml:lang="ar">International Commission for the Conservation of Atlantic Tunas (ICCAT)</dc:Title>
+<dc:Title xml:lang="zh">International Commission for the Conservation of Atlantic Tunas (ICCAT)</dc:Title>
+<dc:Title xml:lang="ru">International Commission for the Conservation of Atlantic Tunas (ICCAT)</dc:Title>
+<fi:ForeignID Code="ICCAT" CodeSystem="acronym"/>
+<fi:ContactEntry>
+<fi:Telephone>+34 9141 65600</fi:Telephone>
+<fi:Fax>+34 9141 52612</fi:Fax>
+<fi:Email>adolfo.lima@iccat.es</fi:Email>
+<fi:Website>http://www.iccat.int</fi:Website>
+</fi:ContactEntry>
+</fi:OrgRef>
+			<dc:Title>International Commission for the Conservation of Atlantic Tunas (ICCAT)</dc:Title>
+			<fi:Image IID="19602" Link="http://www.iccat.int" Src="iccat_logo.jpg" Title="ICCAT Logo" Use="Normal"/>
+			<fi:StateOfActivity Type="Ongoing"/>
+		</fi:OrgIdent>
+		<fi:Mission Label="Objectives">
+			<fi:Objectives Label=" ">
+				<fi:Text>The International Commission for the Conservation of Atlantic Tunas (ICCAT) is responsible for the conservation of tunas and tuna-like species in the Atlantic Ocean and adjacent seas. </fi:Text>
+			</fi:Objectives>
+		</fi:Mission>
+		<fi:GeoCoverage Type="RFB_CompetenceArea">
+			<fi:Text>
+    All waters of the Atlantic Ocean, including adjacent seas.
+   </fi:Text>
+			<fi:MaritimeArea Value="High_Seas"/>
+			<fi:MaritimeArea Value="National_Waters"/>
+			<fi:WaterAreaRef>
+<fi:FigisID MetaID="24031">4000</fi:FigisID>
+<dc:Title xml:lang="en">ICCAT area of competence</dc:Title>
+<fi:ForeignID Code="ICCAT" CodeSystem="rfb_comp"/>
+<fi:IntersectingAreas>
+<fi:WaterAreaRef>
+<fi:FigisID MetaID="22010">8</fi:FigisID>
+<dc:Title xml:lang="en">Arctic Sea</dc:Title>
+<dc:Title xml:lang="fr">Mer Arctique</dc:Title>
+<dc:Title xml:lang="es">Mar Ártico</dc:Title>
+<fi:ForeignID Code="18" CodeSystem="fao_major"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:FigisID MetaID="22010">9</fi:FigisID>
+<dc:Title xml:lang="en">Atlantic, Northwest</dc:Title>
+<dc:Title xml:lang="fr">Atlantique, nord-ouest</dc:Title>
+<dc:Title xml:lang="es">Atlántico, noroeste</dc:Title>
+<fi:ForeignID Code="21" CodeSystem="fao_major"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:FigisID MetaID="22010">10</fi:FigisID>
+<dc:Title xml:lang="en">Atlantic, Northeast</dc:Title>
+<dc:Title xml:lang="fr">Atlantique, nord-est</dc:Title>
+<dc:Title xml:lang="es">Atlántico, nordeste</dc:Title>
+<fi:ForeignID Code="27" CodeSystem="fao_major"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:FigisID MetaID="22010">11</fi:FigisID>
+<dc:Title xml:lang="en">Atlantic, Western Central</dc:Title>
+<dc:Title xml:lang="fr">Atlantique, centre-ouest</dc:Title>
+<dc:Title xml:lang="es">Atlántico, centro-occidental</dc:Title>
+<fi:ForeignID Code="31" CodeSystem="fao_major"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:FigisID MetaID="22010">12</fi:FigisID>
+<dc:Title xml:lang="en">Atlantic, Eastern Central</dc:Title>
+<dc:Title xml:lang="fr">Atlantique, centre-est</dc:Title>
+<dc:Title xml:lang="es">Atlántico, centro-oriental</dc:Title>
+<fi:ForeignID Code="34" CodeSystem="fao_major"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:FigisID MetaID="22010">13</fi:FigisID>
+<dc:Title xml:lang="en">Mediterranean and Black Sea</dc:Title>
+<dc:Title xml:lang="fr">Méditerranée et mer Noire</dc:Title>
+<dc:Title xml:lang="es">Mediterráneo y Mar Negro</dc:Title>
+<fi:ForeignID Code="37" CodeSystem="fao_major"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:FigisID MetaID="22010">14</fi:FigisID>
+<dc:Title xml:lang="en">Atlantic, Southwest</dc:Title>
+<dc:Title xml:lang="fr">Atlantique, sud-ouest</dc:Title>
+<dc:Title xml:lang="es">Atlántico, sudoccidental</dc:Title>
+<fi:ForeignID Code="41" CodeSystem="fao_major"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:FigisID MetaID="22010">15</fi:FigisID>
+<dc:Title xml:lang="en">Atlantic, Southeast</dc:Title>
+<dc:Title xml:lang="fr">Atlantique, sud-est</dc:Title>
+<dc:Title xml:lang="es">Atlántico, sudoriental</dc:Title>
+<fi:ForeignID Code="47" CodeSystem="fao_major"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:FigisID MetaID="22010">16</fi:FigisID>
+<dc:Title xml:lang="en">Atlantic, Antarctic</dc:Title>
+<dc:Title xml:lang="fr">Atlantique, Antarctique</dc:Title>
+<dc:Title xml:lang="es">Atlántico, Antártico</dc:Title>
+<fi:ForeignID Code="48" CodeSystem="fao_major"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="5" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="6" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="7" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="8" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="9" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="12" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="13" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="14" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="15" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="16" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="17" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="18" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="19" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="20" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="21" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="22" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="23" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="24" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="25" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="26" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="27" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="28" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="29" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="30" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="58" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="59" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="60" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="61" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="62" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="63" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="64" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="65" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+<fi:WaterAreaRef>
+<fi:ForeignID Code="66" CodeSystem="lme"/>
+</fi:WaterAreaRef>
+</fi:IntersectingAreas>
+</fi:WaterAreaRef>
+		</fi:GeoCoverage>
+		<fi:TopicCoverage Label="Species and stocks coverage">
+			<fi:Text>&lt;p&gt;Tuna, tuna-like species and pelagic sharks fished in the ICCAT Convention area.&lt;/p&gt;
+&lt;p&gt;Currently ICCAT is conducting full assessment of the following stocks:&lt;/p&gt;
+&lt;p&gt;Yellowfin tuna (&lt;em&gt;Thunnus albacores&lt;/em&gt;) (Atlantic stock); bigeye tuna (&lt;em&gt;Thunnus obesus&lt;/em&gt;) (Atlantic stock); skipjack tuna (&lt;em&gt;Katsuwonus pelamis&lt;/em&gt;) (East and West Atlantic stocks); albacore tuna (&lt;em&gt;Thunnus alalunga&lt;/em&gt;) (North and South Atlantic and Mediterranean stocks); Atlantic bluefin tuna (&lt;em&gt;Thunnus thynnus t.&lt;/em&gt;) (West Atlantic stock and East Atlantic and Mediterranean stock); swordfish (&lt;em&gt;Xiphias gladius&lt;/em&gt;) (North and South Atlantic and Mediterranean stocks); sailfish (&lt;em&gt;Istiophorus albicans&lt;/em&gt;) (East and West Atlantic stock); blue marlin (&lt;em&gt;Makaira nigricans&lt;/em&gt;) (Atlantic stock); white marlin (&lt;em&gt;Tetrapturus albidus&lt;/em&gt;) (Atlantic stock; blue shark (&lt;em&gt;Prionace glauca&lt;/em&gt;) (North and South Atlantic stocks); shortfin mako shark (&lt;em&gt;Isurus oxyrinchus&lt;/em&gt;) (North and South Atlantic stocks); portbeagle (&lt;em&gt;Lamna nasus&lt;/em&gt;) (Northwest, Northeast and Southwest Atlantic stocks).&lt;/em&gt;&lt;/p&gt; &lt;p&gt;Other species under study are:&lt;/p&gt;
+&lt;p&gt;Longbill spearfish (&lt;em&gt;Tetrapturus pfluegeri&lt;/em&gt;); bullet tuna (&lt;em&gt;Auxis rochei rochei&lt;/em&gt;); frigate tuna (&lt;em&gt;Auxis thazard thazard&lt;/em&gt;); Atlantic Spanish mackerel (&lt;em&gt;Scomberomorus maculates&lt;/em&gt;); Serra Spanish mackerel (&lt;em&gt;Scomberomorus brasiliensis&lt;/em&gt;) little tuna (&lt;em&gt;Euthynnus alletteratus&lt;/em&gt;, &lt;em&gt;Euthynnus affinis&lt;/em&gt;); Atlantic bonito (&lt;em&gt;Sarda sarda&lt;/em&gt;); Plain bonito (&lt;em&gt;Orcynopsis unicolor&lt;/em&gt;); Cero (&lt;em&gt;Scomberomorus regalis&lt;/em&gt;); King mackerel (&lt;em&gt;Scomberomorus cavalla&lt;/em&gt;); Scomberomorus unclassified (&lt;em&gt;Scomberomorus spp&lt;/em&gt;.); West African Spanish mackerel (&lt;em&gt;Scomberomorus tritor&lt;/em&gt;); Wahoo (&lt;em&gt;Acanthocybium solandri&lt;/em&gt;); Dolphinfish (&lt;em&gt;Coryphaena hippurus&lt;/em&gt;); longbill spearfish (&lt;em&gt;Tetrapturus pfluegeri&lt;/em&gt;); bigeye thresher (&lt;em&gt;Alopias superciliosus&lt;/em&gt;)&lt;em&gt;; &lt;/em&gt;thresher (&lt;em&gt;Alopias vulpinus&lt;/em&gt;); silky shark (&lt;em&gt;Carcharhinus falciformis&lt;/em&gt;); oceanic whitetip shark (&lt;em&gt;Carcharhinus longimanus&lt;/em&gt;); Dusky shark (&lt;em&gt;Carcharhinus obscurus&lt;/em&gt;); sandbar shark (&lt;em&gt;Carcharhinus plumbeus&lt;/em&gt;);  night shark (&lt;em&gt;Carcharhinus signatus&lt;/em&gt;); tiger shark (&lt;em&gt;Galeocerdo cuvier&lt;/em&gt;); longfin mako (&lt;em&gt;Isurus paucus&lt;/em&gt;); &lt;em&gt;Pteroplatytrigon violacea &lt;/em&gt;(PST); scalloped hammerhead (&lt;em&gt;Sphyrna lewini&lt;/em&gt;);  great hammerhead (&lt;em&gt;Sphyrna mokarran&lt;/em&gt;); Smooth hammerhead (&lt;em&gt;Sphyrna zygaena&lt;/em&gt;). &lt;/p&gt;</fi:Text>
+		</fi:TopicCoverage>
+		<fi:OrgsInvolved Label="Members">
+			<fi:OrgsInvolvedEntry RelationshipType="Member">
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">3</fi:FigisID>
+<dc:Title xml:lang="en">Albania</dc:Title>
+<dc:Title xml:lang="fr">Albanie</dc:Title>
+<dc:Title xml:lang="es">Albania</dc:Title>
+<dc:Title xml:lang="ar">ألبانيا</dc:Title>
+<dc:Title xml:lang="zh">阿尔巴尼亚共和国</dc:Title>
+<dc:Title xml:lang="ru">Албания</dc:Title>
+<fi:ForeignID Code="AL" CodeSystem="iso2"/>
+<fi:ForeignID Code="ALB" CodeSystem="iso3"/>
+<fi:ForeignID Code="8" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Albania</dc:Title>
+<dc:Title xml:lang="fr">la République d'Albanie</dc:Title>
+<dc:Title xml:lang="es">la República de Albania</dc:Title>
+<dc:Title xml:lang="ar">ألبانيا</dc:Title>
+<dc:Title xml:lang="zh">阿尔巴尼亚共和国</dc:Title>
+<dc:Title xml:lang="ru">Албания</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">4</fi:FigisID>
+<dc:Title xml:lang="en">Algeria</dc:Title>
+<dc:Title xml:lang="fr">Algérie</dc:Title>
+<dc:Title xml:lang="es">Argelia</dc:Title>
+<dc:Title xml:lang="ar">الجزائر</dc:Title>
+<dc:Title xml:lang="zh">阿尔及利亚民主人民共和国</dc:Title>
+<dc:Title xml:lang="ru">Алжир</dc:Title>
+<fi:ForeignID Code="DZ" CodeSystem="iso2"/>
+<fi:ForeignID Code="DZA" CodeSystem="iso3"/>
+<fi:ForeignID Code="12" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the People's Democratic Republic of Algeria</dc:Title>
+<dc:Title xml:lang="fr">la République algérienne démocratique et populaire</dc:Title>
+<dc:Title xml:lang="es">la República Argelina Democrática y Popular</dc:Title>
+<dc:Title xml:lang="ar">الجزائر</dc:Title>
+<dc:Title xml:lang="zh">阿尔及利亚民主人民共和国</dc:Title>
+<dc:Title xml:lang="ru">Алжир</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">7</fi:FigisID>
+<dc:Title xml:lang="en">Angola</dc:Title>
+<dc:Title xml:lang="fr">Angola</dc:Title>
+<dc:Title xml:lang="es">Angola</dc:Title>
+<dc:Title xml:lang="ar">جمهورية أنغولا</dc:Title>
+<dc:Title xml:lang="zh">安哥拉</dc:Title>
+<dc:Title xml:lang="ru">Республика Ангола</dc:Title>
+<fi:ForeignID Code="AO" CodeSystem="iso2"/>
+<fi:ForeignID Code="AGO" CodeSystem="iso3"/>
+<fi:ForeignID Code="24" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Angola</dc:Title>
+<dc:Title xml:lang="fr">la République d'Angola</dc:Title>
+<dc:Title xml:lang="es">la República de Angola</dc:Title>
+<dc:Title xml:lang="ar">جمهورية أنغولا</dc:Title>
+<dc:Title xml:lang="zh">安哥拉</dc:Title>
+<dc:Title xml:lang="ru">Республика Ангола</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">14</fi:FigisID>
+<dc:Title xml:lang="en">Barbados</dc:Title>
+<dc:Title xml:lang="fr">Barbade</dc:Title>
+<dc:Title xml:lang="es">Barbados</dc:Title>
+<dc:Title xml:lang="ar">بربادوس</dc:Title>
+<dc:Title xml:lang="zh">巴巴多斯</dc:Title>
+<dc:Title xml:lang="ru">Барбадос</dc:Title>
+<fi:ForeignID Code="BB" CodeSystem="iso2"/>
+<fi:ForeignID Code="BRB" CodeSystem="iso3"/>
+<fi:ForeignID Code="52" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Barbados</dc:Title>
+<dc:Title xml:lang="fr">la Barbade</dc:Title>
+<dc:Title xml:lang="es">Barbados</dc:Title>
+<dc:Title xml:lang="ar">بربادوس</dc:Title>
+<dc:Title xml:lang="zh">巴巴多斯</dc:Title>
+<dc:Title xml:lang="ru">Барбадос</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">23</fi:FigisID>
+<dc:Title xml:lang="en">Belize</dc:Title>
+<dc:Title xml:lang="fr">Belize</dc:Title>
+<dc:Title xml:lang="es">Belice</dc:Title>
+<dc:Title xml:lang="ar">بليز</dc:Title>
+<dc:Title xml:lang="zh">伯利兹</dc:Title>
+<dc:Title xml:lang="ru">Белиз</dc:Title>
+<fi:ForeignID Code="BZ" CodeSystem="iso2"/>
+<fi:ForeignID Code="BLZ" CodeSystem="iso3"/>
+<fi:ForeignID Code="84" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Belize</dc:Title>
+<dc:Title xml:lang="fr">le Belize</dc:Title>
+<dc:Title xml:lang="es">Belice</dc:Title>
+<dc:Title xml:lang="ar">بليز</dc:Title>
+<dc:Title xml:lang="zh">伯利兹</dc:Title>
+<dc:Title xml:lang="ru">Белиз</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">21</fi:FigisID>
+<dc:Title xml:lang="en">Brazil</dc:Title>
+<dc:Title xml:lang="fr">Brésil</dc:Title>
+<dc:Title xml:lang="es">Brasil</dc:Title>
+<dc:Title xml:lang="ar">الجمهورية الاتحادية البرازيلية</dc:Title>
+<dc:Title xml:lang="zh">巴 西</dc:Title>
+<dc:Title xml:lang="ru">Бразилия</dc:Title>
+<fi:ForeignID Code="BR" CodeSystem="iso2"/>
+<fi:ForeignID Code="BRA" CodeSystem="iso3"/>
+<fi:ForeignID Code="76" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Federative Republic of Brazil</dc:Title>
+<dc:Title xml:lang="fr">la République fédérative du Brésil</dc:Title>
+<dc:Title xml:lang="es">la República Federativa del Brasil</dc:Title>
+<dc:Title xml:lang="ar">الجمهورية الاتحادية البرازيلية</dc:Title>
+<dc:Title xml:lang="zh">巴 西</dc:Title>
+<dc:Title xml:lang="ru">Бразилия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">33</fi:FigisID>
+<dc:Title xml:lang="en">Canada</dc:Title>
+<dc:Title xml:lang="fr">Canada</dc:Title>
+<dc:Title xml:lang="es">Canadá</dc:Title>
+<dc:Title xml:lang="ar">كندا</dc:Title>
+<dc:Title xml:lang="zh">加拿大</dc:Title>
+<dc:Title xml:lang="ru">Канада</dc:Title>
+<fi:ForeignID Code="CA" CodeSystem="iso2"/>
+<fi:ForeignID Code="CAN" CodeSystem="iso3"/>
+<fi:ForeignID Code="124" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Canada</dc:Title>
+<dc:Title xml:lang="fr">le Canada</dc:Title>
+<dc:Title xml:lang="es">el Canadá</dc:Title>
+<dc:Title xml:lang="ar">كندا</dc:Title>
+<dc:Title xml:lang="zh">加拿大</dc:Title>
+<dc:Title xml:lang="ru">Канада</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">35</fi:FigisID>
+<dc:Title xml:lang="en">Cabo Verde</dc:Title>
+<dc:Title xml:lang="fr">Cabo Verde</dc:Title>
+<dc:Title xml:lang="es">Cabo Verde</dc:Title>
+<dc:Title xml:lang="ar">الأخضر الرأس</dc:Title>
+<dc:Title xml:lang="zh">佛得角</dc:Title>
+<dc:Title xml:lang="ru">Кабо-Верде</dc:Title>
+<fi:ForeignID Code="CV" CodeSystem="iso2"/>
+<fi:ForeignID Code="CPV" CodeSystem="iso3"/>
+<fi:ForeignID Code="132" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Republic of Cabo Verde</dc:Title>
+<dc:Title xml:lang="fr">la République de Cabo Verde</dc:Title>
+<dc:Title xml:lang="es">la República de Cabo Verde</dc:Title>
+<dc:Title xml:lang="ar">الأخضر الرأس جمهورية</dc:Title>
+<dc:Title xml:lang="zh">佛得角共和国</dc:Title>
+<dc:Title xml:lang="ru">Республика Кабо-Верде</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">41</fi:FigisID>
+<dc:Title xml:lang="en">China</dc:Title>
+<dc:Title xml:lang="fr">Chine</dc:Title>
+<dc:Title xml:lang="es">China</dc:Title>
+<dc:Title xml:lang="ar">الصين</dc:Title>
+<dc:Title xml:lang="zh">中华人民共和国</dc:Title>
+<dc:Title xml:lang="ru">Китай</dc:Title>
+<fi:ForeignID Code="CN" CodeSystem="iso2"/>
+<fi:ForeignID Code="CHN" CodeSystem="iso3"/>
+<fi:ForeignID Code="156" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the People's Republic of China</dc:Title>
+<dc:Title xml:lang="fr">la République populaire de Chine</dc:Title>
+<dc:Title xml:lang="es">la República Popular China</dc:Title>
+<dc:Title xml:lang="ar">الصين</dc:Title>
+<dc:Title xml:lang="zh">中华人民共和国</dc:Title>
+<dc:Title xml:lang="ru">Китай</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">197</fi:FigisID>
+<dc:Title xml:lang="en">Sierra Leone</dc:Title>
+<dc:Title xml:lang="fr">Sierra Leone</dc:Title>
+<dc:Title xml:lang="es">Sierra Leona</dc:Title>
+<dc:Title xml:lang="ar">سيراليون</dc:Title>
+<dc:Title xml:lang="zh">塞拉利昂</dc:Title>
+<dc:Title xml:lang="ru">Сьерра-Леоне</dc:Title>
+<fi:ForeignID Code="SL" CodeSystem="iso2"/>
+<fi:ForeignID Code="SLE" CodeSystem="iso3"/>
+<fi:ForeignID Code="694" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Sierra Leone</dc:Title>
+<dc:Title xml:lang="fr">la République de Sierra Leone</dc:Title>
+<dc:Title xml:lang="es">la República de Sierra Leona</dc:Title>
+<dc:Title xml:lang="ar">سيراليون</dc:Title>
+<dc:Title xml:lang="zh">塞拉利昂</dc:Title>
+<dc:Title xml:lang="ru">Сьерра-Леоне</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">107</fi:FigisID>
+<dc:Title xml:lang="en">Côte d'Ivoire</dc:Title>
+<dc:Title xml:lang="fr">Côte d'Ivoire</dc:Title>
+<dc:Title xml:lang="es">Côte d'Ivoire</dc:Title>
+<dc:Title xml:lang="ar">جمهورية كوت ديفوار</dc:Title>
+<dc:Title xml:lang="zh">科特迪瓦</dc:Title>
+<dc:Title xml:lang="ru">Республика Кот-д'Ивуар</dc:Title>
+<fi:ForeignID Code="CI" CodeSystem="iso2"/>
+<fi:ForeignID Code="CIV" CodeSystem="iso3"/>
+<fi:ForeignID Code="384" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Côte d'Ivoire</dc:Title>
+<dc:Title xml:lang="fr">la République de Côte d'Ivoire</dc:Title>
+<dc:Title xml:lang="es">la República de Côte d'Ivoire</dc:Title>
+<dc:Title xml:lang="ar">جمهورية كوت ديفوار</dc:Title>
+<dc:Title xml:lang="zh">科特迪瓦</dc:Title>
+<dc:Title xml:lang="ru">Республика Кот-д'Ивуар</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">286</fi:FigisID>
+<dc:Title xml:lang="en">Curaçao</dc:Title>
+<dc:Title xml:lang="fr">Curaçao</dc:Title>
+<dc:Title xml:lang="es">Curaçao</dc:Title>
+<dc:Title xml:lang="ar">كوراساو</dc:Title>
+<dc:Title xml:lang="zh">库拉索</dc:Title>
+<dc:Title xml:lang="ru">Кюрасао</dc:Title>
+<fi:ForeignID Code="CW" CodeSystem="iso2"/>
+<fi:ForeignID Code="CUW" CodeSystem="iso3"/>
+<fi:ForeignID Code="531" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Curaçao</dc:Title>
+<dc:Title xml:lang="fr">Curaçao</dc:Title>
+<dc:Title xml:lang="es">Curaçao</dc:Title>
+<dc:Title xml:lang="ar">كوراساو</dc:Title>
+<dc:Title xml:lang="zh">库拉索</dc:Title>
+<dc:Title xml:lang="ru">Кюрасао</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">59</fi:FigisID>
+<dc:Title xml:lang="en">Egypt</dc:Title>
+<dc:Title xml:lang="fr">Égypte</dc:Title>
+<dc:Title xml:lang="es">Egipto</dc:Title>
+<dc:Title xml:lang="ar">مصر</dc:Title>
+<dc:Title xml:lang="zh">埃 及</dc:Title>
+<dc:Title xml:lang="ru">Египет</dc:Title>
+<fi:ForeignID Code="EG" CodeSystem="iso2"/>
+<fi:ForeignID Code="EGY" CodeSystem="iso3"/>
+<fi:ForeignID Code="818" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Arab Republic of Egypt</dc:Title>
+<dc:Title xml:lang="fr">la République arabe d'Égypte</dc:Title>
+<dc:Title xml:lang="es">la República Árabe de Egipto</dc:Title>
+<dc:Title xml:lang="ar">مصر</dc:Title>
+<dc:Title xml:lang="zh">埃 及</dc:Title>
+<dc:Title xml:lang="ru">Египет</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">60</fi:FigisID>
+<dc:Title xml:lang="en">El Salvador</dc:Title>
+<dc:Title xml:lang="fr">El Salvador</dc:Title>
+<dc:Title xml:lang="es">El Salvador</dc:Title>
+<dc:Title xml:lang="ar">السلفادور</dc:Title>
+<dc:Title xml:lang="zh">萨尔瓦多</dc:Title>
+<dc:Title xml:lang="ru">Сальвадор</dc:Title>
+<fi:ForeignID Code="SV" CodeSystem="iso2"/>
+<fi:ForeignID Code="SLV" CodeSystem="iso3"/>
+<fi:ForeignID Code="222" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of El Salvador</dc:Title>
+<dc:Title xml:lang="fr">la République d'El Salvador</dc:Title>
+<dc:Title xml:lang="es">la República de El Salvador</dc:Title>
+<dc:Title xml:lang="ar">السلفادور</dc:Title>
+<dc:Title xml:lang="zh">萨尔瓦多</dc:Title>
+<dc:Title xml:lang="ru">Сальвадор</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">61</fi:FigisID>
+<dc:Title xml:lang="en">Equatorial Guinea</dc:Title>
+<dc:Title xml:lang="fr">Guinée équatoriale</dc:Title>
+<dc:Title xml:lang="es">Guinea Ecuatorial</dc:Title>
+<dc:Title xml:lang="ar">غينيا الاستوائية</dc:Title>
+<dc:Title xml:lang="zh">赤道几内亚</dc:Title>
+<dc:Title xml:lang="ru">Экваториальная Гвинея</dc:Title>
+<fi:ForeignID Code="GQ" CodeSystem="iso2"/>
+<fi:ForeignID Code="GNQ" CodeSystem="iso3"/>
+<fi:ForeignID Code="226" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Equatorial Guinea</dc:Title>
+<dc:Title xml:lang="fr">la République de Guinée équatoriale</dc:Title>
+<dc:Title xml:lang="es">la República de Guinea Ecuatorial</dc:Title>
+<dc:Title xml:lang="ar">غينيا الاستوائية</dc:Title>
+<dc:Title xml:lang="zh">赤道几内亚</dc:Title>
+<dc:Title xml:lang="ru">Экваториальная Гвинея</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">380</fi:FigisID>
+<dc:Title xml:lang="en">European Union</dc:Title>
+<dc:Title xml:lang="fr">Union Européenne</dc:Title>
+<dc:Title xml:lang="es">Unión Europea</dc:Title>
+<fi:ForeignID Code="EU" CodeSystem="iso2"/>
+<fi:ForeignID Code="EUR" CodeSystem="iso3"/>
+<fi:ForeignID Code="0" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">The European Union (Member Organization)</dc:Title>
+<dc:Title xml:lang="fr">Union européenne (Organisation membre)</dc:Title>
+<dc:Title xml:lang="es">Unión Europea (Organización Miembro)</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">68</fi:FigisID>
+<dc:Title xml:lang="en">France</dc:Title>
+<dc:Title xml:lang="fr">France</dc:Title>
+<dc:Title xml:lang="es">Francia</dc:Title>
+<dc:Title xml:lang="ar">فرنسا</dc:Title>
+<dc:Title xml:lang="zh">法  国</dc:Title>
+<dc:Title xml:lang="ru">Франция</dc:Title>
+<fi:ForeignID Code="FR" CodeSystem="iso2"/>
+<fi:ForeignID Code="FRA" CodeSystem="iso3"/>
+<fi:ForeignID Code="250" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the French Republic</dc:Title>
+<dc:Title xml:lang="fr">la République française</dc:Title>
+<dc:Title xml:lang="es">la República Francesa</dc:Title>
+<dc:Title xml:lang="ar">فرنسا</dc:Title>
+<dc:Title xml:lang="zh">法  国</dc:Title>
+<dc:Title xml:lang="ru">Франция</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">74</fi:FigisID>
+<dc:Title xml:lang="en">Gabon</dc:Title>
+<dc:Title xml:lang="fr">Gabon</dc:Title>
+<dc:Title xml:lang="es">Gabón</dc:Title>
+<dc:Title xml:lang="ar">الجمهورية الغابونية</dc:Title>
+<dc:Title xml:lang="zh">加 蓬</dc:Title>
+<dc:Title xml:lang="ru">Габон</dc:Title>
+<fi:ForeignID Code="GA" CodeSystem="iso2"/>
+<fi:ForeignID Code="GAB" CodeSystem="iso3"/>
+<fi:ForeignID Code="266" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Gabonese Republic</dc:Title>
+<dc:Title xml:lang="fr">la République gabonaise</dc:Title>
+<dc:Title xml:lang="es">la República Gabonesa</dc:Title>
+<dc:Title xml:lang="ar">الجمهورية الغابونية</dc:Title>
+<dc:Title xml:lang="zh">加 蓬</dc:Title>
+<dc:Title xml:lang="ru">Габон</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">81</fi:FigisID>
+<dc:Title xml:lang="en">Ghana</dc:Title>
+<dc:Title xml:lang="fr">Ghana</dc:Title>
+<dc:Title xml:lang="es">Ghana</dc:Title>
+<dc:Title xml:lang="ar">جمهورية غانا</dc:Title>
+<dc:Title xml:lang="zh">加 纳</dc:Title>
+<dc:Title xml:lang="ru">Гана</dc:Title>
+<fi:ForeignID Code="GH" CodeSystem="iso2"/>
+<fi:ForeignID Code="GHA" CodeSystem="iso3"/>
+<fi:ForeignID Code="288" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Ghana</dc:Title>
+<dc:Title xml:lang="fr">la République du Ghana</dc:Title>
+<dc:Title xml:lang="es">la República de Ghana</dc:Title>
+<dc:Title xml:lang="ar">جمهورية غانا</dc:Title>
+<dc:Title xml:lang="zh">加 纳</dc:Title>
+<dc:Title xml:lang="ru">Гана</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">89</fi:FigisID>
+<dc:Title xml:lang="en">Guatemala</dc:Title>
+<dc:Title xml:lang="fr">Guatemala</dc:Title>
+<dc:Title xml:lang="es">Guatemala</dc:Title>
+<dc:Title xml:lang="ar">غواتيمالا</dc:Title>
+<dc:Title xml:lang="zh">危地马拉共和国</dc:Title>
+<dc:Title xml:lang="ru">Гватемала</dc:Title>
+<fi:ForeignID Code="GT" CodeSystem="iso2"/>
+<fi:ForeignID Code="GTM" CodeSystem="iso3"/>
+<fi:ForeignID Code="320" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Guatemala</dc:Title>
+<dc:Title xml:lang="fr">la République du Guatemala</dc:Title>
+<dc:Title xml:lang="es">la República de Guatemala</dc:Title>
+<dc:Title xml:lang="ar">غواتيمالا</dc:Title>
+<dc:Title xml:lang="zh">危地马拉共和国</dc:Title>
+<dc:Title xml:lang="ru">Гватемала</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">90</fi:FigisID>
+<dc:Title xml:lang="en">Guinea</dc:Title>
+<dc:Title xml:lang="fr">Guinée</dc:Title>
+<dc:Title xml:lang="es">Guinea</dc:Title>
+<dc:Title xml:lang="ar">غينيا</dc:Title>
+<dc:Title xml:lang="zh">几内亚共和国</dc:Title>
+<dc:Title xml:lang="ru">Гвинейская Республика</dc:Title>
+<fi:ForeignID Code="GN" CodeSystem="iso2"/>
+<fi:ForeignID Code="GIN" CodeSystem="iso3"/>
+<fi:ForeignID Code="324" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Guinea</dc:Title>
+<dc:Title xml:lang="fr">la République de Guinée</dc:Title>
+<dc:Title xml:lang="es">la República de Guinea</dc:Title>
+<dc:Title xml:lang="ar">غينيا</dc:Title>
+<dc:Title xml:lang="zh">几内亚共和国</dc:Title>
+<dc:Title xml:lang="ru">Гвинейская Республика</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">95</fi:FigisID>
+<dc:Title xml:lang="en">Honduras</dc:Title>
+<dc:Title xml:lang="fr">Honduras</dc:Title>
+<dc:Title xml:lang="es">Honduras</dc:Title>
+<dc:Title xml:lang="ar">هندوراس</dc:Title>
+<dc:Title xml:lang="zh">洪都拉斯共和国</dc:Title>
+<dc:Title xml:lang="ru">Гондурас</dc:Title>
+<fi:ForeignID Code="HN" CodeSystem="iso2"/>
+<fi:ForeignID Code="HND" CodeSystem="iso3"/>
+<fi:ForeignID Code="340" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Honduras</dc:Title>
+<dc:Title xml:lang="fr">la République du Honduras</dc:Title>
+<dc:Title xml:lang="es">la República de Honduras</dc:Title>
+<dc:Title xml:lang="ar">هندوراس</dc:Title>
+<dc:Title xml:lang="zh">洪都拉斯共和国</dc:Title>
+<dc:Title xml:lang="ru">Гондурас</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">99</fi:FigisID>
+<dc:Title xml:lang="en">Iceland</dc:Title>
+<dc:Title xml:lang="fr">Islande</dc:Title>
+<dc:Title xml:lang="es">Islandia</dc:Title>
+<dc:Title xml:lang="ar">جمهورية آيسلندا</dc:Title>
+<dc:Title xml:lang="zh">冰 岛</dc:Title>
+<dc:Title xml:lang="ru">Исландия</dc:Title>
+<fi:ForeignID Code="IS" CodeSystem="iso2"/>
+<fi:ForeignID Code="ISL" CodeSystem="iso3"/>
+<fi:ForeignID Code="352" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Iceland</dc:Title>
+<dc:Title xml:lang="fr">la République d'Islande</dc:Title>
+<dc:Title xml:lang="es">la República de Islandia</dc:Title>
+<dc:Title xml:lang="ar">جمهورية آيسلندا</dc:Title>
+<dc:Title xml:lang="zh">冰 岛</dc:Title>
+<dc:Title xml:lang="ru">Исландия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">110</fi:FigisID>
+<dc:Title xml:lang="en">Japan</dc:Title>
+<dc:Title xml:lang="fr">Japon</dc:Title>
+<dc:Title xml:lang="es">Japón</dc:Title>
+<dc:Title xml:lang="ar">اليابان</dc:Title>
+<dc:Title xml:lang="zh">日 本</dc:Title>
+<dc:Title xml:lang="ru">Япония</dc:Title>
+<fi:ForeignID Code="JP" CodeSystem="iso2"/>
+<fi:ForeignID Code="JPN" CodeSystem="iso3"/>
+<fi:ForeignID Code="392" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Japan</dc:Title>
+<dc:Title xml:lang="fr">le Japon</dc:Title>
+<dc:Title xml:lang="es">el Japón</dc:Title>
+<dc:Title xml:lang="ar">اليابان</dc:Title>
+<dc:Title xml:lang="zh">日 本</dc:Title>
+<dc:Title xml:lang="ru">Япония</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">123</fi:FigisID>
+<dc:Title xml:lang="en">Liberia</dc:Title>
+<dc:Title xml:lang="fr">Libéria</dc:Title>
+<dc:Title xml:lang="es">Liberia</dc:Title>
+<dc:Title xml:lang="ar">ليبريا</dc:Title>
+<dc:Title xml:lang="zh">利比里亚</dc:Title>
+<dc:Title xml:lang="ru">Либерия</dc:Title>
+<fi:ForeignID Code="LR" CodeSystem="iso2"/>
+<fi:ForeignID Code="LBR" CodeSystem="iso3"/>
+<fi:ForeignID Code="430" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Liberia</dc:Title>
+<dc:Title xml:lang="fr">la République du Libéria</dc:Title>
+<dc:Title xml:lang="es">la República de Liberia</dc:Title>
+<dc:Title xml:lang="ar">ليبريا</dc:Title>
+<dc:Title xml:lang="zh">利比里亚</dc:Title>
+<dc:Title xml:lang="ru">Либерия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">124</fi:FigisID>
+<dc:Title xml:lang="en">Libya</dc:Title>
+<dc:Title xml:lang="fr">Libye</dc:Title>
+<dc:Title xml:lang="es">Libia</dc:Title>
+<dc:Title xml:lang="ar">ليبيا</dc:Title>
+<dc:Title xml:lang="zh">利比亚</dc:Title>
+<dc:Title xml:lang="ru">Ливия</dc:Title>
+<fi:ForeignID Code="LY" CodeSystem="iso2"/>
+<fi:ForeignID Code="LBY" CodeSystem="iso3"/>
+<fi:ForeignID Code="434" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Libya</dc:Title>
+<dc:Title xml:lang="fr">la Libye</dc:Title>
+<dc:Title xml:lang="es">la Libia</dc:Title>
+<dc:Title xml:lang="ar">ليبيا</dc:Title>
+<dc:Title xml:lang="zh">利比亚</dc:Title>
+<dc:Title xml:lang="ru">Ливия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">143</fi:FigisID>
+<dc:Title xml:lang="en">Morocco</dc:Title>
+<dc:Title xml:lang="fr">Maroc</dc:Title>
+<dc:Title xml:lang="es">Marruecos</dc:Title>
+<dc:Title xml:lang="ar">المملكة المغربية</dc:Title>
+<dc:Title xml:lang="zh">摩洛哥</dc:Title>
+<dc:Title xml:lang="ru">Королевство Марокко</dc:Title>
+<fi:ForeignID Code="MA" CodeSystem="iso2"/>
+<fi:ForeignID Code="MAR" CodeSystem="iso3"/>
+<fi:ForeignID Code="504" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Kingdom of Morocco</dc:Title>
+<dc:Title xml:lang="fr">le Royaume du Maroc</dc:Title>
+<dc:Title xml:lang="es">el Reino de Marruecos</dc:Title>
+<dc:Title xml:lang="ar">المملكة المغربية</dc:Title>
+<dc:Title xml:lang="zh">摩洛哥</dc:Title>
+<dc:Title xml:lang="ru">Королевство Марокко</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">136</fi:FigisID>
+<dc:Title xml:lang="en">Mauritania</dc:Title>
+<dc:Title xml:lang="fr">Mauritanie</dc:Title>
+<dc:Title xml:lang="es">Mauritania</dc:Title>
+<dc:Title xml:lang="ar">موريتانيا</dc:Title>
+<dc:Title xml:lang="zh">毛里塔尼亚伊斯兰共和国</dc:Title>
+<dc:Title xml:lang="ru">Мавритания</dc:Title>
+<fi:ForeignID Code="MR" CodeSystem="iso2"/>
+<fi:ForeignID Code="MRT" CodeSystem="iso3"/>
+<fi:ForeignID Code="478" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Islamic Republic of Mauritania</dc:Title>
+<dc:Title xml:lang="fr">la République islamique de Mauritanie</dc:Title>
+<dc:Title xml:lang="es">la República Islámica de Mauritania</dc:Title>
+<dc:Title xml:lang="ar">موريتانيا</dc:Title>
+<dc:Title xml:lang="zh">毛里塔尼亚伊斯兰共和国</dc:Title>
+<dc:Title xml:lang="ru">Мавритания</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">138</fi:FigisID>
+<dc:Title xml:lang="en">Mexico</dc:Title>
+<dc:Title xml:lang="fr">Mexique</dc:Title>
+<dc:Title xml:lang="es">México</dc:Title>
+<dc:Title xml:lang="ar">المكسيك</dc:Title>
+<dc:Title xml:lang="zh">墨西哥</dc:Title>
+<dc:Title xml:lang="ru">Мексика</dc:Title>
+<fi:ForeignID Code="MX" CodeSystem="iso2"/>
+<fi:ForeignID Code="MEX" CodeSystem="iso3"/>
+<fi:ForeignID Code="484" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the United Mexican States</dc:Title>
+<dc:Title xml:lang="fr">les États-Unis du Mexique</dc:Title>
+<dc:Title xml:lang="es">los Estados Unidos Mexicanos</dc:Title>
+<dc:Title xml:lang="ar">المكسيك</dc:Title>
+<dc:Title xml:lang="zh">墨西哥</dc:Title>
+<dc:Title xml:lang="ru">Мексика</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">147</fi:FigisID>
+<dc:Title xml:lang="en">Namibia</dc:Title>
+<dc:Title xml:lang="fr">Namibie</dc:Title>
+<dc:Title xml:lang="es">Namibia</dc:Title>
+<dc:Title xml:lang="ar">ناميبيا</dc:Title>
+<dc:Title xml:lang="zh">纳米比亚</dc:Title>
+<dc:Title xml:lang="ru">Намибия</dc:Title>
+<fi:ForeignID Code="NA" CodeSystem="iso2"/>
+<fi:ForeignID Code="NAM" CodeSystem="iso3"/>
+<fi:ForeignID Code="516" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Namibia</dc:Title>
+<dc:Title xml:lang="fr">la République de Namibie</dc:Title>
+<dc:Title xml:lang="es">la República de Namibia</dc:Title>
+<dc:Title xml:lang="ar">ناميبيا</dc:Title>
+<dc:Title xml:lang="zh">纳米比亚</dc:Title>
+<dc:Title xml:lang="ru">Намибия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">157</fi:FigisID>
+<dc:Title xml:lang="en">Nicaragua</dc:Title>
+<dc:Title xml:lang="fr">Nicaragua</dc:Title>
+<dc:Title xml:lang="es">Nicaragua</dc:Title>
+<dc:Title xml:lang="ar">نيكاراغوا</dc:Title>
+<dc:Title xml:lang="zh">尼加拉瓜共和国</dc:Title>
+<dc:Title xml:lang="ru">Никарагуа</dc:Title>
+<fi:ForeignID Code="NI" CodeSystem="iso2"/>
+<fi:ForeignID Code="NIC" CodeSystem="iso3"/>
+<fi:ForeignID Code="558" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Nicaragua</dc:Title>
+<dc:Title xml:lang="fr">la République du Nicaragua</dc:Title>
+<dc:Title xml:lang="es">la República de Nicaragua</dc:Title>
+<dc:Title xml:lang="ar">نيكاراغوا</dc:Title>
+<dc:Title xml:lang="zh">尼加拉瓜共和国</dc:Title>
+<dc:Title xml:lang="ru">Никарагуа</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">159</fi:FigisID>
+<dc:Title xml:lang="en">Nigeria</dc:Title>
+<dc:Title xml:lang="fr">Nigéria</dc:Title>
+<dc:Title xml:lang="es">Nigeria</dc:Title>
+<dc:Title xml:lang="ar">نيجيريا</dc:Title>
+<dc:Title xml:lang="zh">尼日利亚</dc:Title>
+<dc:Title xml:lang="ru">Нигерия</dc:Title>
+<fi:ForeignID Code="NG" CodeSystem="iso2"/>
+<fi:ForeignID Code="NGA" CodeSystem="iso3"/>
+<fi:ForeignID Code="566" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Federal Republic of Nigeria</dc:Title>
+<dc:Title xml:lang="fr">la République fédérale du Nigéria</dc:Title>
+<dc:Title xml:lang="es">la República Federal de Nigeria</dc:Title>
+<dc:Title xml:lang="ar">نيجيريا</dc:Title>
+<dc:Title xml:lang="zh">尼日利亚</dc:Title>
+<dc:Title xml:lang="ru">Нигерия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">162</fi:FigisID>
+<dc:Title xml:lang="en">Norway</dc:Title>
+<dc:Title xml:lang="fr">Norvège</dc:Title>
+<dc:Title xml:lang="es">Noruega</dc:Title>
+<dc:Title xml:lang="ar">النرويج</dc:Title>
+<dc:Title xml:lang="zh">挪 威</dc:Title>
+<dc:Title xml:lang="ru">Норвегия</dc:Title>
+<fi:ForeignID Code="NO" CodeSystem="iso2"/>
+<fi:ForeignID Code="NOR" CodeSystem="iso3"/>
+<fi:ForeignID Code="578" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Kingdom of Norway</dc:Title>
+<dc:Title xml:lang="fr">le Royaume de Norvège</dc:Title>
+<dc:Title xml:lang="es">el Reino de Noruega</dc:Title>
+<dc:Title xml:lang="ar">النرويج</dc:Title>
+<dc:Title xml:lang="zh">挪 威</dc:Title>
+<dc:Title xml:lang="ru">Норвегия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">166</fi:FigisID>
+<dc:Title xml:lang="en">Panama</dc:Title>
+<dc:Title xml:lang="fr">Panama</dc:Title>
+<dc:Title xml:lang="es">Panamá</dc:Title>
+<dc:Title xml:lang="ar">جمهورية بنما</dc:Title>
+<dc:Title xml:lang="zh">巴拿马</dc:Title>
+<dc:Title xml:lang="ru">Панама</dc:Title>
+<fi:ForeignID Code="PA" CodeSystem="iso2"/>
+<fi:ForeignID Code="PAN" CodeSystem="iso3"/>
+<fi:ForeignID Code="591" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Panama</dc:Title>
+<dc:Title xml:lang="fr">la République du Panama</dc:Title>
+<dc:Title xml:lang="es">la República de Panamá</dc:Title>
+<dc:Title xml:lang="ar">جمهورية بنما</dc:Title>
+<dc:Title xml:lang="zh">巴拿马</dc:Title>
+<dc:Title xml:lang="ru">Панама</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">171</fi:FigisID>
+<dc:Title xml:lang="en">Philippines</dc:Title>
+<dc:Title xml:lang="fr">Philippines</dc:Title>
+<dc:Title xml:lang="es">Filipinas</dc:Title>
+<dc:Title xml:lang="ar">جمهورية الفلبين</dc:Title>
+<dc:Title xml:lang="zh">菲律宾共和国</dc:Title>
+<dc:Title xml:lang="ru">Республика Филиппины</dc:Title>
+<fi:ForeignID Code="PH" CodeSystem="iso2"/>
+<fi:ForeignID Code="PHL" CodeSystem="iso3"/>
+<fi:ForeignID Code="608" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of the Philippines</dc:Title>
+<dc:Title xml:lang="fr">la République des Philippines</dc:Title>
+<dc:Title xml:lang="es">la República de Filipinas</dc:Title>
+<dc:Title xml:lang="ar">جمهورية الفلبين</dc:Title>
+<dc:Title xml:lang="zh">菲律宾共和国</dc:Title>
+<dc:Title xml:lang="ru">Республика Филиппины</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">117</fi:FigisID>
+<dc:Title xml:lang="en">Korea, Republic of</dc:Title>
+<dc:Title xml:lang="fr">République de Corée</dc:Title>
+<dc:Title xml:lang="es">República de Corea</dc:Title>
+<dc:Title xml:lang="ar">جمهورية كوريا</dc:Title>
+<dc:Title xml:lang="zh">大韩民国</dc:Title>
+<dc:Title xml:lang="ru">Республика Корея</dc:Title>
+<fi:ForeignID Code="KR" CodeSystem="iso2"/>
+<fi:ForeignID Code="KOR" CodeSystem="iso3"/>
+<fi:ForeignID Code="410" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Korea</dc:Title>
+<dc:Title xml:lang="fr">la République de Corée</dc:Title>
+<dc:Title xml:lang="es">la República de Corea</dc:Title>
+<dc:Title xml:lang="ar">جمهورية كوريا</dc:Title>
+<dc:Title xml:lang="zh">大韩民国</dc:Title>
+<dc:Title xml:lang="ru">Республика Корея</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">185</fi:FigisID>
+<dc:Title xml:lang="en">Russian Federation</dc:Title>
+<dc:Title xml:lang="fr">Fédération de Russie</dc:Title>
+<dc:Title xml:lang="es">Federación de Rusia</dc:Title>
+<dc:Title xml:lang="ar">الاتحاد الروسي</dc:Title>
+<dc:Title xml:lang="zh">俄罗斯联邦</dc:Title>
+<dc:Title xml:lang="ru">Российская Федерация</dc:Title>
+<fi:ForeignID Code="RU" CodeSystem="iso2"/>
+<fi:ForeignID Code="RUS" CodeSystem="iso3"/>
+<fi:ForeignID Code="643" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Russian Federation</dc:Title>
+<dc:Title xml:lang="fr">la Fédération de Russie</dc:Title>
+<dc:Title xml:lang="es">la Federación de Rusia</dc:Title>
+<dc:Title xml:lang="ar">الاتحاد الروسي</dc:Title>
+<dc:Title xml:lang="zh">俄罗斯联邦</dc:Title>
+<dc:Title xml:lang="ru">Российская Федерация</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">191</fi:FigisID>
+<dc:Title xml:lang="en">Saint Vincent/Grenadines</dc:Title>
+<dc:Title xml:lang="fr">Saint-Vincent/Grenadines</dc:Title>
+<dc:Title xml:lang="es">San Vicente/Grenadinas</dc:Title>
+<dc:Title xml:lang="ar">سانت فنسنت وجزر غرينادين</dc:Title>
+<dc:Title xml:lang="zh">圣文森特和格林纳丁斯</dc:Title>
+<dc:Title xml:lang="ru">Сент-Винсент и Гренадины</dc:Title>
+<fi:ForeignID Code="VC" CodeSystem="iso2"/>
+<fi:ForeignID Code="VCT" CodeSystem="iso3"/>
+<fi:ForeignID Code="670" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Saint Vincent and the Grenadines</dc:Title>
+<dc:Title xml:lang="fr">Saint-Vincent-et-les Grenadines</dc:Title>
+<dc:Title xml:lang="es">San Vicente y las Granadinas</dc:Title>
+<dc:Title xml:lang="ar">سانت فنسنت وجزر غرينادين</dc:Title>
+<dc:Title xml:lang="zh">圣文森特和格林纳丁斯</dc:Title>
+<dc:Title xml:lang="ru">Сент-Винсент и Гренадины</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">193</fi:FigisID>
+<dc:Title xml:lang="en">Sao Tome and Principe</dc:Title>
+<dc:Title xml:lang="fr">Sao Tomé-et-Principe</dc:Title>
+<dc:Title xml:lang="es">Santo Tomé y Príncipe</dc:Title>
+<dc:Title xml:lang="ar">سان تومي وبرنسيبي</dc:Title>
+<dc:Title xml:lang="zh">圣多美和普林西比</dc:Title>
+<dc:Title xml:lang="ru">Сан-Томе и Принсипи</dc:Title>
+<fi:ForeignID Code="ST" CodeSystem="iso2"/>
+<fi:ForeignID Code="STP" CodeSystem="iso3"/>
+<fi:ForeignID Code="678" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Democratic Republic of Sao Tome and Principe</dc:Title>
+<dc:Title xml:lang="fr">la République démocratique de Sao Tomé-et-Principe</dc:Title>
+<dc:Title xml:lang="es">la República Democrática de Santo Tomé y Príncipe</dc:Title>
+<dc:Title xml:lang="ar">سان تومي وبرنسيبي</dc:Title>
+<dc:Title xml:lang="zh">圣多美和普林西比</dc:Title>
+<dc:Title xml:lang="ru">Сан-Томе и Принсипи</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">195</fi:FigisID>
+<dc:Title xml:lang="en">Senegal</dc:Title>
+<dc:Title xml:lang="fr">Sénégal</dc:Title>
+<dc:Title xml:lang="es">Senegal</dc:Title>
+<dc:Title xml:lang="ar">السنغال</dc:Title>
+<dc:Title xml:lang="zh">塞内加尔共和国</dc:Title>
+<dc:Title xml:lang="ru">Сенегал</dc:Title>
+<fi:ForeignID Code="SN" CodeSystem="iso2"/>
+<fi:ForeignID Code="SEN" CodeSystem="iso3"/>
+<fi:ForeignID Code="686" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Senegal</dc:Title>
+<dc:Title xml:lang="fr">la République du Sénégal</dc:Title>
+<dc:Title xml:lang="es">la República del Senegal</dc:Title>
+<dc:Title xml:lang="ar">السنغال</dc:Title>
+<dc:Title xml:lang="zh">塞内加尔共和国</dc:Title>
+<dc:Title xml:lang="ru">Сенегал</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">197</fi:FigisID>
+<dc:Title xml:lang="en">Sierra Leone</dc:Title>
+<dc:Title xml:lang="fr">Sierra Leone</dc:Title>
+<dc:Title xml:lang="es">Sierra Leona</dc:Title>
+<dc:Title xml:lang="ar">سيراليون</dc:Title>
+<dc:Title xml:lang="zh">塞拉利昂</dc:Title>
+<dc:Title xml:lang="ru">Сьерра-Леоне</dc:Title>
+<fi:ForeignID Code="SL" CodeSystem="iso2"/>
+<fi:ForeignID Code="SLE" CodeSystem="iso3"/>
+<fi:ForeignID Code="694" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Sierra Leone</dc:Title>
+<dc:Title xml:lang="fr">la République de Sierra Leone</dc:Title>
+<dc:Title xml:lang="es">la República de Sierra Leona</dc:Title>
+<dc:Title xml:lang="ar">سيراليون</dc:Title>
+<dc:Title xml:lang="zh">塞拉利昂</dc:Title>
+<dc:Title xml:lang="ru">Сьерра-Леоне</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">202</fi:FigisID>
+<dc:Title xml:lang="en">South Africa</dc:Title>
+<dc:Title xml:lang="fr">Afrique du Sud</dc:Title>
+<dc:Title xml:lang="es">Sudáfrica</dc:Title>
+<dc:Title xml:lang="ar">جمهورية جنوب أفريقيا</dc:Title>
+<dc:Title xml:lang="zh">南 非</dc:Title>
+<dc:Title xml:lang="ru">Южная Африка</dc:Title>
+<fi:ForeignID Code="ZA" CodeSystem="iso2"/>
+<fi:ForeignID Code="ZAF" CodeSystem="iso3"/>
+<fi:ForeignID Code="710" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of South Africa</dc:Title>
+<dc:Title xml:lang="fr">la République sud-africaine</dc:Title>
+<dc:Title xml:lang="es">la República de Sudáfrica</dc:Title>
+<dc:Title xml:lang="ar">جمهورية جنوب أفريقيا</dc:Title>
+<dc:Title xml:lang="zh">南 非</dc:Title>
+<dc:Title xml:lang="ru">Южная Африка</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">212</fi:FigisID>
+<dc:Title xml:lang="en">Syrian Arab Republic</dc:Title>
+<dc:Title xml:lang="fr">Rép. arabe syrienne</dc:Title>
+<dc:Title xml:lang="es">República Árabe Siria</dc:Title>
+<dc:Title xml:lang="ar">الجمهورية العربية السورية</dc:Title>
+<dc:Title xml:lang="zh">阿拉伯叙利亚共和国</dc:Title>
+<dc:Title xml:lang="ru">Сирийская Арабская Республика</dc:Title>
+<fi:ForeignID Code="SY" CodeSystem="iso2"/>
+<fi:ForeignID Code="SYR" CodeSystem="iso3"/>
+<fi:ForeignID Code="760" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Syrian Arab Republic</dc:Title>
+<dc:Title xml:lang="fr">la République arabe syrienne</dc:Title>
+<dc:Title xml:lang="es">la República Árabe Siria</dc:Title>
+<dc:Title xml:lang="ar">الجمهورية العربية السورية</dc:Title>
+<dc:Title xml:lang="zh">阿拉伯叙利亚共和国</dc:Title>
+<dc:Title xml:lang="ru">Сирийская Арабская Республика</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">220</fi:FigisID>
+<dc:Title xml:lang="en">Trinidad and Tobago</dc:Title>
+<dc:Title xml:lang="fr">Trinité-et-Tobago</dc:Title>
+<dc:Title xml:lang="es">Trinidad y Tabago</dc:Title>
+<dc:Title xml:lang="ar">ترينيداد وتوباغو</dc:Title>
+<dc:Title xml:lang="zh">特立尼达和多巴哥共和国</dc:Title>
+<dc:Title xml:lang="ru">Тринидад и Тобаго</dc:Title>
+<fi:ForeignID Code="TT" CodeSystem="iso2"/>
+<fi:ForeignID Code="TTO" CodeSystem="iso3"/>
+<fi:ForeignID Code="780" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Trinidad and Tobago</dc:Title>
+<dc:Title xml:lang="fr">la République de Trinité-et-Tobago</dc:Title>
+<dc:Title xml:lang="es">la República de Trinidad y Tabago</dc:Title>
+<dc:Title xml:lang="ar">ترينيداد وتوباغو</dc:Title>
+<dc:Title xml:lang="zh">特立尼达和多巴哥共和国</dc:Title>
+<dc:Title xml:lang="ru">Тринидад и Тобаго</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">222</fi:FigisID>
+<dc:Title xml:lang="en">Tunisia</dc:Title>
+<dc:Title xml:lang="fr">Tunisie</dc:Title>
+<dc:Title xml:lang="es">Túnez</dc:Title>
+<dc:Title xml:lang="ar">تونس</dc:Title>
+<dc:Title xml:lang="zh">突尼斯</dc:Title>
+<dc:Title xml:lang="ru">Тунисская Республика</dc:Title>
+<fi:ForeignID Code="TN" CodeSystem="iso2"/>
+<fi:ForeignID Code="TUN" CodeSystem="iso3"/>
+<fi:ForeignID Code="788" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Tunisia</dc:Title>
+<dc:Title xml:lang="fr">la République tunisienne</dc:Title>
+<dc:Title xml:lang="es">la República de Túnez</dc:Title>
+<dc:Title xml:lang="ar">تونس</dc:Title>
+<dc:Title xml:lang="zh">突尼斯</dc:Title>
+<dc:Title xml:lang="ru">Тунисская Республика</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">223</fi:FigisID>
+<dc:Title xml:lang="en">Turkey</dc:Title>
+<dc:Title xml:lang="fr">Turquie</dc:Title>
+<dc:Title xml:lang="es">Turquía</dc:Title>
+<dc:Title xml:lang="ar">الجمهورية التركية</dc:Title>
+<dc:Title xml:lang="zh">土耳其</dc:Title>
+<dc:Title xml:lang="ru">Турция</dc:Title>
+<fi:ForeignID Code="TR" CodeSystem="iso2"/>
+<fi:ForeignID Code="TUR" CodeSystem="iso3"/>
+<fi:ForeignID Code="792" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Turkey</dc:Title>
+<dc:Title xml:lang="fr">la République turque</dc:Title>
+<dc:Title xml:lang="es">la República de Turquía</dc:Title>
+<dc:Title xml:lang="ar">الجمهورية التركية</dc:Title>
+<dc:Title xml:lang="zh">土耳其</dc:Title>
+<dc:Title xml:lang="ru">Турция</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">229</fi:FigisID>
+<dc:Title xml:lang="en">United Kingdom</dc:Title>
+<dc:Title xml:lang="fr">Royaume-Uni</dc:Title>
+<dc:Title xml:lang="es">Reino Unido</dc:Title>
+<dc:Title xml:lang="ar">المملكة المتحدة</dc:Title>
+<dc:Title xml:lang="zh">大不列颠及北爱尔兰联合王国</dc:Title>
+<dc:Title xml:lang="ru">Соединенное Королевство (Великобритании и Северной Ирландии)</dc:Title>
+<fi:ForeignID Code="GB" CodeSystem="iso2"/>
+<fi:ForeignID Code="GBR" CodeSystem="iso3"/>
+<fi:ForeignID Code="826" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the United Kingdom of Great Britain and Northern Ireland</dc:Title>
+<dc:Title xml:lang="fr">le Royaume-Uni de Grande-Bretagne et d'Irlande du Nord</dc:Title>
+<dc:Title xml:lang="es">el Reino Unido de Gran Bretaña e Irlanda del Norte</dc:Title>
+<dc:Title xml:lang="ar">المملكة المتحدة</dc:Title>
+<dc:Title xml:lang="zh">大不列颠及北爱尔兰联合王国</dc:Title>
+<dc:Title xml:lang="ru">Соединенное Королевство (Великобритании и Северной Ирландии)</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">231</fi:FigisID>
+<dc:Title xml:lang="en">United States of America</dc:Title>
+<dc:Title xml:lang="fr">États-Unis d'Amérique</dc:Title>
+<dc:Title xml:lang="es">EstadosUnidos de América</dc:Title>
+<dc:Title xml:lang="ar">الولايات المتحدة الأمريكية</dc:Title>
+<dc:Title xml:lang="zh">美利坚合众国</dc:Title>
+<dc:Title xml:lang="ru">Соединенные Штаты Америки</dc:Title>
+<fi:ForeignID Code="US" CodeSystem="iso2"/>
+<fi:ForeignID Code="USA" CodeSystem="iso3"/>
+<fi:ForeignID Code="840" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the United States of America</dc:Title>
+<dc:Title xml:lang="fr">les États-Unis d'Amérique</dc:Title>
+<dc:Title xml:lang="es">los Estados Unidos de América</dc:Title>
+<dc:Title xml:lang="ar">الولايات المتحدة الأمريكية</dc:Title>
+<dc:Title xml:lang="zh">美利坚合众国</dc:Title>
+<dc:Title xml:lang="ru">Соединенные Штаты Америки</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">234</fi:FigisID>
+<dc:Title xml:lang="en">Uruguay</dc:Title>
+<dc:Title xml:lang="fr">Uruguay</dc:Title>
+<dc:Title xml:lang="es">Uruguay</dc:Title>
+<dc:Title xml:lang="ar">أوروغواي</dc:Title>
+<dc:Title xml:lang="zh">乌拉圭东岸共和国</dc:Title>
+<dc:Title xml:lang="ru">Уругвай</dc:Title>
+<fi:ForeignID Code="UY" CodeSystem="iso2"/>
+<fi:ForeignID Code="URY" CodeSystem="iso3"/>
+<fi:ForeignID Code="858" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Eastern Republic of Uruguay</dc:Title>
+<dc:Title xml:lang="fr">la République orientale de l'Uruguay</dc:Title>
+<dc:Title xml:lang="es">la República Oriental del Uruguay</dc:Title>
+<dc:Title xml:lang="ar">أوروغواي</dc:Title>
+<dc:Title xml:lang="zh">乌拉圭东岸共和国</dc:Title>
+<dc:Title xml:lang="ru">Уругвай</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">155</fi:FigisID>
+<dc:Title xml:lang="en">Vanuatu</dc:Title>
+<dc:Title xml:lang="fr">Vanuatu</dc:Title>
+<dc:Title xml:lang="es">Vanuatu</dc:Title>
+<dc:Title xml:lang="ar">فانواتو</dc:Title>
+<dc:Title xml:lang="zh">瓦努阿图共和国</dc:Title>
+<dc:Title xml:lang="ru">Республика Вануату</dc:Title>
+<fi:ForeignID Code="VU" CodeSystem="iso2"/>
+<fi:ForeignID Code="VUT" CodeSystem="iso3"/>
+<fi:ForeignID Code="548" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Vanuatu</dc:Title>
+<dc:Title xml:lang="fr">la République de Vanuatu</dc:Title>
+<dc:Title xml:lang="es">la República de Vanuatu</dc:Title>
+<dc:Title xml:lang="ar">فانواتو</dc:Title>
+<dc:Title xml:lang="zh">瓦努阿图共和国</dc:Title>
+<dc:Title xml:lang="ru">Республика Вануату</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">236</fi:FigisID>
+<dc:Title xml:lang="en">Venezuela, Boliv Rep of</dc:Title>
+<dc:Title xml:lang="fr">Venezuela, Rép boliv du</dc:Title>
+<dc:Title xml:lang="es">Venezuela, Rep Boliv de</dc:Title>
+<dc:Title xml:lang="ar">جمهورية فنزويلا البوليفارية</dc:Title>
+<dc:Title xml:lang="zh">委内瑞拉 (玻利瓦尔共和国)</dc:Title>
+<dc:Title xml:lang="ru">Венесуэла (Боливарианская Республика)</dc:Title>
+<fi:ForeignID Code="VE" CodeSystem="iso2"/>
+<fi:ForeignID Code="VEN" CodeSystem="iso3"/>
+<fi:ForeignID Code="862" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Bolivarian Republic of Venezuela</dc:Title>
+<dc:Title xml:lang="fr">la République bolivarienne du Venezuela</dc:Title>
+<dc:Title xml:lang="es">la República Bolivariana de Venezuela</dc:Title>
+<dc:Title xml:lang="ar">جمهورية فنزويلا البوليفارية</dc:Title>
+<dc:Title xml:lang="zh">委内瑞拉 (玻利瓦尔共和国)</dc:Title>
+<dc:Title xml:lang="ru">Венесуэла (Боливарианская Республика)</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+			</fi:OrgsInvolvedEntry>
+			<fi:OrgsInvolvedEntry FreeValue="Cooperating States" RelationshipType="Member">
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">44</fi:FigisID>
+<dc:Title xml:lang="en">Colombia</dc:Title>
+<dc:Title xml:lang="fr">Colombie</dc:Title>
+<dc:Title xml:lang="es">Colombia</dc:Title>
+<dc:Title xml:lang="ar">جمهورية كولومبيا</dc:Title>
+<dc:Title xml:lang="zh">哥伦比亚</dc:Title>
+<dc:Title xml:lang="ru">Колумбия</dc:Title>
+<fi:ForeignID Code="CO" CodeSystem="iso2"/>
+<fi:ForeignID Code="COL" CodeSystem="iso3"/>
+<fi:ForeignID Code="170" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Colombia</dc:Title>
+<dc:Title xml:lang="fr">la République de Colombie</dc:Title>
+<dc:Title xml:lang="es">la República de Colombia</dc:Title>
+<dc:Title xml:lang="ar">جمهورية كولومبيا</dc:Title>
+<dc:Title xml:lang="zh">哥伦比亚</dc:Title>
+<dc:Title xml:lang="ru">Колумбия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">286</fi:FigisID>
+<dc:Title xml:lang="en">Curaçao</dc:Title>
+<dc:Title xml:lang="fr">Curaçao</dc:Title>
+<dc:Title xml:lang="es">Curaçao</dc:Title>
+<dc:Title xml:lang="ar">كوراساو</dc:Title>
+<dc:Title xml:lang="zh">库拉索</dc:Title>
+<dc:Title xml:lang="ru">Кюрасао</dc:Title>
+<fi:ForeignID Code="CW" CodeSystem="iso2"/>
+<fi:ForeignID Code="CUW" CodeSystem="iso3"/>
+<fi:ForeignID Code="531" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Curaçao</dc:Title>
+<dc:Title xml:lang="fr">Curaçao</dc:Title>
+<dc:Title xml:lang="es">Curaçao</dc:Title>
+<dc:Title xml:lang="ar">كوراساو</dc:Title>
+<dc:Title xml:lang="zh">库拉索</dc:Title>
+<dc:Title xml:lang="ru">Кюрасао</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">60</fi:FigisID>
+<dc:Title xml:lang="en">El Salvador</dc:Title>
+<dc:Title xml:lang="fr">El Salvador</dc:Title>
+<dc:Title xml:lang="es">El Salvador</dc:Title>
+<dc:Title xml:lang="ar">السلفادور</dc:Title>
+<dc:Title xml:lang="zh">萨尔瓦多</dc:Title>
+<dc:Title xml:lang="ru">Сальвадор</dc:Title>
+<fi:ForeignID Code="SV" CodeSystem="iso2"/>
+<fi:ForeignID Code="SLV" CodeSystem="iso3"/>
+<fi:ForeignID Code="222" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of El Salvador</dc:Title>
+<dc:Title xml:lang="fr">la République d'El Salvador</dc:Title>
+<dc:Title xml:lang="es">la República de El Salvador</dc:Title>
+<dc:Title xml:lang="ar">السلفادور</dc:Title>
+<dc:Title xml:lang="zh">萨尔瓦多</dc:Title>
+<dc:Title xml:lang="ru">Сальвадор</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">207</fi:FigisID>
+<dc:Title xml:lang="en">Suriname</dc:Title>
+<dc:Title xml:lang="fr">Suriname</dc:Title>
+<dc:Title xml:lang="es">Suriname</dc:Title>
+<dc:Title xml:lang="ar">سورينام</dc:Title>
+<dc:Title xml:lang="zh">苏里南</dc:Title>
+<dc:Title xml:lang="ru">Суринам</dc:Title>
+<fi:ForeignID Code="SR" CodeSystem="iso2"/>
+<fi:ForeignID Code="SUR" CodeSystem="iso3"/>
+<fi:ForeignID Code="740" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Suriname</dc:Title>
+<dc:Title xml:lang="fr">la République du Suriname</dc:Title>
+<dc:Title xml:lang="es">la República de Suriname</dc:Title>
+<dc:Title xml:lang="ar">سورينام</dc:Title>
+<dc:Title xml:lang="zh">苏里南</dc:Title>
+<dc:Title xml:lang="ru">Суринам</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">214</fi:FigisID>
+<dc:Title xml:lang="en">Taiwan Province of China</dc:Title>
+<dc:Title xml:lang="fr">Prov. chinoise de Taïwan</dc:Title>
+<dc:Title xml:lang="es">Prov. china de Taiwán</dc:Title>
+<fi:ForeignID Code="TW" CodeSystem="iso2"/>
+<fi:ForeignID Code="TWN" CodeSystem="iso3"/>
+<fi:ForeignID Code="158" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Taiwan Province of China</dc:Title>
+<dc:Title xml:lang="fr">Province chinoise de Taïwan</dc:Title>
+<dc:Title xml:lang="es">Provincia china de Taiwán</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+			</fi:OrgsInvolvedEntry>
+		</fi:OrgsInvolved>
+		<fi:Contacts Label="Further information">
+			<fi:ContactEntry Label=" ">
+				<fi:Website>http://www.iccat.int</fi:Website>
+			</fi:ContactEntry>
+		</fi:Contacts>
+	</fi:Org>
+</fi:FIGISDoc>

@@ -10,6 +10,7 @@ import java.util.List;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.MonikerResponse;
 import org.sharks.service.moniker.dto.RfbEntry;
 
@@ -40,10 +41,25 @@ public class MonikersRestClient {
 			throw new MonikerRestClientException("Error retrieving rfbs for "+iso3Code, e);
 		}
 	}
-
+	
+	public FigisDoc getFigisDoc(String figisId) {
+		try {
+			URL figisDocUrl = getFigisdocl(figisId);
+			log.trace("getting figisDoc {} from {}", figisId, figisDocUrl);
+			try (InputStream is = figisDocUrl.openStream()) {
+				return parser.parseFigisDoc(is);
+			}
+		} catch(Exception e) {
+			throw new MonikerRestClientException("Error retrieving figisDoc for "+figisId, e);
+		}
+	}
 	
 	private URL getRfb4Iso3Url(String iso3Code) throws MalformedURLException {
 		return new URL(restUrl+"rfb4iso3/"+iso3Code);
+	}
+	
+	private URL getFigisdocl(String figisId) throws MalformedURLException {
+		return new URL(restUrl+"figisdoc/organization/"+figisId);
 	}
 
 	public class MonikerRestClientException extends RuntimeException {

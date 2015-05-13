@@ -8,6 +8,7 @@ import java.io.InputStream;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
+import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.MonikerResponse;
 import org.sharks.service.moniker.dto.RfbEntry;
 
@@ -21,7 +22,7 @@ public class MonikersParser {
 	
 	public MonikersParser() {
 		try {
-			JAXBContext context = JAXBContext.newInstance(MonikerResponse.class, RfbEntry.class);
+			JAXBContext context = JAXBContext.newInstance(MonikerResponse.class, RfbEntry.class, FigisDoc.class);
 			unmarshaller = context.createUnmarshaller();
 		} catch(Exception e) {
 			throw new RuntimeException("Error initializing JAXB", e);
@@ -36,5 +37,12 @@ public class MonikersParser {
 			throw new RuntimeException("Error parsing monikers response", e);
 		}
 	}
-
+	
+	public FigisDoc parseFigisDoc(InputStream is) {
+		try {
+			return (FigisDoc) unmarshaller.unmarshal(is);
+		} catch(Exception e) {
+			throw new RuntimeException("Error parsing FigisDoc", e);
+		}
+	}
 }
