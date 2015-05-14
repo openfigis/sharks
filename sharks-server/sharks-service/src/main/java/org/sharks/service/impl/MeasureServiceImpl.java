@@ -4,7 +4,6 @@
 package org.sharks.service.impl;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -12,6 +11,8 @@ import org.sharks.service.MeasureService;
 import org.sharks.service.dto.MeasureEntry;
 import org.sharks.storage.dao.MeasureDaoImpl;
 import org.sharks.storage.domain.Measure;
+
+import static org.sharks.service.producer.EntryProducers.*;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -24,22 +25,11 @@ public class MeasureServiceImpl implements MeasureService {
 
 	@Override
 	public List<MeasureEntry> list() {
-		return dao.list().stream().map(m->toEntry(m)).collect(Collectors.toList());
+		return convert(dao.list(),TO_MEASURE_ENTRY);
 	}
 
 	@Override
 	public Measure get(Long code) {
 		return dao.get(code);
-	}
-	
-	private MeasureEntry toEntry(Measure measure) {
-		if (measure == null) return null;
-		return new MeasureEntry(measure.getCode(), 
-				measure.getSymbol(), 
-				measure.getTitle(), 
-				measure.getDocumentType()!=null?measure.getDocumentType().getDescription():null,
-				measure.getMeasureYear(), 
-				measure.getBinding(),
-				measure.getInformationSources());
 	}
 }

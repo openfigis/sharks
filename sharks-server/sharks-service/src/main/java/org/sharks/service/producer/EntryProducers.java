@@ -10,9 +10,11 @@ import java.util.stream.Collectors;
 
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.GroupEntry;
+import org.sharks.service.dto.InformationSourceEntry;
 import org.sharks.service.dto.MeasureEntry;
 import org.sharks.service.dto.PoAEntry;
 import org.sharks.storage.domain.CustomSpeciesGrp;
+import org.sharks.storage.domain.InformationSource;
 import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.MgmtEntity;
 import org.sharks.storage.domain.PoA;
@@ -37,9 +39,27 @@ public class EntryProducers {
 					measure.getDocumentType()!=null?measure.getDocumentType().getDescription():null,
 					measure.getMeasureYear(), 
 					measure.getBinding(),
-					measure.getInformationSources());
+					findEntityAcronym(measure.getInformationSources()),
+					convert(measure.getInformationSources(),TO_INFORMATION_SOURCE_ENTRY));
+		}
+		
+		private String findEntityAcronym(List<InformationSource> sources) {
+			for (InformationSource source:sources) {
+				MgmtEntity mgmtEntity = source.getMgmtEntity();
+				if (mgmtEntity!=null && mgmtEntity.getAcronym()!=null) return mgmtEntity.getAcronym();
+			}
+			return null;
 		}
 	};
+	
+	public static final EntryProducer<InformationSource, InformationSourceEntry> TO_INFORMATION_SOURCE_ENTRY = new AbstractEntryProducer<InformationSource, InformationSourceEntry>() {
+
+		@Override
+		public InformationSourceEntry produce(InformationSource source) {
+			return new InformationSourceEntry(source.getUrl());
+		}
+	};
+	
 	
 	public static final EntryProducer<CustomSpeciesGrp, GroupEntry> TO_GROUP_ENTRY = new AbstractEntryProducer<CustomSpeciesGrp, GroupEntry>() {
 
