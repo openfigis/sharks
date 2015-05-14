@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	FIGIS moniker source: 	http://localhost/fishery/xml/organization/22050/en
+-->
+<fi:FIGISDoc xmlns:fi="http://www.fao.org/fi/figis/devcon/" xmlns:agls="http://www.naa.gov.au/recordkeeping/gov_online/agls/1.1" xmlns:ags="http://www.purl.org/agmes/1.1/" xmlns:aida="http://www.idmlinitiative.org/resources/dtds/AIDA22.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:fint="http://www.fao.org/fi/figis/internal/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en" xsi:schemaLocation="http://www.fao.org/fi/figis/devcon/ http://www.fao.org/fi/figis/devcon/schema/3_6/fi.xsd">
+	<fi:DataEntry>
+		<fi:Editor>FIGIS Team</fi:Editor>
+		<dcterms:Created>2010-07-15</dcterms:Created>
+	</fi:DataEntry>
+	<fi:ObjectSource>
+		<fi:Owner>
+			<fi:CollectionRef>
+<fi:FigisID MetaID="264000">2290</fi:FigisID>
+<dc:Title xml:lang="en">Regional Fishery Bodies (RFB) - Fact Sheets</dc:Title>
+<fi:ForeignID Code="RFB_FS" CodeSystem="acronym"/>
+<fi:OrgRef Office="Not Specified" Role="Funding_organization" Type="U.N. Organization">
+<fi:FigisID MetaID="104000">6426</fi:FigisID>
+<dc:Title xml:lang="en">Food and Agriculture Organization (FAO)</dc:Title>
+<dc:Title xml:lang="fr">Food and Agriculture Organization (FAO)</dc:Title>
+<dc:Title xml:lang="es">Food and Agriculture Organization (FAO)</dc:Title>
+<dc:Title xml:lang="ar">Food and Agriculture Organization (FAO)</dc:Title>
+<dc:Title xml:lang="zh">Food and Agriculture Organization (FAO)</dc:Title>
+<dc:Title xml:lang="ru">Food and Agriculture Organization (FAO)</dc:Title>
+<fi:ForeignID Code="FAO" CodeSystem="acronym"/>
+<fi:ContactEntry>
+<fi:Telephone>(+39) 06 57051</fi:Telephone>
+<fi:Fax>(+39) 06 570 53152</fi:Fax>
+<fi:Email>FAO-HQ@fao.org</fi:Email>
+<fi:Website>http://www.fao.org</fi:Website>
+</fi:ContactEntry>
+</fi:OrgRef>
+</fi:CollectionRef>
+		</fi:Owner>
+		<fi:CorporateCoverPage>
+<fi:FigisID MetaID="280000">310</fi:FigisID>
+<dc:Title xml:lang="en">Regional Fishery Bodies summary descriptions</dc:Title>
+<dc:Title xml:lang="fr">Descriptions succinctes des Organismes Régionaux des Pêches</dc:Title>
+<dc:Title xml:lang="es">Descripciónes resumidas de los Órganos Regionales de la Pesca</dc:Title>
+<ags:CreatorCorporate xml:lang="en">Food and Agriculture Organization of the United Nations (FAO-UN)</ags:CreatorCorporate>
+<fi:Series xml:lang="en">Fishery Governance Fact Sheets</fi:Series>
+<dc:Publisher>FAO</dc:Publisher>
+</fi:CorporateCoverPage>
+		<fi:CoverPage>
+			<dcterms:Created>2001-01-01</dcterms:Created>
+			<dcterms:Modified>2014-11-28</dcterms:Modified>
+		</fi:CoverPage>
+	</fi:ObjectSource>
+	<fi:Org>
+		<fi:OrgIdent>
+			<fi:FigisID>22050</fi:FigisID>
+			<fi:OrgRef Office="Main" Type="U.N. Organization">
+<fi:FigisID MetaID="104000">22050</fi:FigisID>
+<dc:Title xml:lang="en">European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)</dc:Title>
+<dc:Title xml:lang="fr">European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)</dc:Title>
+<dc:Title xml:lang="es">European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)</dc:Title>
+<dc:Title xml:lang="ar">European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)</dc:Title>
+<dc:Title xml:lang="zh">European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)</dc:Title>
+<dc:Title xml:lang="ru">European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)</dc:Title>
+<fi:ForeignID Code="EIFAAC" CodeSystem="acronym"/>
+<fi:ContactEntry>
+<fi:Telephone>+39 06 5705 2944</fi:Telephone>
+<fi:Fax>+39 06 5705 3020</fi:Fax>
+<fi:Email>gerd.marmulla@fao.org</fi:Email>
+<fi:Website>http://www.fao.org/fishery/rfb/eifac</fi:Website>
+</fi:ContactEntry>
+</fi:OrgRef>
+			<dc:Title>European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)</dc:Title>
+			<fi:Image IID="29717" Use="Normal"/>
+			<fi:StateOfActivity Type="Ongoing">
+
+</fi:StateOfActivity>
+		</fi:OrgIdent>
+		<fi:AddInfo Label=" ">
+			<fi:Text>&lt;p&gt;&lt;span style="color: #ff0000; font-weight: bold;"&gt;EIFAAC NEWS&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;div class="cssBox box1s"&gt;
+&lt;div class="boxTop"&gt;
+&lt;div class="box"&gt;
+&lt;div class="box"&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="boxBody"&gt;
+&lt;div class="box"&gt;
+&lt;div class="box"&gt;
+&lt;ul&gt;
+&lt;!-- ////// put content here //////--&gt;&lt;strong&gt;JOINT EIFAAC/ICES/GFCM WGEEL REPORT 2014&lt;/strong&gt;: EIFAAC is pleased to announce that the final report from the Joint EIFAAC/ICES/GFCM Working Group on Eels held in November 2014 in Rome is available from this website (see further &lt;a href="#eels"&gt;below&lt;/a&gt;). Click &lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WGeels/ExSumm_wgeel_2014.pdf" target="_blank"&gt;here&lt;/a&gt; to read the Executive summary. The final report from the Joint EIFAAC/ICES/GFCM Working Group on Eels and the Country Reports 2013/2014 are also available on the ICES website at &lt;a href="http://ices.dk/community/groups/Pages/WGEEL.aspx" target="_blank"&gt;WGEEL 2014&lt;/a&gt;. 
+&lt;hr /&gt;
+&lt;li&gt;&lt;!-- ////// put content here ////// --&gt;&lt;strong&gt;&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WPCormorant/EIFAAC_project_on_Cormorants.pdf"&gt;Developing sustainable management actions on cormorant populations&lt;/a&gt;&lt;/strong&gt;: Understanding the interactions among fish, fisheries, and cormorants is in the interest of a number of different stakeholders. A pan-European management plan is presently being put together by EIFAAC. Currently only national, regional and local management actions exist but todate a pan-European plan has not been attainable. The number of cormorants is still increasing creating interactions in new areas and polarizing situations in other areas. &lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WPCormorant/EIFAAC_project_on_Cormorants.pdf"&gt;Read more.&lt;/a&gt; &amp;nbsp; &lt;/li&gt;
+&lt;hr /&gt;
+&lt;li&gt;&lt;!-- ////// put content here ////// --&gt;&lt;strong&gt;&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/News/Symposium_Recreational_FisheriesJune2015.pdf"&gt;EIFAAC Symposium on Recreational Fisheries: Managing freshwater recreational fisheries in an era of change, Lillehammer, Norway, 15-17 June 2015&lt;/a&gt;&lt;/strong&gt;: The Symposium aims to provide a forum for exchange of management practices, research and activities among stakeholders in recreational fisheries from all of Europe as well as from other regions. The program will be multidisciplinary and should attract managers, NGOs, fishing tourism and tackle trade businesses and researchers. Symposium Themes: &lt;em&gt;Dynamics of recreational fisheries; How and why is recreational fishing important relative to other uses and ecological services of freshwater ecosystems; Management challenges in freshwater recreational fisheries&lt;/em&gt;. &amp;nbsp;&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/News/Symposium_Recreational_FisheriesJune2015.pdf"&gt;Read more&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;IMPORTANT PROGRAM UPDATES, TIME TO REGISTER!&lt;/strong&gt; &lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/EIFAAC_Int_Symposium_Recreational_Fisheries_info.pdf"&gt;Check details&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;!--
+&lt;li&gt;&lt;! ////// put content here ////// --&gt;&lt;!--&lt;b&gt;&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/News/WS_7Jul14_Announcement.pdf" mce_href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/News/WS_7Jul14_Announcement.pdf"&gt;One-day EIFAAC Workshop on Stock Enhancement, Hull, UK, 7 July 2014&lt;/a&gt;&lt;/b&gt;, as part of the International Symposium "Integrated Perspectives on Fish Stock Enhancement", Hull, UK, 7-11 July 2014, organized by Hull International Fisheries Institute (HIFI), the Humboldt University of Berlin and IGB, Berlin, Germany, in collaboration with the Fisheries Society of the British Isles (FSBI) and EIFAAC.&amp;nbsp; &lt;/li&gt;
+--&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;EIFAAC meets Rapporteur for proposed EU Regulation on IAS (Invasive Alien species)&lt;br /&gt;&lt;img src="http://www.fao.org/figis/servlet/IRS?iid=37078" alt="" hspace="2" width="229" height="182" align="left" /&gt; &lt;/strong&gt;In December 2013 EIFAAC submitted an Advice Note on the proposed EU Regulation on IAS to Pavel Poc (MEP and rapporteur for the proposed Regulation). The document was compiled by Joe Caffrey who is Chair of the EIFAAC Project on Aquatic Invasive Species. A draft of the document was submitted to all EIFAAC focal points for consideration and all inputs were assimilated before the final document was forwarded to Mr Poc in the European Parliament. &lt;br /&gt;In a follow up to this, Joe Caffrey was invited to meet directly with Mr Poc in his offices in the European Parliament buildings on 20th January 2014. This face-to-face meeting provided the opportunity to discuss the proposed Regulation and EIFAAC&amp;rsquo;s approach to many of the key articles contained therein. The meeting took place immediately prior to a major conference in Brussels that was scheduled to debate on &amp;ldquo;strengthening the EC proposed approach [to the Regulation]&amp;rdquo;. Mr Poc was assured of EIFAAC&amp;rsquo;s support in having this important piece of European legislation enacted in the very near future.&lt;/li&gt;
+&lt;hr /&gt;
+&lt;li&gt;EIFAAC attended the &lt;strong&gt;&lt;a href="http://www.eaa-anglingineurope.eu/index.php?id=720"&gt;European Anglers Alliance 2013 General Assembly&lt;/a&gt;&lt;/strong&gt; (there are about 3 million affiliated members to EAA's from 13 European nations)&lt;img src="http://www.fao.org/figis/servlet/IRS?iid=37080" alt="" hspace="5" align="left" /&gt; to brief the EAA on EIFAAC activities and have engaged with this organisation on new project activities. &lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;a href="http://www.eaa-anglingineurope.eu" target="_blank"&gt;
+&lt;hr /&gt;
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/News/DraftEURegulationAlienInvasiveSpecies.pdf"&gt;&lt;strong&gt;EIFAAC offers advice on the draft EU regulation on Invasive Alien Species&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;br /&gt;This advice note was drafted by EIFAAC's expert group on aquatic invasive species (Coordinator J. Caffrey, Ireland) and would be of interest and support to government departments and policy makers dealing with the draft EU regulation on IAS. 
+&lt;hr /&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/UpdatedConferenceList.pdf"&gt;Updated list of fisheries conferences (December 2014)&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/a&gt;&lt;/strong&gt;
+&lt;hr /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://academic.sun.ac.za/cib/news/20130516_eu_acquatic_invasions.htm" target="_blank"&gt;The "Freshwater Invasives: Networking for Strategy (FINS) Conference", Galway, Ireland, 8-12 April 2013 was a success!&lt;/a&gt;&lt;br /&gt;&lt;a href="http://academic.sun.ac.za/cib/news/images/20130516_eu_acquatic_invasions_fig1.jpg" target="_blank"&gt;&lt;img src="http://www.fao.org/figis/servlet/IRS?iid=35258" alt="" /&gt;&lt;/a&gt;&lt;/strong&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="boxBottom"&gt;
+&lt;div class="box"&gt;
+&lt;div class="box"&gt;&amp;nbsp; &lt;br /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</fi:Text>
+		</fi:AddInfo>
+		<fi:History Label="Change of denomination and Statutes">
+			<fi:Text>&lt;p&gt;Since December 2010, the name of the Commission is European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC). &lt;/p&gt;
+
+&lt;p&gt;Established in 1957 by the FAO Council under Article VI-1 of FAO Constitution, the European Inland Fisheries Advisory Commission (EIFAC) held its first session in 1960 in Dublin, Ireland. In the 1990ies, a first attempt was made by EIFAC Members and the EIFAC Secretariat to reform the Commission which lead in 1998 to a first slight amendment of the Rules of Procedure. But it was not before the second half of the first decade of the new millennium that the Members felt that it was time to carry out an in-depth review of the Commission’s function and means for action.&lt;/p&gt;
+
+&lt;p&gt;While the Twenty Fifth Session of EIFAC, held in Antalya, Turkey, from 21 to 28 May 2008 agreed to change the name of the Commission to European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC), the Twenty Sixth Session held in Zagreb, Croatia, from 17-20 May 2010 agreed on new Statutes and discussed and agreed on new Rules of Procedure.  &lt;/p&gt;
+
+&lt;p&gt;Taking note that the Twenty Fifth Session of EIFAC in 2008 had agreed to change the name of EIFAC, introducing aquaculture in order to recognize the importance of aquaculture to the countries in Europe and to properly reflect the activities of EIFAC, and that the Twenty Sixth Session of EIFAC in May 2010 had agreed on new Statutes, the Council of FAO in its 140th Session has adopted Resolution 3/140 and decided to approve the revised name and Statutes of the Commission, whereby the European Inland Fisheries Advisory Commission (EIFAC) is now called European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC).&lt;/p&gt;
+
+&lt;p&gt;The First Special Session of the Commission in October 2011 adopted new Rules of Procedure with a two-third majority. Through the decision of the Director-General of FAO in April 2012, the current Rules of Procedure came into force.&lt;/p&gt;</fi:Text>
+		</fi:History>
+		<fi:LegalFoundation Inter-govType="United_nations_statutory_body" Label="Legal framework" LegalType="Agreement" Type="Inter-gov">
+			<fi:Text>&lt;ul&gt;
+&lt;li&gt; &lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAAC_statutes.pdf" target="_blank"&gt;EIFAAC statutes&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt; &lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/rules_procedure2012.pdf" target="_blank"&gt;Rules of Procedure of EIFAAC&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;</fi:Text>
+		</fi:LegalFoundation>
+		<fi:Mission>
+			<fi:Text>
+				
+	The mission of EIFAAC is to promote the long-term sustainable development, utilization, conservation, restoration and responsible management of European inland fisheries and aquaculture, consistent with the objectives and principles of the FAO Code of Conduct for Responsible Fisheries and other relevant international instruments, and to support sustainable economic, social, and recreational activities towards these goals through: 
+				
+		&lt;ul&gt; 
+		
+		&lt;li&gt;providing advice, information and coordination;&lt;/li&gt;
+		 &lt;li&gt;encouraging enhanced stakeholder participation and communication; and &lt;/li&gt; 	
+     	&lt;li&gt;the delivery of effective research.&lt;/li&gt; 
+				
+				
+				
+				&lt;/ul&gt; </fi:Text>
+		</fi:Mission>
+		<fi:Issues Label="Objectives">
+			<fi:Text>
+				
+				&lt;b&gt;The objectives of the Commission are:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;promote the sustainable development, utilization, conservation, management, protection and restoration of European inland fisheries and aquaculture resources based on the best available scientific advice and the application of an ecosystem approach, the precautionary approach and the need to safeguard biodiversity; &lt;/li&gt;&lt;li&gt;identify and address strategic issues for European inland fisheries and aquaculture and provide advice and recommendations on future policies, measures and related actions needed to address the issues in a rapid and accountable manner as requested by Members; &lt;/li&gt;&lt;li&gt;provide advice to managers/decision makers of inland fisheries and aquaculture as requested based on scientific, social, economic, legal and other factors; and &lt;/li&gt;&lt;li&gt;serve as a forward-looking international platform for the collation, validation dissemination and consideration of information on common challenges and opportunities to European inland fisheries and aquaculture, and to this end, inter alia, proactively identify: 
+&lt;ul&gt; 
+
+&lt;li&gt;relevant scientific, social, economic, legal, statistical and other information and make recommendations for decision makers taking into account the need to protect and preserve the aquatic ecosystems; and &lt;/li&gt; 
+
+&lt;li&gt;common problems and solutions, and harmonized approaches as appropriate.&lt;/li&gt; 
+
+&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt; </fi:Text>
+		</fi:Issues>
+		<fi:GeoCoverage Type="RFB_CompetenceArea">
+			<fi:InlandWaters Value="true"/>
+			<fi:Text>Covers inland waters of member countries of EIFAAC (see blue shaded areas). </fi:Text>
+			<fi:WaterAreaRef>
+<fi:FigisID MetaID="24031">4047</fi:FigisID>
+<dc:Title xml:lang="en">EIFAAC area of competence</dc:Title>
+<fi:ForeignID Code="EIFAAC" CodeSystem="rfb_comp"/>
+</fi:WaterAreaRef>
+		</fi:GeoCoverage>
+		<fi:Languages>
+			<dc:Language Type="ISO639-2" xml:lang="en"/>
+			<dc:Language Type="ISO639-2" xml:lang="fr"/>
+		</fi:Languages>
+		<fi:OrgsInvolved Label="Members">
+			<fi:OrgsInvolvedEntry RelationshipType="Member">
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">3</fi:FigisID>
+<dc:Title xml:lang="en">Albania</dc:Title>
+<dc:Title xml:lang="fr">Albanie</dc:Title>
+<dc:Title xml:lang="es">Albania</dc:Title>
+<dc:Title xml:lang="ar">ألبانيا</dc:Title>
+<dc:Title xml:lang="zh">阿尔巴尼亚共和国</dc:Title>
+<dc:Title xml:lang="ru">Албания</dc:Title>
+<fi:ForeignID Code="AL" CodeSystem="iso2"/>
+<fi:ForeignID Code="ALB" CodeSystem="iso3"/>
+<fi:ForeignID Code="8" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Albania</dc:Title>
+<dc:Title xml:lang="fr">la République d'Albanie</dc:Title>
+<dc:Title xml:lang="es">la República de Albania</dc:Title>
+<dc:Title xml:lang="ar">ألبانيا</dc:Title>
+<dc:Title xml:lang="zh">阿尔巴尼亚共和国</dc:Title>
+<dc:Title xml:lang="ru">Албания</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">11</fi:FigisID>
+<dc:Title xml:lang="en">Austria</dc:Title>
+<dc:Title xml:lang="fr">Autriche</dc:Title>
+<dc:Title xml:lang="es">Austria</dc:Title>
+<dc:Title xml:lang="ar">النمسا</dc:Title>
+<dc:Title xml:lang="zh">奥地利</dc:Title>
+<dc:Title xml:lang="ru">Австрия</dc:Title>
+<fi:ForeignID Code="AT" CodeSystem="iso2"/>
+<fi:ForeignID Code="AUT" CodeSystem="iso3"/>
+<fi:ForeignID Code="40" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Austria</dc:Title>
+<dc:Title xml:lang="fr">la République d'Autriche</dc:Title>
+<dc:Title xml:lang="es">la República de Austria</dc:Title>
+<dc:Title xml:lang="ar">النمسا</dc:Title>
+<dc:Title xml:lang="zh">奥地利</dc:Title>
+<dc:Title xml:lang="ru">Австрия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">255</fi:FigisID>
+<dc:Title xml:lang="en">Belgium</dc:Title>
+<dc:Title xml:lang="fr">Belgique</dc:Title>
+<dc:Title xml:lang="es">Bélgica</dc:Title>
+<dc:Title xml:lang="ar">بلجيكا</dc:Title>
+<dc:Title xml:lang="zh">比利时</dc:Title>
+<dc:Title xml:lang="ru">Бельгия</dc:Title>
+<fi:ForeignID Code="BE" CodeSystem="iso2"/>
+<fi:ForeignID Code="BEL" CodeSystem="iso3"/>
+<fi:ForeignID Code="56" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Kingdom of Belgium</dc:Title>
+<dc:Title xml:lang="fr">le Royaume de Belgique</dc:Title>
+<dc:Title xml:lang="es">el Reino de Bélgica</dc:Title>
+<dc:Title xml:lang="ar">بلجيكا</dc:Title>
+<dc:Title xml:lang="zh">比利时</dc:Title>
+<dc:Title xml:lang="ru">Бельгия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">80</fi:FigisID>
+<dc:Title xml:lang="en">Bosnia and Herzegovina</dc:Title>
+<dc:Title xml:lang="fr">Bosnie-Herzégovine</dc:Title>
+<dc:Title xml:lang="es">Bosnia y Herzegovina</dc:Title>
+<dc:Title xml:lang="ar">البوسنة والهرسك</dc:Title>
+<dc:Title xml:lang="zh">波斯尼亚－黑塞哥维那</dc:Title>
+<dc:Title xml:lang="ru">Босния и Герцеговина</dc:Title>
+<fi:ForeignID Code="BA" CodeSystem="iso2"/>
+<fi:ForeignID Code="BIH" CodeSystem="iso3"/>
+<fi:ForeignID Code="70" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Bosnia and Herzegovina</dc:Title>
+<dc:Title xml:lang="fr">la Bosnie-Herzégovine</dc:Title>
+<dc:Title xml:lang="es">Bosnia y Herzegovina</dc:Title>
+<dc:Title xml:lang="ar">البوسنة والهرسك</dc:Title>
+<dc:Title xml:lang="zh">波斯尼亚－黑塞哥维那</dc:Title>
+<dc:Title xml:lang="ru">Босния и Герцеговина</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">27</fi:FigisID>
+<dc:Title xml:lang="en">Bulgaria</dc:Title>
+<dc:Title xml:lang="fr">Bulgarie</dc:Title>
+<dc:Title xml:lang="es">Bulgaria</dc:Title>
+<dc:Title xml:lang="ar">جمهورية بلغاريا</dc:Title>
+<dc:Title xml:lang="zh">保加利亚</dc:Title>
+<dc:Title xml:lang="ru">Болгария</dc:Title>
+<fi:ForeignID Code="BG" CodeSystem="iso2"/>
+<fi:ForeignID Code="BGR" CodeSystem="iso3"/>
+<fi:ForeignID Code="100" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Bulgaria</dc:Title>
+<dc:Title xml:lang="fr">la République de Bulgarie</dc:Title>
+<dc:Title xml:lang="es">la República de Bulgaria</dc:Title>
+<dc:Title xml:lang="ar">جمهورية بلغاريا</dc:Title>
+<dc:Title xml:lang="zh">保加利亚</dc:Title>
+<dc:Title xml:lang="ru">Болгария</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">98</fi:FigisID>
+<dc:Title xml:lang="en">Croatia</dc:Title>
+<dc:Title xml:lang="fr">Croatie</dc:Title>
+<dc:Title xml:lang="es">Croacia</dc:Title>
+<dc:Title xml:lang="ar">كرواتيا</dc:Title>
+<dc:Title xml:lang="zh">克罗地亚共和国</dc:Title>
+<dc:Title xml:lang="ru">Хорватия</dc:Title>
+<fi:ForeignID Code="HR" CodeSystem="iso2"/>
+<fi:ForeignID Code="HRV" CodeSystem="iso3"/>
+<fi:ForeignID Code="191" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Croatia</dc:Title>
+<dc:Title xml:lang="fr">la République de Croatie</dc:Title>
+<dc:Title xml:lang="es">la República de Croacia</dc:Title>
+<dc:Title xml:lang="ar">كرواتيا</dc:Title>
+<dc:Title xml:lang="zh">克罗地亚共和国</dc:Title>
+<dc:Title xml:lang="ru">Хорватия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">50</fi:FigisID>
+<dc:Title xml:lang="en">Cyprus</dc:Title>
+<dc:Title xml:lang="fr">Chypre</dc:Title>
+<dc:Title xml:lang="es">Chipre</dc:Title>
+<dc:Title xml:lang="ar">جمهورية قبرص</dc:Title>
+<dc:Title xml:lang="zh">塞浦路斯共和国</dc:Title>
+<dc:Title xml:lang="ru">Кипр</dc:Title>
+<fi:ForeignID Code="CY" CodeSystem="iso2"/>
+<fi:ForeignID Code="CYP" CodeSystem="iso3"/>
+<fi:ForeignID Code="196" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Cyprus</dc:Title>
+<dc:Title xml:lang="fr">la République de Chypre</dc:Title>
+<dc:Title xml:lang="es">la República de Chipre</dc:Title>
+<dc:Title xml:lang="ar">جمهورية قبرص</dc:Title>
+<dc:Title xml:lang="zh">塞浦路斯共和国</dc:Title>
+<dc:Title xml:lang="ru">Кипр</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">167</fi:FigisID>
+<dc:Title xml:lang="en">Czech Republic</dc:Title>
+<dc:Title xml:lang="fr">République tchèque</dc:Title>
+<dc:Title xml:lang="es">República Checa</dc:Title>
+<dc:Title xml:lang="ar">الجمهورية التشيكية</dc:Title>
+<dc:Title xml:lang="zh">捷克共和国</dc:Title>
+<dc:Title xml:lang="ru">Чешская Республика</dc:Title>
+<fi:ForeignID Code="CZ" CodeSystem="iso2"/>
+<fi:ForeignID Code="CZE" CodeSystem="iso3"/>
+<fi:ForeignID Code="203" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Czech Republic</dc:Title>
+<dc:Title xml:lang="fr">la République tchèque</dc:Title>
+<dc:Title xml:lang="es">la República Checa</dc:Title>
+<dc:Title xml:lang="ar">الجمهورية التشيكية</dc:Title>
+<dc:Title xml:lang="zh">捷克共和国</dc:Title>
+<dc:Title xml:lang="ru">Чешская Республика</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">54</fi:FigisID>
+<dc:Title xml:lang="en">Denmark</dc:Title>
+<dc:Title xml:lang="fr">Danemark</dc:Title>
+<dc:Title xml:lang="es">Dinamarca</dc:Title>
+<dc:Title xml:lang="ar">مملكة الدانمرك</dc:Title>
+<dc:Title xml:lang="zh">丹麦王国</dc:Title>
+<dc:Title xml:lang="ru">Дания</dc:Title>
+<fi:ForeignID Code="DK" CodeSystem="iso2"/>
+<fi:ForeignID Code="DNK" CodeSystem="iso3"/>
+<fi:ForeignID Code="208" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Kingdom of Denmark</dc:Title>
+<dc:Title xml:lang="fr">le Royaume du Danemark</dc:Title>
+<dc:Title xml:lang="es">el Reino de Dinamarca</dc:Title>
+<dc:Title xml:lang="ar">مملكة الدانمرك</dc:Title>
+<dc:Title xml:lang="zh">丹麦王国</dc:Title>
+<dc:Title xml:lang="ru">Дания</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">63</fi:FigisID>
+<dc:Title xml:lang="en">Estonia</dc:Title>
+<dc:Title xml:lang="fr">Estonie</dc:Title>
+<dc:Title xml:lang="es">Estonia</dc:Title>
+<dc:Title xml:lang="ar">جمهورية إستونيا</dc:Title>
+<dc:Title xml:lang="zh">爱沙尼亚</dc:Title>
+<dc:Title xml:lang="ru">Эстонская Республика</dc:Title>
+<fi:ForeignID Code="EE" CodeSystem="iso2"/>
+<fi:ForeignID Code="EST" CodeSystem="iso3"/>
+<fi:ForeignID Code="233" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Estonia</dc:Title>
+<dc:Title xml:lang="fr">la République d'Estonie</dc:Title>
+<dc:Title xml:lang="es">la República de Estonia</dc:Title>
+<dc:Title xml:lang="ar">جمهورية إستونيا</dc:Title>
+<dc:Title xml:lang="zh">爱沙尼亚</dc:Title>
+<dc:Title xml:lang="ru">Эстонская Республика</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">380</fi:FigisID>
+<dc:Title xml:lang="en">European Union</dc:Title>
+<dc:Title xml:lang="fr">Union Européenne</dc:Title>
+<dc:Title xml:lang="es">Unión Europea</dc:Title>
+<fi:ForeignID Code="EU" CodeSystem="iso2"/>
+<fi:ForeignID Code="EUR" CodeSystem="iso3"/>
+<fi:ForeignID Code="0" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">The European Union (Member Organization)</dc:Title>
+<dc:Title xml:lang="fr">Union européenne (Organisation membre)</dc:Title>
+<dc:Title xml:lang="es">Unión Europea (Organización Miembro)</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">67</fi:FigisID>
+<dc:Title xml:lang="en">Finland</dc:Title>
+<dc:Title xml:lang="fr">Finlande</dc:Title>
+<dc:Title xml:lang="es">Finlandia</dc:Title>
+<dc:Title xml:lang="ar">فنلندا</dc:Title>
+<dc:Title xml:lang="zh">芬 兰</dc:Title>
+<dc:Title xml:lang="ru">Финляндия</dc:Title>
+<fi:ForeignID Code="FI" CodeSystem="iso2"/>
+<fi:ForeignID Code="FIN" CodeSystem="iso3"/>
+<fi:ForeignID Code="246" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Finland</dc:Title>
+<dc:Title xml:lang="fr">la République de Finlande</dc:Title>
+<dc:Title xml:lang="es">la República de Finlandia</dc:Title>
+<dc:Title xml:lang="ar">فنلندا</dc:Title>
+<dc:Title xml:lang="zh">芬 兰</dc:Title>
+<dc:Title xml:lang="ru">Финляндия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">68</fi:FigisID>
+<dc:Title xml:lang="en">France</dc:Title>
+<dc:Title xml:lang="fr">France</dc:Title>
+<dc:Title xml:lang="es">Francia</dc:Title>
+<dc:Title xml:lang="ar">فرنسا</dc:Title>
+<dc:Title xml:lang="zh">法  国</dc:Title>
+<dc:Title xml:lang="ru">Франция</dc:Title>
+<fi:ForeignID Code="FR" CodeSystem="iso2"/>
+<fi:ForeignID Code="FRA" CodeSystem="iso3"/>
+<fi:ForeignID Code="250" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the French Republic</dc:Title>
+<dc:Title xml:lang="fr">la République française</dc:Title>
+<dc:Title xml:lang="es">la República Francesa</dc:Title>
+<dc:Title xml:lang="ar">فرنسا</dc:Title>
+<dc:Title xml:lang="zh">法  国</dc:Title>
+<dc:Title xml:lang="ru">Франция</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">79</fi:FigisID>
+<dc:Title xml:lang="en">Germany</dc:Title>
+<dc:Title xml:lang="fr">Allemagne</dc:Title>
+<dc:Title xml:lang="es">Alemania</dc:Title>
+<dc:Title xml:lang="ar">ألمانيا</dc:Title>
+<dc:Title xml:lang="zh">德意志联邦共和国</dc:Title>
+<dc:Title xml:lang="ru">Германия</dc:Title>
+<fi:ForeignID Code="DE" CodeSystem="iso2"/>
+<fi:ForeignID Code="DEU" CodeSystem="iso3"/>
+<fi:ForeignID Code="276" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Federal Republic of Germany</dc:Title>
+<dc:Title xml:lang="fr">la République fédérale d'Allemagne</dc:Title>
+<dc:Title xml:lang="es">la República Federal de Alemania</dc:Title>
+<dc:Title xml:lang="ar">ألمانيا</dc:Title>
+<dc:Title xml:lang="zh">德意志联邦共和国</dc:Title>
+<dc:Title xml:lang="ru">Германия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">84</fi:FigisID>
+<dc:Title xml:lang="en">Greece</dc:Title>
+<dc:Title xml:lang="fr">Grèce</dc:Title>
+<dc:Title xml:lang="es">Grecia</dc:Title>
+<dc:Title xml:lang="ar">اليونان</dc:Title>
+<dc:Title xml:lang="zh">希 腊</dc:Title>
+<dc:Title xml:lang="ru">Греция</dc:Title>
+<fi:ForeignID Code="GR" CodeSystem="iso2"/>
+<fi:ForeignID Code="GRC" CodeSystem="iso3"/>
+<fi:ForeignID Code="300" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Hellenic Republic</dc:Title>
+<dc:Title xml:lang="fr">la République hellénique</dc:Title>
+<dc:Title xml:lang="es">la República Helénica</dc:Title>
+<dc:Title xml:lang="ar">اليونان</dc:Title>
+<dc:Title xml:lang="zh">希 腊</dc:Title>
+<dc:Title xml:lang="ru">Греция</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">97</fi:FigisID>
+<dc:Title xml:lang="en">Hungary</dc:Title>
+<dc:Title xml:lang="fr">Hongrie</dc:Title>
+<dc:Title xml:lang="es">Hungría</dc:Title>
+<dc:Title xml:lang="ar">هنغاريا</dc:Title>
+<dc:Title xml:lang="zh">匈牙利</dc:Title>
+<dc:Title xml:lang="ru">Венгрия</dc:Title>
+<fi:ForeignID Code="HU" CodeSystem="iso2"/>
+<fi:ForeignID Code="HUN" CodeSystem="iso3"/>
+<fi:ForeignID Code="348" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Hungary</dc:Title>
+<dc:Title xml:lang="fr">la Hongrie</dc:Title>
+<dc:Title xml:lang="es">Hungría</dc:Title>
+<dc:Title xml:lang="ar">هنغاريا</dc:Title>
+<dc:Title xml:lang="zh">匈牙利</dc:Title>
+<dc:Title xml:lang="ru">Венгрия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">99</fi:FigisID>
+<dc:Title xml:lang="en">Iceland</dc:Title>
+<dc:Title xml:lang="fr">Islande</dc:Title>
+<dc:Title xml:lang="es">Islandia</dc:Title>
+<dc:Title xml:lang="ar">جمهورية آيسلندا</dc:Title>
+<dc:Title xml:lang="zh">冰 岛</dc:Title>
+<dc:Title xml:lang="ru">Исландия</dc:Title>
+<fi:ForeignID Code="IS" CodeSystem="iso2"/>
+<fi:ForeignID Code="ISL" CodeSystem="iso3"/>
+<fi:ForeignID Code="352" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Iceland</dc:Title>
+<dc:Title xml:lang="fr">la République d'Islande</dc:Title>
+<dc:Title xml:lang="es">la República de Islandia</dc:Title>
+<dc:Title xml:lang="ar">جمهورية آيسلندا</dc:Title>
+<dc:Title xml:lang="zh">冰 岛</dc:Title>
+<dc:Title xml:lang="ru">Исландия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">104</fi:FigisID>
+<dc:Title xml:lang="en">Ireland</dc:Title>
+<dc:Title xml:lang="fr">Irlande</dc:Title>
+<dc:Title xml:lang="es">Irlanda</dc:Title>
+<dc:Title xml:lang="ar">آيرلندا</dc:Title>
+<dc:Title xml:lang="zh">爱尔兰</dc:Title>
+<dc:Title xml:lang="ru">Ирландия</dc:Title>
+<fi:ForeignID Code="IE" CodeSystem="iso2"/>
+<fi:ForeignID Code="IRL" CodeSystem="iso3"/>
+<fi:ForeignID Code="372" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Ireland</dc:Title>
+<dc:Title xml:lang="fr">l'Irlande</dc:Title>
+<dc:Title xml:lang="es">Irlanda</dc:Title>
+<dc:Title xml:lang="ar">آيرلندا</dc:Title>
+<dc:Title xml:lang="zh">爱尔兰</dc:Title>
+<dc:Title xml:lang="ru">Ирландия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">105</fi:FigisID>
+<dc:Title xml:lang="en">Israel</dc:Title>
+<dc:Title xml:lang="fr">Israël</dc:Title>
+<dc:Title xml:lang="es">Israel</dc:Title>
+<dc:Title xml:lang="ar">دولة إسرائيل</dc:Title>
+<dc:Title xml:lang="zh">以色列</dc:Title>
+<dc:Title xml:lang="ru">Израиль</dc:Title>
+<fi:ForeignID Code="IL" CodeSystem="iso2"/>
+<fi:ForeignID Code="ISR" CodeSystem="iso3"/>
+<fi:ForeignID Code="376" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the State of Israel</dc:Title>
+<dc:Title xml:lang="fr">l'État d'Israël</dc:Title>
+<dc:Title xml:lang="es">el Estado de Israel</dc:Title>
+<dc:Title xml:lang="ar">دولة إسرائيل</dc:Title>
+<dc:Title xml:lang="zh">以色列</dc:Title>
+<dc:Title xml:lang="ru">Израиль</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">106</fi:FigisID>
+<dc:Title xml:lang="en">Italy</dc:Title>
+<dc:Title xml:lang="fr">Italie</dc:Title>
+<dc:Title xml:lang="es">Italia</dc:Title>
+<dc:Title xml:lang="ar">إيطاليا</dc:Title>
+<dc:Title xml:lang="zh">意大利</dc:Title>
+<dc:Title xml:lang="ru">Италия</dc:Title>
+<fi:ForeignID Code="IT" CodeSystem="iso2"/>
+<fi:ForeignID Code="ITA" CodeSystem="iso3"/>
+<fi:ForeignID Code="380" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Italy</dc:Title>
+<dc:Title xml:lang="fr">la République italienne</dc:Title>
+<dc:Title xml:lang="es">la República Italiana</dc:Title>
+<dc:Title xml:lang="ar">إيطاليا</dc:Title>
+<dc:Title xml:lang="zh">意大利</dc:Title>
+<dc:Title xml:lang="ru">Италия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">119</fi:FigisID>
+<dc:Title xml:lang="en">Latvia</dc:Title>
+<dc:Title xml:lang="fr">Lettonie</dc:Title>
+<dc:Title xml:lang="es">Letonia</dc:Title>
+<dc:Title xml:lang="ar">لاتفيا</dc:Title>
+<dc:Title xml:lang="zh">拉脱维亚</dc:Title>
+<dc:Title xml:lang="ru">Латвия</dc:Title>
+<fi:ForeignID Code="LV" CodeSystem="iso2"/>
+<fi:ForeignID Code="LVA" CodeSystem="iso3"/>
+<fi:ForeignID Code="428" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Latvia</dc:Title>
+<dc:Title xml:lang="fr">la République de Lettonie</dc:Title>
+<dc:Title xml:lang="es">la República de Letonia</dc:Title>
+<dc:Title xml:lang="ar">لاتفيا</dc:Title>
+<dc:Title xml:lang="zh">拉脱维亚</dc:Title>
+<dc:Title xml:lang="ru">Латвия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">126</fi:FigisID>
+<dc:Title xml:lang="en">Lithuania</dc:Title>
+<dc:Title xml:lang="fr">Lituanie</dc:Title>
+<dc:Title xml:lang="es">Lituania</dc:Title>
+<dc:Title xml:lang="ar">ليتوانيا</dc:Title>
+<dc:Title xml:lang="zh">立陶宛共和国</dc:Title>
+<dc:Title xml:lang="ru">Литва</dc:Title>
+<fi:ForeignID Code="LT" CodeSystem="iso2"/>
+<fi:ForeignID Code="LTU" CodeSystem="iso3"/>
+<fi:ForeignID Code="440" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Lithuania</dc:Title>
+<dc:Title xml:lang="fr">la République de Lituanie</dc:Title>
+<dc:Title xml:lang="es">la República de Lituania</dc:Title>
+<dc:Title xml:lang="ar">ليتوانيا</dc:Title>
+<dc:Title xml:lang="zh">立陶宛共和国</dc:Title>
+<dc:Title xml:lang="ru">Литва</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">256</fi:FigisID>
+<dc:Title xml:lang="en">Luxembourg</dc:Title>
+<dc:Title xml:lang="fr">Luxembourg</dc:Title>
+<dc:Title xml:lang="es">Luxemburgo</dc:Title>
+<dc:Title xml:lang="ar">لكسمبرغ</dc:Title>
+<dc:Title xml:lang="zh">卢森堡</dc:Title>
+<dc:Title xml:lang="ru">Великое Герцогство Люксембург</dc:Title>
+<fi:ForeignID Code="LU" CodeSystem="iso2"/>
+<fi:ForeignID Code="LUX" CodeSystem="iso3"/>
+<fi:ForeignID Code="442" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Grand Duchy of Luxembourg</dc:Title>
+<dc:Title xml:lang="fr">le Grand-Duché de Luxembourg</dc:Title>
+<dc:Title xml:lang="es">el Gran Ducado de Luxemburgo</dc:Title>
+<dc:Title xml:lang="ar">لكسمبرغ</dc:Title>
+<dc:Title xml:lang="zh">卢森堡</dc:Title>
+<dc:Title xml:lang="ru">Великое Герцогство Люксембург</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">150</fi:FigisID>
+<dc:Title xml:lang="en">Netherlands</dc:Title>
+<dc:Title xml:lang="fr">Pays-Bas</dc:Title>
+<dc:Title xml:lang="es">Países Bajos</dc:Title>
+<dc:Title xml:lang="ar">هولندا</dc:Title>
+<dc:Title xml:lang="zh">荷兰王国</dc:Title>
+<dc:Title xml:lang="ru">Нидерланды</dc:Title>
+<fi:ForeignID Code="NL" CodeSystem="iso2"/>
+<fi:ForeignID Code="NLD" CodeSystem="iso3"/>
+<fi:ForeignID Code="528" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Kingdom of the Netherlands</dc:Title>
+<dc:Title xml:lang="fr">le Royaume des Pays-Bas</dc:Title>
+<dc:Title xml:lang="es">el Reino de los Países Bajos</dc:Title>
+<dc:Title xml:lang="ar">هولندا</dc:Title>
+<dc:Title xml:lang="zh">荷兰王国</dc:Title>
+<dc:Title xml:lang="ru">Нидерланды</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">162</fi:FigisID>
+<dc:Title xml:lang="en">Norway</dc:Title>
+<dc:Title xml:lang="fr">Norvège</dc:Title>
+<dc:Title xml:lang="es">Noruega</dc:Title>
+<dc:Title xml:lang="ar">النرويج</dc:Title>
+<dc:Title xml:lang="zh">挪 威</dc:Title>
+<dc:Title xml:lang="ru">Норвегия</dc:Title>
+<fi:ForeignID Code="NO" CodeSystem="iso2"/>
+<fi:ForeignID Code="NOR" CodeSystem="iso3"/>
+<fi:ForeignID Code="578" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Kingdom of Norway</dc:Title>
+<dc:Title xml:lang="fr">le Royaume de Norvège</dc:Title>
+<dc:Title xml:lang="es">el Reino de Noruega</dc:Title>
+<dc:Title xml:lang="ar">النرويج</dc:Title>
+<dc:Title xml:lang="zh">挪 威</dc:Title>
+<dc:Title xml:lang="ru">Норвегия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">173</fi:FigisID>
+<dc:Title xml:lang="en">Poland</dc:Title>
+<dc:Title xml:lang="fr">Pologne</dc:Title>
+<dc:Title xml:lang="es">Polonia</dc:Title>
+<dc:Title xml:lang="ar">بولندا</dc:Title>
+<dc:Title xml:lang="zh">波 兰</dc:Title>
+<dc:Title xml:lang="ru">Польша</dc:Title>
+<fi:ForeignID Code="PL" CodeSystem="iso2"/>
+<fi:ForeignID Code="POL" CodeSystem="iso3"/>
+<fi:ForeignID Code="616" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Poland</dc:Title>
+<dc:Title xml:lang="fr">la République de Pologne</dc:Title>
+<dc:Title xml:lang="es">la República de Polonia</dc:Title>
+<dc:Title xml:lang="ar">بولندا</dc:Title>
+<dc:Title xml:lang="zh">波 兰</dc:Title>
+<dc:Title xml:lang="ru">Польша</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">174</fi:FigisID>
+<dc:Title xml:lang="en">Portugal</dc:Title>
+<dc:Title xml:lang="fr">Portugal</dc:Title>
+<dc:Title xml:lang="es">Portugal</dc:Title>
+<dc:Title xml:lang="ar">البرتغال</dc:Title>
+<dc:Title xml:lang="zh">葡萄牙</dc:Title>
+<dc:Title xml:lang="ru">Португальская Республика</dc:Title>
+<fi:ForeignID Code="PT" CodeSystem="iso2"/>
+<fi:ForeignID Code="PRT" CodeSystem="iso3"/>
+<fi:ForeignID Code="620" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Portuguese Republic</dc:Title>
+<dc:Title xml:lang="fr">la République portugaise</dc:Title>
+<dc:Title xml:lang="es">la República Portuguesa</dc:Title>
+<dc:Title xml:lang="ar">البرتغال</dc:Title>
+<dc:Title xml:lang="zh">葡萄牙</dc:Title>
+<dc:Title xml:lang="ru">Португальская Республика</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">183</fi:FigisID>
+<dc:Title xml:lang="en">Romania</dc:Title>
+<dc:Title xml:lang="fr">Roumanie</dc:Title>
+<dc:Title xml:lang="es">Rumania</dc:Title>
+<dc:Title xml:lang="ar">رومانيا</dc:Title>
+<dc:Title xml:lang="zh">罗马尼亚</dc:Title>
+<dc:Title xml:lang="ru">Румыния</dc:Title>
+<fi:ForeignID Code="RO" CodeSystem="iso2"/>
+<fi:ForeignID Code="ROU" CodeSystem="iso3"/>
+<fi:ForeignID Code="642" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">Romania</dc:Title>
+<dc:Title xml:lang="fr">la Roumanie</dc:Title>
+<dc:Title xml:lang="es">Rumania</dc:Title>
+<dc:Title xml:lang="ar">رومانيا</dc:Title>
+<dc:Title xml:lang="zh">罗马尼亚</dc:Title>
+<dc:Title xml:lang="ru">Румыния</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">199</fi:FigisID>
+<dc:Title xml:lang="en">Slovakia</dc:Title>
+<dc:Title xml:lang="fr">Slovaquie</dc:Title>
+<dc:Title xml:lang="es">Eslovaquia</dc:Title>
+<dc:Title xml:lang="ar">سلوفاكيا</dc:Title>
+<dc:Title xml:lang="zh">斯洛伐克</dc:Title>
+<dc:Title xml:lang="ru">Словакия</dc:Title>
+<fi:ForeignID Code="SK" CodeSystem="iso2"/>
+<fi:ForeignID Code="SVK" CodeSystem="iso3"/>
+<fi:ForeignID Code="703" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Slovak Republic</dc:Title>
+<dc:Title xml:lang="fr">la République slovaque</dc:Title>
+<dc:Title xml:lang="es">la República Eslovaca</dc:Title>
+<dc:Title xml:lang="ar">سلوفاكيا</dc:Title>
+<dc:Title xml:lang="zh">斯洛伐克</dc:Title>
+<dc:Title xml:lang="ru">Словакия</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">203</fi:FigisID>
+<dc:Title xml:lang="en">Spain</dc:Title>
+<dc:Title xml:lang="fr">Espagne</dc:Title>
+<dc:Title xml:lang="es">España</dc:Title>
+<dc:Title xml:lang="ar">مملكة إسبانيا</dc:Title>
+<dc:Title xml:lang="zh">西班牙</dc:Title>
+<dc:Title xml:lang="ru">Королевство Испания</dc:Title>
+<fi:ForeignID Code="ES" CodeSystem="iso2"/>
+<fi:ForeignID Code="ESP" CodeSystem="iso3"/>
+<fi:ForeignID Code="724" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Kingdom of Spain</dc:Title>
+<dc:Title xml:lang="fr">le Royaume d'Espagne</dc:Title>
+<dc:Title xml:lang="es">el Reino de España</dc:Title>
+<dc:Title xml:lang="ar">مملكة إسبانيا</dc:Title>
+<dc:Title xml:lang="zh">西班牙</dc:Title>
+<dc:Title xml:lang="ru">Королевство Испания</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">210</fi:FigisID>
+<dc:Title xml:lang="en">Sweden</dc:Title>
+<dc:Title xml:lang="fr">Suède</dc:Title>
+<dc:Title xml:lang="es">Suecia</dc:Title>
+<dc:Title xml:lang="ar">السويد</dc:Title>
+<dc:Title xml:lang="zh">瑞 典</dc:Title>
+<dc:Title xml:lang="ru">Королевство Швеция</dc:Title>
+<fi:ForeignID Code="SE" CodeSystem="iso2"/>
+<fi:ForeignID Code="SWE" CodeSystem="iso3"/>
+<fi:ForeignID Code="752" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Kingdom of Sweden</dc:Title>
+<dc:Title xml:lang="fr">le Royaume de Suède</dc:Title>
+<dc:Title xml:lang="es">el Reino de Suecia</dc:Title>
+<dc:Title xml:lang="ar">السويد</dc:Title>
+<dc:Title xml:lang="zh">瑞 典</dc:Title>
+<dc:Title xml:lang="ru">Королевство Швеция</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">211</fi:FigisID>
+<dc:Title xml:lang="en">Switzerland</dc:Title>
+<dc:Title xml:lang="fr">Suisse</dc:Title>
+<dc:Title xml:lang="es">Suiza</dc:Title>
+<dc:Title xml:lang="ar">الاتحاد السويسري</dc:Title>
+<dc:Title xml:lang="zh">瑞 士</dc:Title>
+<dc:Title xml:lang="ru">Швейцария</dc:Title>
+<fi:ForeignID Code="CH" CodeSystem="iso2"/>
+<fi:ForeignID Code="CHE" CodeSystem="iso3"/>
+<fi:ForeignID Code="756" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Swiss Confederation</dc:Title>
+<dc:Title xml:lang="fr">la Confédération suisse</dc:Title>
+<dc:Title xml:lang="es">la Confederación Suiza</dc:Title>
+<dc:Title xml:lang="ar">الاتحاد السويسري</dc:Title>
+<dc:Title xml:lang="zh">瑞 士</dc:Title>
+<dc:Title xml:lang="ru">Швейцария</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">223</fi:FigisID>
+<dc:Title xml:lang="en">Turkey</dc:Title>
+<dc:Title xml:lang="fr">Turquie</dc:Title>
+<dc:Title xml:lang="es">Turquía</dc:Title>
+<dc:Title xml:lang="ar">الجمهورية التركية</dc:Title>
+<dc:Title xml:lang="zh">土耳其</dc:Title>
+<dc:Title xml:lang="ru">Турция</dc:Title>
+<fi:ForeignID Code="TR" CodeSystem="iso2"/>
+<fi:ForeignID Code="TUR" CodeSystem="iso3"/>
+<fi:ForeignID Code="792" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the Republic of Turkey</dc:Title>
+<dc:Title xml:lang="fr">la République turque</dc:Title>
+<dc:Title xml:lang="es">la República de Turquía</dc:Title>
+<dc:Title xml:lang="ar">الجمهورية التركية</dc:Title>
+<dc:Title xml:lang="zh">土耳其</dc:Title>
+<dc:Title xml:lang="ru">Турция</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+				<fi:LandAreaRef>
+<fi:FigisID MetaID="13001">229</fi:FigisID>
+<dc:Title xml:lang="en">United Kingdom</dc:Title>
+<dc:Title xml:lang="fr">Royaume-Uni</dc:Title>
+<dc:Title xml:lang="es">Reino Unido</dc:Title>
+<dc:Title xml:lang="ar">المملكة المتحدة</dc:Title>
+<dc:Title xml:lang="zh">大不列颠及北爱尔兰联合王国</dc:Title>
+<dc:Title xml:lang="ru">Соединенное Королевство (Великобритании и Северной Ирландии)</dc:Title>
+<fi:ForeignID Code="GB" CodeSystem="iso2"/>
+<fi:ForeignID Code="GBR" CodeSystem="iso3"/>
+<fi:ForeignID Code="826" CodeSystem="un"/>
+<fi:OfficialName>
+<dc:Title xml:lang="en">the United Kingdom of Great Britain and Northern Ireland</dc:Title>
+<dc:Title xml:lang="fr">le Royaume-Uni de Grande-Bretagne et d'Irlande du Nord</dc:Title>
+<dc:Title xml:lang="es">el Reino Unido de Gran Bretaña e Irlanda del Norte</dc:Title>
+<dc:Title xml:lang="ar">المملكة المتحدة</dc:Title>
+<dc:Title xml:lang="zh">大不列颠及北爱尔兰联合王国</dc:Title>
+<dc:Title xml:lang="ru">Соединенное Королевство (Великобритании и Северной Ирландии)</dc:Title>
+</fi:OfficialName>
+</fi:LandAreaRef>
+			</fi:OrgsInvolvedEntry>
+			<fi:Text> For the list of Focal Points  
+        &lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/members_eifac.pdf"&gt;click here&lt;/a&gt; (PDF)</fi:Text>
+		</fi:OrgsInvolved>
+		<fi:OrgStruct Label="EIFAAC Officers">
+			<fi:Table>&lt;p&gt;Following the elections at the 27th Session, the Officers of the Commission are:&lt;/p&gt;
+&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th&gt;Title&lt;/th&gt;&lt;th&gt;Name and CV&lt;br /&gt;&lt;/th&gt;&lt;th&gt;Country&lt;/th&gt;&lt;th&gt;e-mail&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Chairperson of EIFAAC&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/CathalGallagher_CVe.pdf"&gt;Cathal Gallagher&lt;/a&gt;&lt;br /&gt;&lt;/td&gt;
+&lt;td&gt;Ireland&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:cathal.gallagher@fisheriesireland.ie"&gt;cathal.gallagher@fisheriesireland.ie&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1st Vice-Chairperson of EIFAAC&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/PetriHeinimaa_CVe.pdf" target="_blank"&gt;Petri Heinimaa&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Finland&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:Petri.Heinimaa@rktl.fi"&gt;Petri.Heinimaa@rktl.fi&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2nd Vice-Chairperson of EIFAAC&lt;/td&gt;
+&lt;td&gt;Tom&amp;aacute;s Brenner&lt;/td&gt;
+&lt;td&gt;Germany&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:Tomas.Brenner@mulewf.rlp.de"&gt;Tomas.Brenner@mulewf.rlp.de&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Secretary&lt;/td&gt;
+&lt;td&gt;Thomas MothPoulsen&lt;/td&gt;
+&lt;td&gt;FAO&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:thomas.mothpoulsen@fao.org"&gt;thomas.mothpoulsen@fao.org&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</fi:Table>
+		</fi:OrgStruct>
+		<fi:OrgGovernance Label="Structure">
+			<fi:OrgGovernanceEntry>
+				<fi:Text>&lt;br/&gt;At its 26th Session held in Zagreb, Croatia, 17-20 May 2010, the Commission agreed to abolish Sub-Committees and Working Parties in favour of a project approach. Also, a Technical and Scientific Committee was put in place. Based on the modernized Rules of Procedure the “Management Committee” replaced the former “Executive Committee”. The Management Committee which has more managing power is composed of the Chair of EIFAAC, the two Vice-Chairs, the Chair of the Technical and Scientific Committee and three members elected by the Commission. &lt;br/&gt; </fi:Text>
+				<fi:Image Description="" IID="30517" Source="" Title="" Use="Normal"/>
+			</fi:OrgGovernanceEntry>
+			<fi:OrgGovernanceEntry>
+				<fi:Table Title="Management Committee (MC)">&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th&gt;Title&lt;/th&gt;&lt;th&gt;Name and CV&lt;br /&gt;&lt;/th&gt;&lt;th&gt;Country&lt;/th&gt;&lt;th&gt;e-mail&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Chairperson of the Management Committee&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/CathalGallagher_CVe.pdf"&gt;Cathal Gallagher (Chairperson of EIFAAC)&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Ireland&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:cathal.gallagher@fisheriesireland.ie"&gt;cathal.gallagher@fisheriesireland.ie &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Member&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/PetriHeinimaa_CVe.pdf" target="_blank"&gt;Petri Heinimaa&lt;/a&gt; (1st Vice-Chairperson of EIFAAC)&lt;/td&gt;
+&lt;td&gt;Finland&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:Petri.Heinimaa@rktl.fi"&gt;Petri.Heinimaa@rktl.fi&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Member&lt;/td&gt;
+&lt;td&gt;Tom&amp;aacute;s Brenner (2nd Vice-Chairperson of EIFAAC)&lt;/td&gt;
+&lt;td&gt;Germany&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:Tomas.Brenner@mulewf.rlp.de"&gt;Tomas.Brenner@mulewf.rlp.de&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Member&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/TeppoVehanen_CVe.pdf"&gt;Teppo Vehanen (Chairperson of EIFAAC Technical and Scientific Committee)&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Finland&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:teppo.vehanen@rktl.fi"&gt;teppo.vehanen@rktl.fi&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Elected member&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/MiranAprahamian_CVe.pdf"&gt;Miran Aprahamian&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;UK&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:miran.aprahamian@environment-agency.gov.uk"&gt;miran.aprahamian@environment-agency.gov.uk&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Elected member&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/ArneEggereide_CVe.pdf"&gt;Arne Eggereide&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Norway&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:Arne.Eggereide@DIRNAT.NO"&gt;Arne.Eggereide@DIRNAT.NO&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Elected member&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/IgorWawrzyniak_CVe.pdf"&gt;Igor Wawrzyniak&lt;/a&gt;&lt;br /&gt;&lt;/td&gt;
+&lt;td&gt;Poland&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:igor.wawrzyniak@minrol.gov.pl"&gt;igor.wawrzyniak@minrol.gov.pl&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</fi:Table>
+			</fi:OrgGovernanceEntry>
+			<fi:OrgGovernanceEntry>
+				<fi:Text Title="Technical and Scientific Committee (TSC)">&lt;p&gt;The Technical and Scientific Committee is composed of a Chairperson and six experts, all elected by the Commission.&lt;/p&gt;
+&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th&gt;Title&lt;/th&gt;&lt;th&gt;Name and CV&lt;br /&gt;&lt;/th&gt;&lt;th&gt;Country&lt;/th&gt;&lt;th&gt;e-mail&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Chairperson of the Technical and Scientific Committee&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/TeppoVehanen_CVe.pdf"&gt;Teppo Vehanen&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Finland&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:teppo.vehanen@rktl.fi"&gt;teppo.vehanen@rktl.fi&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Elected member&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/GerardCastelnaud_CVe.pdf"&gt;G&amp;eacute;rard Castelnaud&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;France&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:Gerard.Castelnaud@irstea.fr"&gt;Gerard.Castelnaud@irstea.fr&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Elected member&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/ColinBean_CVe.pdf"&gt;Colin Bean&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;UK&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:colin.bean@snh.gov.uk"&gt;colin.bean@snh.gov.uk&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Elected member&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/JoeCaffrey_CVe.pdf"&gt;Joe Caffrey&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Ireland&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:Joe.Caffrey@fisheriesireland.ie"&gt;Joe.Caffrey@fisheriesireland.ie&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Elected member&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/RaineKortet_CVe.pdf"&gt;Raine Kortet&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Finland&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:raine.kortet@uef.fi"&gt;raine.kortet@uef.fi&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Elected member&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/PiotrParasiewicz_CVe.pdf"&gt;Piotr Parasiewicz&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Poland&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:piotr@infish.com.pl"&gt;piotr@infish.com.pl&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Elected member&lt;/td&gt;
+&lt;td&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/EIFAACmembersCVs/MarinaPiria_CVe.pdf"&gt;Marina Piria (Ms)&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Croatia&lt;/td&gt;
+&lt;td&gt;&lt;a href="mailto:mpiria@agr.hr"&gt;mpiria@agr.hr&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</fi:Text>
+			</fi:OrgGovernanceEntry>
+			<fi:OrgGovernanceEntry>
+				<fi:Text Title="Projects">&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Joint EIFAAC/ICES/GFCM Project on Eels&lt;/strong&gt;&lt;a name="eels"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p&gt;Coordinator: Alan Walker (United Kingdom), &lt;a href="mailto:alan.walker@cefas.co.uk"&gt;alan.walker@cefas.co.uk&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WGeels/WPeelsTOR.pdf" target="_blank"&gt;Project details including Terms of Reference&lt;/a&gt; &lt;br /&gt;List of experts involved in the project&lt;/p&gt;
+&lt;p&gt;Report of the Joint EIFAAC/ICES/GFCM Working Group on Eel, 3&amp;ndash;7 November 2014, Rome, Italy (&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WGeels/WGEEL_REPORT_2014.pdf" target="_blank"&gt;full report&lt;/a&gt;). Click to read the &lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WGeels/ExSumm_wgeel_2014.pdf" target="_blank"&gt;Executive summary&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.fao.org/fi/website/MultiQueryAction.do?loadMenu=EIFAAC&amp;amp;xsl=webapps/figis/shared/xsl/multiquery.xsl&amp;amp;query=http://www.fao.org/fi/eims_search/advanced_s_result.asp?xml=Y%26xml_no_subject=y%26FORM_C=AND%26SERIES=21,399%26Title=eel*%26SortOrder=3" target="_blank"&gt;Other documents relevant to eels&lt;/a&gt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;EIFAAC Project on Developing Advice on Sustainable Management Actions on Cormorant Populations&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p&gt;Coordinator: P. Heinimaa (Finland), &lt;a href="mailto:petri.heinimaa@rktl.fi"&gt;petri.heinimaa@rktl.fi&lt;/a&gt;&lt;a href="mailto:petri.heinimaa@rktl.fi"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WPCormorant/WPCormorantTOR.pdf"&gt;Project details including Terms of reference&lt;br /&gt;&lt;/a&gt;List of experts involved in the project&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;EIFAAC Project on Development of Guidelines on the design of nature-like passes&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p&gt;Convener: A. Zitek (Austria), &lt;a href="mailto:andreas.zitek@ecoscience.at"&gt;andreas.zitek@ecoscience.at&lt;/a&gt; &lt;br /&gt;&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WGfishmon/WPFishpassageTOR.pdf" target="_blank"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WGfishmon/WPFishpassageTOR.pdf" target="_blank"&gt;Project details including Terms of Reference&lt;/a&gt; &lt;br /&gt;&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WGfishmon/WPFishpassage_members.pdf" target="_blank"&gt;List of experts involved&lt;/a&gt; &lt;br /&gt;&lt;a href="http://www.fao.org/fi/website/MultiQueryAction.do?loadMenu=EIFAAC&amp;amp;xsl=webapps/figis/shared/xsl/multiquery.xsl&amp;amp;query=http://www.fao.org/fi/eims_search/advanced_s_result.asp?xml=Y%26xml_no_subject=y%26FORM_C=AND%26JOB_NO=y4454,y2785,aq279%26SortOrder=3" target="_blank"&gt;Documents relevant to fish passage&lt;/a&gt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- 
+&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;b&gt;EIFAAC Project on Welfare of fishes in Aquaculture &lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p&gt;Coordinator: R. R&amp;ouml;sch (Germany), &lt;a href="mailto:Roland.Roesch@lazbw.bwl.de" mce_href="mailto:Roland.Roesch@lazbw.bwl.de"&gt;Roland.Roesch@lazbw.bwl.de&lt;/a&gt;&lt;/p&gt;
+&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WPFishWelfare/WPFishWelfareTOR.pdf" mce_href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WPFishWelfare/WPFishWelfareTOR.pdf" target="_blank"&gt;Project details including Terms of Reference&lt;/a&gt; &lt;br /&gt; List of experts involved&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+--&gt;
+&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;EIFAAC Project on Aquatic Invasive Species in Europe&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p&gt;Coordinator: J. Caffrey (Ireland), &lt;a href="mailto:Joe.Caffrey@fisheriesireland.ie"&gt;Joe.Caffrey@fisheriesireland.ie&lt;/a&gt;&lt;/p&gt;
+&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WPAquaticInvasive/WPAquaticInvasiveTOR.pdf" target="_blank"&gt;Project details including Terms of Reference&lt;/a&gt; &lt;br /&gt;List of experts involved&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- 
+&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;b&gt;EIFAAC Project on Ecohydropower&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p&gt;Coordinator: Piotr Parasiewicz (Poland), &lt;a href="mailto:piotr@infish.com.pl" mce_href="mailto:piotr@infish.com.pl"&gt;piotr@infish.com.pl&lt;/a&gt;&lt;/p&gt;
+Project details including Terms of Reference &lt;br /&gt; List of experts involved&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+--&gt;
+&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;EIFAAC Project on EIFAAC Symposium on Recreational Fishing in Inland Waters&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p&gt;Coordinator: A. Eggereide (Norway), &lt;a href="mailto:arne.eggereide@miljodir.no"&gt;arne.eggereide@miljodir.no &lt;/a&gt;&lt;/p&gt;
+&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WGRecreatFish/ProjectOutlineRecFish.pdf" target="_blank"&gt;Project details including Terms of Reference&lt;/a&gt; &lt;br /&gt;List of experts involved&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;EIFAAC Project on Support to Fish Passage 2015 Conference&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p&gt;Coordinator: T. Vehanen (Finland), &lt;a href="mailto:Teppo.Vehanen@rktl.fi"&gt;Teppo.Vehanen@rktl.fi&lt;/a&gt;&lt;a href="mailto:arne.eggereide@miljodir.no"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href="ftp://ftp.fao.org/FI/DOCUMENT/eifac/WGfishmon/Fish_passage_conference_project.pdf" target="_blank"&gt;Project details&lt;br /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href="http://fishpassage.umass.edu/" target="_blank"&gt;Fish Passage 2015 Conference - International conference on river connectivity best practices and innovations, 22-24 June 2015, Groningen (The Netherlands)&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;EIFAAC Project on Welfare of Fishes in Aquaculture&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p&gt;Coordinator: H. Segner (Switzerland), &lt;a href="mailto:helmut.segner@vetsuisse.unibe.ch "&gt;helmut.segner@vetsuisse.unibe.ch &lt;/a&gt;&lt;a href="mailto:arne.eggereide@miljodir.no"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/WPFishWelfare/EIFAACProjectWelfareFishes.pdf" target="_blank"&gt;Project details&lt;br /&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="fiStandardTable" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;EIFAAC Project on Downstream Passage of Fish at Hydropower Dams&lt;/strong&gt;&lt;a name="eels"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p&gt;Coordinator: K. Mc Carthy (Ireland), &lt;a href="mailto:tk.mccarthy@nuigalway.ie"&gt;tk.mccarthy@nuigalway.ie&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="ftp://ftp.fao.org/fi/DOCUMENT/eifac/WGfishmon/WPFishpassage_dams.pdf"&gt;Project details&lt;/a&gt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</fi:Text>
+			</fi:OrgGovernanceEntry>
+		</fi:OrgGovernance>
+		<fi:Contacts>
+			<fi:Text Title="Contacts"/>
+			<fi:ContactEntry>
+				<dc:Title>European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)</dc:Title>
+				<fi:PostalAddress>
+					<fi:Address LineNumber="1">Thomas MothPoulsen (FAOSEC)</fi:Address>
+					<fi:Address LineNumber="2">Secretary</fi:Address>
+					<fi:Address LineNumber="3">Sub-Regional Office for Central Asia (SEC)</fi:Address>
+					<fi:Address LineNumber="4">Ivedik Cad. No. 55, 06170</fi:Address>
+					<fi:Address LineNumber="5">Yenimahalle</fi:Address>
+<fi:City>Ankara</fi:City>
+					
+					<fi:Nation Code="Tr" CodeSystem="iso2">Turkey</fi:Nation>
+				</fi:PostalAddress>
+				<fi:Telephone>+90-312-307 95 00</fi:Telephone>
+				<fi:Fax>+90-312-327 17 05</fi:Fax>
+				<fi:Email MailTo="thomas.mothpoulsen@fao.org">thomas.mothpoulsen@fao.org</fi:Email>
+				<fi:Website>http://www.fao.org/fishery/rfb/eifaac</fi:Website>
+			</fi:ContactEntry>
+		</fi:Contacts>
+	</fi:Org>
+</fi:FIGISDoc>
