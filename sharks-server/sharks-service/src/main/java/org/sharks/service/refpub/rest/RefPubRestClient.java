@@ -3,12 +3,12 @@
  */
 package org.sharks.service.refpub.rest;
 
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.sharks.service.http.HttpClient;
 import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.dto.RefPubSpecies;
 
@@ -21,20 +21,24 @@ public class RefPubRestClient {
 
 	private String restUrl;
 	private RefPubParser parser;
+	private HttpClient httpClient;
 
-	public RefPubRestClient(String restUrl) {
+	public RefPubRestClient(String restUrl, HttpClient httpClient) {
 		this.restUrl = restUrl;
+		this.httpClient = httpClient;
 		this.parser = new RefPubParser();
 	}
 
 	public RefPubCountry getCountry(String iso3Code) {
 		try {
 			URL countryUrl = getCountryUrl(iso3Code);
+			
 			log.trace("getting country {} from {}", iso3Code, countryUrl);
-			try (InputStream is = countryUrl.openStream()) {
-				RefPubCountry country = parser.parseCountry(is);
-				return country;
-			}
+			String content = httpClient.get(countryUrl);
+			
+			RefPubCountry country = parser.parseCountry(content);
+			return country;
+			
 		} catch(Exception e) {
 			throw new RefPubRestClientException("Error retrieving country "+iso3Code, e);
 		}
@@ -43,11 +47,12 @@ public class RefPubRestClient {
 	public RefPubSpecies getSpecies(String alpha3Code) {
 		try {
 			URL speciesUrl = getSpeciesUrl(alpha3Code);
+			
 			log.trace("getting species {} from {}", alpha3Code, speciesUrl);
-			try (InputStream is = speciesUrl.openStream()) {
-				RefPubSpecies species = parser.parseSpecies(is);
-				return species;
-			}
+			String content = httpClient.get(speciesUrl);
+			
+			RefPubSpecies species = parser.parseSpecies(content);
+			return species;
 		} catch(Exception e) {
 			throw new RefPubRestClientException("Error retrieving species "+alpha3Code, e);
 		}

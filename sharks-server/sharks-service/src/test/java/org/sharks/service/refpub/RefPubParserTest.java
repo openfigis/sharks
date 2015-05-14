@@ -2,8 +2,8 @@ package org.sharks.service.refpub;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-
-import java.io.InputStream;
+import static org.junit.Assert.assertNull;
+import static org.sharks.service.util.TestUtils.getResource;
 
 import javax.xml.bind.JAXBException;
 
@@ -20,16 +20,16 @@ import org.sharks.service.refpub.rest.RefPubParser;
 public class RefPubParserTest {
 	
 	private static RefPubParser parser;
-	
+
 	@BeforeClass
-	public static void setupParser() throws JAXBException {
+	public static void initParser() {
 		parser = new RefPubParser();
 	}
-
+	
 	@Test
 	public void testRefPubCountryParsing() throws JAXBException {
-		InputStream file = RefPubParserTest.class.getResourceAsStream("/country.xml");
-		RefPubCountry country = parser.parseCountry(file);
+		String content = getResource("/country.xml");
+		RefPubCountry country = parser.parseCountry(content);
 		
 		assertNotNull(country);
 		assertNotNull(country.getMultilingualOfficialName());
@@ -42,13 +42,29 @@ public class RefPubParserTest {
 	}
 	
 	@Test
+	public void testRefPubCountryNotFoundParsing() throws JAXBException {
+		String content = getResource("/country_not_found.xml");
+		RefPubCountry country = parser.parseCountry(content);
+		
+		assertNull(country);
+	}
+	
+	@Test
 	public void testRefPubSpeciesParsing() throws JAXBException {
-		InputStream file = RefPubParserTest.class.getResourceAsStream("/species.xml");
-		RefPubSpecies species = parser.parseSpecies(file);
+		String content = getResource("/species.xml");
+		RefPubSpecies species = parser.parseSpecies(content);
 		
 		assertNotNull(species);
 		assertNotNull(species.getLongNames());
 		assertNotNull(species.getFicItem());
+	}
+	
+	@Test
+	public void testRefPubSpeciesNotFoundParsing() throws JAXBException {
+		String content = getResource("/species_not_found.xml");
+		RefPubSpecies species = parser.parseSpecies(content);
+		
+		assertNull(species);
 	}
 
 }

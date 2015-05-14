@@ -3,9 +3,8 @@
  */
 package org.sharks.service.refpub.rest;
 
-import java.io.InputStream;
+import java.io.StringReader;
 
-import javax.inject.Inject;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
@@ -20,7 +19,8 @@ import org.sharks.service.refpub.dto.RefPubSpecies;
  */
 public class RefPubParser {
 	
-	@Inject
+	private static final String EMPTY_CONCEPT = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><concept xmlns=\"http://www.fao.org/fi/refpub/webservice\"/>";
+	
 	private RefPubConverter converter;
 	
 	private Unmarshaller unmarshaller;
@@ -32,24 +32,42 @@ public class RefPubParser {
 		} catch(Exception e) {
 			throw new RuntimeException("Error initializing JAXB", e);
 		}
+		
+		converter = new RefPubConverter();
 	}
 	
-	public RefPubCountry parseCountry(InputStream is) {
-		RefPubConcept concept = parseConcept(is);
+	/**
+	 * Parses the given content to a {@link RefPubCountry}.
+	 * @param content the content to parse.
+	 * @return the parsed {@link RefPubCountry}, <code>null</code> if the {@link RefPubConcept} is empty.
+	 */
+	public RefPubCountry parseCountry(String content) {
+		if (isEmptyConcept(content)) return null;
+		RefPubConcept concept = parseConcept(content);
 		return converter.toCountry(concept);
 	}
 	
-	public RefPubSpecies parseSpecies(InputStream is) {
-		RefPubConcept concept = parseConcept(is);
+	/**
+	 * Parses the given content to a {@link RefPubSpecies}.
+	 * @param content the content to parse.
+	 * @return the parsed {@link RefPubSpecies}, <code>null</code> if the {@link RefPubConcept} is empty.
+	 */
+	public RefPubSpecies parseSpecies(String content) {
+		if (isEmptyConcept(content)) return null;
+		RefPubConcept concept = parseConcept(content);
 		return converter.toSpecies(concept);
 	}
 	
-	private RefPubConcept parseConcept(InputStream is) {
+	private RefPubConcept parseConcept(String content) {
 		try {
-			return (RefPubConcept) unmarshaller.unmarshal(is);
+			return (RefPubConcept) unmarshaller.unmarshal(new StringReader(content));
 		} catch(Exception e) {
 			throw new RuntimeException("Error parsing concept", e);
 		}
+	}
+	
+	private boolean isEmptyConcept(String content) {
+		return EMPTY_CONCEPT.equals(content);
 	}
 
 }

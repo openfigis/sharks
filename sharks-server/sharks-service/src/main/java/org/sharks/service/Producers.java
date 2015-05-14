@@ -29,8 +29,8 @@ import org.sharks.service.refpub.rest.RefPubRestClient;
 public class Producers {
 	
 	@Produces
-	public RefPubRestClient getRefPubRestClient(Configuration configuration) {
-		return new RefPubRestClient(configuration.getRefPubUrl());
+	public RefPubRestClient getRefPubRestClient(Configuration configuration, HttpClient httpClient) {
+		return new RefPubRestClient(configuration.getRefPubUrl(), httpClient);
 	}
 	
 	@Produces

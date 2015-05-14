@@ -41,6 +41,4 @@ public class RefPubServiceImpl implements RefPubService {
 		speciesCache.put(alpha3Code, species);
 		return species;
 	}
-
-
 }
