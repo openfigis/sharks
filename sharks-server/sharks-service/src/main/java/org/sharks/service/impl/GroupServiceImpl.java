@@ -33,6 +33,7 @@ public class GroupServiceImpl implements GroupService {
 	@Override
 	public GroupDetails get(long code) {
 		CustomSpeciesGrp group = dao.get(code);
+		if (group==null) return null;
 		return toDetails(group);
 	}
 
@@ -42,7 +43,6 @@ public class GroupServiceImpl implements GroupService {
 	}
 	
 	private GroupDetails toDetails(CustomSpeciesGrp group) {
-		if (group==null) return null;
 		return new GroupDetails(group.getCode(), group.getCustomSpeciesGrp(), 
 				convert(group.getSpecies(), speciesEntryProducer),
 				convert(group.getMeasures(), TO_MEASURE_ENTRY));

@@ -14,8 +14,10 @@ import org.sharks.service.refpub.dto.RefPubSpecies;
 import org.sharks.storage.domain.Species;
 
 /**
+ * Merge information from {@link RefPubService} if these are missing from the source.
+ * The field retrieved are scientific name and English name.
+ * 
  * @author "Federico De Faveri federico.defaveri@fao.org"
- *
  */
 @Singleton
 public class SpeciesEntryProducer extends AbstractEntryProducer<Species, SpeciesEntry> {

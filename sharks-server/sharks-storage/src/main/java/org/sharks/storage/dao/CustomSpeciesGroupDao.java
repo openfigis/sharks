@@ -1,10 +1,6 @@
-/**
- * 
- */
 package org.sharks.storage.dao;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManagerFactory;
+import java.util.List;
 
 import org.sharks.storage.domain.CustomSpeciesGrp;
 
@@ -12,10 +8,10 @@ import org.sharks.storage.domain.CustomSpeciesGrp;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class CustomSpeciesGroupDao extends AbstractDao<CustomSpeciesGrp, Long> {
+public interface CustomSpeciesGroupDao {
 
-	@Inject
-	public CustomSpeciesGroupDao(EntityManagerFactory emf) {
-		super(emf, CustomSpeciesGrp.class);
-	}
+	CustomSpeciesGrp get(Long code);
+
+	List<CustomSpeciesGrp> list();
+
 }

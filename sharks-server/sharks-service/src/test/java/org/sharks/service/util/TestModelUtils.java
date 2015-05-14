@@ -12,6 +12,7 @@ import org.sharks.service.refpub.dto.MultiLingualName;
 import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.dto.RefPubSpecies;
 import org.sharks.storage.domain.Country;
+import org.sharks.storage.domain.CustomSpeciesGrp;
 import org.sharks.storage.domain.MgmtEntity;
 import org.sharks.storage.domain.PoA;
 import org.sharks.storage.domain.Species;
@@ -62,6 +63,15 @@ public class TestModelUtils {
 		entity.setCode(code);
 		entity.setAcronym(acronym);
 		return entity;
+	}
+	
+	public static CustomSpeciesGrp buildCustomSpeciesGrp(long code, String name, Species ... species) {
+		CustomSpeciesGrp group = new CustomSpeciesGrp();
+		group.setCode(code);
+		group.setCustomSpeciesGrp(name);
+		group.setMeasures(Collections.emptyList());
+		group.setSpecies(Arrays.asList(species));
+		return group;
 	}
 	
 	public static RefPubCountry createRefPubCountry(String unIso3Code, String continent, String english) {
