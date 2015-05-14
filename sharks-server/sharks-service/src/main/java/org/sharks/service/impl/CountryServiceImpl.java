@@ -39,6 +39,9 @@ public class CountryServiceImpl implements CountryService {
 	
 	@Override
 	public CountryDetails get(String code) {
+		
+		//TODO cache
+		
 		Country country = dao.get(code);
 		if (country == null) return null;
 		
@@ -51,6 +54,9 @@ public class CountryServiceImpl implements CountryService {
 
 	@Override
 	public List<CountryEntry> list(boolean onyWithPoas) {
+		
+		//TODO cache
+		
 		List<Country> countries = onyWithPoas?dao.listWithPoAs():dao.list();
 		return convert(countries, entryProducer);
 	}

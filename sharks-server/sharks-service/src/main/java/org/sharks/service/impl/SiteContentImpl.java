@@ -21,6 +21,9 @@ public class SiteContentImpl implements SiteContentService {
 
 	@Override
 	public SiteContent get(String keyword) {
+		
+		//TODO cache
+		
 		ConfigText text = dao.getByKeyword(keyword);
 		return text!=null?new SiteContent(keyword, text.getDescription()):null;
 	}

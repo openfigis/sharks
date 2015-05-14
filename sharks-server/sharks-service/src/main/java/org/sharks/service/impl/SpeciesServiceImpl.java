@@ -39,6 +39,8 @@ public class SpeciesServiceImpl implements SpeciesService {
 	@Override
 	public SpeciesDetails getSpecies(String alpha3Code) {
 		
+		//TODO cache
+		
 		Species species = dao.getByAlphaCode(alpha3Code);
 		if (species == null) return null;
 		
@@ -59,6 +61,9 @@ public class SpeciesServiceImpl implements SpeciesService {
 
 	@Override
 	public List<SpeciesEntry> list(boolean onlyWithMeasure) {
+		
+		//TODO cache
+		
 		List<Species> species = onlyWithMeasure?dao.listWithMeasures():dao.list();
 		return convert(species, speciesEntryProducer);
 	}
