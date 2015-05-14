@@ -11,6 +11,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.sharks.service.CountryService;
+import org.sharks.service.cache.Cache;
 import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.moniker.MonikerService;
@@ -37,19 +38,24 @@ public class CountryServiceImpl implements CountryService {
 	@Inject
 	private EntityEntryProducer entityEntryProducer;
 	
+	@Inject
+	private Cache<String, CountryDetails> detailsCache;
+	
 	@Override
 	public CountryDetails get(String code) {
 		
-		//TODO cache
+		if (detailsCache.contains(code)) return detailsCache.get(code);
 		
 		Country country = dao.get(code);
 		if (country == null) return null;
 		
 		List<String> rfbs = monikers.getRfbsForCountry(code);
-		return new CountryDetails(country.getCode(), 
+		CountryDetails details = new CountryDetails(country.getCode(), 
 				country.getUnName(), 
 				convert(rfbs, entityEntryProducer),
 				convert(country.getPoAs(), TO_POA_ENTRY));
+		detailsCache.put(code, details);
+		return details;
 	}
 
 	@Override

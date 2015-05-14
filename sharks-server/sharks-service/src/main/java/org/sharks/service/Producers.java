@@ -12,6 +12,8 @@ import javax.enterprise.inject.Produces;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.config.Configuration;
+import org.sharks.service.cache.Cache;
+import org.sharks.service.cache.InMemoryCache;
 import org.sharks.service.http.HttpClient;
 import org.sharks.service.indexing.IndexingService;
 import org.sharks.service.indexing.SolrDocumentProviders;
@@ -55,6 +57,11 @@ public class Producers {
 			log.error("Solar indexing service failed", e);
 			return null;
 		}
+	}
+	
+	@Produces
+	public <K,V> Cache<K, V> getCache() {
+		return new InMemoryCache<K,V>();
 	}
 
 }

@@ -35,6 +35,7 @@ import org.sharks.service.moniker.rest.MonikersRestClient;
 import org.sharks.service.refpub.DefaultRefPubCache;
 import org.sharks.service.refpub.RefPubServiceImpl;
 import org.sharks.service.refpub.rest.RefPubRestClient;
+import org.sharks.service.util.NoCache;
 import org.sharks.storage.dao.CountryDao;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.domain.Country;
@@ -46,7 +47,7 @@ import org.sharks.storage.domain.PoA;
  *
  */
 @RunWith(CdiRunner.class)
-@AdditionalClasses({CountryServiceImpl.class, RefPubServiceImpl.class, MonikerServiceImpl.class, DefaultRefPubCache.class})
+@AdditionalClasses({CountryServiceImpl.class, RefPubServiceImpl.class, MonikerServiceImpl.class, DefaultRefPubCache.class, NoCache.class})
 public class CountryServiceIntegrationTest {
 	
 	@Inject
