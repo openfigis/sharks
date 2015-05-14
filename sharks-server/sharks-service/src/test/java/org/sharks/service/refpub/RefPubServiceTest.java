@@ -16,13 +16,14 @@ import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.dto.RefPubSpecies;
 import org.sharks.service.refpub.rest.RefPubRestClient;
 import org.sharks.service.refpub.rest.RefPubRestClient.RefPubRestClientException;
+import org.sharks.service.util.NoCache;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
 @RunWith(CdiRunner.class)
-@AdditionalClasses({RefPubServiceImpl.class})
+@AdditionalClasses({RefPubServiceImpl.class, NoCache.class})
 public class RefPubServiceTest {
 	
 	@Inject

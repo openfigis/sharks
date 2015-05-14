@@ -21,13 +21,14 @@ import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
 import org.sharks.service.moniker.rest.MonikersRestClient.MonikersRestClientException;
+import org.sharks.service.util.NoCache;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
 @RunWith(CdiRunner.class)
-@AdditionalClasses({MonikerServiceImpl.class})
+@AdditionalClasses({MonikerServiceImpl.class, NoCache.class})
 public class MonikerServiceTest {
 	
 	@Inject

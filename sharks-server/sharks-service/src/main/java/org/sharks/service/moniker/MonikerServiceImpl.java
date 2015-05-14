@@ -11,6 +11,7 @@ import javax.inject.Inject;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.sharks.service.cache.Cache;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
@@ -25,13 +26,18 @@ public class MonikerServiceImpl implements MonikerService {
 	@Inject
 	private MonikersRestClient restClient;
 	
-	//TODO cache
+	@Inject
+	private Cache<String, List<String>> acronymsCache;
 
 	@Override
 	public List<String> getRfbsForCountry(String countryIso3) {
-		//TODO cache
+		if (acronymsCache.contains(countryIso3)) return acronymsCache.get(countryIso3);
+		
 		List<RfbEntry> rfbs = getRfbEntries(countryIso3);
-		return toAcronyms(rfbs);
+		List<String> acronyms = toAcronyms(rfbs);
+		
+		acronymsCache.put(countryIso3, acronyms);
+		return acronyms;
 	}
 	
 	private List<RfbEntry> getRfbEntries(String countryIso3) {
