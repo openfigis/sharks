@@ -77,8 +77,8 @@ public class EntryProducers {
 			return new PoAEntry(poa.getCode(), 
 					poa.getTitle(), 
 					poa.getPoAYear(), 
-					poa.getPoAType(),
-					poa.getStatus());
+					poa.getPoAType().getDescription(),
+					poa.getStatus().getDescription());
 		}
 	};
 	

@@ -9,9 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.sharks.storage.domain.PoAType;
-import org.sharks.storage.domain.Status;
-
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
@@ -25,7 +22,7 @@ public class PoAEntry {
     private Long code;
     private String title;
     private Integer poAYear;
-    private PoAType poAType;
-    private Status status;
+    private String type;
+    private String status;
 	
 }
