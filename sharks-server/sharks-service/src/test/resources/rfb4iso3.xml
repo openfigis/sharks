@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<moniker name="rfb4iso3" iso3="ALB" lang="en">
+  <query src="http://localhost/figis/website/SearchActionXML.do?refxml=false&amp;dslist=organization&amp;kw%5B0%5D=orgsinvolved&amp;kv%5B0%5D=ALB&amp;lang=en"/>
+  <output>
+    <rfb name="European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)" FigisID="22050" MetaID="104000" lang="en" URI="/fishery/organization/22050/en"/>
+    <rfb name="International Commission for the Conservation of Atlantic Tunas (ICCAT)" FigisID="9294" MetaID="104000" lang="en" URI="/fishery/organization/9294/en"/>
+  </output>
+</moniker>

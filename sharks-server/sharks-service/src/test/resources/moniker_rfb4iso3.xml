@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<moniker name="rfb4iso3" iso3="USA" lang="en">
-  <query src="http://localhost/figis/website/SearchActionXML.do?refxml=false&amp;dslist=organization&amp;kw%5B0%5D=orgsinvolved&amp;kv%5B0%5D=USA&amp;lang=en"/>
-  <output>
-    <rfb name="International Council for the Exploration of the Sea (ICES)" FigisID="2137" MetaID="104000" lang="en" URI="/fishery/organization/2137/en"/>
-    <rfb name="Northwest Atlantic Fisheries Organization (NAFO)" FigisID="7538" MetaID="104000" lang="en" URI="/fishery/organization/7538/en"/>
-  </output>
-</moniker>

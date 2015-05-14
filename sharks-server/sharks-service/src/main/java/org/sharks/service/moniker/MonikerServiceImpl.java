@@ -20,7 +20,7 @@ import org.sharks.service.moniker.rest.MonikersRestClient;
  *
  */
 @Slf4j
-public class DefaultMonikerService implements MonikerService {
+public class MonikerServiceImpl implements MonikerService {
 	
 	@Inject
 	private MonikersRestClient restClient;

@@ -23,7 +23,7 @@ import org.sharks.storage.domain.Country;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class CountryServiceImp implements CountryService {
+public class CountryServiceImpl implements CountryService {
 	
 	@Inject
 	private CountryDao dao;
@@ -40,6 +40,8 @@ public class CountryServiceImp implements CountryService {
 	@Override
 	public CountryDetails get(String code) {
 		Country country = dao.get(code);
+		if (country == null) return null;
+		
 		List<String> rfbs = monikers.getRfbsForCountry(code);
 		return new CountryDetails(country.getCode(), 
 				country.getUnName(), 

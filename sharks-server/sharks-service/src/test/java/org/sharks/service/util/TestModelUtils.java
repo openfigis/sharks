@@ -3,6 +3,7 @@
  */
 package org.sharks.service.util;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
@@ -12,6 +13,7 @@ import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.dto.RefPubSpecies;
 import org.sharks.storage.domain.Country;
 import org.sharks.storage.domain.MgmtEntity;
+import org.sharks.storage.domain.PoA;
 import org.sharks.storage.domain.Species;
 
 /**
@@ -47,11 +49,11 @@ public class TestModelUtils {
 		return species;
 	}
 	
-	public static Country buildCountry(String iso3code, String unName) {
+	public static Country buildCountry(String iso3code, String unName, PoA ... poas) {
 		Country country = new Country();
 		country.setCode(iso3code);
 		country.setUnName(unName);
-		country.setPoAs(Collections.emptyList());
+		country.setPoAs(Arrays.asList(poas));
 		return country;
 	}
 	

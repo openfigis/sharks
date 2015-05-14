@@ -68,7 +68,7 @@ public class RefPubRestClient {
 		return new URL(restUrl+"concept/Species/codesystem/ASFIS/code/"+alpha3Code+"/xml");
 	}
 
-	public class RefPubRestClientException extends RuntimeException {
+	public static class RefPubRestClientException extends RuntimeException {
 
 		private static final long serialVersionUID = -3540294081975031895L;
 

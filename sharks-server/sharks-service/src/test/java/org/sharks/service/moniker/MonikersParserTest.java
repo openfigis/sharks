@@ -26,7 +26,7 @@ public class MonikersParserTest {
 
 	@Test
 	public void testRfbResponseParsing() {
-		String content = getResource("/moniker_rfb4iso3.xml");
+		String content = getResource("/rfb4iso3.xml");
 		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);

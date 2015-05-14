@@ -27,7 +27,7 @@ import org.sharks.service.moniker.rest.MonikersRestClient.MonikersRestClientExce
  *
  */
 @RunWith(CdiRunner.class)
-@AdditionalClasses({DefaultMonikerService.class})
+@AdditionalClasses({MonikerServiceImpl.class})
 public class MonikerServiceTest {
 	
 	@Inject

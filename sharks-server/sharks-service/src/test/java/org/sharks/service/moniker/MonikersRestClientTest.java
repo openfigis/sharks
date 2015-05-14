@@ -34,8 +34,8 @@ public class MonikersRestClientTest {
 	public static void setUpBeforeClass() throws Exception {
 		HttpClient httpClient = Mockito.mock(HttpClient.class);
 		
-		String content = getResource("/moniker_rfb4iso3.xml");
-		when(httpClient.get(new URL("http://localhost/rfb4iso3/USA"))).thenReturn(content);
+		String content = getResource("/rfb4iso3.xml");
+		when(httpClient.get(new URL("http://localhost/rfb4iso3/ALB"))).thenReturn(content);
 		
 		content = getResource("/rfb4iso3_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/rfb4iso3/NOT_EXISTS"))).thenReturn(content);
@@ -60,7 +60,7 @@ public class MonikersRestClientTest {
 	 */
 	@Test
 	public void testGetRfbs() {
-		List<RfbEntry> entries = client.getRfbs("USA");
+		List<RfbEntry> entries = client.getRfbs("ALB");
 		
 		assertNotNull(entries);
 		assertFalse(entries.isEmpty());
