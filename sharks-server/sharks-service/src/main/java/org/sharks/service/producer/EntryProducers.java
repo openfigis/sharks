@@ -78,7 +78,8 @@ public class EntryProducers {
 					poa.getTitle(), 
 					poa.getPoAYear(), 
 					poa.getPoAType().getDescription(),
-					poa.getStatus().getDescription());
+					poa.getStatus().getDescription(),
+					convert(poa.getInformationSources(), TO_INFORMATION_SOURCE_ENTRY));
 		}
 	};
 	

@@ -3,6 +3,8 @@
  */
 package org.sharks.service.dto;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.AllArgsConstructor;
@@ -24,5 +26,6 @@ public class PoAEntry {
     private Integer poAYear;
     private String type;
     private String status;
+	private List<InformationSourceEntry> sources;
 	
 }
