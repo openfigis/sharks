@@ -13,6 +13,7 @@ import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.dto.RefPubSpecies;
 import org.sharks.storage.domain.Country;
 import org.sharks.storage.domain.CustomSpeciesGrp;
+import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.MgmtEntity;
 import org.sharks.storage.domain.PoA;
 import org.sharks.storage.domain.Species;
@@ -72,6 +73,14 @@ public class TestModelUtils {
 		group.setMeasures(Collections.emptyList());
 		group.setSpecies(Arrays.asList(species));
 		return group;
+	}
+	
+	public static Measure buildMeasure(long code, String symbol) {
+		Measure measure = new Measure();
+		measure.setCode(code);
+		measure.setSymbol(symbol);
+		measure.setBinding(false);
+		return measure;
 	}
 	
 	public static RefPubCountry createRefPubCountry(String unIso3Code, String continent, String english) {

@@ -1,18 +1,6 @@
-/**
- * 
- */
 package org.sharks.storage.dao;
 
 import java.util.List;
-
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.Root;
 
 import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.MgmtEntity;
@@ -21,30 +9,13 @@ import org.sharks.storage.domain.MgmtEntity;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class MeasureDao extends AbstractDao<Measure, Long> {
+public interface MeasureDao {
 
-	@Inject
-	public MeasureDao(EntityManagerFactory emf) {
-		super(emf, Measure.class);
-	}
-	
 	/**
 	 * Retrieves all the {@link Measure} related to the specified {@link MgmtEntity} acronym.
 	 * @param acronym the {@link MgmtEntity} acronym.
 	 * @return the list of {@link Measure} found, or an empty list if the acronym does not exist.
 	 */
-	public List<Measure> listRelatedToManagementEntityAcronym(String acronym) {
-		EntityManager em = emf.createEntityManager();
-		
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Measure> cq = cb.createQuery(type);
-		Root<Measure> measure = cq.from(type);
-		Join<Measure, MgmtEntity> entities = measure.join("mgmtEntity");
-		cq.where(cb.equal(entities.get("acronym"), acronym));
-		
-		CriteriaQuery<Measure> all = cq.select(measure);
-		TypedQuery<Measure> allQuery = em.createQuery(all);
-		return allQuery.getResultList();
-	}
+	public List<Measure> listRelatedToManagementEntityAcronym(String acronym);
 
 }

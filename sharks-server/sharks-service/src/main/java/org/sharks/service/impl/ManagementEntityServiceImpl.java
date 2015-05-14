@@ -23,7 +23,7 @@ import org.sharks.storage.domain.MgmtEntity;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class ManagementEntityServiceImp implements ManagementEntityService {
+public class ManagementEntityServiceImpl implements ManagementEntityService {
 	
 	@Inject
 	private ManagementEntityDao dao;
@@ -31,10 +31,10 @@ public class ManagementEntityServiceImp implements ManagementEntityService {
 	@Inject
 	private MeasureDao measureDao;
 	
-
 	@Override
 	public EntityDetails get(String acronym) {
 		MgmtEntity entity = dao.getByAcronym(acronym);
+		if (entity == null) return null;
 		
 		List<Measure> measures = measureDao.listRelatedToManagementEntityAcronym(acronym);
 		

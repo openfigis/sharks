@@ -10,7 +10,7 @@ import javax.inject.Inject;
 
 import org.sharks.service.MeasureService;
 import org.sharks.service.dto.MeasureEntry;
-import org.sharks.storage.dao.MeasureDao;
+import org.sharks.storage.dao.MeasureDaoImpl;
 import org.sharks.storage.domain.Measure;
 
 /**
@@ -20,7 +20,7 @@ import org.sharks.storage.domain.Measure;
 public class MeasureServiceImpl implements MeasureService {
 	
 	@Inject
-	private MeasureDao dao;
+	private MeasureDaoImpl dao;
 
 	@Override
 	public List<MeasureEntry> list() {

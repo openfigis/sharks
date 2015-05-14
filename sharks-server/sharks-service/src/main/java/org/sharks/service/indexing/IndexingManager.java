@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.service.event.ApplicationEvent;
-import org.sharks.storage.dao.MeasureDao;
+import org.sharks.storage.dao.MeasureDaoImpl;
 import org.sharks.storage.dao.PoADao;
 import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.PoA;
@@ -25,7 +25,7 @@ public class IndexingManager {
 	private IndexingService indexingService;
 	
 	@Inject
-	private MeasureDao measureDao;
+	private MeasureDaoImpl measureDao;
 	
 	@Inject
 	private PoADao poaDao;
