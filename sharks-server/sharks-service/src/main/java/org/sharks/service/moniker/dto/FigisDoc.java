@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.eclipse.persistence.oxm.annotations.XmlPath;
-
 import lombok.Data;
+
+import org.eclipse.persistence.oxm.annotations.XmlPath;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"

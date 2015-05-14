@@ -7,6 +7,8 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.sharks.service.http.DefaultHttpClient;
+import org.sharks.service.http.HttpClient;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
@@ -15,13 +17,14 @@ import org.sharks.service.moniker.rest.MonikersRestClient;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class MonikerRestClientTest {
+public class TestMonikersRestClient {
 	
 	private static MonikersRestClient client;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		client = new MonikersRestClient("http://figisapps.fao.org/figis/moniker/");
+		HttpClient httpClient = new DefaultHttpClient();
+		client = new MonikersRestClient("http://figisapps.fao.org/figis/moniker/", httpClient);
 	}
 
 	@Test @Ignore

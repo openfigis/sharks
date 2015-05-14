@@ -6,7 +6,7 @@ package org.sharks.service.producer;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestUtils.*;
+import static org.sharks.service.util.TestModelUtils.*;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;

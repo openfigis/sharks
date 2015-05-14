@@ -3,7 +3,7 @@
  */
 package org.sharks.service.moniker.rest;
 
-import java.io.InputStream;
+import java.io.StringReader;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
@@ -30,17 +30,17 @@ public class MonikersParser {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <T> MonikerResponse<T> parseMonikerResponse(InputStream is) {
+	public <T> MonikerResponse<T> parseMonikerResponse(String content) {
 		try {
-			return (MonikerResponse<T>) unmarshaller.unmarshal(is);
+			return (MonikerResponse<T>) unmarshaller.unmarshal(new StringReader(content));
 		} catch(Exception e) {
 			throw new RuntimeException("Error parsing monikers response", e);
 		}
 	}
 	
-	public FigisDoc parseFigisDoc(InputStream is) {
+	public FigisDoc parseFigisDoc(String content) {
 		try {
-			return (FigisDoc) unmarshaller.unmarshal(is);
+			return (FigisDoc) unmarshaller.unmarshal(new StringReader(content));
 		} catch(Exception e) {
 			throw new RuntimeException("Error parsing FigisDoc", e);
 		}

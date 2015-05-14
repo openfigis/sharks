@@ -3,15 +3,16 @@
  */
 package org.sharks.service.moniker.rest;
 
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.sharks.service.http.HttpClient;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.MonikerResponse;
+import org.sharks.service.moniker.dto.MonikerResponse.Output;
 import org.sharks.service.moniker.dto.RfbEntry;
 
 /**
@@ -23,22 +24,32 @@ public class MonikersRestClient {
 
 	private String restUrl;
 	private MonikersParser parser;
+	private HttpClient httpClient;
 
-	public MonikersRestClient(String restUrl) {
+	public MonikersRestClient(String restUrl, HttpClient httpClient) {
 		this.restUrl = restUrl;
+		this.httpClient = httpClient;
 		this.parser = new MonikersParser();
 	}
 
+	/**
+	 * Calls the rfb4iso3 moniker with the given iso3code.
+	 * @param iso3Code the country iso3code.
+	 * @return the list of rfbs retrieved.
+	 */
 	public List<RfbEntry> getRfbs(String iso3Code) {
 		try {
 			URL rfb4iso3Url = getRfb4Iso3Url(iso3Code);
+			
 			log.trace("getting rfbs {} from {}", iso3Code, rfb4iso3Url);
-			try (InputStream is = rfb4iso3Url.openStream()) {
-				MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(is);
-				return response.getOutput().getItems();
-			}
+			String content = httpClient.get(rfb4iso3Url);
+			
+			MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
+			Output<RfbEntry> output = response.getOutput();
+			return output.getItems();
+			
 		} catch(Exception e) {
-			throw new MonikerRestClientException("Error retrieving rfbs for "+iso3Code, e);
+			throw new MonikersRestClientException("Error retrieving rfbs for "+iso3Code, e);
 		}
 	}
 	
@@ -46,11 +57,13 @@ public class MonikersRestClient {
 		try {
 			URL figisDocUrl = getFigisdocl(figisId);
 			log.trace("getting figisDoc {} from {}", figisId, figisDocUrl);
-			try (InputStream is = figisDocUrl.openStream()) {
-				return parser.parseFigisDoc(is);
-			}
+			
+			String content = httpClient.get(figisDocUrl);
+			if (content.contains("<root error")) return null;
+			
+			return parser.parseFigisDoc(content);
 		} catch(Exception e) {
-			throw new MonikerRestClientException("Error retrieving figisDoc for "+figisId, e);
+			throw new MonikersRestClientException("Error retrieving figisDoc for "+figisId, e);
 		}
 	}
 	
@@ -62,13 +75,12 @@ public class MonikersRestClient {
 		return new URL(restUrl+"figisdoc/organization/"+figisId);
 	}
 
-	public class MonikerRestClientException extends RuntimeException {
+	public static class MonikersRestClientException extends RuntimeException {
 
 		private static final long serialVersionUID = -3540294081975031895L;
 
-		public MonikerRestClientException(String message, Throwable cause) {
+		public MonikersRestClientException(String message, Throwable cause) {
 			super(message, cause);
 		}
 	}
-
 }

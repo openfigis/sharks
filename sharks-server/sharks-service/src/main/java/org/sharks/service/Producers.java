@@ -12,6 +12,7 @@ import javax.enterprise.inject.Produces;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.config.Configuration;
+import org.sharks.service.http.HttpClient;
 import org.sharks.service.indexing.IndexingService;
 import org.sharks.service.indexing.SolrDocumentProviders;
 import org.sharks.service.indexing.SolrIndexingService;
@@ -33,8 +34,8 @@ public class Producers {
 	}
 	
 	@Produces
-	public MonikersRestClient getMonikerRestClient(Configuration configuration) {
-		return new MonikersRestClient(configuration.getMonikersUrl());
+	public MonikersRestClient getMonikerRestClient(Configuration configuration, HttpClient httpClient) {
+		return new MonikersRestClient(configuration.getMonikersUrl(), httpClient);
 	}
 	
 	@Produces

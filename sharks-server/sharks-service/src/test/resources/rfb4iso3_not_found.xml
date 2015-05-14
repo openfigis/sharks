@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<moniker name="rfb4iso3" iso3="DASDADASD" lang="en">
+  <query src="http://localhost/figis/website/SearchActionXML.do?refxml=false&amp;dslist=organization&amp;kw%5B0%5D=orgsinvolved&amp;kv%5B0%5D=DASDADASD&amp;lang=en"/>
+  <output/>
+</moniker>

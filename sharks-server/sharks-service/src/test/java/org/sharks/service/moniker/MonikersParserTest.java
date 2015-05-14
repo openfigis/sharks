@@ -1,11 +1,7 @@
 package org.sharks.service.moniker;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-
-import java.io.InputStream;
-
-import javax.xml.bind.JAXBException;
+import static org.junit.Assert.*;
+import static org.sharks.service.util.TestUtils.*;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -29,9 +25,9 @@ public class MonikersParserTest {
 	}
 
 	@Test
-	public void testRfbResponseParsing() throws JAXBException {
-		InputStream file = MonikersParserTest.class.getResourceAsStream("/moniker_rfb4iso3.xml");
-		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(file);
+	public void testRfbResponseParsing() {
+		String content = getResource("/moniker_rfb4iso3.xml");
+		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);
 		assertNotNull(response.getOutput());
@@ -40,17 +36,25 @@ public class MonikersParserTest {
 		RfbEntry first = response.getOutput().getItems().get(0);
 
 		assertNotNull(first.getFigisId());
-		assertNotNull(first.getUri());
-		assertNotNull(first.getLang());
-		assertNotNull(first.getMetaId());
-		assertNotNull(first.getName());
 		
 	}
 	
 	@Test
-	public void testFigisDocParsing() throws JAXBException {
-		InputStream file = MonikersParserTest.class.getResourceAsStream("/figisdoc.xml");
-		FigisDoc doc = parser.parseFigisDoc(file);
+	public void testRfbNotFoundResponseParsing() {
+		String content = getResource("/rfb4iso3_not_found.xml");
+		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
+		
+		assertNotNull(response);
+		assertNotNull(response.getOutput());
+		
+		assertNull(response.getOutput().getItems());
+				
+	}
+	
+	@Test
+	public void testFigisDocParsing() {
+		String content = getResource("/figisdoc.xml");
+		FigisDoc doc = parser.parseFigisDoc(content);
 		
 		assertNotNull(doc);
 		
@@ -66,5 +70,6 @@ public class MonikersParserTest {
 		assertNotNull(member.getIso3code());
 		assertNotNull(member.getEnglishName());
 	}
+
 	
 }
