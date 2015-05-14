@@ -12,8 +12,6 @@ import javax.enterprise.inject.Produces;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.config.Configuration;
-import org.sharks.service.cache.Cache;
-import org.sharks.service.cache.InMemoryCache;
 import org.sharks.service.http.HttpClient;
 import org.sharks.service.indexing.IndexingService;
 import org.sharks.service.indexing.SolrDocumentProviders;
@@ -42,7 +40,7 @@ public class Producers {
 	
 	@Produces
 	public IndexingService getIndexingService(Configuration configuration) {
-		if (configuration.getSolrUrl() == null) {
+		if (configuration.getSolrUrl() == null || configuration.getSolrUrl().isEmpty()) {
 			log.warn("Solr Url missing from configuration");
 			return null;
 		}
@@ -57,11 +55,6 @@ public class Producers {
 			log.error("Solar indexing service failed", e);
 			return null;
 		}
-	}
-	
-	@Produces
-	public <K,V> Cache<K, V> getCache() {
-		return new InMemoryCache<K,V>();
 	}
 
 }
