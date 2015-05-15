@@ -17,7 +17,7 @@ import org.sharks.storage.TestProducers;
 import org.sharks.storage.domain.Measure;
 
 @RunWith(CdiRunner.class)
-@AdditionalClasses(TestProducers.class)
+@AdditionalClasses({TestProducers.class, MeasureDaoImpl.class})
 public class MeasureDaoTest {
 
 	@Inject

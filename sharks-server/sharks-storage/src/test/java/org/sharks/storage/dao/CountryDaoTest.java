@@ -19,7 +19,7 @@ import org.sharks.storage.domain.Country;
  *
  */
 @RunWith(CdiRunner.class)
-@AdditionalClasses(TestProducers.class)
+@AdditionalClasses({TestProducers.class, CountryDaoImpl.class})
 public class CountryDaoTest {
 
 	@Inject

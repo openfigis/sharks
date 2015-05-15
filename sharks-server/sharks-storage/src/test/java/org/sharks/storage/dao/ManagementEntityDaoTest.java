@@ -18,7 +18,7 @@ import org.sharks.storage.domain.MgmtEntity;
  *
  */
 @RunWith(CdiRunner.class)
-@AdditionalClasses(TestProducers.class)
+@AdditionalClasses({TestProducers.class, ManagementEntityDaoImpl.class})
 public class ManagementEntityDaoTest {
 
 	@Inject

@@ -16,7 +16,7 @@ import org.sharks.storage.TestProducers;
 import org.sharks.storage.domain.Species;
 
 @RunWith(CdiRunner.class)
-@AdditionalClasses(TestProducers.class)
+@AdditionalClasses({TestProducers.class, SpeciesDaoImpl.class})
 public class SpeciesDaoTest {
 
 	@Inject
