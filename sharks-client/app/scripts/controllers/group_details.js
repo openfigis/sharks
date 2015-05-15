@@ -8,11 +8,13 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("GroupDetailsCtrl", ["routingservice", "imagesservice", "group", "ems",  
-                                          function (routingservice, imagesservice, group, ems) {
+  .controller("GroupDetailsCtrl", ["routingservice", "imagesservice", "group",   
+                                          function (routingservice, imagesservice, group) {
 	  
 	  this.group = group;
-	  this.ems = ems;
+	  this.ems = Stream(group.measures).groupBy(function (measure) {
+	      return measure.entityAcronym;
+	  });
 	  
 	  this.imageUrl = imagesservice.groupMediumImageUrl;
 	  this.missingImageUrl = imagesservice.groupMissingMediumImageUrl;

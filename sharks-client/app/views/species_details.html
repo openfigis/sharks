@@ -24,18 +24,24 @@
       <div class="clear"></div>
   </header>
   <section id="primary">
-    <div ng-repeat="em in ctrl.ems">
-      <h2>{{em.entity.acronym}}</h2>
+    <div ng-repeat="(acronym, measures) in ctrl.ems">
+      <h2>{{acronym}}</h2>
       
-      <section class="measure" ng-repeat="measure in em.measures">
+      <section class="measure" ng-repeat="measure in measures">
         <div class="symbol">{{measure.symbol}}</div> 
         <div class="binding">{{measure.binding?'Binding':'Non Binding'}}</div>
         <div class="title">
-        <h4>{{measure.documentType}}</h4> 
+          <h4>{{measure.documentType}}</h4> 
           <p>{{measure.title}}</p> 
           <div class="year">year <b>{{measure.year}}</b></div>
-          <div class="download" ng-repeat="source in measure.sources"><a href="{{source.url}}"><img src="images/download-icon.png"></a></div>
-          </div> 
+          <div ng-repeat="source in measure.sources">
+            <div class="download" ng-if="source.url!==null">
+              <a href="{{source.url}}" >
+                <img src="images/download-icon.png">
+              </a>
+            </div>
+          </div>
+         </div> 
       </section>
     </div>
   </section>
@@ -49,26 +55,6 @@
       <iframe width='100%' height='400px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/maxtudio.lm4on1eb/attribution,zoompan,geocoder,share.html?access_token=pk.eyJ1IjoibWF4dHVkaW8iLCJhIjoiZlpwbklYSSJ9.tnEdYapHqPgn15mgv8X-hA'></iframe>
     </div>
   
-    <!-- On RFBs page it will be a list of counties -->
-    <div id="memberCountries">
-      <h2>Member countries</h2> 
-      <ul class="list">
-      <li>Japan</li>  
-      <li>South Africa</li> 
-      <li>Ghana</li>  
-      </ul>
-    </div>
-
-
-    <!-- On Country page it will be a list of RFBs -->
-    <div id="listOfRFBs">
-      <h2>List of RFBs</h2> 
-      <ul class="list">
-      <li>WCPFC</li>  
-      <li>CCAMLR</li> 
-      <li>IOCT</li> 
-      </ul>
-    </div>
  </section>
 
 </div>

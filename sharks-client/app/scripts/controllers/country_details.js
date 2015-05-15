@@ -8,18 +8,19 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("CountryDetailsCtrl", ["routingservice", "country", "groupedPoas", "entities", 
-                                          function (routingservice, country, groupedPoas, entities) {
+  .controller("CountryDetailsCtrl", ["routingservice", "country",
+                                          function (routingservice, country) {
   
 	  this.country = country;
-	  this.groupedPoas = groupedPoas;
-	  this.entities = entities;
+	  this.groupedPoas = Stream(country.poas).groupBy(function (poa) {
+	      return poa.type;
+	  });
 	  
 	  this.showPoa = function(poa) {
 		routingservice.toSingle("poas", poa);  
 	  };
 	  
-	  this.showEntity = function(acronym) {
-		routingservice.toSingleById("entities", acronym);  
+	  this.showEntity = function(rfb) {
+		routingservice.toSingleById("entities", rfb.acronym);  
 	  };
   }]);

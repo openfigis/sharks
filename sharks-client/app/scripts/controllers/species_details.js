@@ -8,12 +8,14 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SpeciesDetailsCtrl", ["routingservice", "imagesservice", "ems", "species",  
-                                          function (routingservice, imagesservice, ems, species) {
+  .controller("SpeciesDetailsCtrl", ["routingservice", "imagesservice", "species",  
+                                          function (routingservice, imagesservice, species) {
 	  
 	  this.species = species;
-	  this.ems = ems;
-
+	  this.ems = Stream(species.measures).groupBy(function (measure) {
+	      return measure.entityAcronym;
+	  });
+	  
 	  this.goMeasure = function(measure) {
 		  routingservice.toSingle("measures",measure);
 	  };

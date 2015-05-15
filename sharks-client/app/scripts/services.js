@@ -119,14 +119,6 @@ services.factory("entitiesservice", ["entitiesresource", "$q", function(entities
 			return entitiesresource.query().$promise;
 		};
 		
-		this.measures = function(acronym) {
-			return entitiesresource.measures({acronym:acronym}).$promise;
-		};
-		
-		this.countries = function(acronym) {
-			return entitiesresource.countries({acronym:acronym}).$promise;
-		};
-		
 		this.getAll = function(acronyms) {
 			var deferred = $q.defer();
 			entitiesresource.query().$promise.then(function(entities) {
@@ -141,19 +133,7 @@ services.factory("entitiesservice", ["entitiesresource", "$q", function(entities
 		};
 		
 		this.get = function(acronym) {
-			var deferred = $q.defer();
-			entitiesresource.query().$promise.then(function(entities) {
-				var found = null;
-				for (var i = 0; i < entities.length; i++) {
-				    if (entities[i].acronym === acronym) {
-				    	found = entities[i];
-				    	break;
-				    }
-				}
-				deferred.resolve(found);
-            });
-			
-			return deferred.promise;
+			return entitiesresource.get({acronym:acronym}).$promise;
 		};
 	}
 	return new EntitiesService();

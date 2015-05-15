@@ -12,9 +12,15 @@
       <section class="measure" ng-repeat="poa in poas" ng-click="ctrl.showPoa(poa)">
         <div class="title">
           <h4>{{poa.title}}</h4> 
-          <p>{{poa.status.description}}</p> 
+          <p>{{poa.status}}</p> 
           <div class="year">year <b>{{poa.poAYear}}</b></div>
-          <div class="download"><a href="#"><img src="images/download-icon.png"> </a>  </div>
+          <div ng-repeat="source in poa.sources">
+            <div class="download" ng-if="source.url!==null">
+              <a href="{{source.url}}" >
+                <img src="images/download-icon.png">
+              </a>
+            </div>
+          </div>
          </div> 
       </section>
     </section>
@@ -86,11 +92,7 @@
     <div id="listOfRFBs">
       <h2>List of RFBs</h2> 
       <ul class="list">
-      <li>WCPFC</li>  
-      <li>CCAMLR</li> 
-      <li>CCSBT</li>  
-      <li>IOCT</li> 
-      <li>SPRFMO</li>
+        <li ng-repeat="rfb in ctrl.country.rfbs" ng-click="ctrl.showEntity(rfb)" ng-disabled='rfb.id === null'>{{rfb.acronym}}</li>  
       </ul>
     </div>
     

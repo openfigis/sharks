@@ -13,27 +13,10 @@
       <div class="clear"></div>
   </header>
   <section id="primary">
-      <h2>Others</h2>
-    <section class="measure">
-    <div class="title">
-    <h4>Report</h4>
-    <p>Report of the by-catch coordination study</p> 
-    <div class="year">year <b>2010</b></div>
-    <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
-    </div> 
-    </section>
-    <section class="measure">
-    <div class="title">
-    <h4>Identification</h4>
-    <p>Guide for identification of Atlantic ocean sharks</p> 
-    <div class="year">year <b>2012</b></div>
-    <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
-    </div> 
-    </section>
-    <div ng-repeat="em in ctrl.ems">
-      <h2>{{em.entity.acronym}}</h2>
+    <div ng-repeat="(acronym, measures) in ctrl.ems">
+      <h2>{{acronym}}</h2>
       
-      <section class="measure" ng-repeat="measure in em.measures">
+      <section class="measure" ng-repeat="measure in measures">
         <div class="symbol">{{measure.symbol}}</div> 
         <div class="binding">{{measure.binding?'Binding':'Non Binding'}}</div>
         <div class="title">

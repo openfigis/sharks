@@ -28,12 +28,12 @@ angular.module("sharksClient")
 	  };
 	  
 	  this.hoverSpecies = function(species) {
-		this.title = species.nameEn;
+		this.title = species.englishName;
 		this.subTitle = species.scientificName;
 	  };
 	  
 	  this.hoverGroup = function(group) {
-		this.title = group.customSpeciesGrp;
+		this.title = group.name;
 		this.subTitle = "";
 	  };
 	  

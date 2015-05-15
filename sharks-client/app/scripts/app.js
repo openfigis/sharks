@@ -127,9 +127,6 @@ angular
         controller: "SpeciesDetailsCtrl",
         controllerAs: "ctrl",
         resolve: {
-        	ems : function($route, measuresservice) {
-        		return measuresservice.listGrouppedByEntity($route.current.params.alphaCode);
-        	},
         	species : function($route, speciesservice) {
         		return speciesservice.get($route.current.params.alphaCode);
         	}
@@ -140,9 +137,6 @@ angular
         controller: "GroupDetailsCtrl",
         controllerAs: "ctrl",
         resolve: {
-        	ems : function($route, measuresservice) {
-        		return measuresservice.listGrouppedByEntity($route.current.params.code);
-        	},
         	group : function($route, groupsservice) {
         		return groupsservice.get($route.current.params.code);
         	}
@@ -169,12 +163,6 @@ angular
         resolve: {
         	country : function($route, countriesservice) {
         		return countriesservice.get($route.current.params.code);
-        	},
-        	groupedPoas : function($route, countriesservice) {
-        		return countriesservice.poasGroupedByType($route.current.params.code);
-        	},
-        	entities :  function($route, countriesservice) {
-        		return countriesservice.entities($route.current.params.code);
         	}
         }
       })
@@ -199,12 +187,6 @@ angular
         resolve: {
         	entity : function($route, entitiesservice) {
         		return entitiesservice.get($route.current.params.acronym);
-        	},
-        	measures : function($route, entitiesservice) {
-        		return entitiesservice.measures($route.current.params.acronym);
-        	},
-        	countries : function($route, entitiesservice) {
-        		return entitiesservice.countries($route.current.params.acronym);
         	}
         }
       })

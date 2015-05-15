@@ -11,7 +11,7 @@
 
   <section id="primary">
     <h2>Measures</h2>
-    <section class="measure" ng-repeat="measure in ctrl.measures" ng-click="ctrl.showMeasure(measure)" class="pointer">
+    <section class="measure" ng-repeat="measure in ctrl.entity.measures" ng-click="ctrl.showMeasure(measure)" class="pointer">
       <div class="symbol">{{measure.symbol}}</div> 
       <div class="binding">{{measure.binding?'Binding':'Non Binding'}}</div>
       <div class="title">
