@@ -56,11 +56,11 @@ public class MonikersRestClientTest {
 	}
 
 	/**
-	 * Test method for {@link org.sharks.service.moniker.rest.MonikersRestClient#getRfbs(java.lang.String)}.
+	 * Test method for {@link org.sharks.service.moniker.rest.MonikersRestClient#getRfb4Iso3(java.lang.String)}.
 	 */
 	@Test
 	public void testGetRfbs() {
-		List<RfbEntry> entries = client.getRfbs("ALB");
+		List<RfbEntry> entries = client.getRfb4Iso3("ALB");
 		
 		assertNotNull(entries);
 		assertFalse(entries.isEmpty());
@@ -68,14 +68,14 @@ public class MonikersRestClientTest {
 	
 	@Test
 	public void testGetRfbsMissingCountry() {
-		List<RfbEntry> entries = client.getRfbs("NOT_EXISTS");
+		List<RfbEntry> entries = client.getRfb4Iso3("NOT_EXISTS");
 		
 		assertNull(entries);
 	}
 	
 	@Test(expected=MonikersRestClientException.class)
 	public void testGetRfbsConnectionFail() {
-		client.getRfbs("ERROR");
+		client.getRfb4Iso3("ERROR");
 	}
 
 	/**

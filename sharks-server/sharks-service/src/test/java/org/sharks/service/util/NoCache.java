@@ -3,23 +3,17 @@
  */
 package org.sharks.service.util;
 
-import org.jboss.weld.exceptions.IllegalStateException;
-import org.sharks.service.cache.Cache;
+import org.sharks.service.cache.ServiceCache;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class NoCache<K, V> implements Cache<K, V> {
+public class NoCache<K, V> implements ServiceCache<K, V> {
 
 	@Override
-	public boolean contains(K key) {
-		return false;
-	}
-
-	@Override
-	public V get(K key) {
-		throw new IllegalStateException("Get not allowed");
+	public CacheElement<V> get(K key) {
+		return new CacheElement<V>(false, null);
 	}
 
 	@Override

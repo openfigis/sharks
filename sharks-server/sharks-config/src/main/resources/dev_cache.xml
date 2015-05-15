@@ -1,0 +1,26 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true" monitoring="autodetect" dynamicConfig="true">
+	
+	<!-- default cache settings -->
+	<defaultCache maxEntriesLocalHeap="100" eternal="false" timeToIdleSeconds="1200" timeToLiveSeconds="1200" />	
+	
+	<diskStore path="java.io.tmpdir"/>
+	
+	<!-- ### RefPub ### -->
+	
+	<!-- cache for Country concepts coming from RefPub service -->
+	<cache name="country" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
+	
+	<!-- cache for Species concepts coming from RefPub service -->
+	<cache name="species" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
+	
+	
+	<!-- ### Monikers ### -->
+	
+	<!-- cache for rfb4iso3 moniker -->
+	<cache name="rfb4iso3" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
+	
+	<!-- cache for figisdoc moniker -->
+	<cache name="figisdoc" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
+	
+
+</ehcache>

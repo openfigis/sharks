@@ -11,7 +11,9 @@ import javax.inject.Inject;
 
 import lombok.extern.slf4j.Slf4j;
 
-import org.sharks.service.cache.Cache;
+import org.sharks.service.cache.ServiceCache;
+import org.sharks.service.cache.CacheName;
+import org.sharks.service.cache.ServiceCache.CacheElement;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
@@ -26,30 +28,38 @@ public class MonikerServiceImpl implements MonikerService {
 	@Inject
 	private MonikersRestClient restClient;
 	
-	@Inject
-	private Cache<String, List<String>> acronymsCache;
+	@Inject @CacheName("rfb4iso3")
+	private ServiceCache<String, List<RfbEntry>> rfb4Iso3Cache;
 	
-	@Inject
-	private Cache<String, FigisDoc> figisDocCache;
+	@Inject @CacheName("figisdoc")
+	private ServiceCache<String, FigisDoc> figisDocCache;
 
 	@Override
 	public List<String> getRfbsForCountry(String countryIso3) {
-		if (acronymsCache.contains(countryIso3)) return acronymsCache.get(countryIso3);
+		
 		
 		List<RfbEntry> rfbs = getRfbEntries(countryIso3);
 		List<String> acronyms = toAcronyms(rfbs);
 		
-		acronymsCache.put(countryIso3, acronyms);
+		
 		return acronyms;
 	}
 	
 	private List<RfbEntry> getRfbEntries(String countryIso3) {
+		
+		CacheElement<List<RfbEntry>> cacheElement =  rfb4Iso3Cache.get(countryIso3);
+		if (cacheElement.isPresent()) return cacheElement.getValue();
+		
 		try {
-			List<RfbEntry> rfbs = restClient.getRfbs(countryIso3);
+			List<RfbEntry> rfbs = restClient.getRfb4Iso3(countryIso3);
+			
 			if (rfbs == null) {
 				log.warn("Rfbs for country "+countryIso3+" not found");
-				return Collections.emptyList();
+				rfbs = Collections.emptyList();
 			}
+			
+			rfb4Iso3Cache.put(countryIso3, rfbs);
+			
 			return rfbs;
 		} catch(Exception e) {
 			log.error("Failed retrieving RFBs list for country "+countryIso3, e);
@@ -73,13 +83,15 @@ public class MonikerServiceImpl implements MonikerService {
 	}
 	
 	private FigisDoc getFigisDoc(String figisId) {
-		if (figisDocCache.contains(figisId)) return figisDocCache.get(figisId);
+		
+		CacheElement<FigisDoc> cacheElement =  figisDocCache.get(figisId);
+		if (cacheElement.isPresent()) return cacheElement.getValue();
+
 		try {
 			FigisDoc doc = restClient.getFigisDoc(figisId);
-			if (doc == null) {
-				log.warn("FigisDoc for figisId "+figisId+" not found");
-				return null;
-			}
+			
+			if (doc == null) log.warn("FigisDoc for figisId "+figisId+" not found");
+			
 			figisDocCache.put(figisId, doc);
 			return doc;
 		} catch(Exception e) {

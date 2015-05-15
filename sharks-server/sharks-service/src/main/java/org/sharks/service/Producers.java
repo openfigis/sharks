@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
+import javax.inject.Singleton;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,28 +28,28 @@ import org.sharks.service.refpub.rest.RefPubRestClient;
 @ApplicationScoped
 @Slf4j
 public class Producers {
-	
-	@Produces
+
+	@Produces @Singleton
 	public RefPubRestClient getRefPubRestClient(Configuration configuration, HttpClient httpClient) {
 		return new RefPubRestClient(configuration.getRefPubUrl(), httpClient);
 	}
-	
-	@Produces
+
+	@Produces @Singleton
 	public MonikersRestClient getMonikerRestClient(Configuration configuration, HttpClient httpClient) {
 		return new MonikersRestClient(configuration.getMonikersUrl(), httpClient);
 	}
-	
+
 	@Produces
 	public IndexingService getIndexingService(Configuration configuration) {
 		if (configuration.getSolrUrl() == null || configuration.getSolrUrl().isEmpty()) {
 			log.warn("Solr Url missing from configuration");
 			return null;
 		}
-		
+
 		List<SolrDocumentProvider<?>> providers = Arrays.asList(SolrDocumentProviders.MEASURE, SolrDocumentProviders.POA);
 		log.trace("providers:");
 		for (SolrDocumentProvider<?> provider:providers) log.trace("provider for {}",provider.getType().getSimpleName());
-		
+
 		try {
 			return new SolrIndexingService(configuration.getSolrUrl(), providers);
 		} catch(Exception e) {

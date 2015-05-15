@@ -6,22 +6,20 @@ package org.sharks.service.cache;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.enterprise.inject.Alternative;
+
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class InMemoryCache<K, V> implements Cache<K, V> {
+@Alternative
+public class InMemoryCache<K, V> implements ServiceCache<K, V> {
 	
 	private Map<K, V> cache = new HashMap<K, V>();
 
 	@Override
-	public boolean contains(K key) {
-		return cache.containsKey(key);
-	}
-
-	@Override
-	public V get(K key) {
-		return cache.get(key);
+	public CacheElement<V> get(K key) {
+		return new CacheElement<V>(cache.containsKey(key), cache.get(key));
 	}
 
 	@Override

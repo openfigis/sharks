@@ -9,6 +9,8 @@ import java.net.URL;
 public interface Configuration {
 
 	public String getDbFileLocation();
+	
+	public String getCacheConfiguration();
 
 	public String getRefPubUrl();
 

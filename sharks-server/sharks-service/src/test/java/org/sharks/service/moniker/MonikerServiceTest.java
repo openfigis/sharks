@@ -38,11 +38,11 @@ public class MonikerServiceTest {
 	protected MonikersRestClient getRestClient() {
 		MonikersRestClient client = Mockito.mock(MonikersRestClient.class);
 		
-		when(client.getRfbs("USA")).thenReturn(Arrays.asList(new RfbEntry("7352")));
-		when(client.getRfbs("ITA")).thenReturn(Arrays.asList(new RfbEntry("NOT_EXISTS")));
-		when(client.getRfbs("FRA")).thenReturn(Arrays.asList(new RfbEntry("ERROR")));
-		when(client.getRfbs("NOT_EXISTS")).thenReturn(null);
-		when(client.getRfbs("ERROR")).thenThrow(new MonikersRestClientException("",null));
+		when(client.getRfb4Iso3("USA")).thenReturn(Arrays.asList(new RfbEntry("7352")));
+		when(client.getRfb4Iso3("ITA")).thenReturn(Arrays.asList(new RfbEntry("NOT_EXISTS")));
+		when(client.getRfb4Iso3("FRA")).thenReturn(Arrays.asList(new RfbEntry("ERROR")));
+		when(client.getRfb4Iso3("NOT_EXISTS")).thenReturn(null);
+		when(client.getRfb4Iso3("ERROR")).thenThrow(new MonikersRestClientException("",null));
 		
 		FigisDoc doc = new FigisDoc();
 		doc.setAcronym("ICCAT");
