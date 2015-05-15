@@ -37,7 +37,7 @@ public class MonikersRestClient {
 	 * @param iso3Code the country iso3code.
 	 * @return the list of rfbs retrieved.
 	 */
-	public List<RfbEntry> getRfbs(String iso3Code) {
+	public List<RfbEntry> getRfb4Iso3(String iso3Code) {
 		try {
 			URL rfb4iso3Url = getRfb4Iso3Url(iso3Code);
 			

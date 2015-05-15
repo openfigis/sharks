@@ -76,9 +76,9 @@ public class EntryProducers {
 		public PoAEntry produce(PoA poa) {
 			return new PoAEntry(poa.getCode(), 
 					poa.getTitle(), 
-					poa.getPoAYear(), 
-					poa.getPoAType().getDescription(),
-					poa.getStatus().getDescription(),
+					poa.getPoAYear(),
+					poa.getPoAType()!=null?poa.getPoAType().getDescription():null,
+					poa.getStatus()!=null?poa.getStatus().getDescription():null,
 					convert(poa.getInformationSources(), TO_INFORMATION_SOURCE_ENTRY));
 		}
 	};

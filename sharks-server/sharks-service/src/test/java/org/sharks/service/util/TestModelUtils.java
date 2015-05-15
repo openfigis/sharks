@@ -16,6 +16,7 @@ import org.sharks.storage.domain.CustomSpeciesGrp;
 import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.MgmtEntity;
 import org.sharks.storage.domain.PoA;
+import org.sharks.storage.domain.PoAType;
 import org.sharks.storage.domain.Species;
 
 /**
@@ -80,7 +81,15 @@ public class TestModelUtils {
 		measure.setCode(code);
 		measure.setSymbol(symbol);
 		measure.setBinding(false);
+		measure.setInformationSources(Collections.emptyList());
 		return measure;
+	}
+	
+	public static PoA buildPoA() {
+		PoA poa = new PoA();
+		poa.setInformationSources(Collections.emptyList());
+		poa.setPoAType(new PoAType());		
+		return poa;
 	}
 	
 	public static RefPubCountry createRefPubCountry(String unIso3Code, String continent, String english) {

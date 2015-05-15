@@ -7,9 +7,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.builEntity;
-import static org.sharks.service.util.TestModelUtils.buildCountry;
-import static org.sharks.service.util.TestModelUtils.findFirst;
+import static org.sharks.service.util.TestModelUtils.*;
 import static org.sharks.service.util.TestUtils.getResource;
 
 import java.net.MalformedURLException;
@@ -40,7 +38,6 @@ import org.sharks.storage.dao.CountryDao;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.domain.Country;
 import org.sharks.storage.domain.MgmtEntity;
-import org.sharks.storage.domain.PoA;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -100,13 +97,13 @@ public class CountryServiceIntegrationTest {
 	private CountryDao setupCountryDao() {
 		CountryDao dao = Mockito.mock(CountryDao.class);
 		
-		Country country = buildCountry("ALB", "Albania", new PoA(), new PoA());
+		Country country = buildCountry("ALB", "Albania", buildPoA(), buildPoA());
 		when(dao.get("ALB")).thenReturn(country);
 		when(dao.get("NOT_EXISTS_RFB")).thenReturn(country);
 		
 		when(dao.get("NOT_EXISTS")).thenReturn(null);
 		
-		Country country2 = buildCountry("USA", "USA", new PoA());
+		Country country2 = buildCountry("USA", "USA", buildPoA());
 		when(dao.list()).thenReturn(Arrays.asList(country, country2));
 		when(dao.listWithPoAs()).thenReturn(Arrays.asList(country));
 		
