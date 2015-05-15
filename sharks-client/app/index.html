@@ -55,7 +55,10 @@
       <ng-include src="'partials/navbar.html'"></ng-include>
       <div class="bx-pager-divider"></div>
 
-      <div ng-view=""></div>
+      <div>
+        <loader></loader>
+        <div ng-view=""></div>
+      </div>
 
     </div>
     
@@ -78,6 +81,7 @@
     <script src="scripts/controllers/header.js"></script>
     <script src="scripts/controllers/navigation_bar.js"></script>
     <script src="scripts/controllers/view_footer.js"></script>
+    <script src="scripts/controllers/loader.js"></script>
     <script src="scripts/controllers/browse.js"></script>
     <script src="scripts/controllers/species_selection.js"></script>
     <script src="scripts/controllers/species_details.js"></script>
