@@ -28,6 +28,9 @@ public class MonikerServiceImpl implements MonikerService {
 	
 	@Inject
 	private Cache<String, List<String>> acronymsCache;
+	
+	@Inject
+	private Cache<String, FigisDoc> figisDocCache;
 
 	@Override
 	public List<String> getRfbsForCountry(String countryIso3) {
@@ -65,13 +68,20 @@ public class MonikerServiceImpl implements MonikerService {
 	}
 	
 	private String toAcronym(String figisId) {
+		FigisDoc doc = getFigisDoc(figisId);
+		return doc!=null?doc.getAcronym():null;
+	}
+	
+	private FigisDoc getFigisDoc(String figisId) {
+		if (figisDocCache.contains(figisId)) return figisDocCache.get(figisId);
 		try {
 			FigisDoc doc = restClient.getFigisDoc(figisId);
 			if (doc == null) {
 				log.warn("FigisDoc for figisId "+figisId+" not found");
 				return null;
 			}
-			return doc.getAcronym();
+			figisDocCache.put(figisId, doc);
+			return doc;
 		} catch(Exception e) {
 			log.error("Failed retrieving FigisDoc for figisId "+figisId, e);
 			return null;
