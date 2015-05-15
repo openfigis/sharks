@@ -4,6 +4,7 @@
 package org.sharks.service.cache;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Singleton;
@@ -48,6 +49,11 @@ public class ServiceCacheProducer {
 
 		log.info("loading cache configuration from "+cacheConfigurationFile);
 		return CacheManager.newInstance(cacheConfigurationFile);
+	}
+	
+	public void shutdownCacheManager(@Disposes CacheManager cacheManager) {
+		log.info("shutting down the cache manager");
+		cacheManager.shutdown();
 	}
 
 }

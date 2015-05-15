@@ -1,6 +1,5 @@
 package org.sharks.service;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
@@ -14,7 +13,6 @@ import org.sharks.service.event.ApplicationEvent.Startup;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@ApplicationScoped
 @Slf4j
 public class ApplicationLifecycle {
 

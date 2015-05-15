@@ -33,6 +33,6 @@ public class Bootstrap implements ServletContextListener {
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		app.stop();
+		
 	}
 }
