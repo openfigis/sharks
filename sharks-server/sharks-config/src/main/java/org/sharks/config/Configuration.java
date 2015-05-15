@@ -11,6 +11,8 @@ public interface Configuration {
 	public String getDbFileLocation();
 	
 	public String getCacheConfiguration();
+	
+	public boolean isCacheWarmupEnabled();
 
 	public String getRefPubUrl();
 
