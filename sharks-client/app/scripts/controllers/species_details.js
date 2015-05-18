@@ -24,7 +24,7 @@ angular.module("sharksClient")
 	  this.showCmsLink = Stream(species.measures).anyMatch({entityAcronym:"CMS"});
 	  
 	  this.showEntity = function(acronym) {
-		  routingservice.toSingleId("entities",acronym);
+		  routingservice.toSingleById("entities",acronym);
 	  };
 	  
 	  this.imageUrl = imagesservice.speciesMediumImageUrl;
