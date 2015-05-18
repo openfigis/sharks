@@ -3,6 +3,9 @@
 		"name": "production",
 		"baseUrl": "/fishery/ipoa-sharks/measures/sharks-client/"
 	},
+	"factsheets": {
+		"baseUrl": "http://www.fao.org/fishery/species/"
+	},
 	"rest": {
 		"baseUrl": "http://figisapps.fao.org/figis/sharks/rest/"
 	},

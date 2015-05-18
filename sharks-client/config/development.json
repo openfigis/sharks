@@ -3,6 +3,9 @@
 		"name": "development",
 		"baseUrl": "/"
 	},
+	"factsheets": {
+		"baseUrl": "http://www.fao.org/fishery/species/"
+	},
 	"rest": {
 		"baseUrl": "http://localhost:8080/sharks-web/rest/"
 	},
