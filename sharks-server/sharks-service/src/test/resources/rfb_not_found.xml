@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/figis/moniker/xsl/generic.xsl"?>
+<moniker name="rfb" rfb="ICCATSADASAD">
+  <query src="http://localhost/figis/moniker/figismapdata"/>
+  <output/>
+</moniker>

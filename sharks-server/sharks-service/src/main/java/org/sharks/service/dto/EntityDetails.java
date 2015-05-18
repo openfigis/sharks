@@ -24,6 +24,7 @@ public class EntityDetails {
 	private final String webSite;
 	private final List<CountryEntry> members;
 	private final List<MeasureEntry> measures;
+	private final List<EntityDocument> others;
 	
 
 }

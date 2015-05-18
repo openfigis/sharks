@@ -14,6 +14,7 @@ import static org.sharks.service.util.TestModelUtils.createFigisDoc;
 import static org.sharks.service.util.TestModelUtils.createMember;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.enterprise.inject.Produces;
@@ -28,9 +29,12 @@ import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.impl.ManagementEntityServiceImpl;
 import org.sharks.service.moniker.MonikerService;
+import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.dao.MeasureDao;
 import org.sharks.storage.dao.MeasureDaoImpl;
+import org.sharks.storage.domain.InformationSource;
+import org.sharks.storage.domain.InformationSourceType;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -75,6 +79,17 @@ public class ManagementEntityServiceTest {
 		
 		return service;
 	}
+	
+	@Produces
+	private InformationSourceDao steupInformationSourceDao() {
+		InformationSourceDao dao = Mockito.mock(InformationSourceDao.class);
+		
+		InformationSource source = new InformationSource();
+		source.setInformationType(new InformationSourceType());
+		when(dao.listRelatedToEntity(0l, new Long[]{2l, 3l})).thenReturn(Collections.<InformationSource>singletonList(source));
+		
+		return dao;
+	}
 
 	/**
 	 * Test method for {@link org.sharks.service.impl.ManagementEntityServiceImpl#get(java.lang.String)}.
@@ -86,6 +101,7 @@ public class ManagementEntityServiceTest {
 		assertNotNull(details.getWebSite());
 		assertNotNull(details.getMembers());
 		assertFalse(details.getMembers().isEmpty());
+		assertFalse(details.getOthers().isEmpty());
 	}
 	
 	@Test

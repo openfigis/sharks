@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.dto.EntityEntry;
+import org.sharks.service.dto.EntityDocument;
 import org.sharks.service.dto.GroupEntry;
 import org.sharks.service.dto.InformationSourceEntry;
 import org.sharks.service.dto.MeasureEntry;
@@ -102,6 +103,18 @@ public class EntryProducers {
 			return new CountryEntry(item.getIso3code(), item.getEnglishName(), null);
 		}
 		
+	};
+	
+	public static final EntryProducer<InformationSource, EntityDocument> TO_ENTITY_DOCUMENT = new AbstractEntryProducer<InformationSource, EntityDocument>() {
+
+		@Override
+		public EntityDocument produce(InformationSource source) {
+			return new EntityDocument(
+					source.getTitle(), 
+					source.getInfoSrcYear(), 
+					source.getInformationType().getDescription(), 
+					source.getUrl());
+		}
 	};
 	
 	public static abstract class AbstractEntryProducer<I,O> implements EntryProducer<I,O> {
