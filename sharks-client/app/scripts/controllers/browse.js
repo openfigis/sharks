@@ -23,5 +23,4 @@ angular.module("sharksClient")
 	  this.showCountry = function(country) {
 		  routingservice.toSingle("countries", country);
 	  };
-
 }]);

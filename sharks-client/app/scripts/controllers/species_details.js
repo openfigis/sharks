@@ -8,8 +8,8 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SpeciesDetailsCtrl", ["routingservice", "imagesservice", "factsheets", "species",  
-                                          function (routingservice, imagesservice, factsheets, species) {
+  .controller("SpeciesDetailsCtrl", ["routingservice", "imagesservice", "factsheets", "mapViewer", "species",  
+                                          function (routingservice, imagesservice, factsheets, mapViewer, species) {
 	  
 	  this.species = species;
 	  this.ems = Stream(species.measures)
@@ -31,4 +31,17 @@ angular.module("sharksClient")
 	  
 	  this.imageUrl = imagesservice.speciesMediumImageUrl;
 	  this.missingImageUrl = imagesservice.speciesMissingMediumImageUrl;
+	  
+	  this.mapUrl = mapViewer.speciesBaseUrl+"?species="+species.alphaCode+"-m&prj=4326";
+	  
+      FigisMap.draw({ 
+          context:"FI-species", 
+          target:"distributionMap", 
+          mapSize:"L", 
+          distribution:[{ layer:"fifao:SPECIES_DIST", 
+            filter:"ALPHACODE='"+species.alphaCode+"' AND DISPORDER='2'", 
+            title:"Abramis brama", 
+            autoZoom:true }], 
+            legend:"mapSpeciesLegend", 
+            staticLabels:{ "MAIN LAYERS" : "Species distribution" } });
   }]);

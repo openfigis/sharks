@@ -10,6 +10,10 @@
 	"rfb" : {
 		"logoBaseUrl": "http://www.fao.org/figis/servlet/IRS?iid="
 	},
+	"mapViewer" : {
+		"speciesBaseUrl": "http://www.fao.org/figis/geoserver/factsheets/species.html",
+		"rfbBaseUrl": "http://www.fao.org/fishery/rfb/mapviewer"
+	},
 	"rest": {
 		"baseUrl": "http://figisapps.fao.org/figis/sharks/rest/"
 	},
