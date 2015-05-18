@@ -12,12 +12,19 @@ angular.module("sharksClient")
                                           function (routingservice, imagesservice, species) {
 	  
 	  this.species = species;
-	  this.ems = Stream(species.measures).groupBy(function (measure) {
+	  this.ems = Stream(species.measures)
+	  .filter(function (measure) {
+		  return measure.entityAcronym !== "CITES" && measure.entityAcronym !== "CMS";
+	  })
+	  .groupBy(function (measure) {
 	      return measure.entityAcronym;
 	  });
 	  
-	  this.goMeasure = function(measure) {
-		  routingservice.toSingle("measures",measure);
+	  this.showCitesLink = Stream(species.measures).anyMatch({entityAcronym:"CITES"});
+	  this.showCmsLink = Stream(species.measures).anyMatch({entityAcronym:"CMS"});
+	  
+	  this.showEntity = function(acronym) {
+		  routingservice.toSingleId("entities",acronym);
 	  };
 	  
 	  this.imageUrl = imagesservice.speciesMediumImageUrl;

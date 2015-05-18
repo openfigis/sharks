@@ -18,10 +18,10 @@
           </ul>
           <footer>
             <ul class="links">
-              <li><a href="subpage-species.html#">Cites</a></li>  
-              <li><a href="subpage-species.html#">CMS Appendix 2 species</a></li>
+              <li ng-if="ctrl.showCitesLink"><a ng-click="showEntity('CITES')">Cites</a></li>  
+              <li ng-if="ctrl.showCmsLink"><a ng-click="showEntity('CMS')">CMS Appendix 2 species</a></li>
              </ul>
-            <div class="factSheet">Species Fact sheet</div>
+            <div class="factSheet">Species fact sheet</div>
           </footer>
         </div>
       </section>
