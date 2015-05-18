@@ -1,0 +1,21 @@
+
+<section class="measure">
+  <div class="symbol">
+    <ul>
+      <li>{{value.symbol}}</li>
+      <li class="binding">{{value.binding?'Binding':'Non Binding'}}</li>
+    </ul>
+  </div> 
+  <div class="title">
+    <h4>{{value.documentType}}</h4> 
+    <p>{{value.title}}</p> 
+    <div class="year">year <b>{{value.year}}</b></div>
+    <div ng-repeat="source in value.sources">
+      <div class="download" ng-if="source.url!==null">
+        <a href="{{source.url}}" >
+          <img src="images/download-icon.png">
+        </a>
+      </div>
+    </div>
+   </div> 
+</section>

@@ -33,26 +33,9 @@
     <div ng-repeat="(acronym, measures) in ctrl.ems">
       <h2>{{acronym}}</h2>
       
-      <section class="measure" ng-repeat="measure in measures">
-        <div class="symbol">
-          <ul>
-            <li>{{measure.symbol}}</li>
-            <li class="binding">{{measure.binding?'Binding':'Non Binding'}}</li>
-          </ul>
-        </div> 
-        <div class="title">
-          <h4>{{measure.documentType}}</h4> 
-          <p>{{measure.title}}</p> 
-          <div class="year">year <b>{{measure.year}}</b></div>
-          <div ng-repeat="source in measure.sources">
-            <div class="download" ng-if="source.url!==null">
-              <a href="{{source.url}}" >
-                <img src="images/download-icon.png">
-              </a>
-            </div>
-          </div>
-         </div> 
-      </section>
+        <measure ng-repeat="measure in measures" value="measure">
+        </measure>
+
     </div>
   </section>
 
