@@ -1,12 +1,5 @@
-body {
-
-    position: relative;
-    /*     font-family: 'Open Sans', verdana, sans-serif; */
-    font-family: verdana, sans-serif;
-}
-
 .primaryContainer {
-	/*FEDERICO*/
+		/*FEDERICO*/
 	background-image:url("../images/underwaterbackground.jpg");
     background-attachment: fixed;
     -webkit-background-size: cover;
@@ -25,6 +18,7 @@ body {
     /*
     width: 87.055261%;
     max-width: 1150px;*/
+    
     
     background-color: rgba(255, 255, 255, 0.1);
 }
@@ -153,7 +147,7 @@ p{
 #listMenu{
 	background-color: rgba(0, 29, 64, 0.9);
 	color: white;
-	/*padding: 10px 25px;
+	padding: 10px 25px;
 	display: none;
 	z-index: 999;
 	 width: 87.055261%;
@@ -167,7 +161,7 @@ max-width: 1150px;
     left: 0;
     right: 0;
     overflow: hidden;
-    margin-top: 135px;*/
+    margin-top: 135px;
 	    
 	    
 }
@@ -360,35 +354,35 @@ font-size: 23px;
 
 .spacer{margin: 5px;}
 .africa{
-	background-image: url("../images/africa.jpg");
+	background-image: url("images/africa.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
 	
 .america{
-	background-image: url("../images/america.jpg");
+	background-image: url("images/america.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
 	
 .asia{
-	background-image: url("../images/asia.jpg");
+	background-image: url("images/asia.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
 	
 .europe{
-	background-image: url("../images/europe.jpg");
+	background-image: url("images/europe.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
 	
 .oceania{
-	background-image: url("../images/oceania.jpg");
+	background-image: url("images/oceania.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -410,7 +404,7 @@ footer ul.links li{
 	list-style-type: none;
 	float: left;
 	padding: 5px 10px;
-	margin-bottom: -1px;
+	margin-bottom:-1px;
 	margin-left: 2px;
 	background-color: #edf5fe;
 	border: 1px solid #dddddd;
@@ -453,6 +447,13 @@ footer ul.links li{
 	padding: 0
 }
 
+.group-page #main header{
+	height: auto;
+	margin-top: 0;
+	padding: 0;
+	margin-bottom: 0;
+}
+
 .country-page #main header{
 	height: auto;
 	margin-bottom: 0;
@@ -488,6 +489,11 @@ footer ul.links li{
 	width: 60%;
 	margin-right: 5%;
 }
+.group-page #primary{
+	float: left;
+	width: 90%;
+	margin-right: 10%;
+}
 #secondary{
 	float: right;
 	width: 35%;
@@ -499,11 +505,18 @@ footer ul.links li{
 
 section#infoBox{
 	position: absolute;
-	top: 0;
 	z-index: 0;
 	width: 100%;
 	top: 10px;
 }
+
+.group-page section#infoBox{
+	position: relative;
+	z-index: 0;
+	width: 100%;
+	top: 0px;
+}
+
 #main .sharkPict{
 	width: 65%;
 	float: left;
@@ -515,16 +528,20 @@ section#infoBox{
 	width: 35%;
 	float: right;
 }
+
+
+
+
 #main .sharkInfo ul.commonNames{
 	margin: 0; padding: 0;
 	text-transform: uppercase;
 	color: #666;
 	font-size: 0.7em;
-	font-weight: 700;
+	font-weight: 500;
 }
 #main .sharkInfo ul.commonNames b{
 	text-transform:capitalize;
-	font-weight: 700;
+	font-weight: 500;
 		color: #999;
 }
 
@@ -537,13 +554,30 @@ section#infoBox{
 	background-color: #ffffff;
 	border: 1px solid #dddddd;
 }
+
+
+
+.group-page #main .sharkInfo ul li a:hover{
+	color: #f90;
+}
+
+
+
+
+
+#main .sharkInfo ul li.lat{
+	font-style: italic;
+	text-transform:none;
+	font-size: 1.2em;
+}
+
 #main .sharkInfo ul li i{
 	font-size: 11px;
 	font-weight: 400;
 	font-style: normal;
 	color: #666;
 	text-transform: none;
-	display: none;
+	display: block;
 }
 
 
@@ -556,18 +590,57 @@ section#infoBox{
 
 #main .asfisCode{
 	padding: 2px;
-	background-color: silver;
-	color: white;
+	background-color: white;
+	color: #666;
 	text-transform: uppercase;
 	font-size: 12px;
-	font-weight: 700;
+	font-weight: 500;
 	width: 40px;
+/*
 	position: absolute;
 	right: 0;
 	top: 0;
+*/
 	height: 25px;
 	padding: 5px;
+
 }
+
+#main .sharkInfo footer{
+	width: 100%;
+	margin: 5px 0 0;
+	padding: 0;
+}
+
+#main .sharkInfo footer ul.links{
+	margin: 10px 0 0;
+	padding: 0;
+}
+
+#main .sharkInfo footer ul.links li{
+	font-weight: 500;
+	text-transform: none;
+	padding: 5px;
+	margin: 0 3px 5px 0;
+	border: #333 1px solid;
+	box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+#main .sharkInfo footer ul.links li.mapIcon{
+	background: #f90;
+	margin-left: 20px;
+	width: 30px;
+	height: 30px;
+	padding: 2px;
+	display: none;
+}
+
+#main .sharkInfo footer ul.links li a:hover{
+	color: #f90;
+}
+
+
+
 
 #main .factSheet{
 padding: 2px;
@@ -576,11 +649,28 @@ color: white;
 text-transform: none;
 font-size: 12px;
 font-weight: 500;
-width: 100px;
 padding: 5px 10px;
-margin: 5px 0;
+margin: 0 0 5px;
 font-weight: 500;
-float: right;
+float: left;
+box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.5);
+}
+
+
+#main div.logo div.factSheet{
+	float: none;
+	clear: both;
+}
+
+.entity-page #main div.logo div.factSheet{
+	float: none;
+	clear: both;
+	margin-top: 5px;
+}
+
+
+#main .factSheet:hover{
+background-color: #077ab3;	
 }
 
 #main h5.lat{
@@ -595,7 +685,6 @@ float: right;
 
 
 div.logo{
-	width: 25%;
 	float: right;
 }
 
@@ -630,37 +719,56 @@ text-align: right;
 
 
 .measure div.symbol{
-	background-color: #4fc5ff;
-	color: white;
-	position: absolute;
-	bottom: 0;
-	left: 90px;
-	padding: 8px;
-	font-size: 10px;
-	font-weight: bold;
-	color: #0e4b77;
+/* background-color: #4fc5ff; */
+color: white;
+position: absolute;
+bottom: 0;
+margin-left: 20px;
+padding: 0;
+font-size: 10px;
+font-weight: bold;
+color: #0e4b77;
 }
+
+.measure div.symbol ul{
+padding: 0; margin: 0;
+}
+
+.measure div.symbol ul li{
+	list-style-type: none;
+	float: left;
+	background-color: #4fc5ff;
+	padding: 4px 8px; margin: 0 3px 0 0;
+}
+
+.measure div.symbol ul li.binding{
+	background-color: rgba(0, 0, 0, 0.23);
+	color: white;
+}
+
+
+
 .measure div.year{
-	color: rgba(255,255,255,0.7);
-	position: absolute;
-	top: 0;
-	right: 0;
-	font-size: 13px;
-	padding: 10px;
-	text-align: left;
+color: rgba(255,255,255,0.7);
+position: absolute;
+top: 0;
+right: 0;
+font-size: 12px;
+padding: 8px;
+text-align: left;
 }
 
 .measure div.binding{
-	width: 90px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	padding: 8px;
-	font-size: 10px;
-	color: #888;
-	font-weight: 700;
-	text-align: center;
-	background: white;
+/* width: 90px; */
+position: absolute;
+bottom: 0;
+right: 0;
+padding: 4px 4px 0px 10px;
+font-size: 10px;
+color: #077ab3;
+font-weight: 700;
+text-align: right;
+background: white;
 }
 .measure div.binding img{
 	max-width: 100%;
@@ -691,14 +799,18 @@ text-align: right;
 	text-transform: uppercase;	
 }
 .measure .download{
-	background-color: rgba(0, 0, 0, 0.23);
-	color: white;
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	bottom: 10px;
-	right: 10px;
-	padding: 10px;
+background-color: rgba(0, 0, 0, 0.23);
+color: white;
+position: absolute;
+width: 30px;
+height: 30px;
+bottom: 10px;
+right: 10px;
+padding: 5px;
+}
+
+.measure .download:hover{
+background-color: rgba(0, 0, 0, 0.44);	
 }
 
 #secondary ul.list{
@@ -716,6 +828,18 @@ text-align: right;
 	margin-bottom: -1px;
 	background-color: #ffffff;
 	border: 1px solid #dddddd;
+	color: #bbb;
+}
+#secondary ul.list li a{
+	color: #333;
+}
+#secondary ul.list li a:hover{
+	color: #f90;
+}
+
+#secondary #memberCountries ul.list li{
+display: inline-block;
+width: auto;
 }
 
 
@@ -761,7 +885,7 @@ body {
 }
 	
 .primaryContainer {
-     background-image:url("../images/underwaterbackground.jpg");
+     background-image:url("images/underwaterbackground.jpg");
     background-attachment: fixed;
     -webkit-background-size: cover;
     background-size: cover;
@@ -770,6 +894,30 @@ body {
     max-width: 760px;
     width: 760px;
     }
+
+
+
+#main .sharkInfo footer ul.links li.mapIcon{
+	display: inline-block;
+}
+
+
+.group-page #main .sharkInfo ul li{
+	list-style-type: none;
+	position: relative;
+	display: inline-block;
+	padding: 5px 10px;
+	margin-bottom: -1px;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+}
+
+.group-page #main .sharkInfo{
+	width: 100%;
+	float: none;
+	clear: both;
+}
+
 
 #listMenu{
 	max-width: 760px;
@@ -797,11 +945,21 @@ body {
 	width: 100%;
 	margin-right: 0;
 }
+.group-page #primary{
+	float: left;
+	width: 100%;
+	margin-right: 0;
+}
+
+
 #secondary{
 	float: left;
 	width: 100%;
 }
     
+
+
+
    
 }
 
@@ -855,6 +1013,10 @@ h2.pagetitle{
 	text-transform: lowercase;
 }
 
+
+#main .sharkInfo footer ul.links li.mapIcon{
+	display: none;
+}
 
 
 
@@ -1028,4 +1190,3 @@ font-size: 14px;
 
     
 }
-
