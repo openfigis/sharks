@@ -147,7 +147,8 @@ p{
 #listMenu{
 	background-color: rgba(0, 29, 64, 0.9);
 	color: white;
-	padding: 10px 25px;
+	/** FEDERICO **/
+	/*padding: 10px 25px;
 	display: none;
 	z-index: 999;
 	 width: 87.055261%;
@@ -161,7 +162,7 @@ max-width: 1150px;
     left: 0;
     right: 0;
     overflow: hidden;
-    margin-top: 135px;
+    margin-top: 135px;*/
 	    
 	    
 }
@@ -354,35 +355,40 @@ font-size: 23px;
 
 .spacer{margin: 5px;}
 .africa{
-	background-image: url("images/africa.jpg");
+/** FEDERICO **/
+	background-image: url("../images/africa.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
 	
 .america{
-	background-image: url("images/america.jpg");
+/** FEDERICO **/
+	background-image: url("../images/america.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
 	
 .asia{
-	background-image: url("images/asia.jpg");
+/** FEDERICO **/
+	background-image: url("../images/asia.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
 	
 .europe{
-	background-image: url("images/europe.jpg");
+/** FEDERICO **/
+	background-image: url("../images/europe.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
 	
 .oceania{
-	background-image: url("images/oceania.jpg");
+/** FEDERICO **/
+	background-image: url("../images/oceania.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
