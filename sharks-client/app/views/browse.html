@@ -1,17 +1,18 @@
 
 <div id="listMenu">  
   <h2>Shark species</h2>
+    <ul id="MenuSpecies">
+    <li ng-repeat="group in ctrl.groups"ng-click="ctrl.showGroup(group)">{{group.name}}</li>
+  </ul>
+  <div class="clear"></div>
+  
+  <br>
+  
   <ul id="MenuSpecies">
     <li ng-repeat="sp in ctrl.species"ng-click="ctrl.showSpecies(sp)">{{sp.englishName}}</li>
   </ul>
   <div class="clear"></div>
    
-  <br>
-  <ul id="MenuSpecies">
-    <li ng-repeat="group in ctrl.groups"ng-click="ctrl.showGroup(group)">{{group.name}}</li>
-  </ul>
-  <div class="clear"></div>
-        
   <h2>Management Entities</h2>          
   <ul id="MenuEntities">          
     <li ng-repeat="entity in ctrl.entities"ng-click="ctrl.showEntity(entity)">{{entity.acronym}}</li>
