@@ -8,8 +8,8 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("EntityDetailsCtrl", ["routingservice", "factsheets", "rfb", "entity",
-                                          function (routingservice, factsheets, rfb, entity) {
+  .controller("EntityDetailsCtrl", ["routingservice", "factsheets", "mapViewer", "rfb", "entity",
+                                          function (routingservice, factsheets, mapViewer, rfb, entity) {
 	  
 	  this.entity = entity;
 	  
@@ -19,4 +19,14 @@ angular.module("sharksClient")
 	  this.showCountry = function(country) {
 		routingservice.toSingle("countries", country);  
 	  };
+	  
+	  this.mapUrl = mapViewer.rfbBaseUrl;	  
+	  
+	  FigisMap.draw( { 
+		  target:"areaMap", 
+		  rfb: entity.acronym, 
+		  context: "FI-Org", 
+		  legend:"OrgMapLegend",
+		  mapSize:"S" });
+		
   }]);
