@@ -1,49 +1,43 @@
-<div id="main">
+<div class="species-page group-page" id="main">
   
   <header>
-      <h2 class="pagetitle">{{ctrl.group.name}}</h2>
+    <h2 class="pagetitle">{{ctrl.group.name}}</h2>
 
-      <!-- this section is present only on species pages -->
-      <section id="infoBox">
-        <div class="sharkPict">
-          <img ng-src="{{ctrl.imageUrl(ctrl.group)}}" err-src="{{ctrl.missingImageUrl}}">
-        </div>
+    <!-- this section is present only on species pages -->
+    <section id="infoBox">
+      <div class="sharkPict">
+        <img ng-src="{{ctrl.imageUrl(ctrl.group)}}" err-src="{{ctrl.missingImageUrl}}">
+      </div>
+        
+      <div class="sharkInfo">
+        <ul class="commonNames">
+          <li ng-repeat="species in ctrl.group.species" class="en">
+          <a ng-click="ctrl.showSpecies(species)">{{species.englishName}} <i>{{species.scientificName}}</i></a>
+          </li>
+        </ul>
+        <footer>
+          <ul class="links">
+            <li ng-if="ctrl.showCitesLink"><a ng-click="ctrl.showEntity('CITES')">Cites</a></li>  
+            <li ng-if="ctrl.showCmsLink"><a ng-click="ctrl.showEntity('CMS')">CMS Appendix 2 species</a></li>
+          </ul>
+        </footer>
+      </div>
       
-      </section>
-      <div class="clear"></div>
+    </section>
+    <div class="clear"></div>
   </header>
+    
   <section id="primary">
     <div ng-repeat="(acronym, measures) in ctrl.ems">
       <h2>{{acronym}}</h2>
       
-      <section class="measure" ng-repeat="measure in measures">
-        <div class="symbol">{{measure.symbol}}</div> 
-        <div class="binding">{{measure.binding?'Binding':'Non Binding'}}</div>
-        <div class="title">
-        <h4>{{measure.documentType}}</h4> 
-          <p>{{measure.title}}</p> 
-          <div class="year">year <b>{{measure.year}}</b></div>
-          <div class="download" ng-repeat="source in measure.sources"><a href="{{source.url}}"><img src="images/download-icon.png"></a></div>
-          </div> 
-      </section>
+      <measure ng-repeat="measure in measures" value="measure">
+      </measure>
+      
     </div>
   </section>
 
   <section id="secondary">
-  
-      <!-- On species page it will be a map -->
-  
-    <div id="sidemap">
-      <h2>Map of distribution</h2>  
-      <iframe width='100%' height='400px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/maxtudio.lm4on1eb/attribution,zoompan,geocoder,share.html?access_token=pk.eyJ1IjoibWF4dHVkaW8iLCJhIjoiZlpwbklYSSJ9.tnEdYapHqPgn15mgv8X-hA'></iframe>
-    </div>
-  
-    <div id="memberCountries">
-      <h2>Species</h2> 
-      <ul class="list">
-        <li ng-repeat="species in ctrl.group.species">{{species.nameEn}}</li>  
-      </ul>
-    </div>
  </section>
 
 </div>
