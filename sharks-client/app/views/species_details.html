@@ -3,33 +3,43 @@
   <header>
       <h2 class="pagetitle">{{ctrl.species.nameEn}}</h2>
 
-      <!-- this section is present only on species pages -->
       <section id="infoBox">
         <div class="sharkPict">
           <img ng-src="{{ctrl.imageUrl(ctrl.species)}}" err-src="{{ctrl.missingImageUrl}}">
         </div>
       
         <div class="sharkInfo">
-          <h5 class="lat">{{ctrl.species.scientificName}}</h5>
-          <div class="asfisCode">{{ctrl.species.alphaCode}}</div>
-          
-          <h4>Common names</h4> 
           <ul class="commonNames">
-          <li ng-repeat="(lang, name) in ctrl.species.officialNames">
-                {{name}}
-               </li>
+            <li class="lat">{{ctrl.species.scientificName}}</li>
+            <li ng-repeat="(lang, name) in ctrl.species.officialNames" class="{{lang}}">
+            	<b>{{lang}}:</b>{{name}}
+            </li>
+            <li>FAO 3-alpha code: {{ctrl.species.alphaCode}}</li>
           </ul>
+          <footer>
+            <ul class="links">
+              <li><a href="subpage-species.html#">Cites</a></li>  
+              <li><a href="subpage-species.html#">CMS Appendix 2 species</a></li>
+             </ul>
+            <div class="factSheet">Species Fact sheet</div>
+          </footer>
         </div>
       </section>
       <div class="clear"></div>
   </header>
+          
   <section id="primary">
+  
     <div ng-repeat="(acronym, measures) in ctrl.ems">
       <h2>{{acronym}}</h2>
       
       <section class="measure" ng-repeat="measure in measures">
-        <div class="symbol">{{measure.symbol}}</div> 
-        <div class="binding">{{measure.binding?'Binding':'Non Binding'}}</div>
+        <div class="symbol">
+          <ul>
+            <li>{{measure.symbol}}</li>
+            <li class="binding">{{measure.binding?'Binding':'Non Binding'}}</li>
+          </ul>
+        </div> 
         <div class="title">
           <h4>{{measure.documentType}}</h4> 
           <p>{{measure.title}}</p> 
@@ -47,9 +57,7 @@
   </section>
 
   <section id="secondary">
-  
-    <!-- On species page it will be a map -->
-  
+ 
     <div id="sidemap">
       <h2>Map of distribution</h2>  
       <iframe width='100%' height='400px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/maxtudio.lm4on1eb/attribution,zoompan,geocoder,share.html?access_token=pk.eyJ1IjoibWF4dHVkaW8iLCJhIjoiZlpwbklYSSJ9.tnEdYapHqPgn15mgv8X-hA'></iframe>
