@@ -46,15 +46,18 @@ public class SpeciesServiceImpl implements SpeciesService {
 		
 		String scientificName = species.getScientificName();
 		Map<String, String> officialNames = Collections.emptyMap();
+		String figisId = null;
 		
 		RefPubSpecies refPubSpecies = refPubService.getSpecies(species.getAlphaCode());
 		if (refPubSpecies!=null) {
 			scientificName = refPubSpecies.getScientificName();
 			officialNames = toNamesMap(refPubSpecies.getLongNames());
+			figisId = refPubSpecies.getFicItem();
 		}
 		
 		return new SpeciesDetails(alpha3Code, 
-				scientificName, 
+				scientificName,
+				figisId,
 				officialNames,
 				convert(species.getMeasures(), TO_MEASURE_ENTRY));
 	}
