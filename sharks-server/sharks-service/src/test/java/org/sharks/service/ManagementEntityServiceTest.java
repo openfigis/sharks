@@ -6,9 +6,12 @@ package org.sharks.service;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 import static org.sharks.service.util.TestModelUtils.builEntity;
 import static org.sharks.service.util.TestModelUtils.buildMeasure;
+import static org.sharks.service.util.TestModelUtils.createFigisDoc;
+import static org.sharks.service.util.TestModelUtils.createMember;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,6 +27,7 @@ import org.mockito.Mockito;
 import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.impl.ManagementEntityServiceImpl;
+import org.sharks.service.moniker.MonikerService;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.dao.MeasureDao;
 import org.sharks.storage.dao.MeasureDaoImpl;
@@ -44,6 +48,7 @@ public class ManagementEntityServiceTest {
 		MeasureDao dao = Mockito.mock(MeasureDaoImpl.class);
 		
 		when(dao.listRelatedToManagementEntityAcronym("ICCAT")).thenReturn(Arrays.asList(buildMeasure(0, "sym")));
+		when(dao.listRelatedToManagementEntityAcronym("NOT_IN_RFB_MONIKER")).thenReturn(Arrays.asList(buildMeasure(0, "sym")));
 		
 		return dao;
 	}
@@ -53,11 +58,22 @@ public class ManagementEntityServiceTest {
 		ManagementEntityDao dao = Mockito.mock(ManagementEntityDao.class);
 		
 		when(dao.getByAcronym("ICCAT")).thenReturn(builEntity(0, "ICCAT"));
+		when(dao.getByAcronym("NOT_IN_RFB_MONIKER")).thenReturn(builEntity(0, "NOT_IN_RFB_MONIKER"));
 		when(dao.getByAcronym("NOT_EXISTS")).thenReturn(null);
 		
 		when(dao.list()).thenReturn(Arrays.asList(builEntity(0, "ICCAT")));
 		
 		return dao;
+	}
+	
+	@Produces
+	private MonikerService setupMonikerService() {
+		MonikerService service = Mockito.mock(MonikerService.class);
+		
+		when(service.getFigisDocByAcronym("ICCAT")).thenReturn(createFigisDoc("ICCAT", "1234", "4321", "www.ic.cat", createMember("Italy","IT")));
+		when(service.getFigisDocByAcronym("NOT_IN_RFB_MONIKER")).thenReturn(null);
+		
+		return service;
 	}
 
 	/**
@@ -67,12 +83,26 @@ public class ManagementEntityServiceTest {
 	public void testGet() {
 		EntityDetails details = service.get("ICCAT");
 		assertNotNull(details);
+		assertNotNull(details.getWebSite());
+		assertNotNull(details.getMembers());
+		assertFalse(details.getMembers().isEmpty());
 	}
 	
 	@Test
 	public void testGetWrongEntity() {
 		EntityDetails details = service.get("NOT_EXISTS");
 		assertNull(details);
+	}
+	
+	
+	@Test
+	public void testGetMissingRfbMonikerEntry() {
+		EntityDetails details = service.get("NOT_IN_RFB_MONIKER");
+		assertNotNull(details);
+		assertNull(details.getWebSite());
+		assertNotNull(details.getMembers());
+		assertTrue(details.getMembers().isEmpty());
+		
 	}
 
 	/**

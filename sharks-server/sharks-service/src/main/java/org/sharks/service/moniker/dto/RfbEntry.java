@@ -26,4 +26,7 @@ public class RfbEntry {
 	@XmlAttribute(name="FigisID")
 	private String figisId;
 	
+	@XmlAttribute(name="fid")
+	private String fid;
+	
 }

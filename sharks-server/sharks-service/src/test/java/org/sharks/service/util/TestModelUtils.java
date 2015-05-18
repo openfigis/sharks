@@ -8,6 +8,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 
+import org.sharks.service.moniker.dto.FigisDoc;
+import org.sharks.service.moniker.dto.FigisDoc.Member;
 import org.sharks.service.refpub.dto.MultiLingualName;
 import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.dto.RefPubSpecies;
@@ -94,6 +96,23 @@ public class TestModelUtils {
 	
 	public static RefPubCountry createRefPubCountry(String unIso3Code, String continent, String english) {
 		return new RefPubCountry(unIso3Code, continent, Collections.emptyList(), new MultiLingualName(english, "french", "spanish", "arabic", "chinese", "russian"));
+	}
+	
+	public static FigisDoc createFigisDoc(String acronym, String figisId, String imageId, String website, Member...members) {
+		FigisDoc doc = new FigisDoc();
+		doc.setAcronym(acronym);
+		doc.setFigisId(figisId);
+		doc.setImageId(imageId);
+		doc.setWebsite(website);
+		doc.setMembers(Arrays.asList(members));
+		return doc;
+	}
+	
+	public static Member createMember(String englishName, String iso3code) {
+		Member member = new Member();
+		member.setEnglishName(englishName);
+		member.setIso3code(iso3code);
+		return member;
 	}
 	
 	public static <T> T findFirst(List<T> items, Predicate<T> predicate) {

@@ -20,6 +20,10 @@ public class EntityDetails {
 	private final long id;
 	private final String acronym;
 	private final String name;
+	private final String imageId;
+	private final String webSite;
+	private final List<CountryEntry> members;
 	private final List<MeasureEntry> measures;
+	
 
 }

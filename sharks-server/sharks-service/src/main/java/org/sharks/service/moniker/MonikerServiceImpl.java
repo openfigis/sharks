@@ -31,6 +31,9 @@ public class MonikerServiceImpl implements MonikerService {
 	@Inject @CacheName("rfb4iso3")
 	private ServiceCache<String, List<RfbEntry>> rfb4Iso3Cache;
 	
+	@Inject @CacheName("rfb")
+	private ServiceCache<String, RfbEntry> rfbCache;
+	
 	@Inject @CacheName("figisdoc")
 	private ServiceCache<String, FigisDoc> figisDocCache;
 
@@ -78,11 +81,11 @@ public class MonikerServiceImpl implements MonikerService {
 	}
 	
 	private String toAcronym(String figisId) {
-		FigisDoc doc = getFigisDoc(figisId);
+		FigisDoc doc = getFigisDocById(figisId);
 		return doc!=null?doc.getAcronym():null;
 	}
 	
-	private FigisDoc getFigisDoc(String figisId) {
+	private FigisDoc getFigisDocById(String figisId) {
 		
 		CacheElement<FigisDoc> cacheElement =  figisDocCache.get(figisId);
 		if (cacheElement.isPresent()) return cacheElement.getValue();
@@ -96,6 +99,32 @@ public class MonikerServiceImpl implements MonikerService {
 			return doc;
 		} catch(Exception e) {
 			log.error("Failed retrieving FigisDoc for figisId "+figisId, e);
+			return null;
+		}
+	}
+
+	@Override
+	public FigisDoc getFigisDocByAcronym(String rfbAcronym) {
+		
+		RfbEntry entry = getRfb(rfbAcronym);
+		if (entry == null || entry.getFid() == null) return null;
+		
+		return getFigisDocById(entry.getFid());
+	}
+	
+	private RfbEntry getRfb(String acronym) {
+		CacheElement<RfbEntry> cacheElement =  rfbCache.get(acronym);
+		if (cacheElement.isPresent()) return cacheElement.getValue();
+
+		try {
+			RfbEntry entry = restClient.getRfb(acronym);
+			
+			if (entry == null) log.warn("RfbEntry for acronym "+acronym+" not found");
+			
+			rfbCache.put(acronym, entry);
+			return entry;
+		} catch(Exception e) {
+			log.error("Failed retrieving RfbEntry for acronym "+acronym, e);
 			return null;
 		}
 	}

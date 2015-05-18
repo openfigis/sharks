@@ -53,6 +53,23 @@ public class MonikersRestClient {
 		}
 	}
 	
+	public RfbEntry getRfb(String acronym) {
+		try {
+			URL rfbUrl = getRfbUrl(acronym);
+			
+			log.trace("getting rfb {} from {}", acronym, rfbUrl);
+			String content = httpClient.get(rfbUrl);
+			
+			MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
+			Output<RfbEntry> output = response.getOutput();
+			if (output.getItems()!=null && !output.getItems().isEmpty()) return output.getItems().get(0);
+			return null;
+			
+		} catch(Exception e) {
+			throw new MonikersRestClientException("Error retrieving rfb for "+acronym, e);
+		}
+	}
+	
 	public FigisDoc getFigisDoc(String figisId) {
 		try {
 			URL figisDocUrl = getFigisdocl(figisId);
@@ -69,6 +86,10 @@ public class MonikersRestClient {
 	
 	private URL getRfb4Iso3Url(String iso3Code) throws MalformedURLException {
 		return new URL(restUrl+"rfb4iso3/"+iso3Code);
+	}
+	
+	private URL getRfbUrl(String acronym) throws MalformedURLException {
+		return new URL(restUrl+"rfb/"+acronym);
 	}
 	
 	private URL getFigisdocl(String figisId) throws MalformedURLException {

@@ -38,11 +38,17 @@ public class MonikerServiceTest {
 	protected MonikersRestClient getRestClient() {
 		MonikersRestClient client = Mockito.mock(MonikersRestClient.class);
 		
-		when(client.getRfb4Iso3("USA")).thenReturn(Arrays.asList(new RfbEntry("7352")));
-		when(client.getRfb4Iso3("ITA")).thenReturn(Arrays.asList(new RfbEntry("NOT_EXISTS")));
-		when(client.getRfb4Iso3("FRA")).thenReturn(Arrays.asList(new RfbEntry("ERROR")));
+		when(client.getRfb4Iso3("USA")).thenReturn(Arrays.asList(new RfbEntry("7352", null)));
+		when(client.getRfb4Iso3("ITA")).thenReturn(Arrays.asList(new RfbEntry("NOT_EXISTS", null)));
+		when(client.getRfb4Iso3("FRA")).thenReturn(Arrays.asList(new RfbEntry("ERROR", null)));
 		when(client.getRfb4Iso3("NOT_EXISTS")).thenReturn(null);
 		when(client.getRfb4Iso3("ERROR")).thenThrow(new MonikersRestClientException("",null));
+		
+		when(client.getRfb("ICCAT")).thenReturn(new RfbEntry(null, "7352"));
+		when(client.getRfb("APFIC")).thenReturn(new RfbEntry(null, "NOT_EXISTS"));
+		when(client.getRfb("CACFISH")).thenReturn(new RfbEntry(null, "ERROR"));
+		when(client.getRfb("NOT_EXISTS")).thenReturn(null);
+		when(client.getRfb("ERROR")).thenThrow(new MonikersRestClientException("",null));
 		
 		FigisDoc doc = new FigisDoc();
 		doc.setAcronym("ICCAT");
@@ -95,6 +101,44 @@ public class MonikerServiceTest {
 		
 		assertNotNull(rfbs);
 		assertTrue(rfbs.isEmpty());
+	}
+	
+	/**
+	 * Test method for {@link org.sharks.service.moniker.MonikerService#getFigisDocByAcronym(java.lang.String)}.
+	 */
+	@Test
+	public void testGetFigisDocByAcronym() {
+		FigisDoc rfb = service.getFigisDocByAcronym("ICCAT");
+		
+		assertNotNull(rfb);
+	}
+	
+	@Test
+	public void testGetFigisDocByAcronymMissingRFB() {
+		FigisDoc rfb = service.getFigisDocByAcronym("NOT_EXISTS");
+		
+		assertNull(rfb);
+	}
+	
+	@Test
+	public void testGetFigisDocByAcronymMissingDoc() {
+		FigisDoc rfb = service.getFigisDocByAcronym("APFIC");
+		
+		assertNull(rfb);
+	}
+	
+	@Test
+	public void testGetFigisDocByAcronymConnectionError() {
+		FigisDoc rfb = service.getFigisDocByAcronym("ERROR");
+		
+		assertNull(rfb);
+	}
+	
+	@Test
+	public void testGetFigisDocByAcronymConnectionErrorForDoc() {
+		FigisDoc rfb = service.getFigisDocByAcronym("CACFISH");
+		
+		assertNull(rfb);
 	}
 
 }

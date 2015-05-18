@@ -18,6 +18,9 @@
 	
 	<!-- cache for rfb4iso3 moniker -->
 	<cache name="rfb4iso3" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
+		
+	<!-- cache for rfb moniker -->
+	<cache name="rfb" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
 	
 	<!-- cache for figisdoc moniker -->
 	<cache name="figisdoc" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>

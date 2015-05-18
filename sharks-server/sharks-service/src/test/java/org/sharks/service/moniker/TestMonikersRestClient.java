@@ -28,10 +28,17 @@ public class TestMonikersRestClient {
 	}
 
 	@Test @Ignore
-	public void testGetRfbs() {
+	public void testGetRfb4Iso3() {
 		List<RfbEntry> rfbs = client.getRfb4Iso3("USA");
 		assertNotNull(rfbs);
 		System.out.println(rfbs);
+	}
+	
+	@Test
+	public void testGetRfb() {
+		RfbEntry rfb = client.getRfb("ICCAT");
+		assertNotNull(rfb);
+		System.out.println(rfb);
 	}
 	
 	@Test @Ignore

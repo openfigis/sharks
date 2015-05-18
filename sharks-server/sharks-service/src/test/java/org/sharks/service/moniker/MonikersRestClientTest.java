@@ -42,6 +42,14 @@ public class MonikersRestClientTest {
 		
 		when(httpClient.get(new URL("http://localhost/rfb4iso3/ERROR"))).thenThrow(new RuntimeException("Get failed"));
 		
+		content = getResource("/rfb.xml");
+		when(httpClient.get(new URL("http://localhost/rfb/ICCAT"))).thenReturn(content);
+		
+		content = getResource("/rfb_not_found.xml");
+		when(httpClient.get(new URL("http://localhost/rfb/NOT_EXISTS"))).thenReturn(content);
+		
+		when(httpClient.get(new URL("http://localhost/rfb/ERROR"))).thenThrow(new RuntimeException("Get failed"));
+		
 		
 		content = getResource("/figisdoc.xml");
 		when(httpClient.get(new URL("http://localhost/figisdoc/organization/7538"))).thenReturn(content);
@@ -59,7 +67,7 @@ public class MonikersRestClientTest {
 	 * Test method for {@link org.sharks.service.moniker.rest.MonikersRestClient#getRfb4Iso3(java.lang.String)}.
 	 */
 	@Test
-	public void testGetRfbs() {
+	public void testGetRfb4Iso3() {
 		List<RfbEntry> entries = client.getRfb4Iso3("ALB");
 		
 		assertNotNull(entries);
@@ -67,15 +75,38 @@ public class MonikersRestClientTest {
 	}
 	
 	@Test
-	public void testGetRfbsMissingCountry() {
+	public void testGetRfb4Iso3MissingCountry() {
 		List<RfbEntry> entries = client.getRfb4Iso3("NOT_EXISTS");
 		
 		assertNull(entries);
 	}
 	
 	@Test(expected=MonikersRestClientException.class)
-	public void testGetRfbsConnectionFail() {
+	public void testGetRfb4Iso3ConnectionFail() {
 		client.getRfb4Iso3("ERROR");
+	}
+	
+	/**
+	 * Test method for {@link org.sharks.service.moniker.rest.MonikersRestClient#getRfb(java.lang.String)}.
+	 */	
+	@Test
+	public void testGetRfb() {
+		RfbEntry entry = client.getRfb("ICCAT");
+		
+		assertNotNull(entry);
+		assertNotNull(entry.getFid());
+	}
+	
+	@Test
+	public void testGetRfbMissingCountry() {
+		RfbEntry entry = client.getRfb("NOT_EXISTS");
+		
+		assertNull(entry);
+	}
+	
+	@Test(expected=MonikersRestClientException.class)
+	public void testGetRfbConnectionFail() {
+		client.getRfb("ERROR");
 	}
 
 	/**

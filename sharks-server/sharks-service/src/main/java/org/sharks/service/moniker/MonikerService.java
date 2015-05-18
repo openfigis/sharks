@@ -5,6 +5,8 @@ package org.sharks.service.moniker;
 
 import java.util.List;
 
+import org.sharks.service.moniker.dto.FigisDoc;
+
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
@@ -17,5 +19,13 @@ public interface MonikerService {
 	 * @return the list of RFB, an empty list if the country has not been found or the list of rfb is not available.
 	 */
 	public List<String> getRfbsForCountry(String countryIso3);
+	
+	
+	/**
+	 * Returns the {@link FigisDoc} associated to the specified RFB acronym.
+	 * @param rfbAcronym the RFB acronym.
+	 * @return the {@link FigisDoc} or <code>null</code> if not found.
+	 */
+	public FigisDoc getFigisDocByAcronym(String rfbAcronym);
 
 }

@@ -13,8 +13,10 @@ import org.sharks.service.event.ApplicationEvent;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.storage.dao.CountryDao;
+import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.dao.SpeciesDao;
 import org.sharks.storage.domain.Country;
+import org.sharks.storage.domain.MgmtEntity;
 import org.sharks.storage.domain.Species;
 
 /**
@@ -29,6 +31,9 @@ public class CachesWarmer {
 	
 	@Inject
 	private CountryDao countryDao;
+	
+	@Inject
+	private ManagementEntityDao entityDao;
 	
 	@Inject
 	private RefPubService refPubService;
@@ -65,6 +70,7 @@ public class CachesWarmer {
 		
 		log.trace("countries...");
 		for (Country country:countryDao.listWithPoAs()) monikerService.getRfbsForCountry(country.getCode());
+		for (MgmtEntity entity:entityDao.list()) monikerService.getFigisDocByAcronym(entity.getAcronym());
 		log.trace("done");
 
 		log.trace("Monikers cache warmup complete");

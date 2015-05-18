@@ -8,11 +8,13 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.GroupEntry;
 import org.sharks.service.dto.InformationSourceEntry;
 import org.sharks.service.dto.MeasureEntry;
 import org.sharks.service.dto.PoAEntry;
+import org.sharks.service.moniker.dto.FigisDoc.Member;
 import org.sharks.storage.domain.CustomSpeciesGrp;
 import org.sharks.storage.domain.InformationSource;
 import org.sharks.storage.domain.Measure;
@@ -91,6 +93,15 @@ public class EntryProducers {
 					entity.getAcronym());
 		}
 
+	};
+	
+	public static final EntryProducer<Member, CountryEntry> TO_COUNTRY_ENTRY = new AbstractEntryProducer<Member, CountryEntry>() {
+
+		@Override
+		public CountryEntry produce(Member item) {
+			return new CountryEntry(item.getIso3code(), item.getEnglishName(), null);
+		}
+		
 	};
 	
 	public static abstract class AbstractEntryProducer<I,O> implements EntryProducer<I,O> {

@@ -25,7 +25,7 @@ public class MonikersParserTest {
 	}
 
 	@Test
-	public void testRfbResponseParsing() {
+	public void testRfb4Iso3ResponseParsing() {
 		String content = getResource("/rfb4iso3.xml");
 		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
 		
@@ -40,8 +40,35 @@ public class MonikersParserTest {
 	}
 	
 	@Test
-	public void testRfbNotFoundResponseParsing() {
+	public void testRfb4Iso3NotFoundResponseParsing() {
 		String content = getResource("/rfb4iso3_not_found.xml");
+		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
+		
+		assertNotNull(response);
+		assertNotNull(response.getOutput());
+		
+		assertNull(response.getOutput().getItems());
+				
+	}
+	
+	@Test
+	public void testRfbResponseParsing() {
+		String content = getResource("/rfb.xml");
+		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
+		
+		assertNotNull(response);
+		assertNotNull(response.getOutput());
+		assertFalse(response.getOutput().getItems().isEmpty());
+		
+		RfbEntry first = response.getOutput().getItems().get(0);
+
+		assertNotNull(first.getFid());
+		
+	}
+	
+	@Test
+	public void testRfbNotFoundResponseParsing() {
+		String content = getResource("/rfb_not_found.xml");
 		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);
