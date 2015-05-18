@@ -4,7 +4,11 @@
 		"baseUrl": "/"
 	},
 	"factsheets": {
-		"baseUrl": "http://www.fao.org/fishery/species/"
+		"speciesBaseUrl": "http://www.fao.org/fishery/species/",
+		"rfbBaseUrl": "http://www.fao.org/fishery/rfb/"
+	},
+	"rfb" : {
+		"logoBaseUrl": "http://www.fao.org/figis/servlet/IRS?iid="
 	},
 	"rest": {
 		"baseUrl": "http://localhost:8080/sharks-web/rest/"

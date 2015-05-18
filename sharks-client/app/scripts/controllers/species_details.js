@@ -23,7 +23,7 @@ angular.module("sharksClient")
 	  this.showCitesLink = Stream(species.measures).anyMatch({entityAcronym:"CITES"});
 	  this.showCmsLink = Stream(species.measures).anyMatch({entityAcronym:"CMS"});
 	  
-	  this.factsheetsUrl = species.figisId !== null? factsheets.baseUrl + species.figisId : null;
+	  this.factsheetsUrl = species.figisId !== null? factsheets.speciesBaseUrl + species.figisId : null;
 	  
 	  this.showEntity = function(acronym) {
 		  routingservice.toSingleById("entities",acronym);

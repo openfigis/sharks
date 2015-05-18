@@ -4,29 +4,28 @@ Species SELECTOR
 
 
 #SpeciesSelector{
-	background-color: rgba(0, 0, 0, 0.5);
+	//background-color: rgba(0, 0, 0, 0.5);
 	height: 400px;
 	width: 100%;
 	position: relative;
-	background-image: url(../images/coral2.png);
+	background-image: url(images/coral2.png);
 	background-repeat: no-repeat;
 	background-position: right bottom;
 }
 #SpeciesSelector ul{
-width: 70%;
+width: 98%;
 //outline: 1px solid red;
-margin: 25px 0;
+margin: 0 2%;
 text-align: left;
 padding: 0;
 position: absolute;
-bottom: 0;
-left: 20px;
+bottom: 3px;
 }
 
 
 #SpeciesSelector ul li{
-	width: 44px;
-	height: 44px;
+	width: 35px;
+	height: 35px;
 	border-radius: 5px;
 	margin: 2px;
 	background-color: white;
@@ -45,8 +44,8 @@ left: 20px;
 }
 
 div#sharksIllu{
-	width: 80%;
-	margin:  5px 10%;
+	width: 60%;
+	margin:  5px 20%;
 	position: absolute;
 	top: 0;
 }
@@ -55,7 +54,7 @@ div#sharksInfo{
 	width: auto;
 	//border: 1px solid white;
 	position: absolute;
-	right: 0;
+	right: -100px;
 	bottom: 0
 }
 div#sharksInfo h1{
@@ -176,6 +175,7 @@ div.eye{
 Species SELECTOR
 */
 
+/*
 #sharksIllu{
 	display: none;
 }
@@ -213,6 +213,7 @@ left: 0;
 span.mobile{display: block;
 	padding: 10px 5px 5px 50px;
 }
+*/
 
 
 
@@ -220,6 +221,7 @@ span.mobile{display: block;
 Entities SELECTOR
 */
 
+/*
 #map{
 	display: none;
 }
@@ -241,4 +243,5 @@ Entities SELECTOR
 
     
 }
+*/
 

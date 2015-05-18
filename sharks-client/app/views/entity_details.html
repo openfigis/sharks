@@ -1,71 +1,54 @@
-<div id="main">
+<div class="entity-page" id="main">
   <header>
     <h2 class="pagetitle">{{ctrl.entity.acronym}}</h2> 
     <h3 class="subtitle">{{ctrl.entity.name}}</h3>
           
     <section id="infoBox">
-      <div class="logo"><img src="images/BannIccat.gif"></div>
+      <div class="logo">
+        <a ng-if="ctrl.entity.webSite!==null" ng-href="{{ctrl.entity.webSite}}" target="_blank"><img ng-src="{{ctrl.logoUrl}}"></a>
+        <div class="factSheet" ng-if="ctrl.factsheetsUrl!==null"><a ng-href="{{ctrl.factsheetsUrl}}" target="_blank">RFB fact sheet</a></div> 
+      </div>
     </section>
+
     <div class="clear"></div>
   </header>
 
   <section id="primary">
     <h2>Measures</h2>
-    <section class="measure" ng-repeat="measure in ctrl.entity.measures" ng-click="ctrl.showMeasure(measure)" class="pointer">
-      <div class="symbol">{{measure.symbol}}</div> 
-      <div class="binding">{{measure.binding?'Binding':'Non Binding'}}</div>
-      <div class="title">
-        <h4>{{measure.documentType}}</h4> 
-        <p>{{measure.title}}</p> 
-        <div class="year">year <b>{{measure.year}}</b></div>
-        <div class="download">
-          <a ng-repeat="source in measure.sources" href="{{source.url}}">
-            <img src="images/download-icon.png"> 
-          </a>  
-        </div>
-      </div> 
-    </section>
+    
+    <measure ng-repeat="measure in ctrl.entity.measures" value="measure">
+    </measure>
     
     <h2>Others</h2>
-    <section class="measure">
-    <div class="title">
-    <h4>Report</h4>
-    <p>Report of the by-catch coordination study</p> 
-    <div class="year">year <b>2010</b></div>
-    <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
-    </div> 
+    <section class="measure" ng-repeat="other in ctrl.entity.others" >
+      <div class="title">
+        <h4>{{other.type}}</h4>
+        <p>{{other.title}}</p> 
+        <div class="year">year <b>{{other.year}}</b></div>
+		<div class="download" ng-if="other.url!==null">
+          <a href="{{other.url}}" >
+            <img src="images/download-icon.png">
+          </a>
+        </div>
+      </div>
     </section>
-    <section class="measure">
-    <div class="title">
-    <h4>Identification</h4>
-    <p>Guide for identification of Atlantic ocean sharks</p> 
-    <div class="year">year <b>2012</b></div>
-    <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
-    </div> 
-    </section>
-
+    
+    
+    <div id="sidemap">
+      <h2>{{ctrl.entity.acronym}} area of competence</h2>  
+      <iframe width='100%' height='400px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/maxtudio.lm4on1eb/attribution,zoompan,geocoder,share.html?access_token=pk.eyJ1IjoibWF4dHVkaW8iLCJhIjoiZlpwbklYSSJ9.tnEdYapHqPgn15mgv8X-hA'></iframe>
+    </div>
 
   </section>
 
-
-
   <section id="secondary">
   
-  <!-- On species page it will be a map -->
-  
-    <div id="sidemap">
-      <h2>Map </h2>  
-      <iframe width='100%' height='400px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/maxtudio.lm4on1eb/attribution,zoompan,geocoder,share.html?access_token=pk.eyJ1IjoibWF4dHVkaW8iLCJhIjoiZlpwbklYSSJ9.tnEdYapHqPgn15mgv8X-hA'></iframe>
-    </div>
-  
-  <!-- On RFBs page it will be a list of counties -->
-
     <div id="memberCountries">
-      <h2>Member countries</h2> 
+      <h2>Member countries</h2>	
       <ul class="list">
-      <li>Japan</li>  
-      <li>South Africa</li> 
-      <li>Ghana</li>  
+        <li ng-repeat="member in ctrl.entity.members">
+          <a ng-click="ctrl.showCountry(member)">{{member.name}}</a>
+        </li>	
       </ul>
     </div>
 
