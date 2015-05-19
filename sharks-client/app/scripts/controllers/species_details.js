@@ -26,7 +26,7 @@ angular.module("sharksClient")
 	  this.factsheetsUrl = species.figisId !== null? factsheets.speciesBaseUrl + species.figisId : null;
 	  
 	  this.showEntity = function(acronym) {
-		  routingservice.toSingleById("entities",acronym);
+		  routingservice.toSingleById("entities", acronym);
 	  };
 	  
 	  this.imageUrl = imagesservice.speciesMediumImageUrl;
