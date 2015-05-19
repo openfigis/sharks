@@ -2,7 +2,7 @@
 <section class="measure">
   <div class="symbol">
     <ul>
-      <li>{{value.symbol}}</li>
+      <li ng-if="value.symbol!==null">{{value.symbol}}</li>
       <li class="binding">{{value.binding?'Binding':'Non Binding'}}</li>
     </ul>
   </div> 
