@@ -1,7 +1,7 @@
 
 <section id="SpeciesSelector">
   <div id="sharksIllu">
-    <img src="images/shark_image_0000_Cetorhinus_maximus_pri2.png">
+    <img ng-src="{{ctrl.imgUrl}}">
     <div id="sharksInfo">
       <h1>{{ctrl.title}}</h1>
       <h2>{{ctrl.subTitle}}</h2>
@@ -9,23 +9,20 @@
   </div>  
   
   <ul>
-   <li class="selectorspecies selectorfamily" 
-   ng-repeat="group in ctrl.groups" 
-   ng-click="ctrl.showGroup(group)" 
-   ng-mouseover="ctrl.hoverGroup(group)">
-      <img src="images/shark_thumb_0000_Cetorhinus_maximus_pri2.png">
+    <li class="selectorspecies selectorfamily" 
+        ng-repeat="group in ctrl.groups" 
+        ng-click="ctrl.showGroup(group)" 
+        ng-mouseover="ctrl.hoverGroup(group)">
+      <img ng-src="{{ctrl.groupThumbUrl(group)}}" err-src="{{ctrl.missingThumbUrl}}">
       <span class="mobile">{{group.name}}</span>
     </li>
     <li class="selectorspecies" 
-     ng-class="{ singlespecies: $first}"
-    ng-repeat="sp in ctrl.species" 
-    ng-click="ctrl.showSpecies(sp)"
-    ng-mouseover="ctrl.hoverSpecies(sp)"
-    >
+        ng-class="{ singlespecies: $first}"
+        ng-repeat="sp in ctrl.species" 
+        ng-click="ctrl.showSpecies(sp)"
+        ng-mouseover="ctrl.hoverSpecies(sp)">
       <img ng-src="{{ctrl.speciesThumbUrl(sp)}}" err-src="{{ctrl.missingThumbUrl}}">
       <span class="mobile">{{sp.nameEn}}</span>
-      
-      
     </li>
   </ul>
 </section>

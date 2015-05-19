@@ -19,6 +19,8 @@ angular.module("sharksClient")
 	  this.footer = footer;
 	  this.showUrls = showUrls;
 	  
+	  this.imgUrl = "images/TMP_SPECIES_SELECTOR.png";
+	  
 	  this.showSpecies = function(species) {
 		  routingservice.toSingle("species", species);
 	  };
@@ -37,9 +39,7 @@ angular.module("sharksClient")
 		this.subTitle = "";
 	  };
 	  
-	  this.imageUrl = imagesservice.speciesSmallImageUrl;
-	  this.missingImageUrl = imagesservice.speciesMissingSmallImageUrl;
-	  
 	  this.missingThumbUrl = imagesservice.missingThumbImageUrl;
 	  this.speciesThumbUrl = imagesservice.speciesThumbImageUrl;
+	  this.groupThumbUrl = imagesservice.groupThumbImageUrl;
   }]);
