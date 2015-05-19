@@ -1,25 +1,23 @@
 /*
-Species SELECTOR
+	Species SELECTOR
 */
 
-
 #SpeciesSelector{
-	//background-color: rgba(0, 0, 0, 0.5);
 	height: 400px;
 	width: 100%;
 	position: relative;
-	background-image: url(images/coral2.png);
+	background-image: url(../images/coral.png);
 	background-repeat: no-repeat;
 	background-position: right bottom;
 }
+
 #SpeciesSelector ul{
-width: 98%;
-//outline: 1px solid red;
-margin: 0 2%;
-text-align: left;
-padding: 0;
-position: absolute;
-bottom: 3px;
+	width: 98%;
+	margin: 0 2%;
+	text-align: left;
+	padding: 0;
+	position: absolute;
+	bottom: 3px;
 }
 
 
@@ -72,21 +70,14 @@ div#sharksInfo h2{
 	font-size: 1.1em;
 }
 
-
-
 div#sharksIllu img{max-width: 100%}
 
-
 span.mobile{display: none;}
-
-
 
 
 /*
 Entities SELECTOR
 */
-
-
 
 #entitySelector{
 	background-color: rgba(0, 0, 0, 0.5);
@@ -104,7 +95,6 @@ Entities SELECTOR
 	padding: 0;
 	overflow: hidden;
 }
-
 
 #legend{
 	width: 30%;

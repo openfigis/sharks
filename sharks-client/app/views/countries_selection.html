@@ -1,7 +1,7 @@
 
 <section id="countriesMap">
 
-  <ul class="africa" ng-repeat="(continent, countries) in ctrl.groupedCountries">
+  <ul class="country" ng-repeat="(continent, countries) in ctrl.groupedCountries">
     <div class="spacer">
       <h2>{{continent | uppercase}}</h2>
         <li ng-repeat="country in countries"ng-click="ctrl.show(country)">{{country.name}}</li>
