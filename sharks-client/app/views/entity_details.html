@@ -20,7 +20,7 @@
       <measure ng-repeat="measure in ctrl.entity.measures" value="measure">
       </measure>
       
-      <h2>Others</h2>
+      <h2 ng-if="ctrl.entity.others.length!=0">Others</h2>
       <section class="measure" ng-repeat="other in ctrl.entity.others" >
         <div class="title">
           <h4>{{other.type}}</h4>
@@ -45,7 +45,7 @@
   
     <section id="secondary">
     
-      <div id="memberCountries">
+      <div id="memberCountries" ng-if="ctrl.entity.members.length!=0">
         <h2>Member countries</h2>	
         <ul class="list">
           <li ng-repeat="member in ctrl.entity.members">
