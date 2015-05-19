@@ -153,7 +153,7 @@ services.factory("imagesservice", [function() {
 		};
 		
 		this.groupMediumImageUrl = function(group) {
-			return "images/groups/"+group.code+"-drawing-medium.gif"; 
+			return "images/groups/"+group.code+"-drawing-medium.png"; 
 		};
 		
 		this.groupThumbImageUrl = function(group) {

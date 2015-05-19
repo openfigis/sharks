@@ -1,43 +1,43 @@
-<div class="species-page group-page" id="main">
+<div class="species-page group-page">
+  <div id="main">
   
-  <header>
-    <h2 class="pagetitle">{{ctrl.group.name}}</h2>
+    <header>
+      <h2 class="pagetitle">{{ctrl.group.name}}</h2>
 
-    <!-- this section is present only on species pages -->
-    <section id="infoBox">
-      <div class="sharkPict">
-        <img ng-src="{{ctrl.imageUrl(ctrl.group)}}" err-src="{{ctrl.missingImageUrl}}">
-      </div>
+      <section id="infoBox">
+        <div class="sharkPict">
+          <img ng-src="{{ctrl.imageUrl(ctrl.group)}}" err-src="{{ctrl.missingImageUrl}}">
+        </div>
+          
+        <div class="sharkInfo">
+          <footer>
+            <ul class="links">
+              <li ng-if="ctrl.showCitesLink"><a ng-click="ctrl.showEntity('CITES')">Cites</a></li>  
+              <li ng-if="ctrl.showCmsLink"><a ng-click="ctrl.showEntity('CMS')">CMS Appendix 2 species</a></li>
+            </ul>
+          </footer>
+        </div>
         
-      <div class="sharkInfo">
-        <ul class="commonNames">
-          <li ng-repeat="species in ctrl.group.species" class="en">
-          <a ng-click="ctrl.showSpecies(species)">{{species.englishName}} <i>{{species.scientificName}}</i></a>
-          </li>
-        </ul>
-        <footer>
-          <ul class="links">
-            <li ng-if="ctrl.showCitesLink"><a ng-click="ctrl.showEntity('CITES')">Cites</a></li>  
-            <li ng-if="ctrl.showCmsLink"><a ng-click="ctrl.showEntity('CMS')">CMS Appendix 2 species</a></li>
-          </ul>
-        </footer>
+      </section>
+      <div class="clear"></div>
+    </header>
+      
+    <section id="primary">
+      <div ng-repeat="(acronym, measures) in ctrl.ems">
+        <h2>{{acronym}}</h2>
+        <measure ng-repeat="measure in measures" value="measure">
+        </measure>
       </div>
-      
     </section>
-    <div class="clear"></div>
-  </header>
-    
-  <section id="primary">
-    <div ng-repeat="(acronym, measures) in ctrl.ems">
-      <h2>{{acronym}}</h2>
-      
-      <measure ng-repeat="measure in measures" value="measure">
-      </measure>
-      
-    </div>
-  </section>
-
-  <section id="secondary">
- </section>
-
+  
+    <section id="secondary">
+  
+      <ul class="list">
+        <li ng-repeat="species in ctrl.group.species" class="en">
+        <a ng-click="ctrl.showSpecies(species)">{{species.englishName}} <i>{{species.scientificName}}</i></a>
+        </li>
+      </ul>
+    </section>
+  
+  </div>
 </div>
