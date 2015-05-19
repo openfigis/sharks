@@ -148,8 +148,8 @@ angular
         controller: "CountriesSelectionCtrl",
         controllerAs: "ctrl",
         resolve: {
-        	groupedCountries : function(countriesservice) {
-        		return countriesservice.countriesGroupedByContinent();
+        	countries : function(countriesservice) {
+        		return countriesservice.list();
         	},
       		footer : function(contentservice) {
       			return contentservice.get(paths.countries.footerKey);

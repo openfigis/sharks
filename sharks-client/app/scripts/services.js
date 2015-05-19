@@ -66,7 +66,7 @@ services.factory("measuresservice", ["measuresresource", function(measuresresour
 	
 }]);
 
-services.factory("countriesservice", ["countriesresource", "$q", function(countriesresource, $q) {
+services.factory("countriesservice", ["countriesresource", function(countriesresource) {
 	
 	function CountriesService() {
 		
@@ -74,37 +74,8 @@ services.factory("countriesservice", ["countriesresource", "$q", function(countr
 			return countriesresource.query().$promise;
 		};
 		
-		this.poasGroupedByType = function(code) {
-			var deferred = $q.defer();
-			
-			countriesresource.poas({code:code}).$promise.then(function(poas) {
-				var grouped = Stream(poas).groupBy(function (poa) {
-				      return poa.poAType.description;
-				  });
-				deferred.resolve(grouped);
-			});
-			
-			return deferred.promise;
-		};
-		
-		this.entities = function(country) {
-			return countriesresource.entities({code:country}).$promise;
-		};
-		
 		this.get = function(code) {
 			return countriesresource.get({code:code}).$promise;
-		};
-		
-		this.countriesGroupedByContinent = function() {
-			var deferred = $q.defer();
-			countriesresource.query().$promise.then(function(countries) {
-				var grouped = Stream(countries).groupBy(function (country) {
-				      return country.continent;
-				  });
-				deferred.resolve(grouped);
-            });
-			
-			return deferred.promise;
 		};
 	}
 	return new CountriesService();

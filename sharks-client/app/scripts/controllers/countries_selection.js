@@ -1,17 +1,12 @@
 "use strict";
 
-/**
- * @ngdoc function
- * @name sharksClient.controller:SharkSpeciesCtrl
- * @description
- * # SharkSpeciesCtrl
- * Controller of the sharksClient
- */
 angular.module("sharksClient")
-  .controller("CountriesSelectionCtrl", ["routingservice", "groupedCountries", "footer", 
-                                         function (routingservice, groupedCountries, footer) {
+  .controller("CountriesSelectionCtrl", ["routingservice", "countries", "footer", 
+                                         function (routingservice, countries, footer) {
 	  
-	  this.groupedCountries = groupedCountries;
+	  this.groupedCountries = Stream(countries)
+	  	.sorted("name")
+	  	.groupBy("continent");
 	  
 	  this.footer = footer;
 
