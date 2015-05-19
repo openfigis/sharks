@@ -39,7 +39,7 @@ angular.module("sharksClient")
           target:"distributionMap", 
           mapSize:"L", 
           distribution:[{ layer:"fifao:SPECIES_DIST", 
-            filter:"ALPHACODE='"+species.alphaCode+"' AND DISPORDER='2'", 
+            filter:"ALPHACODE='"+species.alphaCode+"'", 
             title:"Abramis brama", 
             autoZoom:true }], 
             legend:"mapSpeciesLegend", 
