@@ -18,5 +18,7 @@ public interface ManagementEntityDao {
 	public MgmtEntity getByAcronym(String acronym);
 
 	public List<MgmtEntity> list();
+	
+	public List<MgmtEntity> listRelatedToInformationSource();
 
 }

@@ -1,8 +1,10 @@
 package org.sharks.storage.dao;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -23,7 +25,7 @@ public class ManagementEntityDaoTest {
 
 	@Inject
 	ManagementEntityDao dao;
-
+	
 	@Test
 	public void testGetByAcronym() {
 		MgmtEntity entity = dao.getByAcronym("ICCAT");
@@ -37,4 +39,12 @@ public class ManagementEntityDaoTest {
 		MgmtEntity entity = dao.getByAcronym("NOT_EXISTS");
 		assertNull(entity);
 	}
+	
+	@Test
+	public void testListRelatedToInformationSource() {
+		List<MgmtEntity> entities = dao.listRelatedToInformationSource();
+		assertNotNull(entities);
+		assertEquals(9, entities.size());
+	}	
+
 }
