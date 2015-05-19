@@ -141,9 +141,10 @@ p{
 #listMenu{
 	background-color: rgba(0, 29, 64, 0.9);
 	color: white;
-	/* The quick list menu is now a view
-	
 	padding: 10px 25px;
+	
+	/* The quick list menu is now a view
+
 	display: none;
 	z-index: 999;
 	max-width: 760px;
