@@ -3,6 +3,7 @@ package org.sharks.storage.dao;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import java.util.List;
 
@@ -36,6 +37,22 @@ public class InformationSourceDaoTest {
 		
 		assertNotNull(sources);
 		assertTrue(sources.isEmpty());
+	}
+	
+	@Test
+	public void testExistsRelatedToEntityByAcronym() {
+		Boolean exists = dao.existsRelatedToEntityByAcronym("ICCAT");
+		
+		assertNotNull(exists);
+		assertTrue(exists);
+	}
+	
+	@Test
+	public void testExistsRelatedToEntityByAcronymNotExists() {
+		Boolean exists = dao.existsRelatedToEntityByAcronym("SEAFO");
+		
+		assertNotNull(exists);
+		assertFalse(exists);
 	}
 	
 	

@@ -48,5 +48,23 @@ public class InformationSourceDaoImpl extends AbstractDao<InformationSource, Lon
 		TypedQuery<InformationSource> query = entityManager.createQuery(criteriaQuery);
 		return query.getResultList();
 	}
+	
+	public Boolean existsRelatedToEntityByAcronym(String entityAcronym) {
+		
+		EntityManager entityManager = emf.createEntityManager();
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		
+		CriteriaQuery<Boolean> criteriaQuery = criteriaBuilder.createQuery(Boolean.class);
+		Root<InformationSource> sources = criteriaQuery.from(type);
+		
+		criteriaQuery.select(criteriaBuilder.greaterThan(criteriaBuilder.count(sources), 0l));
+		
+		Predicate wherePredicate = criteriaBuilder.equal(sources.get("mgmtEntity").get("acronym"),entityAcronym);
+		
+		criteriaQuery.where(wherePredicate);
+		
+		TypedQuery<Boolean> query = entityManager.createQuery(criteriaQuery);
+		return query.getSingleResult();
+	}
 
 }
