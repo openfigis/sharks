@@ -16,7 +16,7 @@
             <div class="year">year <b>{{poa.poAYear}}</b></div>
             <div ng-repeat="source in poa.sources">
               <div class="download" ng-if="source.url!==null">
-                <a href="{{source.url}}" >
+                <a href="{{source.url}}" target="_blank">
                   <img src="images/download-icon.png">
                 </a>
               </div>
