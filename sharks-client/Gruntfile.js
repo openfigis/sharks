@@ -256,6 +256,8 @@ module.exports = function (grunt) {
           '!<%= yeoman.dist %>/images/species/**',
           '!<%= yeoman.dist %>/images/groups/**',
           '!<%= yeoman.dist %>/images/entities/**',
+          '!<%= yeoman.dist %>/images/eye.png',
+          '!<%= yeoman.dist %>/images/neye.png',
           '!<%= yeoman.dist %>/images/TMP*',
           '<%= yeoman.dist %>/styles/fonts/*'
         ]
