@@ -65,7 +65,7 @@ public class ManagementEntityServiceTest {
 		when(dao.getByAcronym("NOT_IN_RFB_MONIKER")).thenReturn(builEntity(0, "NOT_IN_RFB_MONIKER"));
 		when(dao.getByAcronym("NOT_EXISTS")).thenReturn(null);
 		
-		when(dao.list()).thenReturn(Arrays.asList(builEntity(0, "ICCAT")));
+		when(dao.listRelatedToInformationSource()).thenReturn(Arrays.asList(builEntity(0, "ICCAT")));
 		
 		return dao;
 	}

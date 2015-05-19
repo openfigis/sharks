@@ -81,7 +81,7 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 
 	@Override
 	public List<EntityEntry> list() {
-		return convert(dao.list(), TO_ENTITY_ENTRY);
+		return convert(dao.listRelatedToInformationSource(), TO_ENTITY_ENTRY);
 	}
 	
 }
