@@ -44,9 +44,9 @@ angular
 					id: function(country) {return country.code;}
 				},
 				entities: {
-					all:"/rfbs",
-					single:"/rfb/:acronym",
-					singlePath:"/rfb/",
+					all:"/institutions",
+					single:"/institution/:acronym",
+					singlePath:"/institution/",
 					footerKey: "ENTITIES_FOOTER",
 					id: function(entity) {return entity.acronym;}
 				}
