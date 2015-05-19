@@ -49,18 +49,6 @@ angular
 					singlePath:"/rfb/",
 					footerKey: "ENTITIES_FOOTER",
 					id: function(entity) {return entity.acronym;}
-				},
-				measures: {
-					all:"/measures",
-					single:"/measure/:id",
-					singlePath:"/measure/",
-					id: function(measure) {return measure.id;}
-				},
-				poas: {
-					all:"/poas",
-					single:"/poas/:code",
-					singlePath:"/poa/",
-					id: function(poa) {return poa.code;}
 				}
   })
   .config(function ($routeProvider, paths) {
@@ -195,28 +183,6 @@ angular
         templateUrl: "views/search.html",
         controller: "SearchCtrl",
         controllerAs: "ctrl"
-      })
-      
-      .when(paths.measures.single, {
-        templateUrl: "views/measure_details.html",
-        controller: "MeasureDetailsCtrl",
-        controllerAs: "ctrl",
-        resolve: {
-        	measure : function($route, measuresservice) {
-        		return measuresservice.get($route.current.params.id);
-        	}
-        }
-      })
-      
-      .when(paths.poas.single, {
-        templateUrl: "views/poa_details.html",
-        controller: "PoaDetailsCtrl",
-        controllerAs: "ctrl",
-        resolve: {
-        	poa : function($route, poasservice) {
-        		return poasservice.get($route.current.params.code);
-        	}
-        }
       })
       
       .otherwise({

@@ -2,8 +2,7 @@
 
 var services = angular.module("services", ["resources"]);
 
-
-services.factory("speciesservice", ["speciesresource", "$q", function(speciesresource, $q) {
+services.factory("speciesservice", ["speciesresource", function(speciesresource) {
 	
 	function SpeciesService() {
 		
@@ -13,19 +12,6 @@ services.factory("speciesservice", ["speciesresource", "$q", function(speciesres
 
 		this.get = function(alphaCode) {
 			return speciesresource.get({alphaCode:alphaCode}).$promise;
-		};
-		
-		this.getAll = function(alphaCodes) {
-			var deferred = $q.defer();
-			speciesresource.list().$promise.then(function(species) {
-				var found = [];
-				for (var i = 0; i < species.length; i++) {
-				    if (alphaCodes.indexOf(species[i].alphaCode) >= 0) found.push(species[i]);
-				}
-				deferred.resolve(found);
-            });
-			
-			return deferred.promise;
 		};
 	}
 	return new SpeciesService();
@@ -48,24 +34,6 @@ services.factory("groupsservice", ["groupsresource", function(groupsresource) {
 	
 }]);
 
-
-
-services.factory("measuresservice", ["measuresresource", function(measuresresource) {
-	
-	function MeasuresService() {
-		
-		this.listGrouppedByEntity = function(alphaCode) {
-			return measuresresource.groupByEntity({speciesAlphaCodes:[alphaCode]}).$promise;
-		};
-		
-		this.get = function(code) {
-			return measuresresource.get({id:code}).$promise;
-		};
-	}
-	return new MeasuresService();
-	
-}]);
-
 services.factory("countriesservice", ["countriesresource", function(countriesresource) {
 	
 	function CountriesService() {
@@ -82,44 +50,19 @@ services.factory("countriesservice", ["countriesresource", function(countriesres
 	
 }]);
 
-services.factory("entitiesservice", ["entitiesresource", "$q", function(entitiesresource, $q) {
+services.factory("entitiesservice", ["entitiesresource", function(entitiesresource) {
 	
 	function EntitiesService() {
 		
 		this.list = function() {
 			return entitiesresource.query().$promise;
 		};
-		
-		this.getAll = function(acronyms) {
-			var deferred = $q.defer();
-			entitiesresource.query().$promise.then(function(entities) {
-				var found = [];
-				for (var i = 0; i < entities.length; i++) {
-				    if (acronyms.indexOf(entities[i].acronym) >= 0) found.push(entities[i]);
-				}
-				deferred.resolve(found);
-            });
-			
-			return deferred.promise;
-		};
-		
+				
 		this.get = function(acronym) {
 			return entitiesresource.get({acronym:acronym}).$promise;
 		};
 	}
 	return new EntitiesService();
-	
-}]);
-
-services.factory("poasservice", ["poasresource", function(poasresource) {
-	
-	function PoaService() {
-		
-		this.get = function(code) {
-			return poasresource.get({code:code}).$promise;
-		};
-	}
-	return new PoaService();
 	
 }]);
 
@@ -146,7 +89,6 @@ services.factory("contentservice", ["contentresource",  function(contentresource
 	return new ContentService();
 	
 }]);
-
 
 
 services.factory("routingservice", ["paths", "$location", "$window", "$log", function(paths, $location, $window, $log) {

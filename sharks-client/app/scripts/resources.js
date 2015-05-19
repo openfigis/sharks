@@ -16,33 +16,17 @@ resources.factory("groupsresource", ["$resource", "rest", function($resource, re
 	});
 }]);
 
-resources.factory("measuresresource", ["$resource", "rest", function($resource, rest) {
-	return $resource(rest.baseUrl + "measures/:id/", null, {
-		get: {method: "GET", cache: true},
-		groupByEntity: {method:"GET", url:rest.baseUrl + "measures/groupByEntity", isArray:true, cache: true}
-	});
-}]);
-
 resources.factory("countriesresource", ["$resource", "rest", function($resource, rest) {
 	return $resource(rest.baseUrl + "countries/:code/", null, {
 		get: {method: "GET", cache: true},
-		query: {method: "GET", cache: true, params: {onlyWithPoAs:true},isArray:true},
-		poas: {method: "GET",  url:rest.baseUrl + "countries/:code/poas", cache: true, isArray:true},
-		entities: {method: "GET",  url:rest.baseUrl + "countries/:code/entities", cache: true, isArray:true}
+		query: {method: "GET", cache: true, params: {onlyWithPoAs:true},isArray:true}
 	});
 }]);
 
 resources.factory("entitiesresource", ["$resource", "rest", function($resource, rest) {
 	return $resource(rest.baseUrl + "managemententities/:acronym/", null, {
-		query: {method: "GET", cache: true, isArray:true},
-		measures: {method: "GET",  url:rest.baseUrl + "managemententities/:acronym/measures", cache: true, isArray:true},
-		countries: {method: "GET",  url:rest.baseUrl + "managemententities/:acronym/countries", cache: true, isArray:true}
-	});
-}]);
-
-resources.factory("poasresource", ["$resource", "rest", function($resource, rest) {
-	return $resource(rest.baseUrl + "poas/:code/", null, {
-		get: {method: "GET", cache: true}
+		get: {method: "GET", cache: true},
+		query: {method: "GET", cache: true, isArray:true}
 	});
 }]);
 
