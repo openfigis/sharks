@@ -10,8 +10,9 @@
 angular.module("sharksClient")
   .controller("SpeciesSelectionCtrl", ["routingservice", "imagesservice", "species", "groups", "footer", "showUrls",
                                        function (routingservice, imagesservice, species, groups, footer, showUrls) {
-	  this.species = species;
-	  this.groups = groups;
+	  
+	  this.species = Stream(species).sorted("englishName").toArray();
+	  this.groups = Stream(groups).sorted("name").toArray();
 
 	  this.title = "";
 	  this.subTitle = "";

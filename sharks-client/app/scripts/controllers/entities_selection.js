@@ -12,6 +12,7 @@ angular.module("sharksClient")
                                          function (routingservice, entities, footer) {
 	  
 	  this.entities = Stream(entities)
+	  		.sorted("acronym")
 	  		.filter(function (entity) {
 			  return entity.acronym !== "CITES" && entity.acronym !== "CMS";
 	  		})
