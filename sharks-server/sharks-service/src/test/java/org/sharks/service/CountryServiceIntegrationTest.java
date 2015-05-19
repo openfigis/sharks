@@ -7,7 +7,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.*;
+import static org.sharks.service.util.TestModelUtils.buildCountry;
+import static org.sharks.service.util.TestModelUtils.buildPoA;
+import static org.sharks.service.util.TestModelUtils.findFirst;
 import static org.sharks.service.util.TestUtils.getResource;
 
 import java.net.MalformedURLException;
@@ -35,9 +37,8 @@ import org.sharks.service.refpub.RefPubServiceImpl;
 import org.sharks.service.refpub.rest.RefPubRestClient;
 import org.sharks.service.util.NoCache;
 import org.sharks.storage.dao.CountryDao;
-import org.sharks.storage.dao.ManagementEntityDao;
+import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.domain.Country;
-import org.sharks.storage.domain.MgmtEntity;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -111,12 +112,10 @@ public class CountryServiceIntegrationTest {
 	}
 	
 	@Produces
-	private ManagementEntityDao setupManagementEntityDao() {
-		ManagementEntityDao dao = Mockito.mock(ManagementEntityDao.class);
-		
-		MgmtEntity entity = builEntity(0,"ICCAT");
-		when(dao.getByAcronym("ICCAT")).thenReturn(entity);
-		
+	protected InformationSourceDao setupInformationSourceDao() {
+		InformationSourceDao dao = Mockito.mock(InformationSourceDao.class);
+		when(dao.existsRelatedToEntityByAcronym("ICCAT")).thenReturn(true);
+		when(dao.existsRelatedToEntityByAcronym("SEAFO")).thenReturn(false);
 		return dao;
 	}
 

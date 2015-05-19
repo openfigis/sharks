@@ -90,8 +90,7 @@ public class EntryProducers {
 
 		@Override
 		public EntityEntry produce(MgmtEntity entity) {
-			return new EntityEntry(entity.getCode(), 
-					entity.getAcronym());
+			return new EntityEntry(entity.getAcronym(), true);
 		}
 
 	};

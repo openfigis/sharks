@@ -8,8 +8,7 @@ import javax.inject.Singleton;
 
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.producer.EntryProducers.AbstractEntryProducer;
-import org.sharks.storage.dao.ManagementEntityDao;
-import org.sharks.storage.domain.MgmtEntity;
+import org.sharks.storage.dao.InformationSourceDao;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -19,14 +18,12 @@ import org.sharks.storage.domain.MgmtEntity;
 public class EntityEntryProducer extends AbstractEntryProducer<String, EntityEntry> {
 	
 	@Inject
-	private ManagementEntityDao dao;
-	
-	//TODO cache
+	private InformationSourceDao sourcesDao;
 
 	@Override
 	public EntityEntry produce(String acronym) {
-		MgmtEntity entity = dao.getByAcronym(acronym);
-		return new EntityEntry(entity!=null?entity.getCode():null, acronym);
+		boolean hasInformationSources = sourcesDao.existsRelatedToEntityByAcronym(acronym);
+		return new EntityEntry(acronym, hasInformationSources);
 	}
 
 }

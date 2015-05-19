@@ -15,7 +15,7 @@ import lombok.Data;
 @XmlRootElement
 public class EntityEntry {
 	
-	private final Long id;
 	private final String acronym;
+	private final boolean hasInformationSources;
 
 }
