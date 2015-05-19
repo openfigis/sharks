@@ -144,7 +144,7 @@ services.factory("imagesservice", [function() {
 		
 		this.speciesMediumImageUrl = function(species) {
 			var sn = species.scientificName.toLowerCase().replace(" ", "_");
-			return "images/species/"+sn+"-drawing-medium.gif"; 
+			return "images/species/"+sn+"-drawing-medium.png"; 
 		};
 		
 		this.speciesThumbImageUrl = function(species) {

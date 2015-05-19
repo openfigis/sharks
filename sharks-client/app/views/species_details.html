@@ -1,52 +1,53 @@
-<div id="main">
+<div class="species-page">
+  <div id="main">
+    <header>
+        <h2 class="pagetitle">{{ctrl.species.nameEn}}</h2>
   
-  <header>
-      <h2 class="pagetitle">{{ctrl.species.nameEn}}</h2>
-
-      <section id="infoBox">
-        <div class="sharkPict">
-          <img ng-src="{{ctrl.imageUrl(ctrl.species)}}" err-src="{{ctrl.missingImageUrl}}">
-        </div>
-      
-        <div class="sharkInfo">
-          <ul class="commonNames">
-            <li class="lat">{{ctrl.species.scientificName}}</li>
-            <li ng-repeat="(lang, name) in ctrl.species.officialNames" class="{{lang}}">
-            	<b>{{lang}}:</b>{{name}}
-            </li>
-            <li>FAO 3-alpha code: {{ctrl.species.alphaCode}}</li>
-          </ul>
-          <footer>
-            <ul class="links">
-              <li ng-if="ctrl.showCitesLink"><a ng-click="ctrl.showEntity('CITES')">Cites</a></li>  
-              <li ng-if="ctrl.showCmsLink"><a ng-click="ctrl.showEntity('CMS')">CMS Appendix 2 species</a></li>
-             </ul>
-            <div class="factSheet" ng-if="ctrl.factsheetsUrl!==null"><a ng-href="{{ctrl.factsheetsUrl}}" target="_blank">Species fact sheet</a></div>
-          </footer>
-        </div>
-      </section>
-      <div class="clear"></div>
-  </header>
-          
-  <section id="primary">
+        <section id="infoBox">
+          <div class="sharkPict">
+            <img ng-src="{{ctrl.imageUrl(ctrl.species)}}" err-src="{{ctrl.missingImageUrl}}">
+          </div>
+        
+          <div class="sharkInfo">
+            <ul class="commonNames">
+              <li class="lat">{{ctrl.species.scientificName}}</li>
+              <li ng-repeat="(lang, name) in ctrl.species.officialNames" class="{{lang}}">
+              	<b>{{lang}}:</b>{{name}}
+              </li>
+              <li>FAO 3-alpha code: {{ctrl.species.alphaCode}}</li>
+            </ul>
+            <footer>
+              <ul class="links">
+                <li ng-if="ctrl.showCitesLink"><a ng-click="ctrl.showEntity('CITES')">Cites</a></li>  
+                <li ng-if="ctrl.showCmsLink"><a ng-click="ctrl.showEntity('CMS')">CMS Appendix 2 species</a></li>
+               </ul>
+              <div class="factSheet" ng-if="ctrl.factsheetsUrl!==null"><a ng-href="{{ctrl.factsheetsUrl}}" target="_blank">Species fact sheet</a></div>
+            </footer>
+          </div>
+        </section>
+        <div class="clear"></div>
+    </header>
+            
+    <section id="primary">
+    
+      <div ng-repeat="(acronym, measures) in ctrl.ems">
+        <h2>{{acronym}}</h2>
+        
+          <measure ng-repeat="measure in measures" value="measure">
+          </measure>
   
-    <div ng-repeat="(acronym, measures) in ctrl.ems">
-      <h2>{{acronym}}</h2>
-      
-        <measure ng-repeat="measure in measures" value="measure">
-        </measure>
-
-    </div>
-  </section>
-
-  <section id="secondary">
- 
-    <div id="sidemap">
-      <h2>Map of distribution</h2>  
-      <div id="distributionMap" width="250px" height="200px" style="width:250px;height:200px;"></div>
-      <a ng-href="{{ctrl.mapUrl}}" target="_blank">Launch the Aquatic Species Distribution map viewer</a>
-   </div>
+      </div>
+    </section>
   
- </section>
-
+    <section id="secondary">
+   
+      <div id="sidemap">
+        <h2>Map of distribution</h2>  
+        <div id="distributionMap" style="width:100%;height:400px;"></div>
+        <a ng-href="{{ctrl.mapUrl}}" target="_blank">Launch the Aquatic Species Distribution map viewer</a>
+     </div>
+    
+   </section>
+  
+  </div>
 </div>
