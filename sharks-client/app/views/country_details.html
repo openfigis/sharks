@@ -1,79 +1,79 @@
-
-<div id="main" class="country-page">
-  <header>
-    <h2 class="pagetitle">{{ctrl.country.name}}</h2>
-    <div class="clear"></div>
-  </header>
-
-  <section id="primary">
+<div class="country-page">
+  <div id="main">
+    <header>
+      <h2 class="pagetitle">{{ctrl.country.name}}</h2>
+      <div class="clear"></div>
+    </header>
   
-    <section ng-repeat="(type, poas) in ctrl.groupedPoas">
-      <h2>{{type}}</h2>
-      <section class="measure" ng-repeat="poa in poas" ng-click="ctrl.showPoa(poa)">
-        <div class="title">
-          <h4>{{poa.title}}</h4> 
-          <p>{{poa.status}}</p> 
-          <div class="year">year <b>{{poa.poAYear}}</b></div>
-          <div ng-repeat="source in poa.sources">
-            <div class="download" ng-if="source.url!==null">
-              <a href="{{source.url}}" >
-                <img src="images/download-icon.png">
-              </a>
+    <section id="primary">
+    
+      <section ng-repeat="(type, poas) in ctrl.groupedPoas">
+        <h2>{{type}}</h2>
+        <section class="measure" ng-repeat="poa in poas" ng-click="ctrl.showPoa(poa)">
+          <div class="title">
+            <h4>{{poa.title}}</h4> 
+            <p>{{poa.status}}</p> 
+            <div class="year">year <b>{{poa.poAYear}}</b></div>
+            <div ng-repeat="source in poa.sources">
+              <div class="download" ng-if="source.url!==null">
+                <a href="{{source.url}}" >
+                  <img src="images/download-icon.png">
+                </a>
+              </div>
             </div>
-          </div>
-         </div> 
+           </div> 
+        </section>
       </section>
+          
+      <h2>Others</h2>
+      <section class="measure"> 
+        <div class="title">
+          <h4>Report</h4>
+          <p>Lorem ipsum dolor sit amet, 2009 Shark assessment Report for the Australian National Plan of action for the conservation and Management of Sharks</p> 
+          <div class="year">year <b>1975</b></div>
+          <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
+        </div> 
+      </section>
+      
+      <section class="measure"> 
+        <div class="title">
+          <h4>Operational Strategy</h4>
+          <p>Lorem ipsum dolor sit amet, National Plan of Action for the conservation and management of sharks 2012-plan 2</p> 
+          <div class="year">year <b>1975</b></div>
+          <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
+        </div> 
+      </section>
+  
+  
+      <h2>Legislation for specific shark (Faolex)</h2>
+      <section class="measure"> 
+        <div class="title">
+          <h4>type</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p> 
+          <div class="year">year <b>1975</b></div>
+          <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
+        </div> 
+      </section>
+      
+      <h2>Related Legislation</h2>
+      <section class="measure"> 
+        <div class="title">
+          <h4>type</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p> 
+          <div class="year">year <b>1975</b></div>
+          <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
+        </div> 
+      </section>
+   
     </section>
-        
-    <h2>Others</h2>
-    <section class="measure"> 
-      <div class="title">
-        <h4>Report</h4>
-        <p>2009 Shark assessment Report for the Australian National Plan of action for the conservation and Management of Sharks</p> 
-        <div class="year">year <b>1975</b></div>
-        <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
-      </div> 
+  
+    <section id="secondary">
+      <div id="listOfRFBs">
+        <h2>List of RFBs</h2> 
+        <ul class="list">
+          <li ng-repeat="rfb in ctrl.country.rfbs" ng-click="ctrl.showEntity(rfb)" ng-disabled='rfb.id === null'>{{rfb.acronym}}</li>  
+        </ul>
+      </div>
     </section>
-    
-    <section class="measure"> 
-      <div class="title">
-        <h4>Operational Strategy</h4>
-        <p>National Plan of Action for the conservation and management of sharks 2012-plan 2</p> 
-        <div class="year">year <b>1975</b></div>
-        <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
-      </div> 
-    </section>
-
-
-    <h2>Legislation for specific shark (Faolex)</h2>
-    <section class="measure"> 
-      <div class="title">
-        <h4>type</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p> 
-        <div class="year">year <b>1975</b></div>
-        <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
-      </div> 
-    </section>
-    
-    <h2>Related Legislation</h2>
-    <section class="measure"> 
-      <div class="title">
-        <h4>type</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p> 
-        <div class="year">year <b>1975</b></div>
-        <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
-      </div> 
-    </section>
- 
-  </section>
-
-  <section id="secondary">
-    <div id="listOfRFBs">
-      <h2>List of RFBs</h2> 
-      <ul class="list">
-        <li ng-repeat="rfb in ctrl.country.rfbs" ng-click="ctrl.showEntity(rfb)" ng-disabled='rfb.id === null'>{{rfb.acronym}}</li>  
-      </ul>
-    </div>
-  </section>
+  </div>
 </div>
-
