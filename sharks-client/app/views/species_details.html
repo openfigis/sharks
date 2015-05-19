@@ -11,7 +11,7 @@
           <div class="sharkInfo">
             <ul class="commonNames">
               <li class="lat">{{ctrl.species.scientificName}}</li>
-              <li ng-repeat="(lang, name) in ctrl.species.officialNames" class="{{lang}}">
+              <li ng-repeat="(lang, name) in ctrl.species.officialNames" class="{{lang}}" ng-if="name!=null">
               	<b>{{lang}}:</b>{{name}}
               </li>
               <li>FAO 3-alpha code: {{ctrl.species.alphaCode}}</li>
