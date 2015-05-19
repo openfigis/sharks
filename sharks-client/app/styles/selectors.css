@@ -94,6 +94,7 @@ Entities SELECTOR
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+	position: relative;
 }
 
 #legend{
@@ -144,5 +145,19 @@ div.eye{
 	height: 30px;
 	width: 30px;
 	float: right;
+}
+
+.mapBaseImage {
+  z-index: 0;
+  position: absolute;
+  bottom: 19px;
+  right: 0;
+}
+
+.mapEntityImage {
+  z-index: 10;
+  position: absolute;
+  bottom: 19px;
+  right: 0;
 }
 

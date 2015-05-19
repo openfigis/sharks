@@ -11,6 +11,8 @@ angular.module("sharksClient")
   .controller("EntitiesSelectionCtrl", ["routingservice", "entities", "footer", 
                                          function (routingservice, entities, footer) {
 	  
+	  this.entitiesInMap = []; 
+	  
 	  this.entities = Stream(entities)
 	  		.sorted("acronym")
 	  		.filter(function (entity) {
@@ -22,6 +24,18 @@ angular.module("sharksClient")
 
 	  this.show = function(entity) {
 		  routingservice.toSingle("entities", entity);
+	  };
+	  
+	  this.toggleInMap = function(entity) {
+		  
+		  var index = this.entitiesInMap.indexOf(entity.acronym);
+		  if (index >= 0) this.entitiesInMap.splice(index, 1);
+		  else this.entitiesInMap.push(entity.acronym);
+
+	  };
+	  
+	  this.isInMap = function(entity) {
+		  return this.entitiesInMap.indexOf(entity.acronym) >= 0 ;
 	  };
 	  
 	  this.showCMS = function() {

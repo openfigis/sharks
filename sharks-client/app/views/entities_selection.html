@@ -1,16 +1,20 @@
 
 <section id="entitySelector">
   
-  <div id="map">
-    <img src="images/TMP_ENTITY_SELECTOR.png">
+  <div id="map" style="position:relative">
+    <img src="images/entities/base.png" class="mapBaseImage">
+    <img ng-repeat="entity in ctrl.entities" 
+          ng-src="images/entities/{{entity.acronym | lowercase}}.png" 
+          class="mapEntityImage"
+          ng-class="{'hidden': !ctrl.isInMap(entity)}">
   </div>
         
   <div id="legend">
     <ul>          
-      <li ng-repeat="entity in ctrl.entities" ng-click="ctrl.show(entity)">
-        <a class="entity">{{entity.acronym}}</a>
-        <div class="eye">
-          <img id="eye" src="images/eye.png">
+      <li ng-repeat="entity in ctrl.entities">
+        <a class="entity" ng-click="ctrl.show(entity)">{{entity.acronym}}</a>
+        <div class="eye" ng-click="ctrl.toggleInMap(entity)">
+          <img id="eye" ng-src="images/{{ctrl.isInMap(entity)?'eye':'neye'}}.png">
         </div>
       </li>
       <li class="cites"><a ng-click="ctrl.showCITES()" class="entity">CITES</a></li>
