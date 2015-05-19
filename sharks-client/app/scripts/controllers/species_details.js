@@ -8,8 +8,12 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SpeciesDetailsCtrl", ["routingservice", "imagesservice", "factsheets", "mapViewer", "species",  
-                                          function (routingservice, imagesservice, factsheets, mapViewer, species) {
+  .controller("SpeciesDetailsCtrl", ["routingservice", "imagesservice", "pageservice", 
+                                     "factsheets", "mapViewer", "species",  
+                                          function (routingservice, imagesservice, pageservice, 
+                                        		  factsheets, mapViewer, species) {
+	  
+	  pageservice.setTitle(species.officialNames.en);
 	  
 	  this.species = species;
 	  this.ems = Stream(species.measures)

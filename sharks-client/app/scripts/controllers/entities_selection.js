@@ -8,8 +8,8 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("EntitiesSelectionCtrl", ["routingservice", "entities", "footer", 
-                                         function (routingservice, entities, footer) {
+  .controller("EntitiesSelectionCtrl", ["routingservice", "pageservice", "entities", "footer", 
+                                         function (routingservice, pageservice, entities, footer) {
 	  
 	  this.entitiesInMap = []; 
 	  
@@ -20,6 +20,7 @@ angular.module("sharksClient")
 	  		})
 	  		.toArray();
 	  
+	  pageservice.setTitle("institutions");
 	  this.footer = footer;
 
 	  this.show = function(entity) {

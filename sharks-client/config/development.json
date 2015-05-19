@@ -14,6 +14,11 @@
 		"speciesBaseUrl": "http://www.fao.org/figis/geoserver/factsheets/species.html",
 		"rfbBaseUrl": "http://www.fao.org/fishery/rfb/mapviewer"
 	},
+	"titleComponents": {
+		"base": "FAO Fisheries & Aquaculture",
+		"middle": "Sharks database of measures",
+		"home": "Database of measures on conservation and management of Sharks"
+	},
 	"rest": {
 		"baseUrl": "http://localhost:8080/sharks-web/rest/"
 	},

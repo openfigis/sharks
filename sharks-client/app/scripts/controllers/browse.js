@@ -1,8 +1,10 @@
 "use strict";
 
 angular.module("sharksClient")
-.controller("BrowseCtrl", ["routingservice", "species", "groups", "entities", "countries",
-                                     function (routingservice, species, groups, entities, countries) {
+.controller("BrowseCtrl", ["routingservice", "pageservice", "species", "groups", "entities", "countries",
+                                     function (routingservice, pageservice, species, groups, entities, countries) {
+	
+	  pageservice.setTitle("browse");
 	
 	  this.species = Stream(species).sorted("englishName").toArray();
 	  this.groups = Stream(groups).sorted("name").toArray();

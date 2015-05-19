@@ -90,6 +90,24 @@ services.factory("contentservice", ["contentresource",  function(contentresource
 	
 }]);
 
+services.factory("pageservice", ["titleComponents",  function(titleComponents) {
+	
+	function PageService() {
+		
+		this.title = "";
+		
+		this.setTitle = function(part) {
+			this.title = titleComponents.base + " - " + titleComponents.middle + " - "+part;
+		};
+		
+		this.setHomeTitle = function() {
+			this.title = titleComponents.base + " - " + titleComponents.home;
+		};
+	}
+	return new PageService();
+	
+}]);
+
 
 services.factory("routingservice", ["paths", "$location", "$window", "$log", function(paths, $location, $window, $log) {
 	

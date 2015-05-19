@@ -1,10 +1,10 @@
 <!doctype html>
-<html class="no-js" ng-app="sharksClient">
+<html class="no-js" ng-app="sharksClient" ng-controller="TitleCtrl">
 
   <head>
     <meta charset="utf-8">
     
-    <title>Sharks</title>
+    <title ng-bind="page.title"></title>
     
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0">
@@ -83,6 +83,7 @@
     <script src="scripts/resources.js"></script>
     <script src="scripts/services.js"></script>
     <script src="scripts/config.js"></script>
+    <script src="scripts/controllers/title.js"></script>
     <script src="scripts/controllers/header.js"></script>
     <script src="scripts/controllers/navigation_bar.js"></script>
     <script src="scripts/controllers/view_footer.js"></script>

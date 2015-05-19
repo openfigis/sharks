@@ -8,8 +8,10 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("SpeciesSelectionCtrl", ["routingservice", "imagesservice", "species", "groups", "footer", "showUrls",
-                                       function (routingservice, imagesservice, species, groups, footer, showUrls) {
+  .controller("SpeciesSelectionCtrl", ["routingservice", "imagesservice", "pageservice", 
+                                       "species", "groups", "footer", "isHome",
+                                       function (routingservice, imagesservice, pageservice,
+                                    		   species, groups, footer, isHome) {
 	  
 	  this.species = Stream(species).sorted("englishName").toArray();
 	  this.groups = Stream(groups).sorted("name").toArray();
@@ -17,8 +19,10 @@ angular.module("sharksClient")
 	  this.title = "";
 	  this.subTitle = "";
 	  
+	  if (isHome) pageservice.setHomeTitle();
+	  else pageservice.setTitle("species");
 	  this.footer = footer;
-	  this.showUrls = showUrls;
+	  this.showUrls = isHome;
 	  
 	  this.imgUrl = "images/TMP_SPECIES_SELECTOR.png";
 	  

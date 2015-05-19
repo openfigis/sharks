@@ -67,7 +67,7 @@ angular
       		footer : function(contentservice) {
       			return contentservice.get(paths.home.footerKey);
       		},
-      		showUrls: function() {
+      		isHome: function() {
       			return true;
       		}
         }
@@ -105,7 +105,7 @@ angular
       		footer : function(contentservice) {
       			return contentservice.get(paths.species.footerKey);
       		},
-      		showUrls: function() {
+      		isHome: function() {
       			return false;
       		}
         }
