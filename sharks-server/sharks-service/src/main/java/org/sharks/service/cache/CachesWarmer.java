@@ -3,6 +3,11 @@
  */
 package org.sharks.service.cache;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -24,6 +29,8 @@ import org.sharks.storage.domain.Species;
  */
 @Slf4j @Singleton
 public class CachesWarmer {
+	
+	private ExecutorService executor = Executors.newFixedThreadPool(2);
 
 	@Inject
 	private SpeciesDao speciesDao;
@@ -44,12 +51,40 @@ public class CachesWarmer {
 	private Configuration configuration;
 	
 	public void warmupCaches() {
-		if (configuration.isCacheWarmupEnabled()) {
-			
-			refPubCacheWarmup();
-			monikersCacheWarmup();
-			
-		} else log.info("cache warmup disabled");
+		if (configuration.isCacheWarmupEnabled()) runWarmers();
+		else log.info("cache warmup disabled");
+	}
+	
+	private void runWarmers() {
+		Future<Void> refpubWarmer = executor.submit(new Callable<Void>() {
+
+			@Override
+			public Void call() throws Exception {
+				refPubCacheWarmup();
+				return null;
+			}
+		});
+		
+		Future<Void> monikerWarmer = executor.submit(new Callable<Void>() {
+
+			@Override
+			public Void call() throws Exception {
+				monikersCacheWarmup();
+				return null;
+			}
+		});
+		
+		try {
+			refpubWarmer.get();
+		} catch (Exception e) {
+			log.error("refpub warmer failed", e);
+		}
+		
+		try {
+			monikerWarmer.get();
+		} catch (Exception e) {
+			log.error("moniker warmer failed", e);
+		}
 	}
 	
 	private void refPubCacheWarmup() {
@@ -71,6 +106,9 @@ public class CachesWarmer {
 		
 		log.trace("countries...");
 		for (Country country:countryDao.list()) monikerService.getRfbsForCountry(country.getCode());
+		log.trace("done");
+		
+		log.trace("entities...");
 		for (MgmtEntity entity:entityDao.list()) monikerService.getFigisDocByAcronym(entity.getAcronym());
 		log.trace("done");
 
