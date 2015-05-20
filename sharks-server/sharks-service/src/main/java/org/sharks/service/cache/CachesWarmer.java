@@ -56,11 +56,11 @@ public class CachesWarmer {
 		log.info("Warming RefPub cache");
 		
 		log.trace("species...");
-		for (Species species:speciesDao.listWithMeasures()) refPubService.getSpecies(species.getAlphaCode());
+		for (Species species:speciesDao.list()) refPubService.getSpecies(species.getAlphaCode());
 		log.trace("done");
 		
 		log.trace("countries...");
-		for (Country country:countryDao.listWithPoAs()) refPubService.getCountry(country.getCode());
+		for (Country country:countryDao.list()) refPubService.getCountry(country.getCode());
 		log.trace("done");
 
 		log.trace("RefPub cache warmup complete");
@@ -70,7 +70,7 @@ public class CachesWarmer {
 		log.info("Warming Monikers cache");
 		
 		log.trace("countries...");
-		for (Country country:countryDao.listWithPoAs()) monikerService.getRfbsForCountry(country.getCode());
+		for (Country country:countryDao.list()) monikerService.getRfbsForCountry(country.getCode());
 		for (MgmtEntity entity:entityDao.list()) monikerService.getFigisDocByAcronym(entity.getAcronym());
 		log.trace("done");
 
