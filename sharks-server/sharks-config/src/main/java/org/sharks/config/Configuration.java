@@ -13,6 +13,8 @@ public interface Configuration {
 	public String getCacheConfiguration();
 	
 	public boolean isCacheWarmupEnabled();
+	
+	public String getCacheCleaningPassphrase();
 
 	public String getRefPubUrl();
 

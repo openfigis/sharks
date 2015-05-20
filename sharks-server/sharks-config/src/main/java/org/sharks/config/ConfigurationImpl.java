@@ -21,6 +21,7 @@ public class ConfigurationImpl implements Configuration {
 	public static final String DB_FILE_LOCATION = "storage.dbfile";
 	public static final String CACHE_CONFIG = "cache.config";
 	public static final String CACHE_WARMUP = "cache.warmup";
+	public static final String CACHE_CLEAN_PASSPHRASE = "cache.cleanPassphrase";
 	public static final String SHARKS_URL = "service.sharks";
 	public static final String REFPUB_URL = "service.refpub";
 	public static final String MONIKERS_URL = "service.monikers";
@@ -84,6 +85,11 @@ public class ConfigurationImpl implements Configuration {
 	public boolean isCacheWarmupEnabled() {
 		String value = properties.getProperty(CACHE_WARMUP);
 		return Boolean.parseBoolean(value);
+	}
+
+	@Override
+	public String getCacheCleaningPassphrase() {
+		return properties.getProperty(CACHE_CLEAN_PASSPHRASE);
 	}
 
 }

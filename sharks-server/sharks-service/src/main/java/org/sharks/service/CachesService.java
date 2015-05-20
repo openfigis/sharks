@@ -7,6 +7,9 @@ import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import lombok.extern.slf4j.Slf4j;
+
+import org.sharks.config.Configuration;
 import org.sharks.service.cache.CachesWarmer;
 import org.sharks.service.cache.ServiceCacheManager;
 import org.sharks.service.event.ApplicationEvent;
@@ -15,7 +18,7 @@ import org.sharks.service.event.ApplicationEvent;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@Singleton
+@Singleton @Slf4j
 public class CachesService {
 	
 	@Inject
@@ -24,11 +27,22 @@ public class CachesService {
 	@Inject
 	private ServiceCacheManager manager;
 	
+	@Inject
+	private Configuration configuration;
+	
 	void cacheWarmup(@Observes ApplicationEvent.Startup startup) {
 		warmer.warmupCaches();
 	}
 	
-	public void clearCaches() {
+	public void clearCaches(String passprhase) {
+		if (configuration.getCacheCleaningPassphrase()!=null 
+				&& !configuration.getCacheCleaningPassphrase().isEmpty()
+				&& !configuration.getCacheCleaningPassphrase().equals(passprhase)) {
+			log.warn("Attempt to clean the cache with a wrong passprhase");
+			
+			return;
+		}
+		
 		manager.clearAllCaches();
 	}
 	
