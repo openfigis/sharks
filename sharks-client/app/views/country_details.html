@@ -10,6 +10,11 @@
       <section ng-repeat="(type, poas) in ctrl.groupedPoas">
         <h2>{{type}}</h2>
         <section class="measure" ng-repeat="poa in poas" ng-click="ctrl.showPoa(poa)">
+          <div class="symbol">
+            <ul>
+              <li class="binding">{{poa.status}}</li>
+            </ul>
+          </div> 
           <div class="title">
             <h4>{{poa.title}}</h4> 
             <p>{{poa.status}}</p> 
