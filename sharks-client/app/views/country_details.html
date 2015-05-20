@@ -76,7 +76,9 @@
       <div id="listOfRFBs">
         <h2>List of RFBs</h2> 
         <ul class="list">
-          <li ng-repeat="rfb in ctrl.country.rfbs" ng-click="ctrl.showEntity(rfb)" ng-disabled='!rfb.hasInformationSources'>{{rfb.acronym}}</li>  
+          <li ng-repeat="rfb in ctrl.country.rfbs">
+            <a ng-click="ctrl.showEntity(rfb)" ng-class="{disabled:!rfb.hasInformationSources}">{{rfb.acronym}}</a>
+          </li>  
         </ul>
       </div>
     </section>
