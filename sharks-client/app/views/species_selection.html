@@ -12,16 +12,21 @@
     <li class="selectorspecies selectorfamily" 
         ng-repeat="group in ctrl.groups" 
         ng-click="ctrl.showGroup(group)" 
-        ng-mouseover="ctrl.hoverGroup(group)">
+        ng-mouseover="isHover=true;ctrl.hoverGroup(group)" 
+        ng-mouseleave="isHover=false"
+        >
       <img ng-src="{{ctrl.groupThumbUrl(group)}}" err-src="{{ctrl.missingThumbUrl}}">
+      <div class="selectorhover" ng-class="{selectorhoverVisible:isHover}"></div>
       <span class="mobile">{{group.name}}</span>
     </li>
     <li class="selectorspecies" 
         ng-class="{ singlespecies: $first}"
         ng-repeat="sp in ctrl.species" 
         ng-click="ctrl.showSpecies(sp)"
-        ng-mouseover="ctrl.hoverSpecies(sp)">
+        ng-mouseover="isHover=true;ctrl.hoverSpecies(sp)"
+        ng-mouseleave="isHover=false">
       <img ng-src="{{ctrl.speciesThumbUrl(sp)}}" err-src="{{ctrl.missingThumbUrl}}">
+      <div class="selectorhover" ng-class="{selectorhoverVisible:isHover}"></div>
       <span class="mobile">{{sp.nameEn}}</span>
     </li>
   </ul>

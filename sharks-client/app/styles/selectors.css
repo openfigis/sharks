@@ -30,6 +30,30 @@
 	list-style-type: none;
 	box-shadow: 1px 1px 1px black;
 	float: left;
+	position:relative;
+}
+
+#SpeciesSelector ul .selectorhover{
+	background-image: url(../images/download-icon.png);
+	background-color: rgb(96, 156, 203);
+	opacity: 0.8;
+  	background-size: 100% 100%;
+  	background-position: 0px 0px;
+  	background-repeat: no-repeat;
+  	border-radius: 5px;
+  	z-index: 10;
+  	position: absolute;
+    bottom: 0px;
+  	right: 0;
+  	width: 35px;
+	height: 35px;
+	display: none;
+}
+
+#SpeciesSelector ul .selectorhoverVisible{
+
+	display:inline-block;
+	cursor: pointer;
 }
 
 
