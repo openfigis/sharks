@@ -24,7 +24,7 @@ angular.module("sharksClient")
 	  this.footer = footer;
 	  this.showUrls = isHome;
 	  
-	  this.imgUrl = "images/TMP_SPECIES_SELECTOR.png";
+	  this.imgUrl = "";
 	  
 	  this.showSpecies = function(species) {
 		  routingservice.toSingle("species", species);
@@ -37,6 +37,7 @@ angular.module("sharksClient")
 	  this.hoverSpecies = function(species) {
 		this.title = species.englishName;
 		this.subTitle = species.scientificName;
+		this.imgUrl = imagesservice.speciesMediumImageUrl(species);
 	  };
 	  
 	  this.hoverGroup = function(group) {
@@ -46,6 +47,7 @@ angular.module("sharksClient")
 	  };
 	  
 	  this.missingThumbUrl = imagesservice.missingThumbImageUrl;
+	  this.missingImgUrl = imagesservice.missingMediumImageUrl;
 	  this.speciesThumbUrl = imagesservice.speciesThumbImageUrl;
 	  this.groupThumbUrl = imagesservice.groupThumbImageUrl;
   }]);

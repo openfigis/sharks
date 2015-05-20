@@ -157,20 +157,16 @@ services.factory("imagesservice", [function() {
 		};
 		
 		this.missingThumbImageUrl = "images/species/missing-thumb.png";
-		this.speciesMissingSmallImageUrl = "images/species/missing-small.gif";
-		this.speciesMissingMediumImageUrl = "images/species/missing-medium.gif";
-		this.groupMissingMediumImageUrl = "images/species/missing-medium.gif";
-		
-		this.speciesSmallImageUrl = function(species) {
-		  return "images/species/"+self.cleanName(species.scientificName)+"-drawing-small.gif";  
-		};
+		this.missingMediumImageUrl = "images/species/missing-medium.png";
+		this.speciesMissingMediumImageUrl = "images/species/missing-medium.png";
+		this.groupMissingMediumImageUrl = "images/species/missing-medium.png";
 		
 		this.speciesMediumImageUrl = function(species) {
 			return "images/species/"+self.cleanName(species.scientificName)+"-drawing-medium.png"; 
 		};
 		
 		this.speciesThumbImageUrl = function(species) {
-			return "images/species/"+self.cleanName(species.scientificName)+"-drawing-thumb.png"; 
+			return "images/species/"+self.cleanName(species.scientificName)+"-drawing-small.jpg"; 
 		};
 		
 		this.groupMediumImageUrl = function(group) {
