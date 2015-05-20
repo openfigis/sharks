@@ -5,6 +5,7 @@ import static org.mockito.Mockito.when;
 import static org.sharks.service.util.TestModelUtils.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.enterprise.inject.Produces;
@@ -21,6 +22,7 @@ import org.sharks.service.impl.SpeciesServiceImpl;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.refpub.dto.RefPubSpecies;
 import org.sharks.storage.dao.SpeciesDao;
+import org.sharks.storage.domain.CustomSpeciesGrp;
 import org.sharks.storage.domain.Species;
 
 /**
@@ -42,6 +44,12 @@ public class SpeciesServiceTest {
 		SpeciesDao dao = Mockito.mock(SpeciesDao.class);
 		
 		Species aSpecies = buildSpecies("ALV", "Alopias vulpinus");
+		aSpecies.setMeasures(Collections.singletonList(buildMeasure(0, "a")));
+		
+		CustomSpeciesGrp group = new CustomSpeciesGrp();
+		group.setMeasures(Arrays.asList(buildMeasure(0, "a"), buildMeasure(1, "b")));
+		aSpecies.setCustomSpeciesGrps(Collections.singletonList(group));
+		
 		when(dao.getByAlphaCode("ALV")).thenReturn(aSpecies);
 
 		noRefPubSpecies = buildSpecies("NRF", "Alopias vulpinus");
@@ -74,6 +82,8 @@ public class SpeciesServiceTest {
 		assertEquals("ALV", details.getAlphaCode());
 		
 		assertEquals(aRefPubSpecies.getLongNames().getFrench(), details.getOfficialNames().get("fr"));
+		
+		assertEquals(2, details.getMeasures().size());
 	}
 	
 	/**

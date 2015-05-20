@@ -4,8 +4,10 @@
 package org.sharks.service.impl;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -16,6 +18,7 @@ import org.sharks.service.producer.SpeciesEntryProducer;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.refpub.dto.RefPubSpecies;
 import org.sharks.storage.dao.SpeciesDao;
+import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.Species;
 
 import static org.sharks.service.producer.EntryProducers.*;
@@ -55,12 +58,23 @@ public class SpeciesServiceImpl implements SpeciesService {
 			figisId = refPubSpecies.getFicItem();
 		}
 		
+		Set<Measure> measures = extractMeasures(species);
+		
 		return new SpeciesDetails(alpha3Code, 
 				scientificName,
 				figisId,
 				officialNames,
-				convert(species.getMeasures(), TO_MEASURE_ENTRY));
+				convert(measures, TO_MEASURE_ENTRY));
 	}
+	
+	private Set<Measure> extractMeasures(Species species) {
+		Set<Measure> measures = new HashSet<Measure>(species.getMeasures());
+		
+		species.getCustomSpeciesGrps().forEach((group)->measures.addAll(group.getMeasures()));
+		
+		return measures;
+	}
+	
 
 	@Override
 	public List<SpeciesEntry> list(boolean onlyWithMeasure) {
