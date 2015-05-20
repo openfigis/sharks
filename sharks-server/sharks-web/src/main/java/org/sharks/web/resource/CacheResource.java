@@ -24,7 +24,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 @ApplicationScoped
 @Path("/caches")
 @Api(value = "caches", description = "Operations about caches")
-public class CachesResource {
+public class CacheResource {
 
 	@Inject
 	private CachesService service;
