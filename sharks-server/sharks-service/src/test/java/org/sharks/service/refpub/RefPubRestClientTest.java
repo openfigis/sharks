@@ -40,6 +40,7 @@ public class RefPubRestClientTest {
 		
 		content = getResource("/country_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO3/code/NOT_EXISTS/xml"))).thenReturn(content);
+		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO3/code/N%2FA/xml"))).thenReturn(content);
 		
 		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO3/code/ERROR/xml")))
 		.thenThrow(new RuntimeException("Get failed"));
@@ -50,9 +51,9 @@ public class RefPubRestClientTest {
 		
 		content = getResource("/species_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/concept/Species/codesystem/ASFIS/code/NOT_EXISTS/xml"))).thenReturn(content);
+		when(httpClient.get(new URL("http://localhost/concept/Species/codesystem/ASFIS/code/N%2FA/xml"))).thenReturn(content);
 		
 		when(httpClient.get(new URL("http://localhost/concept/Species/codesystem/ASFIS/code/ERROR/xml"))).thenThrow(new RuntimeException("Get failed"));
-
 		
 		client = new RefPubRestClient("http://localhost/", httpClient);
 	}
@@ -79,6 +80,13 @@ public class RefPubRestClientTest {
 	public void testGetCountryConnectionError() {
 		client.getCountry("ERROR");
 	}
+	
+	@Test
+	public void testGetCountryWithDisallowedCharInCode() {
+		RefPubCountry country = client.getCountry("N/A");
+		
+		assertNull(country);
+	}
 
 	/**
 	 * Test method for {@link org.sharks.service.refpub.rest.RefPubRestClient#getSpecies(java.lang.String)}.
@@ -102,5 +110,13 @@ public class RefPubRestClientTest {
 	public void testGetSpeciesConnectionError() {
 		client.getSpecies("ERROR");
 	}
+	
+	@Test
+	public void testGetSpeciesWithDisallowedCharsInCode() {
+		RefPubSpecies species = client.getSpecies("N/A");
+		
+		assertNull(species);
+	}
+	
 
 }

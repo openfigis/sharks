@@ -3,8 +3,10 @@
  */
 package org.sharks.service.refpub.rest;
 
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,6 +36,7 @@ public class RefPubRestClient {
 			URL countryUrl = getCountryUrl(iso3Code);
 			
 			log.trace("getting country {} from {}", iso3Code, countryUrl);
+			System.out.println("countryUrl "+countryUrl);
 			String content = httpClient.get(countryUrl);
 			
 			RefPubCountry country = parser.parseCountry(content);
@@ -59,13 +62,13 @@ public class RefPubRestClient {
 	}
 
 	//http://figisapps.fao.org/refpub-web/rest/concept/Country/codesystem/UN-ISO3/code/AFG/xml
-	private URL getCountryUrl(String iso3Code) throws MalformedURLException {
-		return new URL(restUrl+"concept/Country/codesystem/UN-ISO3/code/"+iso3Code+"/xml");
+	private URL getCountryUrl(String iso3Code) throws MalformedURLException, UnsupportedEncodingException {
+		return new URL(restUrl+"concept/Country/codesystem/UN-ISO3/code/"+URLEncoder.encode(iso3Code, "UTF-8")+"/xml");
 	}
 	
 	//http://figisapps.fao.org/refpub-web/rest/concept/Country/codesystem/UN-ISO3/code/AFG/xml
-	private URL getSpeciesUrl(String alpha3Code) throws MalformedURLException {
-		return new URL(restUrl+"concept/Species/codesystem/ASFIS/code/"+alpha3Code+"/xml");
+	private URL getSpeciesUrl(String alpha3Code) throws MalformedURLException, UnsupportedEncodingException {
+		return new URL(restUrl+"concept/Species/codesystem/ASFIS/code/"+URLEncoder.encode(alpha3Code, "UTF-8")+"/xml");
 	}
 
 	public static class RefPubRestClientException extends RuntimeException {
