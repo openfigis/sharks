@@ -150,34 +150,37 @@ services.factory("imagesservice", [function() {
 	
 	function ImagesService() {
 		
+		var self = this;
+		
+		this.cleanName = function(name){
+			return name.toLowerCase().replace(/ /g, "_");
+		};
+		
 		this.missingThumbImageUrl = "images/species/missing-thumb.png";
 		this.speciesMissingSmallImageUrl = "images/species/missing-small.gif";
 		this.speciesMissingMediumImageUrl = "images/species/missing-medium.gif";
 		this.groupMissingMediumImageUrl = "images/species/missing-medium.gif";
 		
 		this.speciesSmallImageUrl = function(species) {
-		  var sn = species.scientificName.toLowerCase().replace(" ", "_");
-		  return "images/species/"+sn+"-drawing-small.gif";  
+		  return "images/species/"+self.cleanName(species.scientificName)+"-drawing-small.gif";  
 		};
 		
 		this.speciesMediumImageUrl = function(species) {
-			var sn = species.scientificName.toLowerCase().replace(" ", "_");
-			return "images/species/"+sn+"-drawing-medium.png"; 
+			return "images/species/"+self.cleanName(species.scientificName)+"-drawing-medium.png"; 
 		};
 		
 		this.speciesThumbImageUrl = function(species) {
-			var sn = species.scientificName.toLowerCase().replace(" ", "_");
-			return "images/species/"+sn+"-drawing-thumb.png"; 
+			return "images/species/"+self.cleanName(species.scientificName)+"-drawing-thumb.png"; 
 		};
 		
 		this.groupMediumImageUrl = function(group) {
-			return "images/groups/"+group.code+"-drawing-medium.png"; 
+			return "images/groups/"+self.cleanName(group.name)+"-drawing-medium.png"; 
 		};
-		
+
 		this.groupThumbImageUrl = function(group) {
-			return "images/groups/"+group.code+"-drawing-thumb.png"; 
+			return "images/groups/"+self.cleanName(group.name)+"-drawing-small.jpg"; 
 		};
-		
+	
 	}
 	return new ImagesService();
 	

@@ -42,6 +42,7 @@ angular.module("sharksClient")
 	  this.hoverGroup = function(group) {
 		this.title = group.name;
 		this.subTitle = "";
+		this.imgUrl = imagesservice.groupMediumImageUrl(group);
 	  };
 	  
 	  this.missingThumbUrl = imagesservice.missingThumbImageUrl;
