@@ -21,6 +21,8 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
+import static org.sharks.web.util.ResourceUtils.*;
+
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
@@ -41,7 +43,7 @@ public class SpeciesResource {
 			@PathParam("alphacode") 
 			@ApiParam(value = "the species 3 alpha code", required = true)
 			String alphacode) {
-		return service.getSpecies(alphacode);
+		return checkNotFound(service.getSpecies(alphacode));
 	}
 	
 	@GET

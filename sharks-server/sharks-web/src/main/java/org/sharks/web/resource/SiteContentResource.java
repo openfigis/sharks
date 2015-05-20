@@ -18,6 +18,8 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
+import static org.sharks.web.util.ResourceUtils.*;
+
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
@@ -38,6 +40,6 @@ public class SiteContentResource {
 			@PathParam("keyword") 
 			@ApiParam(value = "the content keyword", required = true)
 			String keyword) {
-		return service.get(keyword);
+		return checkNotFound(service.get(keyword));
 	}
 }

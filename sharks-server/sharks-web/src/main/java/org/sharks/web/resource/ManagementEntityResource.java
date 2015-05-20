@@ -18,6 +18,8 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
+import static org.sharks.web.util.ResourceUtils.*;
+
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
@@ -39,7 +41,7 @@ public class ManagementEntityResource {
 			@PathParam("acronym") 
 			@ApiParam(value = "the entity acronym", required = true)
 			String acronym) {
-		return service.get(acronym);
+		return checkNotFound(service.get(acronym));
 	}
 	
 	@GET
