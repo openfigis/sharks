@@ -50,9 +50,8 @@ public class CountryResource {
 			@DefaultValue("false") 
 			@QueryParam("onlyWithPoAs") 
 			@ApiParam(value = "a flag to select only countries connected to a PoA", required = false)
-			String onlyWithPoAs) {
-		boolean onlyWithPoAsFlag = Boolean.parseBoolean(onlyWithPoAs);
-		return service.list(onlyWithPoAsFlag);
+			boolean onlyWithPoAs) {
+		return service.list(onlyWithPoAs);
 	}
 
 }
