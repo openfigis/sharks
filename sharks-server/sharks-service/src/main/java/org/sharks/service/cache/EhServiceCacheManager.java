@@ -3,8 +3,7 @@
  */
 package org.sharks.service.cache;
 
-import javax.enterprise.inject.Disposes;
-import javax.enterprise.inject.Produces;
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -20,8 +19,21 @@ import org.sharks.config.Configuration;
 @Slf4j @Singleton
 public class EhServiceCacheManager implements ServiceCacheManager {
 	
-	@Inject
 	private CacheManager cacheManager; 
+	
+	@Inject
+	public EhServiceCacheManager(Configuration configuration) {
+		String cacheConfigurationFile = configuration.getCacheConfiguration();
+
+		if (cacheConfigurationFile == null || cacheConfigurationFile.isEmpty()) {
+			log.info("cache configuration file not specified, using default one");
+			cacheManager = CacheManager.getInstance();
+		} else {
+
+		log.info("loading cache configuration from "+cacheConfigurationFile);
+		cacheManager = CacheManager.newInstance(cacheConfigurationFile);
+		}
+	}
 
 	@Override
 	public <K, V> ServiceCache<K, V> getOrCreateCache(String cacheName) {
@@ -39,22 +51,8 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 		cacheManager.clearAll();
 	}
 	
-	@Produces @Singleton
-	public CacheManager getCacheManager(Configuration configuration) {
-
-		String cacheConfigurationFile = configuration.getCacheConfiguration();
-
-		if (cacheConfigurationFile == null || cacheConfigurationFile.isEmpty()) {
-			log.info("cache configuration file not specified, using default one");
-			return CacheManager.getInstance();
-		} 
-
-		log.info("loading cache configuration from "+cacheConfigurationFile);
-		return CacheManager.newInstance(cacheConfigurationFile);
-	}
-	
-	
-	public void shutdownCacheManager(@Disposes CacheManager cacheManager) {
+	@PreDestroy
+	private void shutdownCacheManager() {
 		log.info("shutting down the cache manager");
 		cacheManager.shutdown();
 	}

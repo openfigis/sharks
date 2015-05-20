@@ -34,16 +34,20 @@ public class CachesService {
 		warmer.warmupCaches();
 	}
 	
-	public void clearCaches(String passphrase) {
+	public boolean clearCaches(String passphrase) {
 		if (configuration.getCacheCleaningPassphrase()!=null 
 				&& !configuration.getCacheCleaningPassphrase().isEmpty()
 				&& !configuration.getCacheCleaningPassphrase().equals(passphrase)) {
-			log.warn("Attempt to clean the cache with a wrong passphrase");
+			log.warn("Attempt to clean the cache with a wrong passphrase exp {} found {}",configuration.getCacheCleaningPassphrase(), passphrase);
 			
-			return;
+			return false;
 		}
 		
+		log.info("cleaning all the caches");
 		manager.clearAllCaches();
+		warmer.warmupCaches();
+		
+		return true;
 	}
 	
 
