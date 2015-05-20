@@ -3,13 +3,12 @@
  */
 package org.sharks.service.cache;
 
-import javax.enterprise.event.Observes;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.config.Configuration;
-import org.sharks.service.event.ApplicationEvent;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.storage.dao.CountryDao;
@@ -23,7 +22,7 @@ import org.sharks.storage.domain.Species;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@Slf4j
+@Slf4j @Singleton
 public class CachesWarmer {
 
 	@Inject
@@ -41,8 +40,10 @@ public class CachesWarmer {
 	@Inject
 	private MonikerService monikerService;
 	
+	@Inject
+	private Configuration configuration;
 	
-	void cacheWarmup(@Observes ApplicationEvent.Startup startup, Configuration configuration) {
+	public void warmupCaches() {
 		if (configuration.isCacheWarmupEnabled()) {
 			
 			refPubCacheWarmup();

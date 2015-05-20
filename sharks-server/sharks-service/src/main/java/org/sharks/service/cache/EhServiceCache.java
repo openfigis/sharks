@@ -13,11 +13,11 @@ import net.sf.ehcache.Element;
  *
  */
 @Alternative
-public class ServiceEhCache<K, V> implements ServiceCache<K, V> {
+public class EhServiceCache<K, V> implements ServiceCache<K, V> {
 	
 	private Cache cache;
 	
-	public ServiceEhCache(Cache cache) {
+	public EhServiceCache(Cache cache) {
 		this.cache = cache;
 	}
 

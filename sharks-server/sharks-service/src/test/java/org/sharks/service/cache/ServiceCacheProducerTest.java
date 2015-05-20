@@ -1,24 +1,24 @@
 package org.sharks.service.cache;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import org.jglue.cdiunit.AdditionalClasses;
 import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.sharks.config.Configuration;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
 @RunWith(CdiRunner.class)
-@AdditionalClasses({ServiceCacheProducer.class, InMemoryCache.class})
+@AdditionalClasses({ServiceCacheProducer.class})
 public class ServiceCacheProducerTest {
 	
 	@Inject
@@ -27,27 +27,20 @@ public class ServiceCacheProducerTest {
 	@Inject @CacheName("myCache")
 	ServiceCache<Long, String> namedCache;
 	
-	@Inject @CacheName("myCache")
-	ServiceCache<Long, String> sameNamedCache;
+	@Inject
+	ServiceCacheManager manager;
 	
-	@Produces
-	private Configuration setupConfiguration() {
-		Configuration conf = Mockito.mock(Configuration.class);
-		
-		when(conf.getCacheConfiguration()).thenReturn(null);
-		
-		return conf;
+	@Produces @Singleton
+	private ServiceCacheManager setupServiceCacheManager() {
+		ServiceCacheManager manager = Mockito.mock(ServiceCacheManager.class);
+
+		return manager;
 	}
 
 	@Test
 	public void test() {
-		assertNotNull(cache);
-		
-		assertNotNull(namedCache);
-		assertNotNull(sameNamedCache);
-		
-		namedCache.put(0l, "TEST");
-		assertEquals("TEST", sameNamedCache.get(0l).getValue());
+		verify(manager, times(1)).getOrCreateCache(null);
+		verify(manager, times(1)).getOrCreateCache("myCache");
 	}
 
 }
