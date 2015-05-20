@@ -36,7 +36,6 @@ public class RefPubRestClient {
 			URL countryUrl = getCountryUrl(iso3Code);
 			
 			log.trace("getting country {} from {}", iso3Code, countryUrl);
-			System.out.println("countryUrl "+countryUrl);
 			String content = httpClient.get(countryUrl);
 			
 			RefPubCountry country = parser.parseCountry(content);
