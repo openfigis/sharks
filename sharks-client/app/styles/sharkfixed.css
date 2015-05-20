@@ -846,7 +846,14 @@ div.logo img{
 }
 #secondary ul.list li a:hover{
 	color: #f90;
+	cursor: pointer;
 }
+
+#secondary ul.list li a.disabled{
+	color: inherit;
+	pointer-events: none;
+}
+
 
 #secondary #memberCountries ul.list li{
 
