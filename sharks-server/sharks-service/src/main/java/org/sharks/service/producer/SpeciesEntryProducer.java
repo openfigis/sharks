@@ -32,6 +32,8 @@ public class SpeciesEntryProducer extends AbstractEntryProducer<Species, Species
 		String scientificName = species.getScientificName();
 		String englishName = species.getNameEn();
 		
+		boolean hasMeasures = hasMeasures(species);
+		
 		RefPubSpecies refPubSpecies = refpub.getSpecies(species.getAlphaCode());
 		if (refPubSpecies!=null) {
 			scientificName = refPubSpecies.getScientificName();
@@ -39,6 +41,11 @@ public class SpeciesEntryProducer extends AbstractEntryProducer<Species, Species
 			if (longNames!=null) englishName = longNames.getEnglish();
 		}
 		
-		return new SpeciesEntry(species.getAlphaCode(), scientificName, englishName);
+		return new SpeciesEntry(species.getAlphaCode(), scientificName, englishName, hasMeasures);
+	}
+	
+	private boolean hasMeasures(Species species) {
+		return !species.getMeasures().isEmpty() 
+				|| species.getCustomSpeciesGrps().stream().anyMatch(group->!group.getMeasures().isEmpty());
 	}
 }

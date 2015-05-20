@@ -3,10 +3,11 @@
  */
 package org.sharks.service.producer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 import static org.sharks.service.util.TestModelUtils.*;
+
+import java.util.Collections;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
@@ -18,6 +19,7 @@ import org.mockito.Mockito;
 import org.sharks.service.dto.SpeciesEntry;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.refpub.dto.RefPubSpecies;
+import org.sharks.storage.domain.CustomSpeciesGrp;
 import org.sharks.storage.domain.Species;
 
 /**
@@ -73,6 +75,35 @@ public class SpeciesEntryProducerTest {
 		//the scientific name has NOT been updated
 		assertNotNull(entry.getScientificName());
 		assertEquals("A_SCIENTIFIC_NAME", entry.getScientificName());
+	}
+	
+	@Test
+	public void testProduceWithoutMeasures() {
+		Species species = buildSpecies("ALV", "A_SCIENTIFIC_NAME");
+		
+		SpeciesEntry entry = producer.produce(species);
+		assertFalse(entry.isHasMeasures());
+	}
+	
+	@Test
+	public void testProduceWithMeasures() {
+		Species species = buildSpecies("ALV", "A_SCIENTIFIC_NAME");
+		species.setMeasures(Collections.singletonList(buildMeasure(0, "a")));
+		
+		SpeciesEntry entry = producer.produce(species);
+		assertTrue(entry.isHasMeasures());
+	}
+	
+	@Test
+	public void testProduceWithMeasuresFromGroup() {
+		Species species = buildSpecies("ALV", "A_SCIENTIFIC_NAME");
+		
+		CustomSpeciesGrp group = buildCustomSpeciesGrp(0, "name");
+		group.setMeasures(Collections.singletonList(buildMeasure(0, "a")));
+		species.setCustomSpeciesGrps(Collections.singletonList(group));
+		
+		SpeciesEntry entry = producer.produce(species);
+		assertTrue(entry.isHasMeasures());
 	}
 
 }

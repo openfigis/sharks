@@ -18,4 +18,5 @@ public class SpeciesEntry {
 	private final String alphaCode;
 	private final String scientificName;
 	private final String englishName;
+	private final boolean hasMeasures;
 }
