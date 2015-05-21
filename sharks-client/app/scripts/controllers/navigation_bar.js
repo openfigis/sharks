@@ -10,7 +10,7 @@ angular.module("sharksClient")
 	  };
 	  
 	  this.isActive = function(path) { 
-	  	return $location.path().startsWith(path.all) || $location.path().startsWith(path.singlePath);
+	  	return $location.path() === path.all || $location.path().startsWith(path.singlePath);
 	  };
 
   }]);

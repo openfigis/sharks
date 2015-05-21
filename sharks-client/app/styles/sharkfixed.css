@@ -233,10 +233,14 @@ div#topMenu ul li a{
 	padding: 10px;
 	position: relative;
 	top: 5px;
-	color: white;
+	color: rgba(170, 189, 118, 1);
 	font-weight: 600;
 	font-size: 12px;
 	text-transform: uppercase;
+}
+
+div#topMenu ul li a:hover, div#topMenu ul li a.active{
+	color: white;
 }
 
 /* Labels for Tabs nav*/
