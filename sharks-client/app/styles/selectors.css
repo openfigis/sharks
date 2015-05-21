@@ -74,7 +74,6 @@ div#sharksIllu{
 
 div#sharksInfo{
 	width: auto;
-	//border: 1px solid white;
 	position: absolute;
 	right: -100px;
 	bottom: 0
@@ -92,6 +91,8 @@ div#sharksInfo h2{
 	color: white;
 	font-weight: 300;
 	font-size: 1.1em;
+	text-transform: none;
+	font-style: italic;
 }
 
 div#sharksIllu img{max-width: 100%}
