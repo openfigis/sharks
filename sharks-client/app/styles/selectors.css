@@ -148,6 +148,10 @@ Entities SELECTOR
 	width: 47%;
 }
 
+
+#entitySelector .divider {
+	clear: both;
+}
 #entitySelector ul li.cites{
 	background-color: rgb(147, 182, 84);
 	width: 35%;
