@@ -17,7 +17,7 @@ angular
   ])
   .constant("paths", {
 				home: {
-					all: "/home",
+					all: "/",
 					footerKey: "HOME_FOOTER"
 				},
 				browse: {
