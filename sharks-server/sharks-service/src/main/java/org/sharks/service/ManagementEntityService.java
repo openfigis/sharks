@@ -16,6 +16,6 @@ public interface ManagementEntityService {
 	
 	EntityDetails get(String acronym);
 	
-	List<EntityEntry> list();
+	List<EntityEntry> list(boolean onlyWithMeasuresOrOthers);
 
 }

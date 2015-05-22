@@ -3,12 +3,17 @@
  */
 package org.sharks.service;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.*;
+import static org.sharks.service.util.TestModelUtils.buildEntity;
+import static org.sharks.service.util.TestModelUtils.buildInformationSource;
+import static org.sharks.service.util.TestModelUtils.buildMeasure;
+import static org.sharks.service.util.TestModelUtils.createFigisDoc;
+import static org.sharks.service.util.TestModelUtils.createMember;
 
 import java.util.Arrays;
 import java.util.List;
@@ -54,7 +59,8 @@ public class ManagementEntityServiceTest {
 		
 		when(dao.getByAcronym("NOT_EXISTS")).thenReturn(null);
 		
-		when(dao.list(ManagementEntityDao.RFMO_TYPE)).thenReturn(Arrays.asList(buildEntity(0, "ICCAT")));
+		when(dao.listRFMOs(true)).thenReturn(Arrays.asList(buildEntity(0, "ICCAT")));
+		when(dao.listRFMOs(false)).thenReturn(Arrays.asList(buildEntity(0, "ICCAT"), buildEntity(1, "SOFAP")));
 		
 		return dao;
 	}
@@ -68,17 +74,6 @@ public class ManagementEntityServiceTest {
 		
 		return service;
 	}
-	
-	/*@Produces
-	private InformationSourceDao steupInformationSourceDao() {
-		InformationSourceDao dao = Mockito.mock(InformationSourceDao.class);
-		
-		InformationSource source = new InformationSource();
-		source.setInformationType(new InformationSourceType());
-		when(dao.listRelatedToEntity(0l, new Long[]{2l, 3l})).thenReturn(Collections.<InformationSource>singletonList(source));
-		
-		return dao;
-	}*/
 
 	/**
 	 * Test method for {@link org.sharks.service.impl.ManagementEntityServiceImpl#get(java.lang.String)}.
@@ -115,9 +110,15 @@ public class ManagementEntityServiceTest {
 	 */
 	@Test
 	public void testList() {
-		List<EntityEntry> entities = service.list();
+		List<EntityEntry> entities = service.list(false);
 		assertNotNull(entities);
-		assertFalse(entities.isEmpty());
+		assertEquals(2,entities.size());
+	}
+	
+	@Test
+	public void testListOnlyWithMeasuresOrOthers() {
+		List<EntityEntry> entities = service.list(true);
+		assertEquals(1,entities.size());
 	}
 
 }

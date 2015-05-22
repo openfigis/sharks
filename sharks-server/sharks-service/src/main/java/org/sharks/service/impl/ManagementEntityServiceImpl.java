@@ -78,8 +78,8 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 	}
 
 	@Override
-	public List<EntityEntry> list() {
-		return convert(dao.list(ManagementEntityDao.RFMO_TYPE), TO_ENTITY_ENTRY);
+	public List<EntityEntry> list(boolean onlyWithMeasuresOrOthers) {
+		return convert(dao.listRFMOs(onlyWithMeasuresOrOthers), TO_ENTITY_ENTRY);
 	}
 	
 }

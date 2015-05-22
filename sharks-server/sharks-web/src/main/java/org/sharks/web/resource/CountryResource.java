@@ -47,7 +47,7 @@ public class CountryResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@ApiOperation(value = "list all the countries", notes="the list of countries can be filtered through the onlyWithPoAs flag", response = CountryEntry.class, responseContainer="List")
+	@ApiOperation(value = "list all the countries", notes="the list of countries can be filtered through the onlyWithMeasuresOrOthers flag", response = CountryEntry.class, responseContainer="List")
 	public List<CountryEntry> list(
 			@DefaultValue("false") 
 			@QueryParam("onlyWithPoAsOrOthers") 

@@ -71,4 +71,29 @@ public class ManagementEntityDaoImpl extends AbstractDao<MgmtEntity, String> imp
 		return query.getResultList();
 	}
 
+	@Override
+	public List<MgmtEntity> listRFMOs(boolean onlyWithMeasuresOrOthers) {
+		EntityManager entityManager = emf.createEntityManager();
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<MgmtEntity> criteriaQuery = criteriaBuilder.createQuery(MgmtEntity.class);
+        Root<MgmtEntity> entity = criteriaQuery.from(MgmtEntity.class);
+        CriteriaQuery<MgmtEntity> all = criteriaQuery.select(entity);
+        
+        Predicate where = criteriaBuilder.equal(entity.get("mgmtEntityType"), RFMO_TYPE);
+        if (onlyWithMeasuresOrOthers) {
+        	where = criteriaBuilder.and(where, criteriaBuilder.isNotEmpty(entity.get("measures")));
+       
+        	Subquery<InformationSource> subQuery = criteriaQuery.subquery(InformationSource.class);
+         	Root<InformationSource> sources = subQuery.from(InformationSource.class);
+        	subQuery.select(sources.get("code"));
+        	subQuery.where(criteriaBuilder.equal(sources.get("informationType"), InformationSourceDao.OTHER_TYPE));
+        	where = criteriaBuilder.and(where, criteriaBuilder.exists(subQuery));
+        }
+        
+        all.where(where);
+        
+		TypedQuery<MgmtEntity> query = entityManager.createQuery(all);
+		return query.getResultList();
+	}
+
 }

@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.ManagementEntityService;
@@ -46,8 +48,12 @@ public class ManagementEntityResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@ApiOperation(value = "list all the management entities", response = EntityEntry.class, responseContainer="List")
-	public List<EntityEntry> list() {
-		return service.list();
+	@ApiOperation(value = "list all the management entities", notes="the list of entities can be filtered through the onlyWithMeasuresOrOthers flag", response = EntityEntry.class, responseContainer="List")
+	public List<EntityEntry> list(
+			@DefaultValue("false") 
+			@QueryParam("onlyWithMeasuresOrOthers") 
+			@ApiParam(value = "a flag to select only entities connected to almost one Measure and/or an information source of type Other", required = false)
+			boolean onlyWithMeasuresOrOthers) {
+		return service.list(onlyWithMeasuresOrOthers);
 	}
 }
