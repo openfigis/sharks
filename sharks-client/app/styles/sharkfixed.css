@@ -805,6 +805,10 @@ div.logo img{
 	padding: 5px;
 }
 
+.measure .download a{
+	outline: none;
+}
+
 .measure .download:hover{
 	background-color: rgba(0, 0, 0, 0.44);	
 }

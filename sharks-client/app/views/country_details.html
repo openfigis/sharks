@@ -65,23 +65,23 @@
         <div class="title">
           <p>More FAO Lex records for {{ctrl.country.name}}</p> 
           <div class="download">
-          <form id="faolexForm" method="post" target="_blank" action="http://faolex.fao.org/cgi-bin/xml.exe" style="display:none;">
-            <input value="dynamic" type="hidden" name="search_type">
-            <input value="FAOLEX" type="hidden" name="database">
-            <input value="result" type="hidden" name="table">
-            <input value="@SCRY" type="hidden" name="sort_name">
-            <input value="fi" type="hidden" name="e_subfile">
-            <input value="N" type="hidden" name="Repealed">
-            <input value="N" type="hidden" name="consolidated">
-            <input value="{{ctrl.country.name}}" type="hidden" name="country">
-            <input value="search" type="hidden" name="SEARCH">
-            <input value="@EPHALL" type="hidden" name="page_header">
-            <input value="@ESALL" type="hidden" name="format_name">
-            <input value="eng" type="hidden" name="lang">
-          </form>
-          <a href="" ng-click="ctrl.submitFaoLexForm()">
-            <img src="images/download-icon.png"> 
-          </a>
+            <form id="faolexForm" method="post" target="_blank" action="http://faolex.fao.org/cgi-bin/xml.exe" style="display:none;">
+              <input value="dynamic" type="hidden" name="search_type">
+              <input value="FAOLEX" type="hidden" name="database">
+              <input value="result" type="hidden" name="table">
+              <input value="@SCRY" type="hidden" name="sort_name">
+              <input value="fi" type="hidden" name="e_subfile">
+              <input value="N" type="hidden" name="Repealed">
+              <input value="N" type="hidden" name="consolidated">
+              <input value="{{ctrl.country.name}}" type="hidden" name="country">
+              <input value="search" type="hidden" name="SEARCH">
+              <input value="@EPHALL" type="hidden" name="page_header">
+              <input value="@ESALL" type="hidden" name="format_name">
+              <input value="eng" type="hidden" name="lang">
+            </form>
+            <a href="" ng-click="ctrl.submitFaoLexForm()">
+              <img src="images/download-icon.png"> 
+            </a>
           
           </div>
         </div> 
