@@ -52,5 +52,19 @@ public class ManagementEntityDaoTest {
 		List<MgmtEntity> rfmos = dao.list(ManagementEntityDao.RFMO_TYPE);
 		assertEquals(18, rfmos.size());
 	}	
+	
+	@Test
+	public void testListCountries() {
+		
+		List<MgmtEntity> countries = dao.listCountries(false);
+		assertEquals(204, countries.size());
+	}
+	
+	@Test
+	public void testListCountriesOnlyWithPoAsOrOthers() {
+		
+		List<MgmtEntity> countries = dao.listCountries(true);
+		assertEquals(35, countries.size());
+	}
 
 }

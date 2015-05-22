@@ -20,7 +20,6 @@ import javax.inject.Inject;
 
 import org.jglue.cdiunit.AdditionalClasses;
 import org.jglue.cdiunit.CdiRunner;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -103,8 +102,9 @@ public class CountryServiceIntegrationTest {
 		
 		when(dao.getByAcronym("NOT_EXISTS")).thenReturn(null);
 		
-		MgmtEntity country2 = buildCountry("USA", "USA", buildPoA());
-		when(dao.list(ManagementEntityDao.COUNTRY_TYPE)).thenReturn(Arrays.asList(country, country2));
+		MgmtEntity country2 = buildCountry("USA", "USA");
+		when(dao.listCountries(false)).thenReturn(Arrays.asList(country, country2));
+		when(dao.listCountries(true)).thenReturn(Arrays.asList(country));
 		
 		when(dao.getByAcronym("ICCAT")).thenReturn(buildEntity(0, "ICCAT", new InformationSource()));
 		when(dao.getByAcronym("SEAFO")).thenReturn(buildEntity(0, "ICCAT"));
@@ -169,8 +169,7 @@ public class CountryServiceIntegrationTest {
 		assertNull(usa.getContinent());
 	}
 	
-	//FIXME
-	@Test @Ignore
+	@Test
 	public void testListOnlyWithPoas() {
 		List<CountryEntry> countries = service.list(true);
 		assertNotNull(countries);

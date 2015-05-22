@@ -50,10 +50,10 @@ public class CountryResource {
 	@ApiOperation(value = "list all the countries", notes="the list of countries can be filtered through the onlyWithPoAs flag", response = CountryEntry.class, responseContainer="List")
 	public List<CountryEntry> list(
 			@DefaultValue("false") 
-			@QueryParam("onlyWithPoAs") 
-			@ApiParam(value = "a flag to select only countries connected to a PoA", required = false)
-			boolean onlyWithPoAs) {
-		return service.list(onlyWithPoAs);
+			@QueryParam("onlyWithPoAsOrOthers") 
+			@ApiParam(value = "a flag to select only countries connected to almost one PoA and/or an information source of type Other", required = false)
+			boolean onlyWithPoAsOrOthers) {
+		return service.list(onlyWithPoAsOrOthers);
 	}
 
 }

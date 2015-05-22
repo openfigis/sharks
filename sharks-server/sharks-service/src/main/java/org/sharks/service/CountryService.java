@@ -16,6 +16,6 @@ public interface CountryService {
 	
 	CountryDetails get(String code);
 	
-	List<CountryEntry> list(boolean onyWithPoas);
+	List<CountryEntry> list(boolean onlyWithPoAsOrOthers);
 	
 }

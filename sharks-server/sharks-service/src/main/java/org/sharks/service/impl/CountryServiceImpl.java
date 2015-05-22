@@ -52,11 +52,8 @@ public class CountryServiceImpl implements CountryService {
 	}
 
 	@Override
-	public List<CountryEntry> list(boolean onyWithPoas) {
-		
-		//TODO filter only with POAS
-		
-		List<MgmtEntity> countries = onyWithPoas?dao.list(ManagementEntityDao.COUNTRY_TYPE):dao.list(ManagementEntityDao.COUNTRY_TYPE);
+	public List<CountryEntry> list(boolean onlyWithPoAsOrOthers) {
+		List<MgmtEntity> countries = dao.listCountries(onlyWithPoAsOrOthers);
 		return convert(countries, entryProducer);
 	}
 
