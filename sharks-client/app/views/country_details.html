@@ -29,26 +29,20 @@
            </div> 
         </section>
       </section>
-          
-      <h2>Others</h2>
-      <section class="measure"> 
-        <div class="title">
-          <h4>Report</h4>
-          <p>Lorem ipsum dolor sit amet, 2009 Shark assessment Report for the Australian National Plan of action for the conservation and Management of Sharks</p> 
-          <div class="year">year <b>1975</b></div>
-          <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
-        </div> 
-      </section>
       
-      <section class="measure"> 
+      <h2 ng-if="ctrl.country.others.length!=0">Others</h2>
+      <section class="measure" ng-repeat="other in ctrl.country.others" >
         <div class="title">
-          <h4>Operational Strategy</h4>
-          <p>Lorem ipsum dolor sit amet, National Plan of Action for the conservation and management of sharks 2012-plan 2</p> 
-          <div class="year">year <b>1975</b></div>
-          <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
-        </div> 
+          <h4>{{other.type}}</h4>
+          <p>{{other.title}}</p> 
+          <div class="year">year <b>{{other.year}}</b></div>
+          <div class="download" ng-if="other.url!==null">
+            <a href="{{other.url}}" >
+              <img src="images/download-icon.png">
+            </a>
+          </div>
+        </div>
       </section>
-  
   
       <h2>Other legislation on sharks (FAOLEX)</h2>
       <section class="measure"> 
