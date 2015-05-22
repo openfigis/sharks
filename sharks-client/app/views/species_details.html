@@ -18,8 +18,8 @@
             </ul>
             <footer>
               <ul class="links">
-                <li ng-if="ctrl.showCitesLink"><a ng-click="ctrl.showEntity('CITES')">Cites</a></li>  
-                <li ng-if="ctrl.showCmsLink"><a ng-click="ctrl.showEntity('CMS')">CMS Appendix 2 species</a></li>
+                <li ng-if="ctrl.showCitesLink" ng-click="ctrl.showEntity('CITES')"><a>Cites</a></li>  
+                <li ng-if="ctrl.showCmsLink" ng-click="ctrl.showEntity('CMS')"><a>CMS Appendix 2 species</a></li>
                </ul>
               <div class="factSheet" ng-if="ctrl.factsheetsUrl!==null"><a ng-href="{{ctrl.factsheetsUrl}}">Species fact sheet</a></div>
             </footer>
