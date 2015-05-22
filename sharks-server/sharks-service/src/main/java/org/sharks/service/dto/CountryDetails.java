@@ -19,7 +19,7 @@ public class CountryDetails {
 
 	private final String code;
 	private final String name;
-	private final List<EntityEntry> rfbs;
+	private final List<CountryEntity> rfbs;
 	private final List<PoAEntry> poas;
 	private final List<EntityDocument> others;
 }

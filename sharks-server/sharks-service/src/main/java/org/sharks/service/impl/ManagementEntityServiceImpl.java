@@ -3,7 +3,6 @@
  */
 package org.sharks.service.impl;
 
-import static org.sharks.service.producer.EntryProducers.TO_COUNTRY_ENTRY;
 import static org.sharks.service.producer.EntryProducers.TO_ENTITY_DOCUMENT;
 import static org.sharks.service.producer.EntryProducers.TO_ENTITY_ENTRY;
 import static org.sharks.service.producer.EntryProducers.TO_MEASURE_ENTRY;
@@ -16,11 +15,12 @@ import java.util.stream.Collectors;
 import javax.inject.Inject;
 
 import org.sharks.service.ManagementEntityService;
-import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
+import org.sharks.service.dto.EntityMember;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.moniker.dto.FigisDoc;
+import org.sharks.service.producer.EntityMemberProducer;
 import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.domain.InformationSource;
@@ -38,6 +38,9 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 	@Inject
 	private MonikerService monikerService;
 	
+	@Inject
+	private EntityMemberProducer memberProducer;
+	
 	@Override
 	public EntityDetails get(String acronym) {
 		MgmtEntity entity = dao.getByAcronym(acronym);
@@ -45,13 +48,13 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 		
 		String imageId = null;
 		String website = null;
-		List<CountryEntry> members = Collections.emptyList();
+		List<EntityMember> members = Collections.emptyList();
 		
 		FigisDoc doc = monikerService.getFigisDocByAcronym(acronym);
 		if (doc!=null) {
 			imageId = doc.getImageId();
 			website = doc.getWebsite();
-			members = convert(doc.getMembers(), TO_COUNTRY_ENTRY);
+			members = convert(doc.getMembers(), memberProducer);
 		}
 		
 		List<InformationSource> others = onlyOthersOrPoAs(entity.getInformationSources());
@@ -73,8 +76,6 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 						source->source.getInformationType().getCode().equals(InformationSourceDao.POA_TYPE)
 						|| source.getInformationType().getCode().equals(InformationSourceDao.OTHER_TYPE))
 				.collect(Collectors.toList());
-				
-				
 	}
 
 	@Override

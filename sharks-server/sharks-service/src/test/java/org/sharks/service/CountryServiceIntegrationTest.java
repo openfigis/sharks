@@ -24,8 +24,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.sharks.service.dto.CountryDetails;
+import org.sharks.service.dto.CountryEntity;
 import org.sharks.service.dto.CountryEntry;
-import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.http.HttpClient;
 import org.sharks.service.impl.CountryServiceImpl;
 import org.sharks.service.moniker.MonikerServiceImpl;
@@ -125,10 +125,10 @@ public class CountryServiceIntegrationTest {
 		
 		assertEquals(2, country.getRfbs().size());
 		
-		EntityEntry iccat = findFirst(country.getRfbs(), (entity)->entity.getAcronym().equals("ICCAT"));
+		CountryEntity iccat = findFirst(country.getRfbs(), (entity)->entity.getAcronym().equals("ICCAT"));
 		assertNotNull(iccat);
 		
-		EntityEntry eifaac = findFirst(country.getRfbs(), (entity)->entity.getAcronym().equals("EIFAAC"));
+		CountryEntity eifaac = findFirst(country.getRfbs(), (entity)->entity.getAcronym().equals("EIFAAC"));
 		assertNotNull(eifaac);
 	}
 	

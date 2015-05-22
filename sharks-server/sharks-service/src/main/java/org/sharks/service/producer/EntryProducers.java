@@ -8,14 +8,12 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import org.sharks.service.dto.CountryEntry;
-import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.EntityDocument;
+import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.GroupEntry;
 import org.sharks.service.dto.InformationSourceEntry;
 import org.sharks.service.dto.MeasureEntry;
 import org.sharks.service.dto.PoAEntry;
-import org.sharks.service.moniker.dto.FigisDoc.Member;
 import org.sharks.storage.domain.CustomSpeciesGrp;
 import org.sharks.storage.domain.InformationSource;
 import org.sharks.storage.domain.Measure;
@@ -91,18 +89,9 @@ public class EntryProducers {
 
 		@Override
 		public EntityEntry produce(MgmtEntity entity) {
-			return new EntityEntry(entity.getAcronym(), true);
+			return new EntityEntry(entity.getAcronym());
 		}
 
-	};
-	
-	public static final EntryProducer<Member, CountryEntry> TO_COUNTRY_ENTRY = new AbstractEntryProducer<Member, CountryEntry>() {
-
-		@Override
-		public CountryEntry produce(Member item) {
-			return new CountryEntry(item.getIso3code(), item.getEnglishName(), null, true);
-		}
-		
 	};
 	
 	public static final EntryProducer<InformationSource, EntityDocument> TO_ENTITY_DOCUMENT = new AbstractEntryProducer<InformationSource, EntityDocument>() {

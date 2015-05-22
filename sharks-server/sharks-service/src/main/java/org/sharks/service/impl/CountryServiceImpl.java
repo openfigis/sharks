@@ -17,7 +17,7 @@ import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.producer.CountryEntryProducer;
-import org.sharks.service.producer.EntityEntryProducer;
+import org.sharks.service.producer.CountryEntityProducer;
 import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.domain.InformationSource;
@@ -39,7 +39,7 @@ public class CountryServiceImpl implements CountryService {
 	private MonikerService monikers;
 	
 	@Inject
-	private EntityEntryProducer entityEntryProducer;
+	private CountryEntityProducer entityEntryProducer;
 	
 	@Override
 	public CountryDetails get(String code) {

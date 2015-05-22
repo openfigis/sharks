@@ -19,6 +19,7 @@ import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
+import org.sharks.service.dto.CountryEntity;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.domain.Measure;
@@ -29,10 +30,10 @@ import org.sharks.storage.domain.MgmtEntity;
  *
  */
 @RunWith(CdiRunner.class)
-public class EntityEntryProducerTest {
+public class CountryEntityProducerTest {
 	
 	@Inject
-	EntityEntryProducer producer;
+	CountryEntityProducer producer;
 	
 	@Produces
 	protected ManagementEntityDao setupInformationSourceDao() {
@@ -49,10 +50,10 @@ public class EntityEntryProducerTest {
 	 */
 	@Test
 	public void testProduce() {
-		EntityEntry entry = producer.produce("ICCAT");
-		assertNotNull(entry);
-		assertEquals("ICCAT", entry.getAcronym());
-		assertTrue(entry.isHasMeasures());
+		CountryEntity entity = producer.produce("ICCAT");
+		assertNotNull(entity);
+		assertEquals("ICCAT", entity.getAcronym());
+		assertTrue(entity.isHasMeasures());
 	}
 	
 	/**
@@ -60,10 +61,10 @@ public class EntityEntryProducerTest {
 	 */
 	@Test
 	public void testProduceUsingEntityWithoutInformationSources() {
-		EntityEntry entry = producer.produce("SEAFO");
-		assertNotNull(entry);
-		assertEquals("SEAFO", entry.getAcronym());
-		assertFalse(entry.isHasMeasures());
+		CountryEntity entity = producer.produce("SEAFO");
+		assertNotNull(entity);
+		assertEquals("SEAFO", entity.getAcronym());
+		assertFalse(entity.isHasMeasures());
 	}
 
 }

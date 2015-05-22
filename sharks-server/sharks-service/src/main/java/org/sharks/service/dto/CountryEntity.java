@@ -13,9 +13,9 @@ import lombok.Data;
  */
 @Data
 @XmlRootElement
-public class CountryEntry {
+public class CountryEntity {
+	
+	private final String acronym;
+	private final boolean hasMeasures;
 
-	private final String code;
-	private final String name;
-	private final String continent;
 }

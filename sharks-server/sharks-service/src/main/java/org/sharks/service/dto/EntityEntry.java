@@ -16,6 +16,5 @@ import lombok.Data;
 public class EntityEntry {
 	
 	private final String acronym;
-	private final boolean hasMeasures;
 
 }

@@ -4,6 +4,7 @@
 package org.sharks.service.producer;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.producer.EntryProducers.AbstractEntryProducer;
@@ -15,6 +16,7 @@ import org.sharks.storage.domain.MgmtEntity;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
+@Singleton
 public class CountryEntryProducer extends AbstractEntryProducer<MgmtEntity, CountryEntry> {
 	
 	@Inject
@@ -28,9 +30,7 @@ public class CountryEntryProducer extends AbstractEntryProducer<MgmtEntity, Coun
 		RefPubCountry refPubCountry = refPubService.getCountry(country.getAcronym());
 		if (refPubCountry!=null) continent = refPubCountry.getContinent();
 		
-		boolean hasPoAs = !country.getPoAs().isEmpty();
-		
-		return new CountryEntry(country.getAcronym(), country.getMgmtEntityName(), continent, hasPoAs);
+		return new CountryEntry(country.getAcronym(), country.getMgmtEntityName(), continent);
 	}
 
 }
