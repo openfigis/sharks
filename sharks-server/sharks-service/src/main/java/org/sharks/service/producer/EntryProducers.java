@@ -100,7 +100,7 @@ public class EntryProducers {
 
 		@Override
 		public CountryEntry produce(Member item) {
-			return new CountryEntry(item.getIso3code(), item.getEnglishName(), null);
+			return new CountryEntry(item.getIso3code(), item.getEnglishName(), null, true);
 		}
 		
 	};

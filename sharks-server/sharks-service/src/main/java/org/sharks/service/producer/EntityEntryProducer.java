@@ -23,10 +23,10 @@ public class EntityEntryProducer extends AbstractEntryProducer<String, EntityEnt
 
 	@Override
 	public EntityEntry produce(String acronym) {
-		boolean hasInformationSources = false;
+		boolean hasMeasures = false;
 		MgmtEntity entity = dao.getByAcronym(acronym);
-		if (entity!=null) hasInformationSources = !entity.getInformationSources().isEmpty();
-		return new EntityEntry(acronym, hasInformationSources);
+		if (entity!=null) hasMeasures = !entity.getMeasures().isEmpty();
+		return new EntityEntry(acronym, hasMeasures);
 	}
 
 }

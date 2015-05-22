@@ -28,7 +28,9 @@ public class CountryEntryProducer extends AbstractEntryProducer<MgmtEntity, Coun
 		RefPubCountry refPubCountry = refPubService.getCountry(country.getAcronym());
 		if (refPubCountry!=null) continent = refPubCountry.getContinent();
 		
-		return new CountryEntry(country.getAcronym(), country.getMgmtEntityName(), continent);
+		boolean hasPoAs = !country.getPoAs().isEmpty();
+		
+		return new CountryEntry(country.getAcronym(), country.getMgmtEntityName(), continent, hasPoAs);
 	}
 
 }

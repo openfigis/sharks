@@ -47,7 +47,7 @@ public class ManagementEntityDaoImpl extends AbstractDao<MgmtEntity, String> imp
 	}
 
 	@Override
-	public List<MgmtEntity> listCountries(boolean onlyWithPoAsOrOthers) {
+	public List<MgmtEntity> listCountries(boolean onlyWithPoAs, boolean onlyWithOthersSources) {
 		EntityManager entityManager = emf.createEntityManager();
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<MgmtEntity> criteriaQuery = criteriaBuilder.createQuery(MgmtEntity.class);
@@ -55,13 +55,18 @@ public class ManagementEntityDaoImpl extends AbstractDao<MgmtEntity, String> imp
         CriteriaQuery<MgmtEntity> all = criteriaQuery.select(entity);
         
         Predicate where = criteriaBuilder.equal(entity.get("mgmtEntityType"), COUNTRY_TYPE);
-        if (onlyWithPoAsOrOthers) {
-        	where = criteriaBuilder.and(where, criteriaBuilder.isNotEmpty(entity.get("poAs")));
+        
+        if (onlyWithPoAs) where = criteriaBuilder.and(where, criteriaBuilder.isNotEmpty(entity.get("poAs")));
        
+        if (onlyWithOthersSources) {
         	Subquery<InformationSource> subQuery = criteriaQuery.subquery(InformationSource.class);
          	Root<InformationSource> sources = subQuery.from(InformationSource.class);
         	subQuery.select(sources.get("code"));
-        	subQuery.where(criteriaBuilder.equal(sources.get("informationType"), InformationSourceDao.OTHER_TYPE));
+        	subQuery.where(criteriaBuilder.and(
+        			criteriaBuilder.equal(sources.get("informationType"), InformationSourceDao.OTHER_TYPE),
+        			criteriaBuilder.isMember(entity, sources.<List<MgmtEntity>>get("mgmtEntities"))
+        			));
+        	
         	where = criteriaBuilder.and(where, criteriaBuilder.exists(subQuery));
         }
         
@@ -72,17 +77,24 @@ public class ManagementEntityDaoImpl extends AbstractDao<MgmtEntity, String> imp
 	}
 
 	@Override
-	public List<MgmtEntity> listRFMOs(boolean onlyWithMeasuresOrOthers) {
+	public List<MgmtEntity> listRFMOsAndInstitutions(boolean onlyWithMeasures, boolean onlyWithOthersSources) {
 		EntityManager entityManager = emf.createEntityManager();
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<MgmtEntity> criteriaQuery = criteriaBuilder.createQuery(MgmtEntity.class);
         Root<MgmtEntity> entity = criteriaQuery.from(MgmtEntity.class);
         CriteriaQuery<MgmtEntity> all = criteriaQuery.select(entity);
         
-        Predicate where = criteriaBuilder.equal(entity.get("mgmtEntityType"), RFMO_TYPE);
-        if (onlyWithMeasuresOrOthers) {
-        	where = criteriaBuilder.and(where, criteriaBuilder.isNotEmpty(entity.get("measures")));
+        //type conditions
+        Predicate where = criteriaBuilder.or(
+        		criteriaBuilder.equal(entity.get("mgmtEntityType"), RFMO_TYPE),
+        		criteriaBuilder.equal(entity.get("mgmtEntityType"), INSTITUTION_TYPE));
+        
+        //EU exclusion, hardcoded :(
+        where = criteriaBuilder.and(where, criteriaBuilder.notEqual(entity.get("code"), EU_CODE));
+        
+        if (onlyWithMeasures) where = criteriaBuilder.and(where, criteriaBuilder.isNotEmpty(entity.get("measures")));
        
+        if (onlyWithOthersSources) {
         	Subquery<InformationSource> subQuery = criteriaQuery.subquery(InformationSource.class);
          	Root<InformationSource> sources = subQuery.from(InformationSource.class);
         	subQuery.select(sources.get("code"));

@@ -59,8 +59,8 @@ public class ManagementEntityServiceTest {
 		
 		when(dao.getByAcronym("NOT_EXISTS")).thenReturn(null);
 		
-		when(dao.listRFMOs(true)).thenReturn(Arrays.asList(buildEntity(0, "ICCAT")));
-		when(dao.listRFMOs(false)).thenReturn(Arrays.asList(buildEntity(0, "ICCAT"), buildEntity(1, "SOFAP")));
+		when(dao.listRFMOsAndInstitutions(true, false)).thenReturn(Arrays.asList(buildEntity(0, "ICCAT")));
+		when(dao.listRFMOsAndInstitutions(false, false)).thenReturn(Arrays.asList(buildEntity(0, "ICCAT"), buildEntity(1, "SOFAP")));
 		
 		return dao;
 	}

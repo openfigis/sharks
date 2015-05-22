@@ -47,7 +47,7 @@ public class ManagementEntityDaoTest {
 		assertEquals(3, institutions.size());
 		
 		List<MgmtEntity> countries = dao.list(ManagementEntityDao.COUNTRY_TYPE);
-		assertEquals(204, countries.size());
+		assertEquals(203, countries.size());
 
 		List<MgmtEntity> rfmos = dao.list(ManagementEntityDao.RFMO_TYPE);
 		assertEquals(18, rfmos.size());
@@ -56,29 +56,57 @@ public class ManagementEntityDaoTest {
 	@Test
 	public void testListCountries() {
 		
-		List<MgmtEntity> countries = dao.listCountries(false);
-		assertEquals(204, countries.size());
+		List<MgmtEntity> countries = dao.listCountries(false, false);
+		assertEquals(203, countries.size());
 	}
 	
 	@Test
-	public void testListCountriesOnlyWithPoAsOrOthers() {
+	public void testListCountriesOnlyWithPoAs() {
 		
-		List<MgmtEntity> countries = dao.listCountries(true);
-		assertEquals(35, countries.size());
+		List<MgmtEntity> countries = dao.listCountries(true, false);
+		assertEquals(36, countries.size());
 	}
 	
 	@Test
-	public void testListRFMOS() {
+	public void testListCountriesOnlyWithOtherSources() {
 		
-		List<MgmtEntity> rfmos = dao.listRFMOs(false);
-		assertEquals(18, rfmos.size());
+		List<MgmtEntity> countries = dao.listCountries(false, true);
+		assertEquals(0, countries.size());
 	}
 	
 	@Test
-	public void testListRFMOSOnlyWithMeasuresOrOthers() {
+	public void testListCountriesOnlyWithPoAsAndOtherSources() {
 		
-		List<MgmtEntity> rfmos = dao.listRFMOs(true);
-		assertEquals(10, rfmos.size());
+		List<MgmtEntity> countries = dao.listCountries(true, true);
+		assertEquals(0, countries.size());
+	}
+	
+	@Test
+	public void testListRFMOsAndInstitutions() {
+		
+		List<MgmtEntity> rfmos = dao.listRFMOsAndInstitutions(false, false);
+		assertEquals(20, rfmos.size());
+	}
+	
+	@Test
+	public void testListRFMOsAndInstitutionsWithMeasures() {
+		
+		List<MgmtEntity> rfmos = dao.listRFMOsAndInstitutions(true, false);
+		assertEquals(12, rfmos.size());
+	}
+	
+	@Test
+	public void testListRFMOsAndInstitutionsWithOtherSources() {
+		
+		List<MgmtEntity> rfmos = dao.listRFMOsAndInstitutions(false, true);
+		assertEquals(20, rfmos.size());
+	}
+	
+	@Test
+	public void testListRFMOsAndInstitutionsWithMeasuresAndOtherSources() {
+		
+		List<MgmtEntity> rfmos = dao.listRFMOsAndInstitutions(true, true);
+		assertEquals(12, rfmos.size());
 	}
 
 }

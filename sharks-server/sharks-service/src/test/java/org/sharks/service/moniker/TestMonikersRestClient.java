@@ -34,7 +34,7 @@ public class TestMonikersRestClient {
 		System.out.println(rfbs);
 	}
 	
-	@Test
+	@Test @Ignore
 	public void testGetRfb() {
 		RfbEntry rfb = client.getRfb("ICCAT");
 		assertNotNull(rfb);

@@ -103,8 +103,8 @@ public class CountryServiceIntegrationTest {
 		when(dao.getByAcronym("NOT_EXISTS")).thenReturn(null);
 		
 		MgmtEntity country2 = buildCountry("USA", "USA");
-		when(dao.listCountries(false)).thenReturn(Arrays.asList(country, country2));
-		when(dao.listCountries(true)).thenReturn(Arrays.asList(country));
+		when(dao.listCountries(false, false)).thenReturn(Arrays.asList(country, country2));
+		when(dao.listCountries(true, false)).thenReturn(Arrays.asList(country));
 		
 		when(dao.getByAcronym("ICCAT")).thenReturn(buildEntity(0, "ICCAT", new InformationSource()));
 		when(dao.getByAcronym("SEAFO")).thenReturn(buildEntity(0, "ICCAT"));

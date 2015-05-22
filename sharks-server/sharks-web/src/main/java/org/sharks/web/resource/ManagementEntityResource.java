@@ -48,12 +48,12 @@ public class ManagementEntityResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@ApiOperation(value = "list all the management entities", notes="the list of entities can be filtered through the onlyWithMeasuresOrOthers flag", response = EntityEntry.class, responseContainer="List")
+	@ApiOperation(value = "list all the management entities", notes="the list of entities can be filtered through the onlyWithMeasures flag", response = EntityEntry.class, responseContainer="List")
 	public List<EntityEntry> list(
 			@DefaultValue("false") 
-			@QueryParam("onlyWithMeasuresOrOthers") 
-			@ApiParam(value = "a flag to select only entities connected to almost one Measure and/or an information source of type Other", required = false)
-			boolean onlyWithMeasuresOrOthers) {
-		return service.list(onlyWithMeasuresOrOthers);
+			@QueryParam("onlyWithMeasures") 
+			@ApiParam(value = "a flag to select only entities with almost one Measure associated", required = false)
+			boolean onlyWithMeasures) {
+		return service.list(onlyWithMeasures);
 	}
 }

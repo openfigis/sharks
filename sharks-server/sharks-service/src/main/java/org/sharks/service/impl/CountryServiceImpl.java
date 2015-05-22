@@ -65,8 +65,8 @@ public class CountryServiceImpl implements CountryService {
 	}
 
 	@Override
-	public List<CountryEntry> list(boolean onlyWithPoAsOrOthers) {
-		List<MgmtEntity> countries = dao.listCountries(onlyWithPoAsOrOthers);
+	public List<CountryEntry> list(boolean onlyWithPoAs) {
+		List<MgmtEntity> countries = dao.listCountries(onlyWithPoAs, false);
 		return convert(countries, entryProducer);
 	}
 
