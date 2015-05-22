@@ -26,7 +26,8 @@ import lombok.ToString;
 @XmlRootElement
 @EqualsAndHashCode(of = "code")
 @ToString(exclude = {
-    "informationSources"
+    "informationSources",
+    "measures"
 })
 public class MgmtEntity {
 
@@ -43,6 +44,8 @@ public class MgmtEntity {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "grpPoAMgmtEntity", joinColumns = @JoinColumn(name = "cdMgmtEntity", referencedColumnName = "cdMgmtEntity"), inverseJoinColumns = @JoinColumn(name = "cdPoA", referencedColumnName = "cdPoA"))
     private List<PoA> poAs;
+    @OneToMany(mappedBy = "mgmtEntity")
+    private List<Measure> measures;
     @OneToOne
     @JoinColumn(name = "cdMgmtEntityType")
     private MgmtEntityType mgmtEntityType;
