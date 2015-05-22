@@ -4,9 +4,9 @@
 package org.sharks.service.impl;
 
 import static org.sharks.service.producer.EntryProducers.TO_COUNTRY_ENTRY;
+import static org.sharks.service.producer.EntryProducers.TO_ENTITY_DOCUMENT;
 import static org.sharks.service.producer.EntryProducers.TO_ENTITY_ENTRY;
 import static org.sharks.service.producer.EntryProducers.TO_MEASURE_ENTRY;
-import static org.sharks.service.producer.EntryProducers.TO_ENTITY_DOCUMENT;
 import static org.sharks.service.producer.EntryProducers.convert;
 
 import java.util.Collections;
@@ -23,9 +23,7 @@ import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
-import org.sharks.storage.dao.MeasureDao;
 import org.sharks.storage.domain.InformationSource;
-import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.MgmtEntity;
 
 /**
@@ -36,9 +34,6 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 	
 	@Inject
 	private ManagementEntityDao dao;
-	
-	@Inject
-	private MeasureDao measureDao;
 	
 	@Inject
 	private MonikerService monikerService;
@@ -59,8 +54,6 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 			members = convert(doc.getMembers(), TO_COUNTRY_ENTRY);
 		}
 		
-		List<Measure> measures = measureDao.listRelatedToManagementEntityAcronym(acronym);
-		
 		List<InformationSource> others = onlyOthersOrPoAs(entity.getInformationSources());
 		
 		return new EntityDetails(entity.getCode(), 
@@ -69,7 +62,7 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 				imageId,
 				website,
 				members,
-				convert(measures, TO_MEASURE_ENTRY),
+				convert(entity.getMeasures(), TO_MEASURE_ENTRY),
 				convert(others, TO_ENTITY_DOCUMENT)
 				);
 	}

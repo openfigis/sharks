@@ -70,6 +70,7 @@ public class TestModelUtils {
 		entity.setCode(code);
 		entity.setAcronym(acronym);
 		entity.setInformationSources(Arrays.asList(sources));
+		entity.setMeasures(Collections.emptyList());
 		return entity;
 	}
 	

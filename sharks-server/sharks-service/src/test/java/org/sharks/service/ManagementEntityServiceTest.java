@@ -27,8 +27,7 @@ import org.sharks.service.impl.ManagementEntityServiceImpl;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
-import org.sharks.storage.dao.MeasureDao;
-import org.sharks.storage.dao.MeasureDaoImpl;
+import org.sharks.storage.domain.MgmtEntity;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -42,21 +41,17 @@ public class ManagementEntityServiceTest {
 	ManagementEntityService service;
 	
 	@Produces
-	private MeasureDao setupMeasureDao() {
-		MeasureDao dao = Mockito.mock(MeasureDaoImpl.class);
-		
-		when(dao.listRelatedToManagementEntityAcronym("ICCAT")).thenReturn(Arrays.asList(buildMeasure(0, "sym")));
-		when(dao.listRelatedToManagementEntityAcronym("NOT_IN_RFB_MONIKER")).thenReturn(Arrays.asList(buildMeasure(0, "sym")));
-		
-		return dao;
-	}
-	
-	@Produces
 	private ManagementEntityDao setupManagementEntityDao() {
 		ManagementEntityDao dao = Mockito.mock(ManagementEntityDao.class);
 		
-		when(dao.getByAcronym("ICCAT")).thenReturn(buildEntity(0, "ICCAT", buildInformationSource(InformationSourceDao.OTHER_TYPE)));
-		when(dao.getByAcronym("NOT_IN_RFB_MONIKER")).thenReturn(buildEntity(0, "NOT_IN_RFB_MONIKER"));
+		MgmtEntity entity = buildEntity(0, "ICCAT", buildInformationSource(InformationSourceDao.OTHER_TYPE));
+		entity.setMeasures(Arrays.asList(buildMeasure(0, "sym")));
+		when(dao.getByAcronym("ICCAT")).thenReturn(entity);
+		
+		entity = buildEntity(0, "NOT_IN_RFB_MONIKER");
+		entity.setMeasures(Arrays.asList(buildMeasure(0, "sym")));
+		when(dao.getByAcronym("NOT_IN_RFB_MONIKER")).thenReturn(entity);
+		
 		when(dao.getByAcronym("NOT_EXISTS")).thenReturn(null);
 		
 		when(dao.list(ManagementEntityDao.RFMO_TYPE)).thenReturn(Arrays.asList(buildEntity(0, "ICCAT")));
