@@ -88,7 +88,7 @@
         <h2>List of RFBs</h2> 
         <ul class="list">
           <li ng-repeat="rfb in ctrl.country.rfbs">
-            <a ng-click="ctrl.showEntity(rfb)" ng-class="{disabled:!rfb.hasInformationSources}">{{rfb.acronym}}</a>
+            <a ng-click="ctrl.showEntity(rfb)" ng-class="{disabled:!rfb.hasMeasures}">{{rfb.acronym}}</a>
           </li>  
         </ul>
       </div>
