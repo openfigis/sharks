@@ -13,8 +13,9 @@ import org.sharks.service.moniker.dto.FigisDoc.Member;
 import org.sharks.service.refpub.dto.MultiLingualName;
 import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.dto.RefPubSpecies;
-import org.sharks.storage.domain.Country;
 import org.sharks.storage.domain.CustomSpeciesGrp;
+import org.sharks.storage.domain.InformationSource;
+import org.sharks.storage.domain.InformationSourceType;
 import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.MgmtEntity;
 import org.sharks.storage.domain.PoA;
@@ -55,18 +56,20 @@ public class TestModelUtils {
 		return species;
 	}
 	
-	public static Country buildCountry(String iso3code, String unName, PoA ... poas) {
-		Country country = new Country();
-		country.setCode(iso3code);
-		country.setUnName(unName);
+	public static MgmtEntity buildCountry(String iso3code, String unName, PoA ... poas) {
+		MgmtEntity country = new MgmtEntity();
+		country.setAcronym(iso3code);
+		country.setMgmtEntityName(unName);
 		country.setPoAs(Arrays.asList(poas));
+		country.setInformationSources(Collections.emptyList());
 		return country;
 	}
 	
-	public static MgmtEntity builEntity(long code, String acronym) {
+	public static MgmtEntity buildEntity(long code, String acronym, InformationSource ... sources) {
 		MgmtEntity entity = new MgmtEntity();
 		entity.setCode(code);
 		entity.setAcronym(acronym);
+		entity.setInformationSources(Arrays.asList(sources));
 		return entity;
 	}
 	
@@ -77,6 +80,14 @@ public class TestModelUtils {
 		group.setMeasures(Collections.emptyList());
 		group.setSpecies(Arrays.asList(species));
 		return group;
+	}
+	
+	public static InformationSource buildInformationSource(long type) {
+		InformationSource source = new InformationSource();
+		InformationSourceType informationType = new InformationSourceType();
+		informationType.setCode(type);
+		source.setInformationType(informationType);
+		return source;
 	}
 	
 	public static Measure buildMeasure(long code, String symbol) {

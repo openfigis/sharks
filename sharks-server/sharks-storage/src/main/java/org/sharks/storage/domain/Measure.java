@@ -19,6 +19,7 @@ import lombok.EqualsAndHashCode;
 
 
 /**
+ * Derived from <code>tbMeasure</code> table .
  * @author "Federico De Faveri federico.defaveri@fao.org"
  * 
  */
@@ -55,9 +56,6 @@ public class Measure {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "grpMeasureInformationSource", joinColumns = @JoinColumn(name = "cdMeasure", referencedColumnName = "cdMeasure"), inverseJoinColumns = @JoinColumn(name = "cdInformationSource", referencedColumnName = "cdInformationSource"))
     private List<InformationSource> informationSources;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "grpMeasureTags", joinColumns = @JoinColumn(name = "cdMeasure", referencedColumnName = "cdMeasure"), inverseJoinColumns = @JoinColumn(name = "cdMeasureTag", referencedColumnName = "cdMeasureTag"))
-    private List<MeasureTag> measureTags;
     @OneToOne
     @JoinColumn(name = "cdMgmtEntity")
     private MgmtEntity mgmtEntity;

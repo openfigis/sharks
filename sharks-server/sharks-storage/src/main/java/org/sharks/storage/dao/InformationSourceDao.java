@@ -1,17 +1,13 @@
 package org.sharks.storage.dao;
 
-import java.util.List;
-
-import org.sharks.storage.domain.InformationSource;
-
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
 public interface InformationSourceDao {
-
-	public List<InformationSource> listRelatedToEntity(Long entityCode, Long... types);
 	
-	public Boolean existsRelatedToEntityByAcronym(String acronym);
+	public static final long MEASURE_TYPE = 1l;
+	public static final long POA_TYPE = 2l;
+	public static final long OTHER_TYPE = 3l;
 
 }

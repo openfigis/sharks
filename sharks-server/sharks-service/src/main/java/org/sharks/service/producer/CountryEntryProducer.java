@@ -9,26 +9,26 @@ import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.producer.EntryProducers.AbstractEntryProducer;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.refpub.dto.RefPubCountry;
-import org.sharks.storage.domain.Country;
+import org.sharks.storage.domain.MgmtEntity;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-public class CountryEntryProducer extends AbstractEntryProducer<Country, CountryEntry> {
+public class CountryEntryProducer extends AbstractEntryProducer<MgmtEntity, CountryEntry> {
 	
 	@Inject
 	private RefPubService refPubService;
 
 	@Override
-	public CountryEntry produce(Country country) {
+	public CountryEntry produce(MgmtEntity country) {
 		
 		String continent = null;
 		
-		RefPubCountry refPubCountry = refPubService.getCountry(country.getCode());
+		RefPubCountry refPubCountry = refPubService.getCountry(country.getAcronym());
 		if (refPubCountry!=null) continent = refPubCountry.getContinent();
 		
-		return new CountryEntry(country.getCode(), country.getUnName(), continent);
+		return new CountryEntry(country.getAcronym(), country.getMgmtEntityName(), continent);
 	}
 
 }

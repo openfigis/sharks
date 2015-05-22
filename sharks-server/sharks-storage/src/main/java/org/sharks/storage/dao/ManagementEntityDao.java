@@ -9,6 +9,10 @@ import org.sharks.storage.domain.MgmtEntity;
  *
  */
 public interface ManagementEntityDao {
+	
+	static long INSTITUTION_TYPE = 1l;
+	static long RFMO_TYPE = 2l;
+	static long COUNTRY_TYPE = 3l;
 
 	/**
 	 * Gets a {@link MgmtEntity} by his acronym.
@@ -17,8 +21,6 @@ public interface ManagementEntityDao {
 	 */
 	public MgmtEntity getByAcronym(String acronym);
 
-	public List<MgmtEntity> list();
-	
-	public List<MgmtEntity> listRelatedToInformationSource();
+	public List<MgmtEntity> list(long type);
 
 }

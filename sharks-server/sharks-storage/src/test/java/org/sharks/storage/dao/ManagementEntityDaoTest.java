@@ -41,10 +41,16 @@ public class ManagementEntityDaoTest {
 	}
 	
 	@Test
-	public void testListRelatedToInformationSource() {
-		List<MgmtEntity> entities = dao.listRelatedToInformationSource();
-		assertNotNull(entities);
-		assertEquals(9, entities.size());
+	public void testList() {
+		
+		List<MgmtEntity> institutions = dao.list(ManagementEntityDao.INSTITUTION_TYPE);
+		assertEquals(3, institutions.size());
+		
+		List<MgmtEntity> countries = dao.list(ManagementEntityDao.COUNTRY_TYPE);
+		assertEquals(204, countries.size());
+
+		List<MgmtEntity> rfmos = dao.list(ManagementEntityDao.RFMO_TYPE);
+		assertEquals(18, rfmos.size());
 	}	
 
 }

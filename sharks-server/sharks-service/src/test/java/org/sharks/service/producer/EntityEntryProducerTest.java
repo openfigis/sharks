@@ -8,6 +8,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
+import static org.sharks.service.util.TestModelUtils.*;
+
+import java.util.Collections;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
@@ -17,7 +20,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.sharks.service.dto.EntityEntry;
-import org.sharks.storage.dao.InformationSourceDao;
+import org.sharks.storage.dao.ManagementEntityDao;
+import org.sharks.storage.domain.InformationSource;
+import org.sharks.storage.domain.MgmtEntity;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -30,10 +35,12 @@ public class EntityEntryProducerTest {
 	EntityEntryProducer producer;
 	
 	@Produces
-	protected InformationSourceDao setupInformationSourceDao() {
-		InformationSourceDao dao = Mockito.mock(InformationSourceDao.class);
-		when(dao.existsRelatedToEntityByAcronym("ICCAT")).thenReturn(true);
-		when(dao.existsRelatedToEntityByAcronym("SEAFO")).thenReturn(false);
+	protected ManagementEntityDao setupInformationSourceDao() {
+		ManagementEntityDao dao = Mockito.mock(ManagementEntityDao.class);
+		MgmtEntity entity = buildEntity(0, "ICCAT");
+		entity.setInformationSources(Collections.singletonList(new InformationSource()));
+		when(dao.getByAcronym("ICCAT")).thenReturn(entity);
+		when(dao.getByAcronym("SEAFO")).thenReturn(buildEntity(0, "SEAFO"));
 		return dao;
 	}
 

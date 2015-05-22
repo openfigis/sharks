@@ -24,9 +24,9 @@ public class ConfigTextDaoTest {
 
 	@Test
 	public void testGetByKeyword() {
-		ConfigText text = dao.getByKeyword("xyz");
+		ConfigText text = dao.getByKeyword("TITLE");
 		assertNotNull(text);
-		assertEquals("xyz", text.getCdMnemonicKey());
+		assertEquals("TITLE", text.getCdMnemonicKey());
 		assertEquals(new Long(1), text.getCode());		
 	}
 	

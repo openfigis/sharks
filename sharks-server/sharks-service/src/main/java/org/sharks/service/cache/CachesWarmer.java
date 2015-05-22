@@ -16,10 +16,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.sharks.config.Configuration;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.refpub.RefPubService;
-import org.sharks.storage.dao.CountryDao;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.dao.SpeciesDao;
-import org.sharks.storage.domain.Country;
 import org.sharks.storage.domain.MgmtEntity;
 import org.sharks.storage.domain.Species;
 
@@ -34,9 +32,6 @@ public class CachesWarmer {
 
 	@Inject
 	private SpeciesDao speciesDao;
-	
-	@Inject
-	private CountryDao countryDao;
 	
 	@Inject
 	private ManagementEntityDao entityDao;
@@ -95,7 +90,7 @@ public class CachesWarmer {
 		log.trace("done");
 		
 		log.trace("countries...");
-		for (Country country:countryDao.list()) refPubService.getCountry(country.getCode());
+		for (MgmtEntity country:entityDao.list(ManagementEntityDao.COUNTRY_TYPE)) refPubService.getCountry(country.getAcronym());
 		log.trace("done");
 
 		log.trace("RefPub cache warmup complete");
@@ -105,11 +100,12 @@ public class CachesWarmer {
 		log.info("Warming Monikers cache");
 		
 		log.trace("countries...");
-		for (Country country:countryDao.list()) monikerService.getRfbsForCountry(country.getCode());
+		for (MgmtEntity country:entityDao.list(ManagementEntityDao.COUNTRY_TYPE)) monikerService.getRfbsForCountry(country.getAcronym());
 		log.trace("done");
 		
 		log.trace("entities...");
-		for (MgmtEntity entity:entityDao.list()) monikerService.getFigisDocByAcronym(entity.getAcronym());
+		for (MgmtEntity entity:entityDao.list(ManagementEntityDao.RFMO_TYPE)) monikerService.getFigisDocByAcronym(entity.getAcronym());
+		for (MgmtEntity entity:entityDao.list(ManagementEntityDao.INSTITUTION_TYPE)) monikerService.getFigisDocByAcronym(entity.getAcronym());
 		log.trace("done");
 
 		log.trace("Monikers cache warmup complete");

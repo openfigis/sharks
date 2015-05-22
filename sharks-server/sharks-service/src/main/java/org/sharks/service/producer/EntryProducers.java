@@ -48,8 +48,9 @@ public class EntryProducers {
 		
 		private String findEntityAcronym(List<InformationSource> sources) {
 			for (InformationSource source:sources) {
-				MgmtEntity mgmtEntity = source.getMgmtEntity();
-				if (mgmtEntity!=null && mgmtEntity.getAcronym()!=null) return mgmtEntity.getAcronym();
+				for (MgmtEntity mgmtEntity : source.getMgmtEntities()) {
+					if (mgmtEntity!=null && mgmtEntity.getAcronym()!=null) return mgmtEntity.getAcronym();
+				}
 			}
 			return null;
 		}

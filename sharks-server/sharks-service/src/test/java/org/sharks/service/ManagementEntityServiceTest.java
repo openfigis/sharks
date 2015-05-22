@@ -8,13 +8,9 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.builEntity;
-import static org.sharks.service.util.TestModelUtils.buildMeasure;
-import static org.sharks.service.util.TestModelUtils.createFigisDoc;
-import static org.sharks.service.util.TestModelUtils.createMember;
+import static org.sharks.service.util.TestModelUtils.*;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import javax.enterprise.inject.Produces;
@@ -33,8 +29,6 @@ import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.dao.MeasureDao;
 import org.sharks.storage.dao.MeasureDaoImpl;
-import org.sharks.storage.domain.InformationSource;
-import org.sharks.storage.domain.InformationSourceType;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -61,11 +55,11 @@ public class ManagementEntityServiceTest {
 	private ManagementEntityDao setupManagementEntityDao() {
 		ManagementEntityDao dao = Mockito.mock(ManagementEntityDao.class);
 		
-		when(dao.getByAcronym("ICCAT")).thenReturn(builEntity(0, "ICCAT"));
-		when(dao.getByAcronym("NOT_IN_RFB_MONIKER")).thenReturn(builEntity(0, "NOT_IN_RFB_MONIKER"));
+		when(dao.getByAcronym("ICCAT")).thenReturn(buildEntity(0, "ICCAT", buildInformationSource(InformationSourceDao.OTHER_TYPE)));
+		when(dao.getByAcronym("NOT_IN_RFB_MONIKER")).thenReturn(buildEntity(0, "NOT_IN_RFB_MONIKER"));
 		when(dao.getByAcronym("NOT_EXISTS")).thenReturn(null);
 		
-		when(dao.listRelatedToInformationSource()).thenReturn(Arrays.asList(builEntity(0, "ICCAT")));
+		when(dao.list(ManagementEntityDao.RFMO_TYPE)).thenReturn(Arrays.asList(buildEntity(0, "ICCAT")));
 		
 		return dao;
 	}
@@ -80,7 +74,7 @@ public class ManagementEntityServiceTest {
 		return service;
 	}
 	
-	@Produces
+	/*@Produces
 	private InformationSourceDao steupInformationSourceDao() {
 		InformationSourceDao dao = Mockito.mock(InformationSourceDao.class);
 		
@@ -89,7 +83,7 @@ public class ManagementEntityServiceTest {
 		when(dao.listRelatedToEntity(0l, new Long[]{2l, 3l})).thenReturn(Collections.<InformationSource>singletonList(source));
 		
 		return dao;
-	}
+	}*/
 
 	/**
 	 * Test method for {@link org.sharks.service.impl.ManagementEntityServiceImpl#get(java.lang.String)}.

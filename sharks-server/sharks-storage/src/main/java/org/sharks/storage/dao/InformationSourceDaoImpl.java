@@ -3,16 +3,8 @@
  */
 package org.sharks.storage.dao;
 
-import java.util.List;
-
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 
 import org.sharks.storage.domain.InformationSource;
 
@@ -25,46 +17,6 @@ public class InformationSourceDaoImpl extends AbstractDao<InformationSource, Lon
 	@Inject
 	public InformationSourceDaoImpl(EntityManagerFactory emf) {
 		super(emf, InformationSource.class);
-	}
-	
-	@Override
-	public List<InformationSource> listRelatedToEntity(Long entityCode, Long ... types) {
-		
-		EntityManager entityManager = emf.createEntityManager();
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		
-		CriteriaQuery<InformationSource> criteriaQuery = criteriaBuilder.createQuery(type);
-		Root<InformationSource> sources = criteriaQuery.from(type);
-		
-		
-		Predicate wherePredicate = criteriaBuilder.equal(sources.get("mgmtEntity"),entityCode);
-		
-		if (types.length>0) {
-			wherePredicate = criteriaBuilder.and(wherePredicate, sources.get("informationType").in((Object[])types));
-		}
-		
-		criteriaQuery.where(wherePredicate);
-		
-		TypedQuery<InformationSource> query = entityManager.createQuery(criteriaQuery);
-		return query.getResultList();
-	}
-	
-	public Boolean existsRelatedToEntityByAcronym(String entityAcronym) {
-		
-		EntityManager entityManager = emf.createEntityManager();
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		
-		CriteriaQuery<Boolean> criteriaQuery = criteriaBuilder.createQuery(Boolean.class);
-		Root<InformationSource> sources = criteriaQuery.from(type);
-		
-		criteriaQuery.select(criteriaBuilder.greaterThan(criteriaBuilder.count(sources), 0l));
-		
-		Predicate wherePredicate = criteriaBuilder.equal(sources.get("mgmtEntity").get("acronym"),entityAcronym);
-		
-		criteriaQuery.where(wherePredicate);
-		
-		TypedQuery<Boolean> query = entityManager.createQuery(criteriaQuery);
-		return query.getSingleResult();
 	}
 
 }

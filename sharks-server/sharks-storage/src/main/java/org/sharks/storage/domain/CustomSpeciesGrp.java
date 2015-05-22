@@ -12,9 +12,11 @@ import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 
 /**
+ * Derived from <code>refCustomSpeciesGrp</code> table .
  * @author "Federico De Faveri federico.defaveri@fao.org"
  * 
  */
@@ -22,6 +24,9 @@ import lombok.EqualsAndHashCode;
 @Entity(name = "refCustomSpeciesGrp")
 @XmlRootElement
 @EqualsAndHashCode(of = "code")
+@ToString(exclude = {
+    "species"
+})
 public class CustomSpeciesGrp {
 
     @Id

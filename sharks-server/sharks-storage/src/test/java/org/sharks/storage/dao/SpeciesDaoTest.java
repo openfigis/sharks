@@ -27,7 +27,7 @@ public class SpeciesDaoTest {
 		List<Species> species = dao.listWithMeasures();
 		
 		assertNotNull(species);
-		assertEquals(12, species.size());
+		assertEquals(50, species.size());
 	}
 	
 	@Test

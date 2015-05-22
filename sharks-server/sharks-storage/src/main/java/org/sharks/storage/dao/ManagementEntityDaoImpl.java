@@ -13,7 +13,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import org.sharks.storage.domain.InformationSource;
 import org.sharks.storage.domain.MgmtEntity;
 
 /**
@@ -33,16 +32,14 @@ public class ManagementEntityDaoImpl extends AbstractDao<MgmtEntity, String> imp
 	}
 
 	@Override
-	public List<MgmtEntity> listRelatedToInformationSource() {
+	public List<MgmtEntity> list(long type) {
 		EntityManager entityManager = emf.createEntityManager();
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<MgmtEntity> criteriaQuery = criteriaBuilder.createQuery(type);
-
-        Root<InformationSource> entities = criteriaQuery.from(InformationSource.class);
-		criteriaQuery.select(entities.get("mgmtEntity"));
-		criteriaQuery.distinct(true);
-
-		TypedQuery<MgmtEntity> query = entityManager.createQuery(criteriaQuery);
+		CriteriaQuery<MgmtEntity> criteriaQuery = criteriaBuilder.createQuery(MgmtEntity.class);
+        Root<MgmtEntity> rootEntry = criteriaQuery.from(MgmtEntity.class);
+        CriteriaQuery<MgmtEntity> all = criteriaQuery.select(rootEntry);
+        all.where(criteriaBuilder.equal(rootEntry.get("mgmtEntityType"), type));
+		TypedQuery<MgmtEntity> query = entityManager.createQuery(all);
 		return query.getResultList();
 	}
 

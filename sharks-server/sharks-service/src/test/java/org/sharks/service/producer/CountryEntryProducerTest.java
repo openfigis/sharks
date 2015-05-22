@@ -20,7 +20,7 @@ import org.mockito.Mockito;
 import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.refpub.dto.RefPubCountry;
-import org.sharks.storage.domain.Country;
+import org.sharks.storage.domain.MgmtEntity;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -47,7 +47,7 @@ public class CountryEntryProducerTest {
 	 */
 	@Test
 	public void testProduceUsingRefPubService() {
-		Country country = buildCountry("AFG", "Afghanistan");
+		MgmtEntity country = buildCountry("AFG", "Afghanistan");
 		
 		CountryEntry entry = producer.produce(country);
 		assertNotNull(entry);
@@ -63,7 +63,7 @@ public class CountryEntryProducerTest {
 	 */
 	@Test
 	public void testProduceWithouthRefPubService() {
-		Country country = buildCountry("NOT_EXISTS", "Afghanistan");
+		MgmtEntity country = buildCountry("NOT_EXISTS", "Afghanistan");
 		
 		CountryEntry entry = producer.produce(country);
 		assertNotNull(entry);

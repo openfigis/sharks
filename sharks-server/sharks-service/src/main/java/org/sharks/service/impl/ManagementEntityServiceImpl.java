@@ -11,6 +11,7 @@ import static org.sharks.service.producer.EntryProducers.convert;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -33,17 +34,11 @@ import org.sharks.storage.domain.MgmtEntity;
  */
 public class ManagementEntityServiceImpl implements ManagementEntityService {
 	
-	//TODO is correct to espress it here?
-	private final Long[] OTHER_TYPES = new Long[]{2l, 3l};
-	
 	@Inject
 	private ManagementEntityDao dao;
 	
 	@Inject
 	private MeasureDao measureDao;
-	
-	@Inject
-	private InformationSourceDao informationSourceDao;
 	
 	@Inject
 	private MonikerService monikerService;
@@ -66,7 +61,7 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 		
 		List<Measure> measures = measureDao.listRelatedToManagementEntityAcronym(acronym);
 		
-		List<InformationSource> others = informationSourceDao.listRelatedToEntity(entity.getCode(), OTHER_TYPES);
+		List<InformationSource> others = onlyOthersOrPoAs(entity.getInformationSources());
 		
 		return new EntityDetails(entity.getCode(), 
 				entity.getAcronym(), 
@@ -78,10 +73,20 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 				convert(others, TO_ENTITY_DOCUMENT)
 				);
 	}
+	
+	private List<InformationSource> onlyOthersOrPoAs(List<InformationSource> sources) {
+		return sources.stream()
+				.filter(
+						source->source.getInformationType().getCode().equals(InformationSourceDao.POA_TYPE)
+						|| source.getInformationType().getCode().equals(InformationSourceDao.OTHER_TYPE))
+				.collect(Collectors.toList());
+				
+				
+	}
 
 	@Override
 	public List<EntityEntry> list() {
-		return convert(dao.listRelatedToInformationSource(), TO_ENTITY_ENTRY);
+		return convert(dao.list(ManagementEntityDao.RFMO_TYPE), TO_ENTITY_ENTRY);
 	}
 	
 }

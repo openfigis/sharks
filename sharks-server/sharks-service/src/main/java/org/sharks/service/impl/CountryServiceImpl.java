@@ -16,8 +16,8 @@ import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.producer.CountryEntryProducer;
 import org.sharks.service.producer.EntityEntryProducer;
-import org.sharks.storage.dao.CountryDao;
-import org.sharks.storage.domain.Country;
+import org.sharks.storage.dao.ManagementEntityDao;
+import org.sharks.storage.domain.MgmtEntity;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -26,7 +26,7 @@ import org.sharks.storage.domain.Country;
 public class CountryServiceImpl implements CountryService {
 	
 	@Inject
-	private CountryDao dao;
+	private ManagementEntityDao dao;
 	
 	@Inject
 	private CountryEntryProducer entryProducer;
@@ -40,12 +40,12 @@ public class CountryServiceImpl implements CountryService {
 	@Override
 	public CountryDetails get(String code) {
 		
-		Country country = dao.get(code);
+		MgmtEntity country = dao.getByAcronym(code);
 		if (country == null) return null;
 		
 		List<String> rfbs = monikers.getRfbsForCountry(code);
-		CountryDetails details = new CountryDetails(country.getCode(), 
-				country.getUnName(), 
+		CountryDetails details = new CountryDetails(country.getAcronym(), 
+				country.getMgmtEntityName(), 
 				convert(rfbs, entityEntryProducer),
 				convert(country.getPoAs(), TO_POA_ENTRY));
 		return details;
@@ -54,9 +54,9 @@ public class CountryServiceImpl implements CountryService {
 	@Override
 	public List<CountryEntry> list(boolean onyWithPoas) {
 		
-		//TODO cache
+		//TODO filter only with POAS
 		
-		List<Country> countries = onyWithPoas?dao.listWithPoAs():dao.list();
+		List<MgmtEntity> countries = onyWithPoas?dao.list(ManagementEntityDao.COUNTRY_TYPE):dao.list(ManagementEntityDao.COUNTRY_TYPE);
 		return convert(countries, entryProducer);
 	}
 

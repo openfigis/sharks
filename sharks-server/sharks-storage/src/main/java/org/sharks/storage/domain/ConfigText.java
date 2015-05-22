@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 
 
 /**
+ * Derived from <code>tbConfigText</code> table .
  * @author "Federico De Faveri federico.defaveri@fao.org"
  * 
  */
