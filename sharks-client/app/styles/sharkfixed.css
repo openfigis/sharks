@@ -142,23 +142,6 @@ p{
 	background-color: rgba(0, 29, 64, 0.9);
 	color: white;
 	padding: 10px 25px;
-	
-	/* The quick list menu is now a view
-
-	display: none;
-	z-index: 999;
-	max-width: 760px;
-    width: 760px;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    margin-top: 295px; */
       
 }
 
@@ -186,6 +169,7 @@ p{
 
 #listMenu ul li:hover{
 	background-color: #4f89c0;
+	cursor: pointer;
 }
 
 #listMenu button#hide{
