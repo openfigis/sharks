@@ -149,7 +149,6 @@ Entities SELECTOR
 	cursor: pointer;
 }
 
-
 #entitySelector .divider {
 	clear: both;
 }
@@ -164,9 +163,20 @@ Entities SELECTOR
 }
 
 #entitySelector ul li a.entity{
-margin: 5px;
-line-height: 30px;
+	margin: 5px;
+	line-height: 30px;
+}
 
+#entitySelector ul li a.entity:hover{
+	color: #f90;	
+}
+
+#entitySelector ul li.cites a.entity:hover{
+	color: white;	
+}
+
+#entitySelector ul li.cms a.entity:hover{
+	color: white;	
 }
 
 div.eye{
@@ -175,6 +185,10 @@ div.eye{
 	height: 30px;
 	width: 30px;
 	float: right;
+}
+
+div.eye:hover{
+	background-color: rgba(96, 156, 203, 0.3);
 }
 
 .mapBaseImage {

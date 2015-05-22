@@ -323,7 +323,13 @@ ul.bxslider {margin: 0;}
 	border-radius: 3px;
 	float: left;
 	font-size: 12px;
-	background-color: rgba(255, 255, 255, 1)
+	background-color: rgba(255, 255, 255, 1);
+	cursor: pointer;
+	
+}
+
+#countriesMap ul li:hover{
+	color: #f90;	
 }
 
 #countriesMap ul{
@@ -348,11 +354,7 @@ ul.bxslider {margin: 0;}
 }
 
 .spacer{margin: 5px;}
-.country{
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-}
+
 
 /* Footer */
 footer ul.links{
