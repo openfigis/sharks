@@ -18,4 +18,8 @@ angular.module("sharksClient")
 	  this.showEntity = function(rfb) {
 		routingservice.toSingleById("entities", rfb.acronym);  
 	  };
+	  
+	  this.submitFaoLexForm = function() {
+		  document.getElementById("faolexForm").submit();
+	  };
   }]);
