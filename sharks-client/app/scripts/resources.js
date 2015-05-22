@@ -19,7 +19,7 @@ resources.factory("groupsresource", ["$resource", "rest", function($resource, re
 resources.factory("countriesresource", ["$resource", "rest", function($resource, rest) {
 	return $resource(rest.baseUrl + "countries/:code/", null, {
 		get: {method: "GET", cache: true},
-		query: {method: "GET", cache: true, params: {onlyWithPoAs:true},isArray:true}
+		query: {method: "GET", cache: true, params: {onlyWithPoAsOrOthers:true},isArray:true}
 	});
 }]);
 
