@@ -12,7 +12,7 @@
             <ul class="commonNames">
               <li class="lat">{{ctrl.species.scientificName}}</li>
               <li ng-repeat="(lang, name) in ctrl.species.officialNames" class="{{lang}}" ng-if="name!=null">
-              	<b>{{lang}}:</b>{{name}}
+              	<b>{{lang}}:</b> {{name}}
               </li>
               <li>FAO 3-alpha code: {{ctrl.species.alphaCode}}</li>
             </ul>
@@ -44,7 +44,9 @@
       <div id="sidemap">
         <h2>Map of distribution</h2>  
         <div id="distributionMap" class="FigisMap"></div>
-        <a ng-href="{{ctrl.mapUrl}}" target="_blank">Launch the Aquatic Species Distribution map viewer</a>
+        <div class="figisMapLink">
+          <a ng-href="{{ctrl.mapUrl}}" target="_blank">Launch the Aquatic Species Distribution map viewer</a>
+        </div>
      </div>
     
    </section>
