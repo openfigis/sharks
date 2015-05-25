@@ -14,6 +14,7 @@ import javax.inject.Inject;
 import org.sharks.service.SpeciesService;
 import org.sharks.service.dto.SpeciesDetails;
 import org.sharks.service.dto.SpeciesEntry;
+import org.sharks.service.geoserver.GeoServerService;
 import org.sharks.service.producer.SpeciesEntryProducer;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.refpub.dto.RefPubSpecies;
@@ -39,6 +40,9 @@ public class SpeciesServiceImpl implements SpeciesService {
 	@Inject
 	private RefPubService refPubService;
 	
+	@Inject
+	private GeoServerService geoServerService;
+	
 	@Override
 	public SpeciesDetails getSpecies(String alpha3Code) {
 		
@@ -58,11 +62,14 @@ public class SpeciesServiceImpl implements SpeciesService {
 			figisId = refPubSpecies.getFicItem();
 		}
 		
+		boolean hasDistributionMap = geoServerService.hasSpeciesDistributionMap(alpha3Code);
+		
 		Set<Measure> measures = extractMeasures(species);
 		
 		return new SpeciesDetails(alpha3Code, 
 				scientificName,
 				figisId,
+				hasDistributionMap,
 				officialNames,
 				convert(measures, TO_MEASURE_ENTRY));
 	}
@@ -78,9 +85,6 @@ public class SpeciesServiceImpl implements SpeciesService {
 
 	@Override
 	public List<SpeciesEntry> list(boolean onlyWithMeasure) {
-		
-		//TODO cache
-		
 		List<Species> species = onlyWithMeasure?dao.listWithMeasures():dao.list();
 		return convert(species, speciesEntryProducer);
 	}

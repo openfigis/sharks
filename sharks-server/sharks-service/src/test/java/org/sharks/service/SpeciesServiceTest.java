@@ -18,6 +18,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.sharks.service.dto.SpeciesDetails;
 import org.sharks.service.dto.SpeciesEntry;
+import org.sharks.service.geoserver.GeoServerService;
 import org.sharks.service.impl.SpeciesServiceImpl;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.refpub.dto.RefPubSpecies;
@@ -51,6 +52,7 @@ public class SpeciesServiceTest {
 		aSpecies.setCustomSpeciesGrps(Collections.singletonList(group));
 		
 		when(dao.getByAlphaCode("ALV")).thenReturn(aSpecies);
+		when(dao.getByAlphaCode("NOMAP")).thenReturn(aSpecies);
 
 		noRefPubSpecies = buildSpecies("NRF", "Alopias vulpinus");
 		when(dao.getByAlphaCode("NRF")).thenReturn(noRefPubSpecies);
@@ -70,6 +72,16 @@ public class SpeciesServiceTest {
 		return service;
 	}
 	
+	@Produces
+	private GeoServerService setupGeoServerService() {
+		GeoServerService service = Mockito.mock(GeoServerService.class);
+		
+		when(service.hasSpeciesDistributionMap("ALV")).thenReturn(true);
+		when(service.hasSpeciesDistributionMap("NOMAP")).thenReturn(false);
+		
+		return service;
+	}
+	
 
 	/**
 	 * Test the correct path: information from the storage are integrated with the one from refPub service.
@@ -84,6 +96,8 @@ public class SpeciesServiceTest {
 		assertEquals(aRefPubSpecies.getLongNames().getFrench(), details.getOfficialNames().get("fr"));
 		
 		assertEquals(2, details.getMeasures().size());
+		
+		assertTrue(details.isHasDistributionMap());
 	}
 	
 	/**
@@ -97,6 +111,16 @@ public class SpeciesServiceTest {
 		assertEquals("NRF", details.getAlphaCode());
 		
 		assertEquals(noRefPubSpecies.getScientificName(), details.getScientificName());
+	}
+	
+	@Test
+	public void testGetSpeciesNoMap() {
+		SpeciesDetails details = service.getSpecies("NOMAP");
+		
+		assertNotNull(details);
+		assertEquals("NOMAP", details.getAlphaCode());
+		
+		assertFalse(details.isHasDistributionMap());
 	}
 	
 	/**

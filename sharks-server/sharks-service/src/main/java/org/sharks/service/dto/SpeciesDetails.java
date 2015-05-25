@@ -21,6 +21,7 @@ public class SpeciesDetails {
 	private final String alphaCode;
 	private final String scientificName;
 	private final String figisId;
+	private final boolean hasDistributionMap;
 	private final Map<String, String> officialNames;
 	private final List<MeasureEntry> measures;
 }
