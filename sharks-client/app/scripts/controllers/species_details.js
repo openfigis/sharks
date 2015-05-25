@@ -38,14 +38,16 @@ angular.module("sharksClient")
 	  
 	  this.mapUrl = mapViewer.speciesBaseUrl+"?species="+species.alphaCode+"-m&prj=4326";
 	  
-      FigisMap.draw({ 
-          context:"FI-species", 
-          target:"distributionMap", 
-          mapSize:"L", 
-          distribution:[{ layer:"fifao:SPECIES_DIST", 
-            filter:"ALPHACODE='"+species.alphaCode+"'", 
-            title:"Abramis brama", 
-            autoZoom:true }], 
-            legend:"mapSpeciesLegend", 
-            staticLabels:{ "MAIN LAYERS" : "Species distribution" } });
+	  if (species.hasDistributionMap) {
+	      FigisMap.draw({ 
+	          context:"FI-species", 
+	          target:"distributionMap", 
+	          mapSize:"L", 
+	          distribution:[{ layer:"fifao:SPECIES_DIST", 
+	            filter:"ALPHACODE='"+species.alphaCode+"'", 
+	            title:"Abramis brama", 
+	            autoZoom:true }], 
+	            legend:"mapSpeciesLegend", 
+	            staticLabels:{ "MAIN LAYERS" : "Species distribution" } });
+	  }
   }]);
