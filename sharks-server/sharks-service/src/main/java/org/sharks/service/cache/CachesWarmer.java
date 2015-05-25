@@ -14,6 +14,7 @@ import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.config.Configuration;
+import org.sharks.service.geoserver.GeoServerService;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.storage.dao.ManagementEntityDao;
@@ -43,6 +44,9 @@ public class CachesWarmer {
 	private MonikerService monikerService;
 	
 	@Inject
+	private GeoServerService geoServerService;
+	
+	@Inject
 	private Configuration configuration;
 	
 	public void warmupCaches() {
@@ -69,6 +73,15 @@ public class CachesWarmer {
 			}
 		});
 		
+		Future<Void> geoserverWarmer = executor.submit(new Callable<Void>() {
+
+			@Override
+			public Void call() throws Exception {
+				geoserverCacheWarmup();
+				return null;
+			}
+		});
+
 		try {
 			refpubWarmer.get();
 		} catch (Exception e) {
@@ -79,6 +92,12 @@ public class CachesWarmer {
 			monikerWarmer.get();
 		} catch (Exception e) {
 			log.error("moniker warmer failed", e);
+		}
+		
+		try {
+			geoserverWarmer.get();
+		} catch (Exception e) {
+			log.error("geoserver warmer failed", e);
 		}
 	}
 	
@@ -109,6 +128,14 @@ public class CachesWarmer {
 		log.trace("done");
 
 		log.trace("Monikers cache warmup complete");
+	}
+	
+	private void geoserverCacheWarmup() {
+		log.info("Warming GeoServer cache");
+		
+		geoServerService.hasSpeciesDistributionMap("ANY");
+		
+		log.trace("GeoServer cache warmup complete");
 	}
 	
 }
