@@ -13,6 +13,7 @@ import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.config.Configuration;
+import org.sharks.service.geoserver.rest.GeoServerRestClient;
 import org.sharks.service.http.HttpClient;
 import org.sharks.service.indexing.IndexingService;
 import org.sharks.service.indexing.SolrDocumentProviders;
@@ -38,6 +39,12 @@ public class Producers {
 	public MonikersRestClient getMonikerRestClient(Configuration configuration, HttpClient httpClient) {
 		return new MonikersRestClient(configuration.getMonikersUrl(), httpClient);
 	}
+	
+	@Produces @Singleton
+	public GeoServerRestClient getGeoServerService(Configuration configuration, HttpClient httpClient) {
+		return new GeoServerRestClient(httpClient, configuration.getSpeciesListUrl());
+	}
+	
 
 	@Produces
 	public IndexingService getIndexingService(Configuration configuration) {

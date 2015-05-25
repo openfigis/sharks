@@ -23,5 +23,7 @@ public interface Configuration {
 	public String getSolrUrl();
 
 	public URL getSharksRestUrl();
+	
+	public String getSpeciesListUrl();
 
 }

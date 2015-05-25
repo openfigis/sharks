@@ -3,11 +3,14 @@
  */
 package org.sharks.service.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 
+import org.sharks.service.geoserver.dto.SpeciesItem;
+import org.sharks.service.geoserver.dto.SpeciesList;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.FigisDoc.Member;
 import org.sharks.service.refpub.dto.MultiLingualName;
@@ -126,6 +129,19 @@ public class TestModelUtils {
 		member.setEnglishName(englishName);
 		member.setIso3code(iso3code);
 		return member;
+	}
+	
+	public static SpeciesList createSpeciesList(String ... alpha3codes) {
+		SpeciesList list = new SpeciesList();
+		List<SpeciesItem> items = new ArrayList<SpeciesItem>();
+		for (String alpha3code:alpha3codes) {
+			SpeciesItem item = new SpeciesItem();
+			item.setAlphaCode(alpha3code);
+			items.add(item);
+		}
+		list.setItems(items);
+		
+		return list;
 	}
 	
 	public static <T> T findFirst(List<T> items, Predicate<T> predicate) {

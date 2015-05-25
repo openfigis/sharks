@@ -25,6 +25,7 @@ public class ConfigurationImpl implements Configuration {
 	public static final String SHARKS_URL = "service.sharks";
 	public static final String REFPUB_URL = "service.refpub";
 	public static final String MONIKERS_URL = "service.monikers";
+	public static final String GEOSERVER_SPECIES_LIST_URL = "service.geoserver.specieslist";
 	public static final String SOLR_URL = "service.solr";
 	
 	private Properties properties;
@@ -90,6 +91,11 @@ public class ConfigurationImpl implements Configuration {
 	@Override
 	public String getCacheCleaningPassphrase() {
 		return properties.getProperty(CACHE_CLEAN_PASSPHRASE);
+	}
+
+	@Override
+	public String getSpeciesListUrl() {
+		return properties.getProperty(GEOSERVER_SPECIES_LIST_URL);
 	}
 
 }
