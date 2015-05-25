@@ -5,8 +5,14 @@ angular.module("sharksClient")
                                           function (routingservice, pageservice, country) {
   
 	  this.country = country;
-	  this.groupedPoas = Stream(country.poas).groupBy(function (poa) {
-	      return poa.type;
+	  this.groupedPoas = Stream(country.poas)
+	  		.sort(function(a, b) {
+	  			if (a.poAYear === b.poAYear) return 0;
+	  			if (a.poAYear > b.poAYear) return -1;
+	  			return 1;
+	  		})
+	  		.groupBy(function (poa) {
+	  			return poa.type;
 	  });
 	  
 	  pageservice.setTitle(country.name);

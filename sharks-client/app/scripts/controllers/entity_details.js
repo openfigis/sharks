@@ -6,6 +6,14 @@ angular.module("sharksClient")
 	  
 	  this.entity = entity;
 	  
+	  this.ems = Stream(entity.measures)
+	  		.sort(function(a, b) {
+		      if (a.year === b.year) return 0;
+		      if (a.year > b.year) return -1;
+		      return 1;
+		   })
+		   .toArray();
+	  
 	  this.hasCompentenceAreaMap = entity.acronym !== "CITES" && entity.acronym !== "CMS"; 
 	  
 	  this.factsheetsUrl = entity.acronym !== null? factsheets.rfbBaseUrl + entity.acronym : null;

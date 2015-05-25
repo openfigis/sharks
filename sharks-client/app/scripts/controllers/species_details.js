@@ -20,6 +20,11 @@ angular.module("sharksClient")
 		  .filter(function (measure) {
 			  return measure.entityAcronym !== "CITES" && measure.entityAcronym !== "CMS";
 		  })
+		  .sort(function(a, b) {
+		      if (a.year === b.year) return 0;
+		      if (a.year > b.year) return -1;
+		      return 1;
+		   })
 		  .groupBy(function (measure) {
 		      return measure.entityAcronym;
 		  });
