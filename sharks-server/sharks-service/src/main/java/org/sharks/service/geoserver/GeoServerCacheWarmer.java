@@ -22,7 +22,7 @@ public class GeoServerCacheWarmer implements CacheWarmer {
 
 	@Override
 	public void warmup() {
-		log.info("Warming cache");
+		log.info("warming cache");
 		
 		geoServerService.hasSpeciesDistributionMap("ANY");
 		

@@ -19,7 +19,7 @@ import org.sharks.config.Configuration;
 @Slf4j @Singleton
 public class EhServiceCacheManager implements ServiceCacheManager {
 	
-	private CacheManager cacheManager; 
+	private CacheManager cacheManager;
 	
 	@Inject
 	public EhServiceCacheManager(Configuration configuration) {
@@ -30,8 +30,8 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 			cacheManager = CacheManager.getInstance();
 		} else {
 
-		log.info("loading cache configuration from "+cacheConfigurationFile);
-		cacheManager = CacheManager.newInstance(cacheConfigurationFile);
+			log.info("loading cache configuration from "+cacheConfigurationFile);
+			cacheManager = CacheManager.newInstance(cacheConfigurationFile);
 		}
 	}
 
@@ -41,10 +41,10 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 		if (cacheName!=null) {
 			if (!cacheManager.cacheExists(cacheName)) cacheManager.addCache(cacheName);
 			return new EhServiceCache<K, V>(cacheManager.getCache(cacheName));
-		}
-		
-		return new InMemoryCache<K, V>();
+			
+		} else return new InMemoryCache<K, V>();
 	}
+
 
 	@Override
 	public void clearAllCaches() {
