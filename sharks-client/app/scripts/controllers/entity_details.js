@@ -6,6 +6,8 @@ angular.module("sharksClient")
 	  
 	  this.entity = entity;
 	  
+	  this.hasCompentenceAreaMap = entity.acronym !== "CITES" && entity.acronym !== "CMS"; 
+	  
 	  this.factsheetsUrl = entity.acronym !== null? factsheets.rfbBaseUrl + entity.acronym : null;
 	  this.logoUrl = entity.imageId !== null? rfb.logoBaseUrl + entity.imageId : null;
 	  
@@ -17,11 +19,13 @@ angular.module("sharksClient")
 	  
 	  this.mapUrl = mapViewer.rfbBaseUrl;	  
 	  
-	  FigisMap.draw( { 
-		  target:"areaMap", 
-		  rfb: entity.acronym, 
-		  context: "FI-Org", 
-		  legend:"OrgMapLegend",
-		  mapSize:"S" });
+	  if (this.hasCompentenceAreaMap) {
+		  FigisMap.draw( { 
+			  target:"areaMap", 
+			  rfb: entity.acronym, 
+			  context: "FI-Org", 
+			  legend:"OrgMapLegend",
+			  mapSize:"S" });
+	  }
 		
   }]);
