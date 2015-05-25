@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Properties;
 
 import javax.enterprise.inject.Alternative;
@@ -83,9 +84,14 @@ public class ConfigurationImpl implements Configuration {
 	}
 
 	@Override
-	public boolean isCacheWarmupEnabled() {
+	public CacheWarmupType getCacheWarmupType() {
 		String value = properties.getProperty(CACHE_WARMUP);
-		return Boolean.parseBoolean(value);
+		if (value == null) throw new RuntimeException("Cache warmup option \""+CACHE_WARMUP+"\" not specified");
+		try {
+			return CacheWarmupType.valueOf(value.toUpperCase());
+		} catch(Exception e) {
+			throw new RuntimeException("Wrong \""+CACHE_WARMUP+"\" value \""+value+"\" expected one of "+Arrays.toString(CacheWarmupType.values()));
+		}
 	}
 
 	@Override

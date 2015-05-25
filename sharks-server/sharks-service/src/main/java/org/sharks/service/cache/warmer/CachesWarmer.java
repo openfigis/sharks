@@ -1,19 +1,13 @@
 /**
  * 
  */
-package org.sharks.service.cache;
-
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+package org.sharks.service.cache.warmer;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import lombok.extern.slf4j.Slf4j;
 
-import org.sharks.config.Configuration;
 import org.sharks.service.geoserver.GeoServerService;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.refpub.RefPubService;
@@ -28,8 +22,6 @@ import org.sharks.storage.domain.Species;
  */
 @Slf4j @Singleton
 public class CachesWarmer {
-	
-	private ExecutorService executor = Executors.newFixedThreadPool(2);
 
 	@Inject
 	private SpeciesDao speciesDao;
@@ -47,58 +39,14 @@ public class CachesWarmer {
 	private GeoServerService geoServerService;
 	
 	@Inject
-	private Configuration configuration;
+	private CacheWarmingExecutor executor;
 	
 	public void warmupCaches() {
-		if (configuration.isCacheWarmupEnabled()) runWarmers();
-		else log.info("cache warmup disabled");
-	}
-	
-	private void runWarmers() {
-		Future<Void> refpubWarmer = executor.submit(new Callable<Void>() {
-
-			@Override
-			public Void call() throws Exception {
-				refPubCacheWarmup();
-				return null;
-			}
-		});
 		
-		Future<Void> monikerWarmer = executor.submit(new Callable<Void>() {
+		executor.warm(()->refPubCacheWarmup());
+		executor.warm(()->monikersCacheWarmup());
+		executor.warm(()->geoserverCacheWarmup());
 
-			@Override
-			public Void call() throws Exception {
-				monikersCacheWarmup();
-				return null;
-			}
-		});
-		
-		Future<Void> geoserverWarmer = executor.submit(new Callable<Void>() {
-
-			@Override
-			public Void call() throws Exception {
-				geoserverCacheWarmup();
-				return null;
-			}
-		});
-
-		try {
-			refpubWarmer.get();
-		} catch (Exception e) {
-			log.error("refpub warmer failed", e);
-		}
-		
-		try {
-			monikerWarmer.get();
-		} catch (Exception e) {
-			log.error("moniker warmer failed", e);
-		}
-		
-		try {
-			geoserverWarmer.get();
-		} catch (Exception e) {
-			log.error("geoserver warmer failed", e);
-		}
 	}
 	
 	private void refPubCacheWarmup() {

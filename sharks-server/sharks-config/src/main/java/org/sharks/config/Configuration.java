@@ -12,7 +12,7 @@ public interface Configuration {
 	
 	public String getCacheConfiguration();
 	
-	public boolean isCacheWarmupEnabled();
+	public CacheWarmupType getCacheWarmupType();
 	
 	public String getCacheCleaningPassphrase();
 
@@ -25,5 +25,11 @@ public interface Configuration {
 	public URL getSharksRestUrl();
 	
 	public String getSpeciesListUrl();
+	
+	public enum CacheWarmupType {
+		NONE,
+		SEQUENTIAL,
+		PARALLEL;
+	}
 
 }
