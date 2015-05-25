@@ -4,6 +4,7 @@
 package org.sharks.service.impl;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import org.sharks.service.SiteContentService;
 import org.sharks.service.dto.SiteContent;
@@ -14,6 +15,7 @@ import org.sharks.storage.domain.ConfigText;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
+@Singleton
 public class SiteContentImpl implements SiteContentService {
 	
 	@Inject

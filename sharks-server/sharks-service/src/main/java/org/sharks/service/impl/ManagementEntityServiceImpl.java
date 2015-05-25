@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import org.sharks.service.ManagementEntityService;
 import org.sharks.service.dto.EntityDetails;
@@ -30,6 +31,7 @@ import org.sharks.storage.domain.MgmtEntity;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
+@Singleton
 public class ManagementEntityServiceImpl implements ManagementEntityService {
 	
 	@Inject

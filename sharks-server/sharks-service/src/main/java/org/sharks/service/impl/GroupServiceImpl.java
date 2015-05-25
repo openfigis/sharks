@@ -10,6 +10,7 @@ import static org.sharks.service.producer.EntryProducers.convert;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import org.sharks.service.GroupService;
 import org.sharks.service.dto.GroupDetails;
@@ -22,6 +23,7 @@ import org.sharks.storage.domain.CustomSpeciesGrp;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
+@Singleton
 public class GroupServiceImpl implements GroupService {
 	
 	@Inject

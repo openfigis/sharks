@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,7 +23,7 @@ import org.sharks.service.moniker.rest.MonikersRestClient;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@Slf4j
+@Slf4j @Singleton
 public class MonikerServiceImpl implements MonikerService {
 	
 	@Inject

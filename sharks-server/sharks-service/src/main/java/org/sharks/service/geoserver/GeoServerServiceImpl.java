@@ -4,6 +4,7 @@
 package org.sharks.service.geoserver;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,7 +19,7 @@ import org.sharks.service.geoserver.rest.GeoServerRestClient;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@Slf4j
+@Slf4j @Singleton
 public class GeoServerServiceImpl implements GeoServerService {
 	
 	private boolean chacheLoaded = false;
@@ -48,6 +49,8 @@ public class GeoServerServiceImpl implements GeoServerService {
 			for (SpeciesItem item:list.getItems()) {
 				speciesList.put(item.getAlphaCode(), true);
 			}
+			chacheLoaded = true;
+			log.trace("load complete");
 		} catch(Exception e) {
 			log.error("Failed loading the species list", e);
 		} finally {

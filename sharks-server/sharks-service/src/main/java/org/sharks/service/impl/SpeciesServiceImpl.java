@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import org.sharks.service.SpeciesService;
 import org.sharks.service.dto.SpeciesDetails;
@@ -29,6 +30,7 @@ import static org.sharks.service.util.ConversionUtil.*;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
+@Singleton
 public class SpeciesServiceImpl implements SpeciesService {
 	
 	@Inject

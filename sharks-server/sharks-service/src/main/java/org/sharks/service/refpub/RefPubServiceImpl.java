@@ -4,6 +4,7 @@
 package org.sharks.service.refpub;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,7 +19,7 @@ import org.sharks.service.refpub.rest.RefPubRestClient;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@Slf4j
+@Slf4j @Singleton
 public class RefPubServiceImpl implements RefPubService {
 
 	@Inject
