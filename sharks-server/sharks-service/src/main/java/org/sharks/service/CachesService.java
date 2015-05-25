@@ -38,7 +38,7 @@ public class CachesService {
 		if (configuration.getCacheCleaningPassphrase()!=null 
 				&& !configuration.getCacheCleaningPassphrase().isEmpty()
 				&& !configuration.getCacheCleaningPassphrase().equals(passphrase)) {
-			log.warn("Attempt to clean the cache with a wrong passphrase exp {} found {}",configuration.getCacheCleaningPassphrase(), passphrase);
+			log.warn("Attempt to clean the cache with a wrong passphrase {}", passphrase);
 			
 			return false;
 		}
