@@ -7,6 +7,10 @@
 		"speciesBaseUrl": "http://www.fao.org/fishery/species/",
 		"rfbBaseUrl": "http://www.fao.org/fishery/rfb/"
 	},
+	"entityTypes": {
+		"institution": 1,
+		"rfmo": 2
+	},
 	"rfb" : {
 		"logoBaseUrl": "http://www.fao.org/figis/servlet/IRS?iid="
 	},

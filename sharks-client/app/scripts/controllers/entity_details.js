@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("sharksClient")
-  .controller("EntityDetailsCtrl", ["routingservice", "pageservice", "factsheets", "mapViewer", "rfb", "entity",
-                                          function (routingservice, pageservice, factsheets, mapViewer, rfb, entity) {
+  .controller("EntityDetailsCtrl", ["routingservice", "pageservice", "entityTypes", "factsheets", "mapViewer", "rfb", "entity",
+                                          function (routingservice, pageservice, entityTypes, factsheets, mapViewer, rfb, entity) {
 	  
 	  this.entity = entity;
 	  
@@ -14,9 +14,9 @@ angular.module("sharksClient")
 		   })
 		   .toArray();
 	  
-	  this.hasCompentenceAreaMap = entity.acronym !== "CITES" && entity.acronym !== "CMS"; 
+	  this.hasCompentenceAreaMap = entity.type === entityTypes.rfmo; 
 	  
-	  this.factsheetsUrl = entity.acronym !== null? factsheets.rfbBaseUrl + entity.acronym : null;
+	  this.factsheetsUrl = entity.type === entityTypes.rfmo? factsheets.rfbBaseUrl + entity.acronym : null;
 	  this.logoUrl = entity.imageId !== null? rfb.logoBaseUrl + entity.imageId : null;
 	  
 	  pageservice.setTitle(entity.acronym);

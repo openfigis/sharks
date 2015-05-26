@@ -8,17 +8,24 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("EntitiesSelectionCtrl", ["routingservice", "pageservice", "entities", "footer", 
-                                         function (routingservice, pageservice, entities, footer) {
+  .controller("EntitiesSelectionCtrl", ["routingservice", "pageservice", "entityTypes", "entities", "footer", 
+                                         function (routingservice, pageservice, entityTypes, entities, footer) {
 	  
 	  this.entitiesInMap = []; 
 	  
-	  this.entities = Stream(entities)
-	  		.sorted("acronym")
+	  this.rfmos = Stream(entities)
 	  		.filter(function (entity) {
-			  return entity.acronym !== "CITES" && entity.acronym !== "CMS";
+			  return entity.type === entityTypes.rfmo;
 	  		})
+	  		.sorted("acronym")
 	  		.toArray();
+	  
+	  this.institutions = Stream(entities)
+			.filter(function (entity) {
+			  return entity.type === entityTypes.institution;
+			})
+			.sorted("acronym")
+			.toArray();
 	  
 	  pageservice.setTitle("institutions");
 	  this.footer = footer;
@@ -38,12 +45,5 @@ angular.module("sharksClient")
 	  this.isInMap = function(entity) {
 		  return this.entitiesInMap.indexOf(entity.acronym) >= 0 ;
 	  };
-	  
-	  this.showCMS = function() {
-		  routingservice.toSingleById("entities", "CMS");
-	  };
-	  
-	  this.showCITES = function() {
-		  routingservice.toSingleById("entities", "CITES");
-	  };
+
   }]);

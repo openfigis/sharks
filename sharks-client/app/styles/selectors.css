@@ -152,15 +152,6 @@ Entities SELECTOR
 #entitySelector .divider {
 	clear: both;
 }
-#entitySelector ul li.cites{
-	background-color: rgb(147, 182, 84);
-	width: 35%;
-}
-
-#entitySelector ul li.cms{
-	background-color: rgb(84, 150, 182);
-	width: 35%;	
-}
 
 #entitySelector ul li a.entity{
 	margin: 5px;

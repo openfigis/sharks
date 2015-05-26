@@ -3,7 +3,7 @@
   
   <div id="map" style="position:relative">
     <img src="images/entities/base.png" class="mapBaseImage">
-    <img ng-repeat="entity in ctrl.entities" 
+    <img ng-repeat="entity in ctrl.rfmos" 
           ng-src="images/entities/{{entity.acronym | lowercase}}.png" 
           class="mapEntityImage"
           ng-class="{'hidden': !ctrl.isInMap(entity)}">
@@ -11,7 +11,7 @@
         
   <div id="legend">
     <ul>          
-      <li ng-repeat="entity in ctrl.entities">
+      <li ng-repeat="entity in ctrl.rfmos">
         <a class="entity" ng-click="ctrl.show(entity)">{{entity.acronym}}</a>
         <div class="eye" ng-click="ctrl.toggleInMap(entity)">
           <img id="eye" ng-src="images/{{ctrl.isInMap(entity)?'eye':'neye'}}.png">
@@ -20,8 +20,9 @@
     </ul>
     <div class="divider"></div>
     <ul>
-      <li class="cites"><a ng-click="ctrl.showCITES()" class="entity">CITES</a></li>
-      <li class="cms"><a ng-click="ctrl.showCMS()" class="entity">CMS</a></li>  
+      <li ng-repeat="entity in ctrl.institutions">
+        <a class="entity" ng-click="ctrl.show(entity)">{{entity.acronym}}</a>
+      </li>
     </ul>
   </div>            
 </section>
