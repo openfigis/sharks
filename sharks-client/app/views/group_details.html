@@ -27,7 +27,9 @@
     </header>
       
     <section id="primary">
-    <div ng-if="ctrl.group.note!=null" class="notes">Note: {{ctrl.group.note}}</div>
+    
+      <div ng-if="ctrl.group.note!=null" class="notes">Note: {{ctrl.group.note}}</div>
+      
       <div ng-repeat="(acronym, measures) in ctrl.ems">
         <h2>{{acronym}}</h2>
         <measure ng-repeat="measure in measures" value="measure">
@@ -36,7 +38,7 @@
     </section>
   
     <section id="secondary">
-      <h2>Other related measures</h2> 
+      <h2>Other measures</h2> 
       <ul class="list">
         <li ng-repeat="species in ctrl.group.species" class="en">
           <a ng-click="ctrl.showSpecies(species)" ng-class="{disabled:!species.hasMeasures}">{{species.englishName}} <i>{{species.scientificName}}</i></a>

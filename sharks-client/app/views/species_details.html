@@ -15,7 +15,6 @@
               	<b>{{lang}}:</b> {{name}}
               </li>
               <li>FAO 3-alpha code: {{ctrl.species.alphaCode}}</li>
-              <li ng-if="ctrl.species.note!=null">Note: {{ctrl.species.note}}</li>
             </ul>
             <footer>
               <ul class="links">
@@ -31,6 +30,8 @@
             
     <section id="primary">
     
+      <div ng-if="ctrl.species.note!=null" class="notes">Note: {{ctrl.species.note}}</div>
+      
       <div ng-repeat="(acronym, measures) in ctrl.ems">
         <h2>{{acronym}}</h2>
         
