@@ -5,8 +5,18 @@ angular.module("sharksClient")
                                          function (routingservice, pageservice, countries, footer) {
 	  
 	  this.groupedCountries = Stream(countries)
-	  	.sorted("name")
-	  	.groupBy("continent");
+	  	.sorted(function(a, b) {
+	  		  if (a.code === "EU") return 1;
+	  		  if (b.code === "EU") return -1;
+	  		
+		      if (a.name === b.name) return 0;
+		      if (a.name < b.name) return -1;
+		      return 1;
+		   })
+	  	.groupBy(function (country) {
+	  		if (country.code === "EU") return "Europe";
+	        return country.continent;
+	    });
 	  
 	  pageservice.setTitle("countries");
 	  this.footer = footer;
