@@ -48,8 +48,6 @@ public class SpeciesServiceImpl implements SpeciesService {
 	@Override
 	public SpeciesDetails getSpecies(String alpha3Code) {
 		
-		//TODO cache
-		
 		Species species = dao.getByAlphaCode(alpha3Code);
 		if (species == null) return null;
 		
@@ -70,6 +68,7 @@ public class SpeciesServiceImpl implements SpeciesService {
 		
 		return new SpeciesDetails(alpha3Code, 
 				scientificName,
+				species.getAddInfo(),
 				figisId,
 				hasDistributionMap,
 				officialNames,

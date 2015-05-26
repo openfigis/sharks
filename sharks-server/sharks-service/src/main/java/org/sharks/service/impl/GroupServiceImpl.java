@@ -45,7 +45,10 @@ public class GroupServiceImpl implements GroupService {
 	}
 	
 	private GroupDetails toDetails(CustomSpeciesGrp group) {
-		return new GroupDetails(group.getCode(), group.getCustomSpeciesGrp(), 
+		return new GroupDetails(
+				group.getCode(), 
+				group.getCustomSpeciesGrp(),
+				group.getAddInfo(),
 				convert(group.getSpecies(), speciesEntryProducer),
 				convert(group.getMeasures(), TO_MEASURE_ENTRY));
 	}

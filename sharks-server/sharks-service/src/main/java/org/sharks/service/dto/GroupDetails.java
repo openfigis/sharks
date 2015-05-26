@@ -19,6 +19,7 @@ public class GroupDetails {
 	
 	private final Long code;
 	private final String name;
+	private final String note;
 	private final List<SpeciesEntry> species;
 	private final List<MeasureEntry> measures;
 
