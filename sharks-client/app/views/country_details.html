@@ -5,7 +5,7 @@
       
         <section id="infoBox">
           <div class="logo">
-            <img ng-src="{{ctrl.flagBaseUrl+ctrl.country.code+'.gif'}}" err-src="images/no-flag.gif">
+            <a ng-href="{{ctrl.profileUrl}}"><img ng-src="{{ctrl.flagUrl}}" err-src="{{ctrl.noFlagUrl}}"></a>
           </div>
       </section>
       
@@ -91,7 +91,7 @@
   
     <section id="secondary">
       <div id="listOfRFBs">
-        <h2>RFB membership</h2> 
+        <h2 ng-if="ctrl.country.rfbs.length!=0">RFB membership</h2> 
         <ul class="list">
           <li ng-repeat="rfb in ctrl.country.rfbs">
             <a ng-click="ctrl.showEntity(rfb)" ng-class="{disabled:!rfb.hasMeasures}">{{rfb.acronym}}</a>

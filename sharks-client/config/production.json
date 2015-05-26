@@ -15,6 +15,7 @@
 		"rfbBaseUrl": "http://www.fao.org/fishery/rfb/mapviewer"
 	},
 	"countryprofiles" : {
+		"profileBaseUrl": "http://www.fao.org/fishery/facp/",
 		"flagBaseUrl": "http://www.fao.org/countryprofiles/flags/"
 	},
 	"titleComponents": {

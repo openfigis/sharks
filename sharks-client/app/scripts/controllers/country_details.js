@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("sharksClient")
-  .controller("CountryDetailsCtrl", ["routingservice", "pageservice", "countryprofiles", "country",
-                                          function (routingservice, pageservice, countryprofiles, country) {
+  .controller("CountryDetailsCtrl", ["routingservice", "pageservice", "imagesservice", "countryprofiles", "country",
+                                          function (routingservice, pageservice, imagesservice, countryprofiles, country) {
   
 	  this.country = country;
 	  this.groupedPoas = Stream(country.poas)
@@ -15,7 +15,9 @@ angular.module("sharksClient")
 	  			return poa.type;
 	  });
 	  
-	  this.flagBaseUrl = countryprofiles.flagBaseUrl;
+	  this.flagUrl = imagesservice.countryFlagUrl(country);
+	  this.noFlagUrl = imagesservice.missingFlagUrl;
+	  this.profileUrl = countryprofiles.profileBaseUrl+country.code+"/en";
 	  
 	  pageservice.setTitle(country.name);
 	  

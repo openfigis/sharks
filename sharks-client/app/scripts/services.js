@@ -146,7 +146,7 @@ services.factory("routingservice", ["paths", "$location", "$window", "$log", fun
 	
 }]);
 
-services.factory("imagesservice", [function() {
+services.factory("imagesservice", ["countryprofiles",function(countryprofiles) {
 	
 	function ImagesService() {
 		
@@ -160,6 +160,7 @@ services.factory("imagesservice", [function() {
 		this.missingMediumImageUrl = "images/species/missing-medium.png";
 		this.speciesMissingMediumImageUrl = "images/species/missing-medium.png";
 		this.groupMissingMediumImageUrl = "images/species/missing-medium.png";
+		this.missingFlagUrl = "images/no-flag.gif";
 		
 		this.speciesMediumImageUrl = function(species) {
 			return "images/species/"+self.cleanName(species.scientificName)+"-drawing-medium.png"; 
@@ -175,6 +176,10 @@ services.factory("imagesservice", [function() {
 
 		this.groupThumbImageUrl = function(group) {
 			return "images/groups/"+self.cleanName(group.name)+"-drawing-small.jpg"; 
+		};
+		
+		this.countryFlagUrl = function(country) {
+			return countryprofiles.flagBaseUrl+country.code+".gif";
 		};
 	
 	}
