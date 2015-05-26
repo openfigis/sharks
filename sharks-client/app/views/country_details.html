@@ -1,12 +1,14 @@
 <div class="country-page">
   <div id="main">
     <header>
-      <h2 class="pagetitle">{{ctrl.country.name}}</h2>
+      <section class=“pagetitle”>
+        <h2 class="pagetitle">{{ctrl.country.name}}</h2>
+      </section>
       
-        <section id="infoBox">
-          <div class="logo">
-            <a ng-href="{{ctrl.profileUrl}}"><img ng-src="{{ctrl.flagUrl}}" err-src="{{ctrl.noFlagUrl}}"></a>
-          </div>
+      <section id="infoBox">
+        <div class="logo">
+          <a ng-href="{{ctrl.profileUrl}}"><img ng-src="{{ctrl.flagUrl}}" err-src="{{ctrl.noFlagUrl}}"></a>
+        </div>
       </section>
       
       <div class="clear"></div>
