@@ -35,7 +35,7 @@ public class CustomSpeciesGrp {
     @Column
     private String customSpeciesGrp;
     @Column
-    private String description;
+    private String addInfo;
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "grpCustSpeciesSpecies", joinColumns = @JoinColumn(name = "cdCustomSpeciesGrp", referencedColumnName = "cdCustomSpeciesGrp"), inverseJoinColumns = @JoinColumn(name = "cdSpecies", referencedColumnName = "cdSpecies"))
     private List<Species> species;

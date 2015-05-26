@@ -52,8 +52,6 @@ public class TestModelUtils {
 		species.setAlphaCode(alphaCode);
 		if (names.length>0) species.setScientificName(names[0]);
 		if (names.length>1) species.setNameEn(names[1]);
-		if (names.length>2) species.setNameFr(names[2]);
-		if (names.length>3) species.setNameSp(names[3]);
 		species.setCustomSpeciesGrps(Collections.emptyList());
 		species.setMeasures(Collections.emptyList());
 		return species;

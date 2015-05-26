@@ -39,11 +39,7 @@ public class Species {
     @Column
     private String nameEn;
     @Column
-    private String nameFr;
-    @Column
-    private String nameSp;
-    @Column
-    private String urlFactSheet;
+    private String addInfo;
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "grpCustSpeciesSpecies", joinColumns = @JoinColumn(name = "cdSpecies", referencedColumnName = "cdSpecies"), inverseJoinColumns = @JoinColumn(name = "cdCustomSpeciesGrp", referencedColumnName = "cdCustomSpeciesGrp"))
     private List<CustomSpeciesGrp> customSpeciesGrps;
