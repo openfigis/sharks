@@ -38,7 +38,7 @@
     </section>
   
     <section id="secondary">
-      <h2 ng-if="ctrl.group.species.length!=0">Other measures</h2> 
+      <h2 ng-if="ctrl.group.species.length!=0">Species with measures</h2> 
       <ul class="list">
         <li ng-repeat="species in ctrl.group.species" class="en">
           <a ng-click="ctrl.showSpecies(species)" ng-class="{disabled:!species.hasMeasures}">{{species.englishName}} <i>{{species.scientificName}}</i></a>
