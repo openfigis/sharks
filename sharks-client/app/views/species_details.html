@@ -15,6 +15,7 @@
               	<b>{{lang}}:</b> {{name}}
               </li>
               <li>FAO 3-alpha code: {{ctrl.species.alphaCode}}</li>
+              <li ng-if="ctrl.species.note!=null">Note: {{ctrl.species.note}}</li>
             </ul>
             <footer>
               <ul class="links">
