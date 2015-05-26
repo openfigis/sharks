@@ -21,6 +21,7 @@ import org.sharks.storage.domain.InformationSource;
 import org.sharks.storage.domain.InformationSourceType;
 import org.sharks.storage.domain.Measure;
 import org.sharks.storage.domain.MgmtEntity;
+import org.sharks.storage.domain.MgmtEntityType;
 import org.sharks.storage.domain.PoA;
 import org.sharks.storage.domain.PoAType;
 import org.sharks.storage.domain.Species;
@@ -72,6 +73,7 @@ public class TestModelUtils {
 		entity.setAcronym(acronym);
 		entity.setInformationSources(Arrays.asList(sources));
 		entity.setMeasures(Collections.emptyList());
+		entity.setMgmtEntityType(new MgmtEntityType());
 		return entity;
 	}
 	

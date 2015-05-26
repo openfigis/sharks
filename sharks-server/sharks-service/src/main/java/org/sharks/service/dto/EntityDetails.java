@@ -20,6 +20,7 @@ public class EntityDetails {
 	private final long id;
 	private final String acronym;
 	private final String name;
+	private final Long type;
 	private final String imageId;
 	private final String webSite;
 	private final List<EntityMember> members;

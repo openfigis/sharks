@@ -64,6 +64,7 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 		return new EntityDetails(entity.getCode(), 
 				entity.getAcronym(), 
 				entity.getMgmtEntityName(),
+				entity.getMgmtEntityType().getCode(),
 				imageId,
 				website,
 				members,
