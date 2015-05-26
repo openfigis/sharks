@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("sharksClient")
-  .controller("CountryDetailsCtrl", ["routingservice", "pageservice", "country",
-                                          function (routingservice, pageservice, country) {
+  .controller("CountryDetailsCtrl", ["routingservice", "pageservice", "countryprofiles", "country",
+                                          function (routingservice, pageservice, countryprofiles, country) {
   
 	  this.country = country;
 	  this.groupedPoas = Stream(country.poas)
@@ -14,6 +14,8 @@ angular.module("sharksClient")
 	  		.groupBy(function (poa) {
 	  			return poa.type;
 	  });
+	  
+	  this.flagBaseUrl = countryprofiles.flagBaseUrl;
 	  
 	  pageservice.setTitle(country.name);
 	  

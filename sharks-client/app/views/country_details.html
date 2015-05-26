@@ -2,6 +2,13 @@
   <div id="main">
     <header>
       <h2 class="pagetitle">{{ctrl.country.name}}</h2>
+      
+        <section id="infoBox">
+          <div class="logo">
+            <img ng-src="{{ctrl.flagBaseUrl+ctrl.country.code+'.gif'}}" err-src="images/no-flag.gif">
+          </div>
+      </section>
+      
       <div class="clear"></div>
     </header>
   
