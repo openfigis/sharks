@@ -42,8 +42,5 @@ public class PoA {
     @OneToOne
     @JoinColumn(name = "cdStatus")
     private Status status;
-    @OneToOne
-    @JoinColumn(name = "cdMgmtEntity")
-    private MgmtEntity mgmtEntity;
 
 }
