@@ -836,7 +836,7 @@ div.logo img{
 
 #secondary ul.list li i{
 	display: block;
-	text-transform: capitalize;
+	text-transform: none;
 	padding-top: 5px;
 	font-size: 0.9em;
 }
@@ -887,5 +887,12 @@ div.logo img{
 
 .figisMapLink a:hover{
 	color: #f90;	
+}
+
+.notes {
+	color: #333;
+	padding: 5px 10px;
+	background-color: #ffffff;
+  	border: 1px solid #dddddd;
 }
 
