@@ -25,25 +25,31 @@ public class SpeciesDaoImpl extends AbstractDao<Species, Long> implements Specie
 	public SpeciesDaoImpl(EntityManagerFactory emf) {
 		super(emf, Species.class);
 	}
-	
+
 	@Override
 	public List<Species> listWithMeasures() {
-		
+
 		EntityManager entityManager = emf.createEntityManager();
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		
+
 		CriteriaQuery<Species> criteriaQuery = criteriaBuilder.createQuery(type);
 		Root<Species> species = criteriaQuery.from(type);
-			
+
 		criteriaQuery.where(criteriaBuilder.isNotEmpty(species.get("measures")));
-		
+
 		TypedQuery<Species> query = entityManager.createQuery(criteriaQuery);
 		return query.getResultList();
 	}
-	
+
 	@Override
 	public Species getByAlphaCode(String alphaCode) {
 		return getByField("alphaCode", alphaCode);
+	}
+
+	@Override
+	public Species get(String code) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

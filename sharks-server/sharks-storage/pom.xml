@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -11,44 +10,58 @@
 	</parent>
 
 	<artifactId>sharks-storage</artifactId>
-	
+
 	<properties>
 		<hibernate.version>4.3.8.Final</hibernate.version>
 	</properties>
-	
-	<repositories>
-		<repository>
-			<!-- UnOfficial maven repository for uncanaccess -->
-			<id>bastengao-mvn-repository</id>
-			<url>https://raw.github.com/bastengao/mvn-repository/master/releases</url>
-		</repository>
-	</repositories>
+
 
 	<dependencies>
 		<dependency>
-		    <groupId>org.sharks</groupId>
-		    <artifactId>sharks-config</artifactId>
+			<groupId>org.sharks</groupId>
+			<artifactId>sharks-config</artifactId>
 		</dependency>
-	
+
 		<!-- PERSISTENCE -->
 		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-entitymanager</artifactId>
-		    <version>${hibernate.version}</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
 		</dependency>
-	
+		<dependency>
+			<groupId>jackcess</groupId>
+			<artifactId>jackcess</artifactId>
+			<version>2.0.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.2.8</version>
+			<type>jar</type>
+			<optional>false</optional>
+		</dependency>
+
 		<dependency>
 			<groupId>net.ucanaccess</groupId>
 			<artifactId>ucanaccess</artifactId>
 			<version>2.0.9.3</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+
+
 		<!-- TEST -->
 		<dependency>
-		    <groupId>org.reflections</groupId>
-		    <artifactId>reflections</artifactId>
-		    <version>0.9.9</version>
-		    <scope>test</scope>
+			<groupId>org.reflections</groupId>
+			<artifactId>reflections</artifactId>
+			<version>0.9.9</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
