@@ -10,7 +10,13 @@
 	</parent>
 
 	<artifactId>sharks-storage</artifactId>
-
+	<repositories>
+		<repository>
+			<id>git-openfigis</id>
+			<name>openfigis</name>
+			<url>https://github.com/openfigis/mvnrepo/raw/master/</url>
+		</repository>
+	</repositories>
 	<properties>
 		<hibernate.version>4.3.8.Final</hibernate.version>
 	</properties>
