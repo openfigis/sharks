@@ -15,7 +15,7 @@ angular.module("sharksClient")
 	  
 	  var self = this;
 	  
-	  this.species = Stream(species).sorted("englishName").toArray();
+	  this.species = Stream(species).sorted("scientificName").toArray();
 	  this.groups = Stream(groups).sorted("name").toArray();
 
 	  this.title = "";
