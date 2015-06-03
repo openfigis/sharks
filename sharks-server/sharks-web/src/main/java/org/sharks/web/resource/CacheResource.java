@@ -6,12 +6,16 @@ package org.sharks.web.resource;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.CacheService;
+import org.sharks.service.CacheService.ClearCacheStatus;
+import org.sharks.service.CacheService.WrongPasswordException;
 
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -29,15 +33,27 @@ public class CacheResource {
 	@Inject
 	private CacheService service;
 	
-	@GET
+	@POST
 	@Path("clear")
 	@Produces(MediaType.APPLICATION_JSON)
-	@ApiOperation(value = "clear the application caches. If the cache warmup is enabled it is done before operation return. The passphrase is required if set in the configuration file.", response = String.class)
-	public String clear(
+	@ApiOperation(value = "clear the application caches. The passphrase is required if set in the configuration file.", response = ClearCacheStatus.class)
+	public ClearCacheStatus clear(
 			@QueryParam("passphrase") 
 			@ApiParam(value = "the passphrase set in the configuration file", required = false)
 			String passphrase) {
-		Boolean cleaned = service.clearCaches(passphrase);
-		return cleaned?"The caches have been cleaned":"Caches not cleaned. Check if the specified passphrase is correct";
+		try {
+			return service.clearCaches(passphrase);
+		} catch(WrongPasswordException e) {
+			throw new WebApplicationException(401);
+		}
 	}
+	
+	@GET
+	@Path("status")
+	@Produces(MediaType.APPLICATION_JSON)
+	@ApiOperation(value = "Returns the clean cache status.", response = ClearCacheStatus.class)
+	public ClearCacheStatus status() {
+		return service.getClearCacheStatus();
+	}
+
 }

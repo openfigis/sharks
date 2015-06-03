@@ -3,6 +3,9 @@
  */
 package org.sharks.service.impl;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -22,6 +25,8 @@ import org.sharks.service.event.ApplicationEvent;
 @Singleton @Slf4j
 public class CachesServiceImpl implements CacheService {
 	
+	private ExecutorService executor = Executors.newFixedThreadPool(1);
+	
 	@Inject
 	private CachesWarmer warmer;
 	
@@ -31,25 +36,55 @@ public class CachesServiceImpl implements CacheService {
 	@Inject
 	private Configuration configuration;
 	
+	private ClearCacheStatus cleaningStatus = ClearCacheStatus.IDLE;
+	
 	void cacheWarmup(@Observes ApplicationEvent.Startup startup) {
 		warmer.warmupCaches();
 	}
 	
 	@Override
-	public boolean clearCaches(String passphrase) {
+	public ClearCacheStatus clearCaches(String passphrase) {
+		
 		if (configuration.getCacheCleaningPassphrase()!=null 
 				&& !configuration.getCacheCleaningPassphrase().isEmpty()
 				&& !configuration.getCacheCleaningPassphrase().equals(passphrase)) {
 			log.warn("Attempt to clean the cache with a wrong passphrase {}", passphrase);
 			
-			return false;
+			throw new WrongPasswordException();
 		}
 		
+		synchronized (cleaningStatus) {
+			if (cleaningStatus != ClearCacheStatus.ONGOING) asyncClearCaches();
+		}
+		
+		return cleaningStatus;
+	}
+	
+	private void asyncClearCaches() {
+		
+		log.info("submitting cache cleaning");
+		cleaningStatus = ClearCacheStatus.ONGOING;
+		
+		executor.submit(new Runnable() {
+			
+			@Override
+			public void run() {
+				clearCaches();
+				cleaningStatus = ClearCacheStatus.IDLE;
+			}
+		});
+	}
+	
+	private void clearCaches() {
 		log.info("cleaning all the caches");
 		manager.clearAllCaches();
 		warmer.warmupCaches();
-		
-		return true;
+		log.info("cache cleaning complete");
+	}
+
+	@Override
+	public ClearCacheStatus getClearCacheStatus() {
+		return cleaningStatus;
 	}
 	
 
