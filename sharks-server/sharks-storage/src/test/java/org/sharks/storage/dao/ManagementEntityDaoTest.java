@@ -85,7 +85,7 @@ public class ManagementEntityDaoTest {
 	public void testListRFMOsAndInstitutions() {
 		
 		List<MgmtEntity> rfmos = dao.listRFMOsAndInstitutions(false, false);
-		assertEquals(20, rfmos.size());
+		assertEquals(21, rfmos.size());
 	}
 	
 	@Test
@@ -99,7 +99,7 @@ public class ManagementEntityDaoTest {
 	public void testListRFMOsAndInstitutionsWithOtherSources() {
 		
 		List<MgmtEntity> rfmos = dao.listRFMOsAndInstitutions(false, true);
-		assertEquals(20, rfmos.size());
+		assertEquals(21, rfmos.size());
 	}
 	
 	@Test
