@@ -32,10 +32,10 @@ angular.module("sharksClient")
 		  
 		  if (nextElement.done) self.speciesIterator = Stream(isSpecies?groups:species).iterator();
 		  
-		  self.animationTimeout = $timeout(self.onAnimationTimeout, 1250);
+		  self.animationTimeout = $timeout(self.onAnimationTimeout, 1750);
 	  };
 	  
-	  this.animationTimeout = $timeout(self.onAnimationTimeout, 1250);
+	  this.animationTimeout = $timeout(self.onAnimationTimeout, 1750);
 	    
 	  this.stopAnimation = function(){
 		  $timeout.cancel(this.animationTimeout);
