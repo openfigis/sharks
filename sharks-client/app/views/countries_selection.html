@@ -3,7 +3,7 @@
   <ul class="country" ng-repeat="(continent, countries) in ctrl.groupedCountries">
     <div class="spacer">
       <h2>{{continent | uppercase}}</h2>
-        <li ng-repeat="country in countries" ng-click="ctrl.show(country)" ng-class="{'EU':country.code=='EU'}">{{country.name}}</li>
+        <li ng-repeat="country in countries" ng-click="ctrl.show(country)" class="{{country.code}}">{{country.name}}</li>
     </div>
   </ul>
 </section>
