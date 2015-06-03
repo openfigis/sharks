@@ -1,9 +1,9 @@
-The Sharks application visualizes *measures* and *PoAs* about sharks stored in a *Microsoft Access database*.
+The Sharks application visualizes *measures* and *PoAs* about sharks species and grouped stored in a *Microsoft Access database*.
 
 #Architecture
 
 The application is composed by a client side, a web application running in the browser, and a server side, 
-a server application exposing the database data through a *REST api*.
+a server application exposing the database data combined with external services data through a *REST api*.
 
 The web application is built using Javascript and the [AngularJS](https://angularjs.org/) framework. 
 
@@ -58,5 +58,5 @@ The Swagger console let also to call the single operation with they parameters i
 
 ## Cache Console
 The cache console lets the user manage the application cache. The console offers these operations:
- - **cache cleaning**: clean the application cache and warms it if the warm options is active.
+ - **cache cleaning**: clean the application cache and warms it up if the warms options is active.
 
