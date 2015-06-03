@@ -12,6 +12,7 @@ angular
   .module("sharksClient", [
     "ngResource",
     "ngRoute",
+    "ngSanitize",
     "resources",
     "services"
   ])
