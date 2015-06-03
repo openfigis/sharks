@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.sharks.service;
+package org.sharks.service.impl;
 
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
@@ -10,6 +10,7 @@ import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.config.Configuration;
+import org.sharks.service.CacheService;
 import org.sharks.service.cache.ServiceCacheManager;
 import org.sharks.service.cache.warmer.CachesWarmer;
 import org.sharks.service.event.ApplicationEvent;
@@ -19,7 +20,7 @@ import org.sharks.service.event.ApplicationEvent;
  *
  */
 @Singleton @Slf4j
-public class CachesService {
+public class CachesServiceImpl implements CacheService {
 	
 	@Inject
 	private CachesWarmer warmer;
@@ -34,6 +35,7 @@ public class CachesService {
 		warmer.warmupCaches();
 	}
 	
+	@Override
 	public boolean clearCaches(String passphrase) {
 		if (configuration.getCacheCleaningPassphrase()!=null 
 				&& !configuration.getCacheCleaningPassphrase().isEmpty()

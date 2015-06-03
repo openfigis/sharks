@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.sharks.service.CachesService;
+import org.sharks.service.CacheService;
 
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -27,7 +27,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 public class CacheResource {
 
 	@Inject
-	private CachesService service;
+	private CacheService service;
 	
 	@GET
 	@Path("clear")
