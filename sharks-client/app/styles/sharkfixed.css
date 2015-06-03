@@ -897,3 +897,6 @@ div.logo img{
   	font-size: 0.8em;
 }
 
+.noTransformation {
+	text-transform: none !important;
+}

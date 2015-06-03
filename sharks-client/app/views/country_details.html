@@ -17,7 +17,7 @@
     <section id="primary">
     
       <section ng-repeat="(type, poas) in ctrl.groupedPoas">
-        <h2>{{type}}</h2>
+        <h2 class="noTransformation">{{type}}</h2>
         <section class="measure" ng-repeat="poa in poas" ng-click="ctrl.showPoa(poa)">
           <div class="symbol">
             <ul>
@@ -38,7 +38,7 @@
         </section>
       </section>
       
-      <h2 ng-if="ctrl.others.length!=0">Others</h2>
+      <h2 ng-if="ctrl.others.length!=0" class="noTransformation">Others</h2>
       <section class="measure" ng-repeat="other in ctrl.others" >
         <div class="title">
           <p>{{other.title}}</p> 
@@ -51,7 +51,7 @@
         </div>
       </section>
   
-      <h2>Other legislation on sharks (FAOLEX)</h2>
+      <h2 class="noTransformation">Legislation on Sharks (FAOLEX)</h2>
       <section class="measure"> 
         <div class="title">
           <h4>type</h4>
@@ -61,10 +61,10 @@
         </div> 
       </section>
       
-      <h2>Other legislations (FAOLEX)</h2>
+      <h2 class="noTransformation">Legislation (FAOLEX)</h2>
       <section class="measure"> 
         <div class="title">
-          <p>More FAO Lex records for {{ctrl.country.name}}</p> 
+          <p>Fisheries Legislation for {{ctrl.country.name}}</p> 
           <div class="download">
             <form id="faolexForm" method="post" target="_blank" action="http://faolex.fao.org/cgi-bin/xml.exe" style="display:none;">
               <input value="dynamic" type="hidden" name="search_type">

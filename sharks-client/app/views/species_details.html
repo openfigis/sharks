@@ -32,7 +32,7 @@
             
     <section id="primary">
     
-      <div ng-if="ctrl.species.note!=null" class="notes">Note: {{ctrl.species.note}}</div>
+      <div ng-if="ctrl.species.note!=null" class="notes">{{ctrl.species.note}}</div>
       
       <div ng-repeat="(acronym, measures) in ctrl.ems">
         <h2>{{acronym}}</h2>
