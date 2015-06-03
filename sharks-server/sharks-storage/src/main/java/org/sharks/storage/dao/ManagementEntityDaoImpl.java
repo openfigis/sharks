@@ -89,9 +89,6 @@ public class ManagementEntityDaoImpl extends AbstractDao<MgmtEntity, String> imp
         		criteriaBuilder.equal(entity.get("mgmtEntityType"), RFMO_TYPE),
         		criteriaBuilder.equal(entity.get("mgmtEntityType"), INSTITUTION_TYPE));
         
-        //EU exclusion, hardcoded :(
-        where = criteriaBuilder.and(where, criteriaBuilder.notEqual(entity.get("code"), EU_CODE));
-        
         if (onlyWithMeasures) where = criteriaBuilder.and(where, criteriaBuilder.isNotEmpty(entity.get("measures")));
        
         if (onlyWithOthersSources) {

@@ -16,7 +16,6 @@ public interface ManagementEntityDao {
 	static long INSTITUTION_TYPE = 1l;
 	static long RFMO_TYPE = 2l;
 	static long COUNTRY_TYPE = 3l;
-	static long EU_CODE = 21;
 
 	/**
 	 * Gets a {@link MgmtEntity} by his acronym.
@@ -36,7 +35,7 @@ public interface ManagementEntityDao {
 	public List<MgmtEntity> listCountries(boolean onlyWithPoAs, boolean onlyWithOthersSources);
 	
 	/**
-	 * Retrieves all the {@link MgmtEntity} of type RFMO and Institution (EU excluded).
+	 * Retrieves all the {@link MgmtEntity} of type RFMO and Institution.
 	 * @param onlyWithMeasures <code>true</code> to selected only entities with {@link Measure} associated.
 	 * @param onlyWithOthersSources <code>true</code> to select only the entities with {@link InformationSource} of type Other associated.
 	 * @return the list of entities.
