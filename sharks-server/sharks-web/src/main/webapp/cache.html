@@ -131,21 +131,28 @@
   </head>
   <body>
     <h1>Cache management</h1>
-    <div class="box">
-      <input id="passphrase" name="passphrase" placeholder="passphrase" type="text" value="">
-      <input id="submit" name="commit" type="button" value="Run">
-    </div>
-    <div id="statusBox" class="hidden, box">
-        <div id="spinner" class="spinner hidden">
-          <div class="rect1"></div>
-          <div class="rect2"></div>
-          <div class="rect3"></div>
-          <div class="rect4"></div>
-          <div class="rect5"></div>
+    <ul>
+    <li>
+      Cache cleaning:
+       <div class="box">
+          <input id="passphrase" name="passphrase" placeholder="passphrase" type="text" value="">
+          <input id="submit" name="commit" type="button" value="Run">
         </div>
-        <span id="complete" class="hidden">Complete</span>
-    </div>
-    <div id="errorBox" class="hidden error box">
-    </div>
+        <div id="statusBox" class="hidden, box">
+            <div id="spinner" class="spinner hidden">
+              <div class="rect1"></div>
+              <div class="rect2"></div>
+              <div class="rect3"></div>
+              <div class="rect4"></div>
+              <div class="rect5"></div>
+            </div>
+            <span id="complete" class="hidden">Complete</span>
+        </div>
+        <div id="errorBox" class="hidden error box">
+        </div>
+    </li>
+    
+    </ul>
+   
   </body>
 </html>
