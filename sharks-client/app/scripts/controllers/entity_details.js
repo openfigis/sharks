@@ -14,6 +14,14 @@ angular.module("sharksClient")
 		   })
 		   .toArray();
 	  
+	  this.others = Stream(entity.others)
+	  	  		.sort(function(a, b) {
+		      if (a.year === b.year) return 0;
+		      if (a.year > b.year) return -1;
+		      return 1;
+		   })
+		   .toArray();
+	  
 	  this.hasCompentenceAreaMap = entity.type === entityTypes.rfmo; 
 	  
 	  this.factsheetsUrl = entity.type === entityTypes.rfmo? factsheets.rfbBaseUrl + entity.acronym : null;

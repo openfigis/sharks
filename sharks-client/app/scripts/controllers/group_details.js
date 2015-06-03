@@ -13,6 +13,11 @@ angular.module("sharksClient")
 	  
 	  this.group = group;
 	  this.ems = Stream(group.measures)
+	  .sort(function(a, b) {
+		      if (a.year === b.year) return 0;
+		      if (a.year > b.year) return -1;
+		      return 1;
+		   })
 	  .filter(function (measure) {
 		  return measure.entityAcronym !== "CITES" && measure.entityAcronym !== "CMS";
 	  })

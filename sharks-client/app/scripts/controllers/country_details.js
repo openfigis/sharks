@@ -15,6 +15,14 @@ angular.module("sharksClient")
 	  			return poa.type;
 	  });
 	  
+	  this.others = Stream(country.others)
+	  		.sort(function(a, b) {
+			    if (a.year === b.year) return 0;
+			    if (a.year > b.year) return -1;
+			    return 1;
+			 })
+			 .toArray();
+	  
 	  this.flagUrl = imagesservice.countryFlagUrl(country);
 	  this.noFlagUrl = imagesservice.missingFlagUrl;
 	  this.profileUrl = countryprofiles.profileBaseUrl+country.code+"/en";
