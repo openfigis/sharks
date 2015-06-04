@@ -16,6 +16,29 @@ The server side is layered as follow:
  
 A common **config** module is shared between the layers for the application configuration handling.
 
+## Technology stack
+Here a list of technology/libraries used for the project.
+
+Server:
+- [Maven](https://maven.apache.org/), as project management tool.
+- [CDI](http://cdi-spec.org/) as dependency injection framework.
+- [Weld](http://weld.cdi-spec.org/), as CDI implementation.
+- [JUnit](http://junit.org/), as unit and integration test framework.
+- [Mockito](https://code.google.com/p/mockito/), as mock framework.
+- [CDI-Unit](http://jglue.org/cdi-unit/), as CDI support in unit and integration tests.
+- [Project Lombok](https://projectlombok.org/), as support for fast development.
+- [UCanAccess](https://sourceforge.net/projects/ucanaccess/), a JDBC driver for accessing Access databases.
+- [JPA](http://en.wikipedia.org/wiki/Java_Persistence_API), for mapping between ER to Java Object model.
+- [Hibernate](http://hibernate.org/), as JPA implementation.
+- [JAXB](http://en.wikipedia.org/wiki/Java_Architecture_for_XML_Binding), as XML to Java Object binding framework.
+- [MOXy](https://wiki.eclipse.org/EclipseLink/Examples/MOXy), as XML binding extension in order to support XPath in object binding.
+- [EhCache](http://ehcache.org/), as cache framework.
+- [Solr](http://lucene.apache.org/solr/), as indexing service.
+- [Jersey](https://jersey.java.net/), as Java REST framework.
+- [Swagger](http://swagger.io/), as REST API documentation framework.
+ 
+
+
 # Installation
 The client side can be deployed in a web server as static resource. 
 The server side is deployed in a Tomcat instance through the built war.
