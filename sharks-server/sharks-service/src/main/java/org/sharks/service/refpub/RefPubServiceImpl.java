@@ -16,8 +16,10 @@ import org.sharks.service.refpub.dto.RefPubSpecies;
 import org.sharks.service.refpub.rest.RefPubRestClient;
 
 /**
+ * This client has been created as replacement of refpub client 
+ * currently not available in a public repository.
  * @author "Federico De Faveri federico.defaveri@fao.org"
- *
+ * 
  */
 @Slf4j @Singleton
 public class RefPubServiceImpl implements RefPubService {
