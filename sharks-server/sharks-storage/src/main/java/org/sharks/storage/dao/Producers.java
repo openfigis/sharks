@@ -13,25 +13,30 @@ import javax.inject.Singleton;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.sharks.config.Configuration;
-
 import lombok.extern.slf4j.Slf4j;
+
+import org.sharks.config.Configuration;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
+ *
+ *
+ *         http://stackoverflow.com/questions/4543947/when-should-entitymanagerfactory-instance-be-created-opened?rq=1
+ *
  *
  */
 @Slf4j
 @ApplicationScoped
 public class Producers {
 
-	@Produces @Singleton
+	@Produces
+	@Singleton
 	public EntityManagerFactory getEntityManagerFactory(Configuration configuration) {
 
 		try {
 
 			String dbLocation = configuration.getDbFileLocation();
-			log.trace("dbLocation {}",dbLocation);
+			log.trace("dbLocation {}", dbLocation);
 
 			Map<String, String> properties = new HashMap<String, String>();
 			properties.put("javax.persistence.jdbc.url", "jdbc:ucanaccess://" + dbLocation);
