@@ -30,13 +30,13 @@ The available configuration properties:
  - **cache.warmup**: the type of cache warmup. The available types are:
   - _**none**_: no cache warmup is made. Note: this will slowdown the application performance.
   - _**sequential**_: the cache is warmed up calling all the external services sequentially.
-  - _**parallel**_: the cache is warmed upa calling the external services in parallel.
+  - _**parallel**_: the cache is warmed up calling the external services in parallel.
  - **cache.cleanPassphrase**: the passprhase used to clean the cache from the cache console. Omit it in order to not require a passphrase.
- - **service.sharks**: the application REST API base url, used by swagger.
+ - **service.sharks**: the application REST API base url, used by Swagger.
  - **service.refpub**: the base url of the RefPub service.
  - **service.monikers**: the base url of the Monikers service.
- - **service.geoserver.specieslist**: the url of the species list published by the geoserver.
- - **service.solr**: the solr instance url.
+ - **service.geoserver.specieslist**: the url of the species list published by the GeoServer.
+ - **service.solr**: the Solr instance url.
  
 ## Cache configuration
 The cache is configured through an EhCache xml file.
@@ -52,9 +52,9 @@ The application uses the following caches:
 #Instance documentation
 
 ## REST API documentation
-The REST API documentation is provided throught Swagger. 
+The REST API documentation is provided through Swagger. 
 The Swagger interface lists and documents all the available REST operations. 
-The Swagger console let also to call the single operation with they parameters if present/required.
+The Swagger console let also to call the single operation with the parameters if present/required.
 
 ## Cache Console
 The cache console lets the user manage the application cache. The console offers these operations:
