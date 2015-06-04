@@ -36,7 +36,16 @@ Server:
 - [Solr](http://lucene.apache.org/solr/), as indexing service.
 - [Jersey](https://jersey.java.net/), as Java REST framework.
 - [Swagger](http://swagger.io/), as REST API documentation framework.
- 
+
+Client:
+- [Yeoman](http://yeoman.io/), as scaffolding tool.
+- [Grunt](http://gruntjs.com/), as task runner.
+- [Bower](http://bower.io/), as package manager.
+- [JSHint](http://jshint.com/), as quality control tool.
+- [AngularJS](https://angularjs.org/), as RIA/SPA framework.
+- [Angular-route](https://docs.angularjs.org/api/ngRoute), for views routing.
+- [Angular-resource](https://docs.angularjs.org/api/ngResource), for resource/REST handling.
+- [stream.js](http://streamjs.org/), as Java8 stream emulation.
 
 
 # Installation
