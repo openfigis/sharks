@@ -11,7 +11,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
-import org.sharks.service.moniker.dto.FaoLexDocument;
+import org.sharks.service.moniker.dto.FaoLexFiDocument;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.MonikerResponse;
 import org.sharks.service.moniker.dto.RfbEntry;
@@ -26,7 +26,7 @@ public class MonikersParser {
 	
 	public MonikersParser() {
 		try {
-			JAXBContext context = JAXBContext.newInstance(MonikerResponse.class, RfbEntry.class, FigisDoc.class, FaoLexDocument.class);
+			JAXBContext context = JAXBContext.newInstance(MonikerResponse.class, RfbEntry.class, FigisDoc.class, FaoLexFiDocument.class);
 			unmarshaller = context.createUnmarshaller();
 		} catch(Exception e) {
 			throw new RuntimeException("Error initializing JAXB", e);

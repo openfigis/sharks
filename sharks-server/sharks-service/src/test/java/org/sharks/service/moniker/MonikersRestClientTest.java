@@ -14,7 +14,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.sharks.service.http.HttpClient;
-import org.sharks.service.moniker.dto.FaoLexDocument;
+import org.sharks.service.moniker.dto.FaoLexFiDocument;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
@@ -141,7 +141,7 @@ public class MonikersRestClientTest {
 	 */
 	@Test
 	public void testGetFaoLexDocuments() {
-		List<FaoLexDocument> docs = client.getFaoLexDocuments("aus");
+		List<FaoLexFiDocument> docs = client.getFaoLexDocuments("aus");
 		
 		assertNotNull(docs);
 		assertFalse(docs.isEmpty());

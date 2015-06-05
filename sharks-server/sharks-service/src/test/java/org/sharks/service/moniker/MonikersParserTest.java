@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.FigisDoc.Member;
-import org.sharks.service.moniker.dto.FaoLexDocument;
+import org.sharks.service.moniker.dto.FaoLexFiDocument;
 import org.sharks.service.moniker.dto.MonikerResponse;
 import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersParser;
@@ -102,13 +102,13 @@ public class MonikersParserTest {
 	@Test
 	public void testFaoLexFIResponseParsing() {
 		String content = getResource("/faolexfi.xml");
-		MonikerResponse<FaoLexDocument> response = parser.parseMonikerResponse(content);
+		MonikerResponse<FaoLexFiDocument> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);
 		assertNotNull(response.getOutput());
 		assertFalse(response.getOutput().getItems().isEmpty());
 		
-		FaoLexDocument first = response.getOutput().getItems().get(0);
+		FaoLexFiDocument first = response.getOutput().getItems().get(0);
 		
 		assertNotNull(first.getUri());
 		assertNotNull(first.getTitle());

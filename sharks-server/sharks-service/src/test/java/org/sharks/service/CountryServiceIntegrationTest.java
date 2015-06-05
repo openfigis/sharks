@@ -4,10 +4,14 @@
 package org.sharks.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.*;
+import static org.sharks.service.util.TestModelUtils.buildCountry;
+import static org.sharks.service.util.TestModelUtils.buildEntity;
+import static org.sharks.service.util.TestModelUtils.buildPoA;
+import static org.sharks.service.util.TestModelUtils.findFirst;
 import static org.sharks.service.util.TestUtils.getResource;
 
 import java.net.MalformedURLException;
@@ -59,8 +63,6 @@ public class CountryServiceIntegrationTest {
 		content = getResource("/rfb4iso3_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/rfb4iso3/NOT_EXISTS_RFB"))).thenReturn(content);
 		
-		when(httpClient.get(new URL("http://localhost/rfb4iso3/ERROR"))).thenThrow(new RuntimeException("Get failed"));
-		
 		
 		content = getResource("/figisdoc.xml");
 		when(httpClient.get(new URL("http://localhost/figisdoc/organization/9294"))).thenReturn(content);
@@ -70,7 +72,8 @@ public class CountryServiceIntegrationTest {
 		content = getResource("/figisdoc_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/figisdoc/organization/NOT_EXISTS"))).thenReturn(content);
 		
-		when(httpClient.get(new URL("http://localhost/figisdoc/organization/ERROR"))).thenThrow(new RuntimeException("Get failed"));
+		content = getResource("/faolexfi.xml");
+		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=55/iso3=ALB"))).thenReturn(content);
 
 		
 		return new MonikersRestClient("http://localhost/", httpClient);
@@ -85,9 +88,6 @@ public class CountryServiceIntegrationTest {
 		
 		content = getResource("/country_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO3/code/NOT_EXISTS/xml"))).thenReturn(content);
-		
-		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO3/code/ERROR/xml")))
-		.thenThrow(new RuntimeException("Get failed"));
 		
 		return new RefPubRestClient("http://localhost/", httpClient);
 	}
@@ -130,6 +130,8 @@ public class CountryServiceIntegrationTest {
 		
 		CountryEntity eifaac = findFirst(country.getRfbs(), (entity)->entity.getAcronym().equals("EIFAAC"));
 		assertNotNull(eifaac);
+		
+		assertFalse(country.getFaoLexDocuments().isEmpty());
 	}
 	
 	@Test

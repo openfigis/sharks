@@ -3,17 +3,21 @@
  */
 package org.sharks.service.producer;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.sharks.service.dto.EntityDocument;
 import org.sharks.service.dto.EntityEntry;
+import org.sharks.service.dto.FaoLexDocument;
 import org.sharks.service.dto.GroupEntry;
 import org.sharks.service.dto.InformationSourceEntry;
 import org.sharks.service.dto.MeasureEntry;
 import org.sharks.service.dto.PoAEntry;
+import org.sharks.service.moniker.dto.FaoLexFiDocument;
 import org.sharks.storage.domain.CustomSpeciesGrp;
 import org.sharks.storage.domain.InformationSource;
 import org.sharks.storage.domain.Measure;
@@ -105,6 +109,35 @@ public class EntryProducers {
 					source.getUrl());
 		}
 	};
+	
+	public static final EntryProducer<FaoLexFiDocument, FaoLexDocument> TO_FAOLEX_DOCUMENT = new AbstractEntryProducer<FaoLexFiDocument, FaoLexDocument>() {
+
+		@Override
+		public FaoLexDocument produce(FaoLexFiDocument doc) {
+			return new FaoLexDocument(
+					doc.getTitle(), 
+					doc.getLongTitle(), 
+					getYear(firstNotNull(doc.getDateOfText())), 
+					doc.getUri());
+		}
+		
+		private Integer getYear(Date date) {
+			if (date == null) return null;
+			Calendar cal = Calendar.getInstance();
+		    cal.setTime(date);
+		    return cal.get(Calendar.YEAR);
+		}
+	};
+	
+	@SafeVarargs
+	private static <T> T firstNotNull(T ... values) {
+		for (T value:values) if (value!=null) return value;
+		return null;
+	}
+	
+	
+	
+	
 	
 	public static abstract class AbstractEntryProducer<I,O> implements EntryProducer<I,O> {
 

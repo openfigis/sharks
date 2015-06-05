@@ -4,6 +4,7 @@
 package org.sharks.service.impl;
 
 import static org.sharks.service.producer.EntryProducers.TO_ENTITY_DOCUMENT;
+import static org.sharks.service.producer.EntryProducers.TO_FAOLEX_DOCUMENT;
 import static org.sharks.service.producer.EntryProducers.TO_POA_ENTRY;
 import static org.sharks.service.producer.EntryProducers.convert;
 
@@ -17,8 +18,9 @@ import org.sharks.service.CountryService;
 import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.moniker.MonikerService;
-import org.sharks.service.producer.CountryEntryProducer;
+import org.sharks.service.moniker.dto.FaoLexFiDocument;
 import org.sharks.service.producer.CountryEntityProducer;
+import org.sharks.service.producer.CountryEntryProducer;
 import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.domain.InformationSource;
@@ -50,11 +52,15 @@ public class CountryServiceImpl implements CountryService {
 		if (country == null) return null;
 		
 		List<String> rfbs = monikers.getRfbsForCountry(code);
+		List<FaoLexFiDocument> docs = monikers.getFaoLexDocumentsForCountry(code);
+		
 		CountryDetails details = new CountryDetails(country.getAcronym(), 
 				country.getMgmtEntityName(), 
 				convert(rfbs, entityEntryProducer),
 				convert(country.getPoAs(), TO_POA_ENTRY),
-				convert(onlyOthers(country.getInformationSources()), TO_ENTITY_DOCUMENT));
+				convert(onlyOthers(country.getInformationSources()), TO_ENTITY_DOCUMENT),
+				convert(docs, TO_FAOLEX_DOCUMENT)
+				);
 		return details;
 	}
 	

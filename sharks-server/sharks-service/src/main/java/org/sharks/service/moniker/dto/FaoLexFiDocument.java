@@ -23,7 +23,7 @@ import lombok.Data;
 @Data
 @XmlRootElement(name="document")
 @XmlAccessorType(XmlAccessType.NONE)
-public class FaoLexDocument {
+public class FaoLexFiDocument {
 	
 	@XmlAttribute
 	private String uri;

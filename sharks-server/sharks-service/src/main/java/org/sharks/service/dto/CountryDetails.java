@@ -22,4 +22,5 @@ public class CountryDetails {
 	private final List<CountryEntity> rfbs;
 	private final List<PoAEntry> poas;
 	private final List<EntityDocument> others;
+	private final List<FaoLexDocument> faoLexDocuments;
 }

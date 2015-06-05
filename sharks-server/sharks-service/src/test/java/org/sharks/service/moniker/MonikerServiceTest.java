@@ -17,7 +17,7 @@ import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.sharks.service.moniker.dto.FaoLexDocument;
+import org.sharks.service.moniker.dto.FaoLexFiDocument;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
@@ -57,7 +57,7 @@ public class MonikerServiceTest {
 		when(client.getFigisDoc("NOT_EXISTS")).thenReturn(null);
 		when(client.getFigisDoc("ERROR")).thenThrow(new MonikersRestClientException("",null));
 		
-		FaoLexDocument lexDoc = new FaoLexDocument();
+		FaoLexFiDocument lexDoc = new FaoLexFiDocument();
 		lexDoc.setFaolexId("1");
 		when(client.getFaoLexDocuments("USA")).thenReturn(Arrays.asList(lexDoc));
 		when(client.getFaoLexDocuments("NOT_EXISTS")).thenReturn(null);
@@ -154,14 +154,14 @@ public class MonikerServiceTest {
 	 */
 	@Test
 	public void testGetFaoLexDocumentsForCountry() {
-		List<FaoLexDocument> docs = service.getFaoLexDocumentsForCountry("USA");
+		List<FaoLexFiDocument> docs = service.getFaoLexDocumentsForCountry("USA");
 		
 		assertNotNull(docs);
 	}
 	
 	@Test
 	public void testGetFaoLexDocumentsForCountryMissingCountry() {
-		List<FaoLexDocument> docs = service.getFaoLexDocumentsForCountry("NOT_EXISTS");
+		List<FaoLexFiDocument> docs = service.getFaoLexDocumentsForCountry("NOT_EXISTS");
 		
 		assertNotNull(docs);
 		assertTrue(docs.isEmpty());
@@ -169,7 +169,7 @@ public class MonikerServiceTest {
 	
 	@Test
 	public void testGetFaoLexDocumentsForCountryConnectionError() {
-		List<FaoLexDocument> docs = service.getFaoLexDocumentsForCountry("ERROR");
+		List<FaoLexFiDocument> docs = service.getFaoLexDocumentsForCountry("ERROR");
 		
 		assertNotNull(docs);
 		assertTrue(docs.isEmpty());

@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.service.http.HttpClient;
-import org.sharks.service.moniker.dto.FaoLexDocument;
+import org.sharks.service.moniker.dto.FaoLexFiDocument;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.MonikerResponse;
 import org.sharks.service.moniker.dto.MonikerResponse.Output;
@@ -85,7 +85,7 @@ public class MonikersRestClient {
 		}
 	}
 	
-	public List<FaoLexDocument> getFaoLexDocuments(String iso3) {
+	public List<FaoLexFiDocument> getFaoLexDocuments(String iso3) {
 		try {
 			URL faolexFiDocUrl = getFaoLexFIUrl(iso3);
 			log.trace("getting FaoLexDocuments for {} from {}", iso3, faolexFiDocUrl);
@@ -93,8 +93,8 @@ public class MonikersRestClient {
 			String content = httpClient.get(faolexFiDocUrl);
 			if (content.contains("<root error")) return null;
 			
-			MonikerResponse<FaoLexDocument> response = parser.parseMonikerResponse(content);
-			Output<FaoLexDocument> output = response.getOutput();
+			MonikerResponse<FaoLexFiDocument> response = parser.parseMonikerResponse(content);
+			Output<FaoLexFiDocument> output = response.getOutput();
 			return output.getItems();
 		} catch(Exception e) {
 			throw new MonikersRestClientException("Error retrieving FaoLexDocuments for "+iso3, e);
