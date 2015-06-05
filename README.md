@@ -79,6 +79,7 @@ The application uses the following caches:
  - **rfb4iso**: cache for the rfb4iso3 moniker.
  - **rfb**: cache for the rfb moniker.
  - **figisdoc**: cache for the figisdoc moniker.
+ - **faoLexDocument**: cache for the faoLexFI moniker.
  - **specieslist**: cache for the specieslist from GeoServer.
 
 #Instance documentation
