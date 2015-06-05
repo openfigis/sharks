@@ -5,6 +5,7 @@ package org.sharks.service.moniker;
 
 import java.util.List;
 
+import org.sharks.service.moniker.dto.FaoLexDocument;
 import org.sharks.service.moniker.dto.FigisDoc;
 
 /**
@@ -27,5 +28,13 @@ public interface MonikerService {
 	 * @return the {@link FigisDoc} or <code>null</code> if not found.
 	 */
 	public FigisDoc getFigisDocByAcronym(String rfbAcronym);
+	
+	
+	/**
+	 * Returns a list of {@link FaoLexDocument} for the specified country.
+	 * @param countryIso3 the country iso3 code.
+	 * @return the list of documents, an empty list if the country has not been found.
+	 */
+	public List<FaoLexDocument> getFaoLexDocumentsForCountry(String countryIso3);
 
 }

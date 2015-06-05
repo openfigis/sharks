@@ -17,6 +17,7 @@ import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
+import org.sharks.service.moniker.dto.FaoLexDocument;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
@@ -55,6 +56,12 @@ public class MonikerServiceTest {
 		when(client.getFigisDoc("7352")).thenReturn(doc);
 		when(client.getFigisDoc("NOT_EXISTS")).thenReturn(null);
 		when(client.getFigisDoc("ERROR")).thenThrow(new MonikersRestClientException("",null));
+		
+		FaoLexDocument lexDoc = new FaoLexDocument();
+		lexDoc.setFaolexId("1");
+		when(client.getFaoLexDocuments("USA")).thenReturn(Arrays.asList(lexDoc));
+		when(client.getFaoLexDocuments("NOT_EXISTS")).thenReturn(null);
+		when(client.getFaoLexDocuments("ERROR")).thenThrow(new MonikersRestClientException("",null));
 		
 		return client;
 	}
@@ -108,37 +115,64 @@ public class MonikerServiceTest {
 	 */
 	@Test
 	public void testGetFigisDocByAcronym() {
-		FigisDoc rfb = service.getFigisDocByAcronym("ICCAT");
+		FigisDoc doc = service.getFigisDocByAcronym("ICCAT");
 		
-		assertNotNull(rfb);
+		assertNotNull(doc);
 	}
 	
 	@Test
 	public void testGetFigisDocByAcronymMissingRFB() {
-		FigisDoc rfb = service.getFigisDocByAcronym("NOT_EXISTS");
+		FigisDoc doc = service.getFigisDocByAcronym("NOT_EXISTS");
 		
-		assertNull(rfb);
+		assertNull(doc);
 	}
 	
 	@Test
 	public void testGetFigisDocByAcronymMissingDoc() {
-		FigisDoc rfb = service.getFigisDocByAcronym("APFIC");
+		FigisDoc doc = service.getFigisDocByAcronym("APFIC");
 		
-		assertNull(rfb);
+		assertNull(doc);
 	}
 	
 	@Test
 	public void testGetFigisDocByAcronymConnectionError() {
-		FigisDoc rfb = service.getFigisDocByAcronym("ERROR");
+		FigisDoc doc = service.getFigisDocByAcronym("ERROR");
 		
-		assertNull(rfb);
+		assertNull(doc);
 	}
 	
 	@Test
 	public void testGetFigisDocByAcronymConnectionErrorForDoc() {
-		FigisDoc rfb = service.getFigisDocByAcronym("CACFISH");
+		FigisDoc doc = service.getFigisDocByAcronym("CACFISH");
 		
-		assertNull(rfb);
+		assertNull(doc);
+	}
+	
+	
+	/**
+	 * Test method for {@link org.sharks.service.moniker.MonikerService#getFaoLexDocumentsForCountry(java.lang.String)}.
+	 */
+	@Test
+	public void testGetFaoLexDocumentsForCountry() {
+		List<FaoLexDocument> docs = service.getFaoLexDocumentsForCountry("USA");
+		
+		assertNotNull(docs);
+	}
+	
+	@Test
+	public void testGetFaoLexDocumentsForCountryMissingCountry() {
+		List<FaoLexDocument> docs = service.getFaoLexDocumentsForCountry("NOT_EXISTS");
+		
+		assertNotNull(docs);
+		assertTrue(docs.isEmpty());
+	}
+	
+	@Test
+	public void testGetFaoLexDocumentsForCountryConnectionError() {
+		List<FaoLexDocument> docs = service.getFaoLexDocumentsForCountry("ERROR");
+		
+		assertNotNull(docs);
+		assertTrue(docs.isEmpty());
 	}
 
 }

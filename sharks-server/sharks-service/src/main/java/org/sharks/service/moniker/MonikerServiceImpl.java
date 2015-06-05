@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.sharks.service.cache.ServiceCache;
 import org.sharks.service.cache.CacheName;
 import org.sharks.service.cache.ServiceCache.CacheElement;
+import org.sharks.service.moniker.dto.FaoLexDocument;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
@@ -37,6 +38,9 @@ public class MonikerServiceImpl implements MonikerService {
 	
 	@Inject @CacheName("figisdoc")
 	private ServiceCache<String, FigisDoc> figisDocCache;
+	
+	@Inject @CacheName("faoLexDocument")
+	private ServiceCache<String, List<FaoLexDocument>> faoLexDocumentCache;
 
 	@Override
 	public List<String> getRfbsForCountry(String countryIso3) {
@@ -127,6 +131,33 @@ public class MonikerServiceImpl implements MonikerService {
 		} catch(Exception e) {
 			log.error("Failed retrieving RfbEntry for acronym "+acronym, e);
 			return null;
+		}
+	}
+
+	@Override
+	public List<FaoLexDocument> getFaoLexDocumentsForCountry(String countryIso3) {
+		return getFaoLexDocuments(countryIso3);
+	}
+	
+	private List<FaoLexDocument> getFaoLexDocuments(String countryIso3) {
+		
+		CacheElement<List<FaoLexDocument>> cacheElement = faoLexDocumentCache.get(countryIso3);
+		if (cacheElement.isPresent()) return cacheElement.getValue();
+		
+		try {
+			List<FaoLexDocument> docs = restClient.getFaoLexDocuments(countryIso3);
+			
+			if (docs == null) {
+				log.warn("FaoLexDocuments for country "+countryIso3+" not found");
+				docs = Collections.emptyList();
+			}
+			
+			faoLexDocumentCache.put(countryIso3, docs);
+			
+			return docs;
+		} catch(Exception e) {
+			log.error("Failed retrieving FaoLexDocuments list for country "+countryIso3, e);
+			return Collections.emptyList();
 		}
 	}
 
