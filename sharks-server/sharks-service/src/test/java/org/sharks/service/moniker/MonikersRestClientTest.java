@@ -14,6 +14,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.sharks.service.http.HttpClient;
+import org.sharks.service.moniker.dto.FaoLexDocument;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
@@ -58,6 +59,9 @@ public class MonikersRestClientTest {
 		when(httpClient.get(new URL("http://localhost/figisdoc/organization/NOT_EXISTS"))).thenReturn(content);
 		
 		when(httpClient.get(new URL("http://localhost/figisdoc/organization/ERROR"))).thenThrow(new RuntimeException("Get failed"));
+		
+		content = getResource("/faolexfi.xml");
+		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=55/iso3=aus"))).thenReturn(content);
 
 		
 		client = new MonikersRestClient("http://localhost/", httpClient);
@@ -130,6 +134,17 @@ public class MonikersRestClientTest {
 	@Test(expected=MonikersRestClientException.class)
 	public void testGetFigisDocConnectionError() {
 		client.getFigisDoc("ERROR");
+	}
+	
+	/**
+	 * Test method for {@link org.sharks.service.moniker.rest.MonikersRestClient#getFaoLexDocuments(java.lang.String)}.
+	 */
+	@Test
+	public void testGetFaoLexDocuments() {
+		List<FaoLexDocument> docs = client.getFaoLexDocuments("aus");
+		
+		assertNotNull(docs);
+		assertFalse(docs.isEmpty());
 	}
 
 }

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<moniker name="faolexfi" kwid="055" iso3="AUS">
+  <query src="http://faolex.fao.org/cgi-bin/xml.exe?database=faolex&amp;search_type=query&amp;table=all&amp;format_name=esxml&amp;lang=xmlf&amp;page_header=exmlh&amp;sort_name=sall&amp;query=REPEALED:N+AND+SUPERS:N+AND+ISO:AUS+AND+CK:055"/>
+  <output results="22">
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC129941">
+<field name="ISIS_MFN" value="129941"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries (Giant Crab) Rules 2013."/>
+
+<field name="Date_of_Text" value="2013-01-28"/>
+
+
+<field name="Entry_into_Force" value="These rules enter into force on 28 February 2013."/>
+<field name="FaolexId" value="LEX-FAOC129941"/>
+<field name="Territorial_Subdivision" value="Tasmania"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC110797">
+<field name="ISIS_MFN" value="110797"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fish Resources Management Act, 1994 (Act No. 53 of 1994)."/>
+<field name="Long_Title_of_text" value="An Act relating to the management of fish resources, including the development and management of fisheries and aquaculture and the conservation of fish and other aquatic resources and their habitats, and for related purposes."/>
+
+<field name="Date_of_original_Text" value="1994-11-02"/>
+<field name="Date_of_Consolidation" value="2012-05-21"/>
+
+<field name="FaolexId" value="LEX-FAOC110797"/>
+<field name="Territorial_Subdivision" value="Western Australia"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC076342">
+<field name="ISIS_MFN" value="060477"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Living Marine Resources Management Act 1995."/>
+<field name="Long_Title_of_text" value="An Act to promote the sustainable management of living marine resources, to provide for management plans relating to fish resources, to protect marine habitats and to repeal the Fisheries Act 1959."/>
+
+<field name="Date_of_original_Text" value="1996-05-31"/>
+<field name="Date_of_Consolidation" value="2011-06-01"/>
+
+<field name="FaolexId" value="LEX-FAOC076342"/>
+<field name="Territorial_Subdivision" value="Tasmania"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC002754">
+<field name="ISIS_MFN" value="001537"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries Management (Southern Bluefin Tuna Fishery) Regulations."/>
+
+
+<field name="Date_of_original_Text" value="1995-02-03"/>
+<field name="Date_of_Consolidation" value="2011-05-05"/>
+
+<field name="FaolexId" value="LEX-FAOC002754"/>
+<field name="Territorial_Subdivision" value="Commonwealth"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC104274">
+<field name="ISIS_MFN" value="104274"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries (Scalefish) Rules, 2004."/>
+
+
+<field name="Date_of_original_Text" value="2004-10-18"/>
+<field name="Date_of_Consolidation" value="2011-03-30"/>
+<field name="Entry_into_Force" value="These Rules enter into force on 1 November 2004."/>
+<field name="FaolexId" value="LEX-FAOC104274"/>
+<field name="Territorial_Subdivision" value="Tasmania"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC093936">
+<field name="ISIS_MFN" value="077596"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries Management (Eastern Tuna and Billfish Fishery) Regulations 2009."/>
+
+
+<field name="Date_of_original_Text" value="2009-10-10"/>
+<field name="Date_of_Consolidation" value="2011-03-01"/>
+
+<field name="FaolexId" value="LEX-FAOC093936"/>
+<field name="Territorial_Subdivision" value="Commonwealth"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC104232">
+<field name="ISIS_MFN" value="104232"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries (Commercial Dive) Rules, 2011."/>
+
+<field name="Date_of_Text" value="2011-02-01"/>
+
+
+<field name="Entry_into_Force" value="These Rules enter into force on the day of their notification in the Gazette."/>
+<field name="FaolexId" value="LEX-FAOC104232"/>
+<field name="Territorial_Subdivision" value="Tasmania"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC104246">
+<field name="ISIS_MFN" value="104246"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries (Processing and Handling) Rules, 2010."/>
+
+<field name="Date_of_Text" value="2010-12-07"/>
+
+
+<field name="Entry_into_Force" value="These Rules enter into force on 1 January 2011."/>
+<field name="FaolexId" value="LEX-FAOC104246"/>
+<field name="Territorial_Subdivision" value="Tasmania"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC104192">
+<field name="ISIS_MFN" value="104192"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries (Abalone) Rules, 2009."/>
+
+
+<field name="Date_of_original_Text" value="2009-11-23"/>
+<field name="Date_of_Consolidation" value="2010-08-11"/>
+<field name="Entry_into_Force" value="These Rules enter into force on 31 December 2009."/>
+<field name="FaolexId" value="LEX-FAOC104192"/>
+<field name="Territorial_Subdivision" value="Tasmania"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC072381">
+<field name="ISIS_MFN" value="056650"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries Management (Western Tuna and Billfish Fishery) Regulations 2006 (SLI No. 322 of 2006)."/>
+
+
+<field name="Date_of_original_Text" value="2006-12-13"/>
+<field name="Date_of_Consolidation" value="2010-07-01"/>
+
+<field name="FaolexId" value="LEX-FAOC072381"/>
+<field name="Territorial_Subdivision" value="Commonwealth"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC104275">
+<field name="ISIS_MFN" value="104275"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries (Scallop) Rules, 2010."/>
+
+<field name="Date_of_Text" value="2009-11-22"/>
+
+
+<field name="Entry_into_Force" value="These Rules enter into force on 1 March 2010."/>
+<field name="FaolexId" value="LEX-FAOC104275"/>
+<field name="Territorial_Subdivision" value="Tasmania"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC104364">
+<field name="ISIS_MFN" value="104364"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries Rules, 2009."/>
+
+<field name="Date_of_Text" value="2009-10-21"/>
+
+
+<field name="Entry_into_Force" value="These Rules enter into force on 1 December 2009."/>
+<field name="FaolexId" value="LEX-FAOC104364"/>
+<field name="Territorial_Subdivision" value="Tasmania"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC093937">
+<field name="ISIS_MFN" value="077597"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries Management (International Agreements) Regulations 2009 (SLI No. 254 of 2009)."/>
+
+<field name="Date_of_Text" value="2009-10-08"/>
+
+
+
+<field name="FaolexId" value="LEX-FAOC093937"/>
+<field name="Territorial_Subdivision" value="Commonwealth"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC104242">
+<field name="ISIS_MFN" value="104242"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries (Mackerel) Rules, 2009."/>
+
+<field name="Date_of_Text" value="2009-03-11"/>
+
+
+<field name="Entry_into_Force" value="These Rules enter into force on the day of their notification in the Gazette."/>
+<field name="FaolexId" value="LEX-FAOC104242"/>
+<field name="Territorial_Subdivision" value="Tasmania"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC076417">
+<field name="ISIS_MFN" value="060550"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Inland Fisheries (Controlled Fish) Order 2007."/>
+
+<field name="Date_of_Text" value="2007-12-26"/>
+
+
+
+<field name="FaolexId" value="LEX-FAOC076417"/>
+<field name="Territorial_Subdivision" value="Tasmania"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC076428">
+<field name="ISIS_MFN" value="060561"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries (Mackerel) Rules 1999."/>
+
+
+<field name="Date_of_original_Text" value="2000-01-01"/>
+<field name="Date_of_Consolidation" value="2007-11-21"/>
+
+<field name="FaolexId" value="LEX-FAOC076428"/>
+<field name="Territorial_Subdivision" value="Tasmania"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC082721">
+<field name="ISIS_MFN" value="066669"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries Regulation 2001."/>
+
+
+<field name="Date_of_original_Text" value="2001-08-30"/>
+<field name="Date_of_Consolidation" value="2007-07-11"/>
+
+<field name="FaolexId" value="LEX-FAOC082721"/>
+<field name="Territorial_Subdivision" value="Australian Capital Territory"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC054007">
+<field name="ISIS_MFN" value="043845"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Spanish Mackerel Fishery Management Plan."/>
+
+<field name="Date_of_Text" value="2005-01-01"/>
+
+
+
+<field name="FaolexId" value="LEX-FAOC054007"/>
+<field name="Territorial_Subdivision" value="Northern Territory"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC067140">
+<field name="ISIS_MFN" value="051657"/>
+ <field name="contries" value="Australia; Philippines; China; United States of America; Papua New Guinea; Australia; Cook Islands; Micronesia, Fed. States; Fiji; Kiribati; Marshall Islands; Nauru; Niue (New Zealand); Palau; Solomon Islands; Tonga; Tuvalu; Vanuatu; Samoa; New Zealand"/>
+<field name="Title_of_Text" value="Convention for the Conservations and Management of Highly Migratory Fish Stocks in the Western and Central Pacific."/>
+
+<field name="Date_of_Text" value="2000-09-05"/>
+
+
+<field name="Entry_into_Force" value="This Convention shall enter into force in accordance with Article 36."/>
+<field name="FaolexId" value="LEX-FAOC067140"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC011842">
+<field name="ISIS_MFN" value="008143"/>
+ <field name="contries" value="Australia; Japan"/>
+<field name="Title_of_Text" value="Subsidiary Agreement between the Government of Australia and the Government of Japan concerning Japanese Tuna Long-line Fishing of 1997."/>
+
+<field name="Date_of_Text" value="1997-06-04"/>
+
+
+<field name="Entry_into_Force" value="4 June 1997."/>
+<field name="FaolexId" value="LEX-FAOC011842"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC016157">
+<field name="ISIS_MFN" value="011389"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Fisheries Legislation Amendment Act (No. 1) 1998 (Act No. 75 of 1998)."/>
+<field name="Long_Title_of_text" value="An Act to amend and repeal legislation relating to fisheries, and for related purposes."/>
+<field name="Date_of_Text" value="1991-11-10"/>
+
+
+<field name="Entry_into_Force" value="For entry into force please see section 2."/>
+<field name="FaolexId" value="LEX-FAOC016157"/>
+<field name="Territorial_Subdivision" value="Commonwealth"/>
+</document>
+    <document uri="http://faolex.fao.org/faolex/indexrec.html?id=LEX-FAOC003840">
+<field name="ISIS_MFN" value="002360"/>
+ <field name="contries" value="Australia"/>
+<field name="Title_of_Text" value="Scheme of Management (Tuna Fishery) Regulations, 1985 (No. 155 of 1985)."/>
+
+<field name="Date_of_Text" value="1985-08-15"/>
+
+
+
+<field name="FaolexId" value="LEX-FAOC003840"/>
+<field name="Territorial_Subdivision" value="South Australia"/>
+</document>
+  </output>
+</moniker>

@@ -10,6 +10,7 @@ import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.service.http.HttpClient;
+import org.sharks.service.moniker.dto.FaoLexDocument;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.MonikerResponse;
 import org.sharks.service.moniker.dto.MonikerResponse.Output;
@@ -72,7 +73,7 @@ public class MonikersRestClient {
 	
 	public FigisDoc getFigisDoc(String figisId) {
 		try {
-			URL figisDocUrl = getFigisdocl(figisId);
+			URL figisDocUrl = getFigisdocUrl(figisId);
 			log.trace("getting figisDoc {} from {}", figisId, figisDocUrl);
 			
 			String content = httpClient.get(figisDocUrl);
@@ -84,6 +85,22 @@ public class MonikersRestClient {
 		}
 	}
 	
+	public List<FaoLexDocument> getFaoLexDocuments(String iso3) {
+		try {
+			URL faolexFiDocUrl = getFaoLexFIUrl(iso3);
+			log.trace("getting FaoLexDocuments for {} from {}", iso3, faolexFiDocUrl);
+			
+			String content = httpClient.get(faolexFiDocUrl);
+			if (content.contains("<root error")) return null;
+			
+			MonikerResponse<FaoLexDocument> response = parser.parseMonikerResponse(content);
+			Output<FaoLexDocument> output = response.getOutput();
+			return output.getItems();
+		} catch(Exception e) {
+			throw new MonikersRestClientException("Error retrieving FaoLexDocuments for "+iso3, e);
+		}
+	}
+	
 	private URL getRfb4Iso3Url(String iso3Code) throws MalformedURLException {
 		return new URL(restUrl+"rfb4iso3/"+iso3Code);
 	}
@@ -92,8 +109,12 @@ public class MonikersRestClient {
 		return new URL(restUrl+"rfb/"+acronym);
 	}
 	
-	private URL getFigisdocl(String figisId) throws MalformedURLException {
+	private URL getFigisdocUrl(String figisId) throws MalformedURLException {
 		return new URL(restUrl+"figisdoc/organization/"+figisId);
+	}
+	
+	private URL getFaoLexFIUrl(String iso3) throws MalformedURLException {
+		return new URL(restUrl+"faolexfi/kwid=55/iso3="+iso3);
 	}
 
 	public static class MonikersRestClientException extends RuntimeException {
