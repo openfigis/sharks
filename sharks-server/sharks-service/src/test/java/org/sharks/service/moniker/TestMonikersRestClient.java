@@ -9,6 +9,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.sharks.service.http.DefaultHttpClient;
 import org.sharks.service.http.HttpClient;
+import org.sharks.service.moniker.dto.FaoLexDocument;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.moniker.rest.MonikersRestClient;
@@ -46,6 +47,14 @@ public class TestMonikersRestClient {
 		FigisDoc doc = client.getFigisDoc("9294");
 		assertNotNull(doc);
 		System.out.println(doc);
+	}
+	
+	@Test @Ignore
+	public void testGetFaoLexDocuments() {
+		List<FaoLexDocument> docs = client.getFaoLexDocuments("AUS");
+				
+		assertNotNull(docs);
+		System.out.println(docs);
 	}
 
 
