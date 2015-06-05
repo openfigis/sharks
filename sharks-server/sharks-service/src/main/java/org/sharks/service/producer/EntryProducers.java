@@ -115,6 +115,7 @@ public class EntryProducers {
 		@Override
 		public FaoLexDocument produce(FaoLexFiDocument doc) {
 			return new FaoLexDocument(
+					doc.getFaolexId(),
 					doc.getTitle(), 
 					doc.getLongTitle(), 
 					getYear(firstNotNull(doc.getDateOfText())), 

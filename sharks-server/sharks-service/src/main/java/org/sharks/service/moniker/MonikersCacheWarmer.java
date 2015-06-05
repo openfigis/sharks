@@ -31,6 +31,7 @@ public class MonikersCacheWarmer implements CacheWarmer {
 		
 		log.trace("monikers countries...");
 		for (MgmtEntity country:entityDao.list(ManagementEntityDao.COUNTRY_TYPE)) monikerService.getRfbsForCountry(country.getAcronym());
+		for (MgmtEntity country:entityDao.list(ManagementEntityDao.COUNTRY_TYPE)) monikerService.getFaoLexDocumentsForCountry(country.getAcronym());
 		log.trace("monikers done");
 		
 		log.trace("entities...");
