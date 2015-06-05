@@ -23,6 +23,14 @@ angular.module("sharksClient")
 			 })
 			 .toArray();
 	  
+	  this.docs = Stream(country.faoLexDocuments)
+		.sort(function(a, b) {
+		    if (a.year === b.year) return 0;
+		    if (a.year > b.year) return -1;
+		    return 1;
+		 })
+		 .toArray();
+	  
 	  this.flagUrl = imagesservice.countryFlagUrl(country);
 	  this.noFlagUrl = imagesservice.missingFlagUrl;
 	  this.profileUrl = countryprofiles.profileBaseUrl+country.code+"/en";

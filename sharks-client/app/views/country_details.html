@@ -51,13 +51,22 @@
         </div>
       </section>
   
-      <h2 class="noTransformation">Legislation on Sharks (FAOLEX)</h2>
-      <section class="measure"> 
+      <h2 class="noTransformation" ng-if="ctrl.docs.length!=0">Legislation on Sharks (FAOLEX)</h2>
+      <section class="measure" ng-repeat="doc in ctrl.docs" > 
+        <div class="symbol">
+          <ul>
+            <li ng-if="doc.faolexId!==null">{{doc.faolexId}}</li>
+          </ul>
+        </div> 
         <div class="title">
-          <h4>type</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p> 
-          <div class="year">year <b>1975</b></div>
-          <div class="download"><a href="#"><img src="images/download-icon.png"> </a></div>
+          <h4>{{doc.title}}</h4>
+          <p>{{doc.description}}</p> 
+          <div class="year" ng-if="doc.year!==null">year <b>{{doc.year}}</b></div>
+          <div class="download" ng-if="doc.url!==null">
+            <a href="{{doc.url}}" >
+              <img src="images/download-icon.png">
+            </a>
+          </div>
         </div> 
       </section>
       
