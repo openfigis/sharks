@@ -3,7 +3,8 @@
  */
 package org.sharks.service.cache;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -11,7 +12,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.Test;
 import org.sharks.service.cache.warmer.CacheWarmingExecutor;
 import org.sharks.service.cache.warmer.NopCacheWarmingExecutor;
-import org.sharks.service.cache.warmer.ParallelCacheWarmingExecutor;
 import org.sharks.service.cache.warmer.SequentialCacheWarmerExecutor;
 
 /**
@@ -40,21 +40,6 @@ public class CacheWarmupExecutorsTest {
 		sequential.warm(()->firstExecution.set(1));
 		sequential.warm(()->secondExecution.set(firstExecution.get() + 1));
 		sequential.waitCompletion();
-		
-		assertEquals(1, firstExecution.get());
-		assertEquals(2, secondExecution.get());
-	}
-	
-	@Test
-	public void testParallel() {
-		CacheWarmingExecutor parallel = new ParallelCacheWarmingExecutor();
-		
-		//we can do better?
-		AtomicInteger firstExecution = new AtomicInteger(0);
-		AtomicInteger secondExecution = new AtomicInteger(0);
-		parallel.warm(()->firstExecution.set(1));
-		parallel.warm(()->secondExecution.set(firstExecution.get() + 1));
-		parallel.waitCompletion();
 		
 		assertEquals(1, firstExecution.get());
 		assertEquals(2, secondExecution.get());

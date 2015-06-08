@@ -73,7 +73,7 @@ public class CountryServiceIntegrationTest {
 		when(httpClient.get(new URL("http://localhost/figisdoc/organization/NOT_EXISTS"))).thenReturn(content);
 		
 		content = getResource("/faolexfi.xml");
-		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=55/iso3=ALB"))).thenReturn(content);
+		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=ALB"))).thenReturn(content);
 
 		
 		return new MonikersRestClient("http://localhost/", httpClient);
