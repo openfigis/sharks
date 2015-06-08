@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module("sharksClient")
-  .controller("CountryDetailsCtrl", ["routingservice", "pageservice", "imagesservice", "countryprofiles", "country",
-                                          function (routingservice, pageservice, imagesservice, countryprofiles, country) {
+  .controller("CountryDetailsCtrl", ["routingservice", "pageservice", "imagesservice", "countryprofiles", "faolex", "country",
+                                          function (routingservice, pageservice, imagesservice, countryprofiles, faolex, country) {
   
 	  this.country = country;
 	  this.groupedPoas = Stream(country.poas)
@@ -34,6 +34,7 @@ angular.module("sharksClient")
 	  this.flagUrl = imagesservice.countryFlagUrl(country);
 	  this.noFlagUrl = imagesservice.missingFlagUrl;
 	  this.profileUrl = countryprofiles.profileBaseUrl+country.code+"/en";
+	  this.faoLexUrl = faolex.baseUrl + country.code;
 	  
 	  pageservice.setTitle(country.name);
 	  
@@ -44,8 +45,5 @@ angular.module("sharksClient")
 	  this.showEntity = function(rfb) {
 		routingservice.toSingleById("entities", rfb.acronym);  
 	  };
-	  
-	  this.submitFaoLexForm = function() {
-		  document.getElementById("faolexForm").submit();
-	  };
+
   }]);

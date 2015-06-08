@@ -22,6 +22,9 @@
 		"profileBaseUrl": "http://www.fao.org/fishery/facp/",
 		"flagBaseUrl": "http://www.fao.org/countryprofiles/flags/"
 	},
+	"faolex" : {
+		"baseUrl": "http://faolex.fao.org/faolex/indexrec.html?query=EA:FI%20AND%20ISO:"
+	},
 	"titleComponents": {
 		"base": "FAO Fisheries & Aquaculture",
 		"middle": "Sharks database of measures",
