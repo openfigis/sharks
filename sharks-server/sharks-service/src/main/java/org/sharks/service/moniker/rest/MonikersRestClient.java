@@ -114,7 +114,7 @@ public class MonikersRestClient {
 	}
 	
 	private URL getFaoLexFIUrl(String iso3) throws MalformedURLException {
-		return new URL(restUrl+"faolexfi/kwid=55/iso3="+iso3);
+		return new URL(restUrl+"faolexfi/kwid=089/iso3="+iso3);
 	}
 
 	public static class MonikersRestClientException extends RuntimeException {
