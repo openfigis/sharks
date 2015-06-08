@@ -62,6 +62,9 @@ public class MonikersRestClientTest {
 		
 		content = getResource("/faolexfi.xml");
 		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=aus"))).thenReturn(content);
+		content = getResource("/faolexfi_not_found.xml");
+		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=NOT_EXISTS"))).thenReturn(content);
+		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=ERROR"))).thenThrow(new RuntimeException("Get failed"));
 
 		
 		client = new MonikersRestClient("http://localhost/", httpClient);
@@ -145,6 +148,18 @@ public class MonikersRestClientTest {
 		
 		assertNotNull(docs);
 		assertFalse(docs.isEmpty());
+	}
+	
+	@Test
+	public void testGetFaoLexDocumentsNotFound() {
+		List<FaoLexFiDocument> docs = client.getFaoLexDocuments("NOT_EXISTS");
+		
+		assertNull(docs);
+	}
+	
+	@Test(expected=MonikersRestClientException.class)
+	public void testGetFaoLexDocumentsConnectionError() {
+		client.getFaoLexDocuments("ERROR");
 	}
 
 }

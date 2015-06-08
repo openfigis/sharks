@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<moniker name="faolexfi" kwid="089" iso3="EUR">
+  <query src="http://faolex.fao.org/cgi-bin/xml.exe?database=faolex&amp;search_type=query&amp;table=all&amp;format_name=esxml&amp;lang=xmlf&amp;page_header=exmlh&amp;sort_name=sall&amp;query=REPEALED:N+AND+SUPERS:N+AND+ISO:EUR+AND+CK:089"/>
+  <output>
+    <error> No matches found </error>
+  </output>
+</moniker>

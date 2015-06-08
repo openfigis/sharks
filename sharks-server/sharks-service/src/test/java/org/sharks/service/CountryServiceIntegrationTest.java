@@ -75,7 +75,7 @@ public class CountryServiceIntegrationTest {
 		
 		content = getResource("/faolexfi.xml");
 		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=ALB"))).thenReturn(content);
-		//Moniker returns always a content
+		content = getResource("/faolexfi_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=NOT_EXISTS_RFB"))).thenReturn(content);
 		
 		return new MonikersRestClient("http://localhost/", httpClient);

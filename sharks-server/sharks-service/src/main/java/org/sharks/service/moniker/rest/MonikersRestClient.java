@@ -10,6 +10,7 @@ import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.service.http.HttpClient;
+import org.sharks.service.moniker.dto.ErrorElement;
 import org.sharks.service.moniker.dto.FaoLexFiDocument;
 import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.MonikerResponse;
@@ -95,10 +96,16 @@ public class MonikersRestClient {
 			
 			MonikerResponse<FaoLexFiDocument> response = parser.parseMonikerResponse(content);
 			Output<FaoLexFiDocument> output = response.getOutput();
+			if (isErrorResponse(output.getItems())) return null;
+			
 			return output.getItems();
 		} catch(Exception e) {
 			throw new MonikersRestClientException("Error retrieving FaoLexDocuments for "+iso3, e);
 		}
+	}
+	
+	private <T> boolean isErrorResponse(List<T> items) {
+		return items.size() == 1 && items.get(0) instanceof ErrorElement;
 	}
 	
 	private URL getRfb4Iso3Url(String iso3Code) throws MalformedURLException {
