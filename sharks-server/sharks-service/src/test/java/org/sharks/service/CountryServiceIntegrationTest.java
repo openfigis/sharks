@@ -30,6 +30,7 @@ import org.mockito.Mockito;
 import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.dto.CountryEntity;
 import org.sharks.service.dto.CountryEntry;
+import org.sharks.service.dto.FaoLexDocument;
 import org.sharks.service.http.HttpClient;
 import org.sharks.service.impl.CountryServiceImpl;
 import org.sharks.service.moniker.MonikerServiceImpl;
@@ -74,7 +75,8 @@ public class CountryServiceIntegrationTest {
 		
 		content = getResource("/faolexfi.xml");
 		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=ALB"))).thenReturn(content);
-
+		//Moniker returns always a content
+		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=NOT_EXISTS_RFB"))).thenReturn(content);
 		
 		return new MonikersRestClient("http://localhost/", httpClient);
 	}
@@ -132,6 +134,10 @@ public class CountryServiceIntegrationTest {
 		assertNotNull(eifaac);
 		
 		assertFalse(country.getFaoLexDocuments().isEmpty());
+		
+		FaoLexDocument second = country.getFaoLexDocuments().get(1);
+		assertNotNull(second.getYear());
+		
 	}
 	
 	@Test

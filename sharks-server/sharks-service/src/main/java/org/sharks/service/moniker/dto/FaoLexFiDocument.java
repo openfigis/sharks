@@ -38,6 +38,10 @@ public class FaoLexFiDocument {
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date dateOfText;
 	
+	@XmlPath("field[@name='Date_of_Consolidation']/@value")
+	@XmlJavaTypeAdapter(DateAdapter.class)
+	private Date dateOfConsolidation;
+	
 	@XmlPath("field[@name='FaolexId']/@value")
 	private String faolexId;
 

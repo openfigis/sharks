@@ -113,7 +113,14 @@ public class MonikersParserTest {
 		assertNotNull(first.getUri());
 		assertNotNull(first.getTitle());
 		assertNotNull(first.getDateOfText());
+		assertNull(first.getDateOfConsolidation());
 		assertNotNull(first.getFaolexId());
+		
+		FaoLexFiDocument second = response.getOutput().getItems().get(2);
+		System.out.println(second);
+		
+		assertNull(second.getDateOfText());
+		assertNotNull(second.getDateOfConsolidation());
 	}
 
 	
