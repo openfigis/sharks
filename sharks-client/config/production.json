@@ -23,7 +23,7 @@
 		"flagBaseUrl": "http://www.fao.org/countryprofiles/flags/"
 	},
 	"faolex" : {
-		"baseUrl": "http://faolex.fao.org/faolex/indexrec.html?query=EA:FI%20AND%20ISO:"
+		"baseUrl": "http://faolex.fao.org/faolex/indexrec.html?query=EA:FI%20AND%20"
 	},
 	"titleComponents": {
 		"base": "FAO Fisheries & Aquaculture",

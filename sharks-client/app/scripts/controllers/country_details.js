@@ -34,7 +34,7 @@ angular.module("sharksClient")
 	  this.flagUrl = imagesservice.countryFlagUrl(country);
 	  this.noFlagUrl = imagesservice.missingFlagUrl;
 	  this.profileUrl = countryprofiles.profileBaseUrl+country.code+"/en";
-	  this.faoLexUrl = faolex.baseUrl + country.code;
+	  this.faoLexUrl = faolex.baseUrl + (country.code === "EUR" ?"EC:":"ISO:") + country.code;
 	  
 	  pageservice.setTitle(country.name);
 	  
