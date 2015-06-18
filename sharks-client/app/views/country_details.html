@@ -61,7 +61,7 @@
         <div class="title">
           <h4>{{doc.title}}</h4>
           <p>{{doc.description}}</p> 
-          <div class="year" ng-if="doc.year!==null">year <b>{{doc.year}}</b></div>
+          <div class="year" ng-if="doc.year!==null">year <b>{{doc.year}} <span ng-if="doc.yearOfConsolidation!==null">({{doc.yearOfConsolidation}})</span></b></div>
           <div class="download" ng-if="doc.url!==null">
             <a href="{{doc.url}}" target="_blank">
               <img src="images/download-icon.png">
