@@ -23,6 +23,7 @@ public class ConfigurationImpl implements Configuration {
 	public static final String CACHE_CONFIG = "cache.config";
 	public static final String CACHE_WARMUP = "cache.warmup";
 	public static final String CACHE_CLEAN_PASSPHRASE = "cache.cleanPassphrase";
+	public static final String CACHE_REFRESH_DELAY = "cache.refreshDelay";
 	public static final String SHARKS_URL = "service.sharks";
 	public static final String REFPUB_URL = "service.refpub";
 	public static final String MONIKERS_URL = "service.monikers";
@@ -102,6 +103,11 @@ public class ConfigurationImpl implements Configuration {
 	@Override
 	public String getSpeciesListUrl() {
 		return properties.getProperty(GEOSERVER_SPECIES_LIST_URL);
+	}
+
+	@Override
+	public String getCacheRefreshDelay() {
+		return properties.getProperty(CACHE_REFRESH_DELAY);
 	}
 
 }

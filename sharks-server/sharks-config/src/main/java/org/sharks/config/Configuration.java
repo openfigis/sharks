@@ -15,6 +15,8 @@ public interface Configuration {
 	public CacheWarmupType getCacheWarmupType();
 	
 	public String getCacheCleaningPassphrase();
+	
+	public String getCacheRefreshDelay();
 
 	public String getRefPubUrl();
 

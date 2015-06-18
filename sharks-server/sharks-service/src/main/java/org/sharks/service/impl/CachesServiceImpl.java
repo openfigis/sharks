@@ -3,8 +3,11 @@
  */
 package org.sharks.service.impl;
 
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
@@ -25,7 +28,8 @@ import org.sharks.service.event.ApplicationEvent;
 @Singleton @Slf4j
 public class CachesServiceImpl implements CacheService {
 	
-	private ExecutorService executor = Executors.newFixedThreadPool(1);
+	private final ExecutorService cleanExecutor = Executors.newFixedThreadPool(1);
+    private final ScheduledExecutorService cacheRefreshScheduler = Executors.newScheduledThreadPool(1);
 	
 	@Inject
 	private CachesWarmer warmer;
@@ -37,6 +41,57 @@ public class CachesServiceImpl implements CacheService {
 	private Configuration configuration;
 	
 	private ClearCacheStatus cleaningStatus = ClearCacheStatus.IDLE;
+	
+	void setupCacheRefresh(@Observes ApplicationEvent.Startup startup, Configuration configuration) {
+		log.trace("setting up cache auto-refresh");
+		String refreshDelay = configuration.getCacheRefreshDelay();
+		if (refreshDelay!=null && !refreshDelay.isEmpty()) {
+			long delayMs = -1;
+			try {
+				delayMs = parseRefreshDelay(refreshDelay);
+			} catch(Exception e) {
+				log.error("Failed parsing refresh delay parameter: "+refreshDelay, e);
+				return;
+			}
+			
+			log.info("scheduling cache auto-refresh to "+delayMs+" ms");
+			
+			cacheRefreshScheduler.scheduleWithFixedDelay(new Runnable() {
+				
+				@Override
+				public void run() {
+					log.trace("cache auto-refreshing submitting task...");
+					asyncClearCaches();
+				}
+			}, delayMs, delayMs, TimeUnit.MILLISECONDS);
+			
+		} else log.trace("Auto-refresh disabled");
+	}
+	
+	private long parseRefreshDelay(String param) {
+		String[] tokens = param.split(" ");
+		if (tokens.length!=2) throw new IllegalArgumentException("Expected value and time unit separate by a space");
+		String valueToken = tokens[0];
+		String unitToken = tokens[1];
+		
+		long value = -1;
+		try {
+			value = Long.parseLong(valueToken);
+		} catch(Exception e) {
+			throw new IllegalArgumentException("Invalid numeric value found: "+valueToken, e);
+		}
+		
+		TimeUnit unit = null;
+		try {
+			unit = TimeUnit.valueOf(unitToken.toUpperCase().trim());
+		} catch(Exception e) {
+			throw new IllegalArgumentException("Invalid time unit value found: "+unitToken+" accepted values are "+Arrays.toString(TimeUnit.values()), e);
+		}
+		
+		log.trace("refresh delay value: {} unit: {}", value, unit);
+		
+		return TimeUnit.MILLISECONDS.convert(value, unit);
+	}
 	
 	void cacheWarmup(@Observes ApplicationEvent.Startup startup) {
 		warmer.warmupCaches();
@@ -53,19 +108,19 @@ public class CachesServiceImpl implements CacheService {
 			throw new WrongPasswordException();
 		}
 		
-		synchronized (cleaningStatus) {
-			if (cleaningStatus != ClearCacheStatus.ONGOING) asyncClearCaches();
-		}
+		asyncClearCaches();
 		
 		return cleaningStatus;
-	}
+	}	
 	
-	private void asyncClearCaches() {
+	private synchronized void asyncClearCaches() {
+		
+		if (!(cleaningStatus != ClearCacheStatus.ONGOING)) return;
 		
 		log.info("submitting cache cleaning");
 		cleaningStatus = ClearCacheStatus.ONGOING;
 		
-		executor.submit(new Runnable() {
+		cleanExecutor.submit(new Runnable() {
 			
 			@Override
 			public void run() {
