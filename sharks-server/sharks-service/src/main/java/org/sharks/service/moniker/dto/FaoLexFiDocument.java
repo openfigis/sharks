@@ -38,6 +38,10 @@ public class FaoLexFiDocument {
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date dateOfText;
 	
+	@XmlPath("field[@name='Date_of_original_Text']/@value")
+	@XmlJavaTypeAdapter(DateAdapter.class)
+	private Date dateOfOriginalText;
+	
 	@XmlPath("field[@name='Date_of_Consolidation']/@value")
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date dateOfConsolidation;

@@ -121,6 +121,7 @@ public class MonikersParserTest {
 
 		//test date parsing
 		assertNull(second.getDateOfText());
+		assertNotNull(second.getDateOfOriginalText());
 		assertNotNull(second.getDateOfConsolidation());
 	}
 	
