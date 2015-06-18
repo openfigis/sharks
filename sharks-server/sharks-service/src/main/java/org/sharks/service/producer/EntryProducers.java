@@ -118,7 +118,8 @@ public class EntryProducers {
 					doc.getFaolexId(),
 					doc.getTitle(), 
 					doc.getLongTitle(), 
-					getYear(firstNotNull(doc.getDateOfText(), doc.getDateOfConsolidation())), 
+					getYear(firstNotNull(doc.getDateOfText(), doc.getDateOfOriginalText())),
+					getYear(doc.getDateOfConsolidation()),
 					doc.getUri());
 		}
 		

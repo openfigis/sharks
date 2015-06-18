@@ -19,6 +19,7 @@ public class FaoLexDocument {
 	private final String title;
 	private final String description;
 	private final Integer year;
+	private final Integer yearOfConsolidation;
 	private final String url;
 
 }
