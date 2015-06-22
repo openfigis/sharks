@@ -21,6 +21,7 @@ import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.EntityMember;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.moniker.dto.FigisDoc;
+import org.sharks.service.moniker.dto.RfbEntry;
 import org.sharks.service.producer.EntityMemberProducer;
 import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
@@ -52,11 +53,15 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 		String website = null;
 		List<EntityMember> members = Collections.emptyList();
 		
+		RfbEntry entry = monikerService.getRfbEntry(acronym);
+		if (entry!=null) {
+			members = convert(entry.getMembers(), memberProducer);
+		}
+		
 		FigisDoc doc = monikerService.getFigisDocByAcronym(acronym);
 		if (doc!=null) {
 			imageId = doc.getImageId();
 			website = doc.getWebsite();
-			members = convert(doc.getMembers(), memberProducer);
 		}
 		
 		List<InformationSource> others = onlyOthersOrPoAs(entity.getInformationSources());

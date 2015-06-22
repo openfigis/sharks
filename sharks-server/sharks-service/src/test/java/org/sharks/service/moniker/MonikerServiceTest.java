@@ -3,8 +3,12 @@
  */
 package org.sharks.service.moniker;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
+import static org.sharks.service.util.TestModelUtils.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,15 +43,15 @@ public class MonikerServiceTest {
 	protected MonikersRestClient getRestClient() {
 		MonikersRestClient client = Mockito.mock(MonikersRestClient.class);
 		
-		when(client.getRfb4Iso3("USA")).thenReturn(Arrays.asList(new RfbEntry("7352", null)));
-		when(client.getRfb4Iso3("ITA")).thenReturn(Arrays.asList(new RfbEntry("NOT_EXISTS", null)));
-		when(client.getRfb4Iso3("FRA")).thenReturn(Arrays.asList(new RfbEntry("ERROR", null)));
+		when(client.getRfb4Iso3("USA")).thenReturn(Arrays.asList(createRfbEntry("7352", null)));
+		when(client.getRfb4Iso3("ITA")).thenReturn(Arrays.asList(createRfbEntry("NOT_EXISTS", null)));
+		when(client.getRfb4Iso3("FRA")).thenReturn(Arrays.asList(createRfbEntry("ERROR", null)));
 		when(client.getRfb4Iso3("NOT_EXISTS")).thenReturn(null);
 		when(client.getRfb4Iso3("ERROR")).thenThrow(new MonikersRestClientException("",null));
 		
-		when(client.getRfb("ICCAT")).thenReturn(new RfbEntry(null, "7352"));
-		when(client.getRfb("APFIC")).thenReturn(new RfbEntry(null, "NOT_EXISTS"));
-		when(client.getRfb("CACFISH")).thenReturn(new RfbEntry(null, "ERROR"));
+		when(client.getRfb("ICCAT")).thenReturn(createRfbEntry(null, "7352", createMember("Italy", "ITA")));
+		when(client.getRfb("APFIC")).thenReturn(createRfbEntry(null, "NOT_EXISTS"));
+		when(client.getRfb("CACFISH")).thenReturn(createRfbEntry(null, "ERROR"));
 		when(client.getRfb("NOT_EXISTS")).thenReturn(null);
 		when(client.getRfb("ERROR")).thenThrow(new MonikersRestClientException("",null));
 		
@@ -111,6 +115,30 @@ public class MonikerServiceTest {
 	}
 	
 	/**
+	 * Test method for {@link org.sharks.service.moniker.MonikerService#getRfbEntry(String)}.
+	 */
+	@Test
+	public void testGetRfbEntry() {
+		RfbEntry entry = service.getRfbEntry("ICCAT");
+		
+		assertNotNull(entry);
+	}
+	
+	@Test
+	public void testGetRfbEntryMissingRFB() {
+		RfbEntry entry = service.getRfbEntry("NOT_EXISTS");
+		
+		assertNull(entry);
+	}
+	
+	@Test
+	public void testGetRfbEntryError() {
+		RfbEntry entry = service.getRfbEntry("ERROR");
+		
+		assertNull(entry);
+	}
+	
+	/**
 	 * Test method for {@link org.sharks.service.moniker.MonikerService#getFigisDocByAcronym(java.lang.String)}.
 	 */
 	@Test
@@ -147,7 +175,6 @@ public class MonikerServiceTest {
 		
 		assertNull(doc);
 	}
-	
 	
 	/**
 	 * Test method for {@link org.sharks.service.moniker.MonikerService#getFaoLexDocumentsForCountry(java.lang.String)}.

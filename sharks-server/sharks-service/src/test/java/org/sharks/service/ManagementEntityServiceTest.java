@@ -12,8 +12,7 @@ import static org.mockito.Mockito.when;
 import static org.sharks.service.util.TestModelUtils.buildEntity;
 import static org.sharks.service.util.TestModelUtils.buildInformationSource;
 import static org.sharks.service.util.TestModelUtils.buildMeasure;
-import static org.sharks.service.util.TestModelUtils.createFigisDoc;
-import static org.sharks.service.util.TestModelUtils.createMember;
+import static org.sharks.service.util.TestModelUtils.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -69,8 +68,11 @@ public class ManagementEntityServiceTest {
 	private MonikerService setupMonikerService() {
 		MonikerService service = Mockito.mock(MonikerService.class);
 		
-		when(service.getFigisDocByAcronym("ICCAT")).thenReturn(createFigisDoc("ICCAT", "1234", "4321", "www.ic.cat", createMember("Italy","IT")));
+		when(service.getFigisDocByAcronym("ICCAT")).thenReturn(createFigisDoc("ICCAT", "1234", "4321", "www.ic.cat"));
 		when(service.getFigisDocByAcronym("NOT_IN_RFB_MONIKER")).thenReturn(null);
+		
+		when(service.getRfbEntry("ICCAT")).thenReturn(createRfbEntry("1234", "1234", createMember("Italy", "ITA")));
+		
 		
 		return service;
 	}

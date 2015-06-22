@@ -1,16 +1,20 @@
 package org.sharks.service.moniker;
 
-import static org.junit.Assert.*;
-import static org.sharks.service.util.TestUtils.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.sharks.service.util.TestUtils.getResource;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.sharks.service.moniker.dto.FigisDoc;
-import org.sharks.service.moniker.dto.FigisDoc.Member;
 import org.sharks.service.moniker.dto.ErrorElement;
 import org.sharks.service.moniker.dto.FaoLexFiDocument;
+import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.MonikerResponse;
 import org.sharks.service.moniker.dto.RfbEntry;
+import org.sharks.service.moniker.dto.RfbEntry.RfbMember;
 import org.sharks.service.moniker.rest.MonikersParser;
 
 /**
@@ -38,7 +42,6 @@ public class MonikersParserTest {
 		RfbEntry first = response.getOutput().getItems().get(0);
 
 		assertNotNull(first.getFigisId());
-		
 	}
 	
 	@Test
@@ -66,6 +69,12 @@ public class MonikersParserTest {
 
 		assertNotNull(first.getFid());
 		
+		assertNotNull(first.getMembers());
+		assertFalse(first.getMembers().isEmpty());
+		
+		RfbMember member = first.getMembers().get(0);
+		assertNotNull(member.getIso3());
+		assertNotNull(member.getEnglishName());
 	}
 	
 	@Test
@@ -91,13 +100,6 @@ public class MonikersParserTest {
 		assertNotNull(doc.getAcronym());
 		assertNotNull(doc.getWebsite());
 		assertNotNull(doc.getImageId());
-		
-		assertNotNull(doc.getMembers());
-		assertFalse(doc.getMembers().isEmpty());
-		
-		Member member = doc.getMembers().get(0);
-		assertNotNull(member.getIso3code());
-		assertNotNull(member.getEnglishName());
 	}
 	
 	@Test

@@ -45,10 +45,8 @@ public class MonikerServiceImpl implements MonikerService {
 	@Override
 	public List<String> getRfbsForCountry(String countryIso3) {
 		
-		
 		List<RfbEntry> rfbs = getRfbEntries(countryIso3);
 		List<String> acronyms = toAcronyms(rfbs);
-		
 		
 		return acronyms;
 	}
@@ -111,13 +109,14 @@ public class MonikerServiceImpl implements MonikerService {
 	@Override
 	public FigisDoc getFigisDocByAcronym(String rfbAcronym) {
 		
-		RfbEntry entry = getRfb(rfbAcronym);
+		RfbEntry entry = getRfbEntry(rfbAcronym);
 		if (entry == null || entry.getFid() == null) return null;
 		
 		return getFigisDocById(entry.getFid());
 	}
 	
-	private RfbEntry getRfb(String acronym) {
+	@Override
+	public RfbEntry getRfbEntry(String acronym) {
 		CacheElement<RfbEntry> cacheElement =  rfbCache.get(acronym);
 		if (cacheElement.isPresent()) return cacheElement.getValue();
 
@@ -160,5 +159,4 @@ public class MonikerServiceImpl implements MonikerService {
 			return Collections.emptyList();
 		}
 	}
-
 }
