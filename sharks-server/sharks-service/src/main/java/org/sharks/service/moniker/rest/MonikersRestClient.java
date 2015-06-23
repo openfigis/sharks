@@ -12,10 +12,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.sharks.service.http.HttpClient;
 import org.sharks.service.moniker.dto.ErrorElement;
 import org.sharks.service.moniker.dto.FaoLexFiDocument;
-import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.MonikerResponse;
 import org.sharks.service.moniker.dto.MonikerResponse.Output;
-import org.sharks.service.moniker.dto.RfbEntry;
+import org.sharks.service.moniker.dto.Rfb;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -39,15 +38,15 @@ public class MonikersRestClient {
 	 * @param iso3Code the country iso3code.
 	 * @return the list of rfbs retrieved.
 	 */
-	public List<RfbEntry> getRfb4Iso3(String iso3Code) {
+	public List<Rfb> getRfb4Iso3(String iso3Code) {
 		try {
 			URL rfb4iso3Url = getRfb4Iso3Url(iso3Code);
 			
 			log.trace("getting rfbs {} from {}", iso3Code, rfb4iso3Url);
 			String content = httpClient.get(rfb4iso3Url);
 			
-			MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
-			Output<RfbEntry> output = response.getOutput();
+			MonikerResponse<Rfb> response = parser.parseMonikerResponse(content);
+			Output<Rfb> output = response.getOutput();
 			return output.getItems();
 			
 		} catch(Exception e) {
@@ -55,34 +54,28 @@ public class MonikersRestClient {
 		}
 	}
 	
-	public RfbEntry getRfb(String acronym) {
+	public Rfb getRfbByFid(String fid) {
+		return getRfb(fid);
+	}
+	
+	public Rfb getRfbByAcronym(String acronym) {
+		return getRfb(acronym);
+	}
+	
+	private Rfb getRfb(String id) {
 		try {
-			URL rfbUrl = getRfbUrl(acronym);
+			URL rfbUrl = getRfbUrl(id);
 			
-			log.trace("getting rfb {} from {}", acronym, rfbUrl);
+			log.trace("getting rfb {} from {}", id, rfbUrl);
 			String content = httpClient.get(rfbUrl);
 			
-			MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
-			Output<RfbEntry> output = response.getOutput();
+			MonikerResponse<Rfb> response = parser.parseMonikerResponse(content);
+			Output<Rfb> output = response.getOutput();
 			if (output.getItems()!=null && !output.getItems().isEmpty()) return output.getItems().get(0);
 			return null;
 			
 		} catch(Exception e) {
-			throw new MonikersRestClientException("Error retrieving rfb for "+acronym, e);
-		}
-	}
-	
-	public FigisDoc getFigisDoc(String figisId) {
-		try {
-			URL figisDocUrl = getFigisdocUrl(figisId);
-			log.trace("getting figisDoc {} from {}", figisId, figisDocUrl);
-			
-			String content = httpClient.get(figisDocUrl);
-			if (content.contains("<root error")) return null;
-			
-			return parser.parseFigisDoc(content);
-		} catch(Exception e) {
-			throw new MonikersRestClientException("Error retrieving figisDoc for "+figisId, e);
+			throw new MonikersRestClientException("Error retrieving rfb with identifier "+id, e);
 		}
 	}
 	
@@ -112,12 +105,8 @@ public class MonikersRestClient {
 		return new URL(restUrl+"rfb4iso3/"+iso3Code);
 	}
 	
-	private URL getRfbUrl(String acronym) throws MalformedURLException {
-		return new URL(restUrl+"rfb/"+acronym);
-	}
-	
-	private URL getFigisdocUrl(String figisId) throws MalformedURLException {
-		return new URL(restUrl+"figisdoc/organization/"+figisId);
+	private URL getRfbUrl(String id) throws MalformedURLException {
+		return new URL(restUrl+"rfb/"+id);
 	}
 	
 	private URL getFaoLexFIUrl(String iso3) throws MalformedURLException {

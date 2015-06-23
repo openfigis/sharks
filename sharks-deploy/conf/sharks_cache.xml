@@ -22,8 +22,8 @@
 	<!-- cache for rfb moniker -->
 	<cache name="rfb" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
 	
-	<!-- cache for figisdoc moniker -->
-	<cache name="figisdoc" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
+	<!-- cache for fid to rfb mapping -->
+	<cache name="rfb4fid" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
 		
 	<!-- cache for faoLexFI moniker -->
 	<cache name="faoLexDocument" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>

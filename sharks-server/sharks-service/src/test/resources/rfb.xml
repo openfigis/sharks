@@ -3,177 +3,162 @@
 <moniker name="rfb" rfb="ICCAT">
   <query src="http://localhost/figis/moniker/figismapdata"/>
   <output>
-    <rfb name="ICCAT" fid="9294" link="http://www.fao.org/fishery/rfb/iccat/en" src="http://localhost/figis/moniker/figisdoc/organization/9294">
+    <rfb acronym="ICCAT" fid="9294" link="http://www.fao.org/fishery/rfb/iccat/en" src="/figis/moniker/figisdoc/organization/9294" website="http://www.iccat.int" logo="http://www.fao.org/figis/servlet/IRS?iid=19602">
       <name en="International Commission for the Conservation of Atlantic Tunas (ICCAT)" fr="International Commission for the Conservation of Atlantic Tunas (ICCAT)" es="International Commission for the Conservation of Atlantic Tunas (ICCAT)" ar="International Commission for the Conservation of Atlantic Tunas (ICCAT)" zh="International Commission for the Conservation of Atlantic Tunas (ICCAT)" ru="International Commission for the Conservation of Atlantic Tunas (ICCAT)"/>
-      <members count="56">
-        <arrayitem fid="3" mid="13001" iso2="AL" iso3="ALB" facp="http://localhost/fishery/facp/ALB/en" un="8">
+      <members count="51">
+        <member fid="3" mid="13001" iso2="AL" iso3="ALB" facp="/fishery/facp/ALB/en" un="8">
           <name en="Albania" fr="Albanie" es="Albania" ar="ألبانيا" zh="阿尔巴尼亚共和国" ru="Албания"/>
-        </arrayitem>
-        <arrayitem fid="4" mid="13001" iso2="DZ" iso3="DZA" un="12">
+        </member>
+        <member fid="4" mid="13001" iso2="DZ" iso3="DZA" un="12">
           <name en="Algeria" fr="Algérie" es="Argelia" ar="الجزائر" zh="阿尔及利亚民主人民共和国" ru="Алжир"/>
-        </arrayitem>
-        <arrayitem fid="7" mid="13001" iso2="AO" iso3="AGO" facp="http://localhost/fishery/facp/AGO/en" un="24">
+        </member>
+        <member fid="7" mid="13001" iso2="AO" iso3="AGO" facp="/fishery/facp/AGO/en" un="24">
           <name en="Angola" fr="Angola" es="Angola" ar="جمهورية أنغولا" zh="安哥拉" ru="Республика Ангола"/>
-        </arrayitem>
-        <arrayitem fid="14" mid="13001" iso2="BB" iso3="BRB" facp="http://localhost/fishery/facp/BRB/en" un="52">
+        </member>
+        <member fid="14" mid="13001" iso2="BB" iso3="BRB" facp="/fishery/facp/BRB/en" un="52">
           <name en="Barbados" fr="Barbade" es="Barbados" ar="بربادوس" zh="巴巴多斯" ru="Барбадос"/>
-        </arrayitem>
-        <arrayitem fid="23" mid="13001" iso2="BZ" iso3="BLZ" facp="http://localhost/fishery/facp/BLZ/en" un="84">
+        </member>
+        <member fid="23" mid="13001" iso2="BZ" iso3="BLZ" facp="/fishery/facp/BLZ/en" un="84">
           <name en="Belize" fr="Belize" es="Belice" ar="بليز" zh="伯利兹" ru="Белиз"/>
-        </arrayitem>
-        <arrayitem fid="21" mid="13001" iso2="BR" iso3="BRA" facp="http://localhost/fishery/facp/BRA/en" un="76">
+        </member>
+        <member fid="21" mid="13001" iso2="BR" iso3="BRA" facp="/fishery/facp/BRA/en" un="76">
           <name en="Brazil" fr="Brésil" es="Brasil" ar="الجمهورية الاتحادية البرازيلية" zh="巴 西" ru="Бразилия"/>
-        </arrayitem>
-        <arrayitem fid="33" mid="13001" iso2="CA" iso3="CAN" facp="http://localhost/fishery/facp/CAN/en" un="124">
+        </member>
+        <member fid="33" mid="13001" iso2="CA" iso3="CAN" facp="/fishery/facp/CAN/en" un="124">
           <name en="Canada" fr="Canada" es="Canadá" ar="كندا" zh="加拿大" ru="Канада"/>
-        </arrayitem>
-        <arrayitem fid="35" mid="13001" iso2="CV" iso3="CPV" un="132">
+        </member>
+        <member fid="35" mid="13001" iso2="CV" iso3="CPV" un="132">
           <name en="Cabo Verde" fr="Cabo Verde" es="Cabo Verde" ar="الأخضر الرأس" zh="佛得角" ru="Кабо-Верде"/>
-        </arrayitem>
-        <arrayitem fid="41" mid="13001" iso2="CN" iso3="CHN" facp="http://localhost/fishery/facp/CHN/en" un="156">
+        </member>
+        <member fid="41" mid="13001" iso2="CN" iso3="CHN" facp="/fishery/facp/CHN/en" un="156">
           <name en="China" fr="Chine" es="China" ar="الصين" zh="中华人民共和国" ru="Китай"/>
-        </arrayitem>
-        <arrayitem fid="197" mid="13001" iso2="SL" iso3="SLE" facp="http://localhost/fishery/facp/SLE/en" un="694">
+        </member>
+        <member fid="197" mid="13001" iso2="SL" iso3="SLE" facp="/fishery/facp/SLE/en" un="694">
           <name en="Sierra Leone" fr="Sierra Leone" es="Sierra Leona" ar="سيراليون" zh="塞拉利昂" ru="Сьерра-Леоне"/>
-        </arrayitem>
-        <arrayitem fid="107" mid="13001" iso2="CI" iso3="CIV" un="384">
+        </member>
+        <member fid="107" mid="13001" iso2="CI" iso3="CIV" un="384">
           <name en="Côte d'Ivoire" fr="Côte d'Ivoire" es="Côte d'Ivoire" ar="جمهورية كوت ديفوار" zh="科特迪瓦" ru="Республика Кот-д'Ивуар"/>
-        </arrayitem>
-        <arrayitem fid="286" mid="13001" iso2="CW" iso3="CUW" un="531">
+        </member>
+        <member fid="286" mid="13001" iso2="CW" iso3="CUW" un="531">
           <name en="Curaçao" fr="Curaçao" es="Curaçao" ar="كوراساو" zh="库拉索" ru="Кюрасао"/>
-        </arrayitem>
-        <arrayitem fid="59" mid="13001" iso2="EG" iso3="EGY" facp="http://localhost/fishery/facp/EGY/en" un="818">
+        </member>
+        <member fid="59" mid="13001" iso2="EG" iso3="EGY" facp="/fishery/facp/EGY/en" un="818">
           <name en="Egypt" fr="Égypte" es="Egipto" ar="مصر" zh="埃 及" ru="Египет"/>
-        </arrayitem>
-        <arrayitem fid="60" mid="13001" iso2="SV" iso3="SLV" un="222">
+        </member>
+        <member fid="60" mid="13001" iso2="SV" iso3="SLV" un="222">
           <name en="El Salvador" fr="El Salvador" es="El Salvador" ar="السلفادور" zh="萨尔瓦多" ru="Сальвадор"/>
-        </arrayitem>
-        <arrayitem fid="61" mid="13001" iso2="GQ" iso3="GNQ" un="226">
+        </member>
+        <member fid="61" mid="13001" iso2="GQ" iso3="GNQ" un="226">
           <name en="Equatorial Guinea" fr="Guinée équatoriale" es="Guinea Ecuatorial" ar="غينيا الاستوائية" zh="赤道几内亚" ru="Экваториальная Гвинея"/>
-        </arrayitem>
-        <arrayitem fid="380" mid="13001" iso2="EU" iso3="EUR" un="0">
+        </member>
+        <member fid="380" mid="13001" iso2="EU" iso3="EUR" un="0">
           <name en="European Union" fr="Union Européenne" es="Unión Europea"/>
-        </arrayitem>
-        <arrayitem fid="68" mid="13001" iso2="FR" iso3="FRA" un="250">
+        </member>
+        <member fid="68" mid="13001" iso2="FR" iso3="FRA" un="250">
           <name en="France" fr="France" es="Francia" ar="فرنسا" zh="法  国" ru="Франция"/>
-        </arrayitem>
-        <arrayitem fid="74" mid="13001" iso2="GA" iso3="GAB" un="266">
+        </member>
+        <member fid="74" mid="13001" iso2="GA" iso3="GAB" un="266">
           <name en="Gabon" fr="Gabon" es="Gabón" ar="الجمهورية الغابونية" zh="加 蓬" ru="Габон"/>
-        </arrayitem>
-        <arrayitem fid="81" mid="13001" iso2="GH" iso3="GHA" facp="http://localhost/fishery/facp/GHA/en" un="288">
+        </member>
+        <member fid="81" mid="13001" iso2="GH" iso3="GHA" facp="/fishery/facp/GHA/en" un="288">
           <name en="Ghana" fr="Ghana" es="Ghana" ar="جمهورية غانا" zh="加 纳" ru="Гана"/>
-        </arrayitem>
-        <arrayitem fid="89" mid="13001" iso2="GT" iso3="GTM" un="320">
+        </member>
+        <member fid="89" mid="13001" iso2="GT" iso3="GTM" un="320">
           <name en="Guatemala" fr="Guatemala" es="Guatemala" ar="غواتيمالا" zh="危地马拉共和国" ru="Гватемала"/>
-        </arrayitem>
-        <arrayitem fid="90" mid="13001" iso2="GN" iso3="GIN" un="324">
+        </member>
+        <member fid="90" mid="13001" iso2="GN" iso3="GIN" un="324">
           <name en="Guinea" fr="Guinée" es="Guinea" ar="غينيا" zh="几内亚共和国" ru="Гвинейская Республика"/>
-        </arrayitem>
-        <arrayitem fid="95" mid="13001" iso2="HN" iso3="HND" un="340">
+        </member>
+        <member fid="95" mid="13001" iso2="HN" iso3="HND" un="340">
           <name en="Honduras" fr="Honduras" es="Honduras" ar="هندوراس" zh="洪都拉斯共和国" ru="Гондурас"/>
-        </arrayitem>
-        <arrayitem fid="99" mid="13001" iso2="IS" iso3="ISL" facp="http://localhost/fishery/facp/ISL/en" un="352">
+        </member>
+        <member fid="99" mid="13001" iso2="IS" iso3="ISL" facp="/fishery/facp/ISL/en" un="352">
           <name en="Iceland" fr="Islande" es="Islandia" ar="جمهورية آيسلندا" zh="冰 岛" ru="Исландия"/>
-        </arrayitem>
-        <arrayitem fid="110" mid="13001" iso2="JP" iso3="JPN" facp="http://localhost/fishery/facp/JPN/en" un="392">
+        </member>
+        <member fid="110" mid="13001" iso2="JP" iso3="JPN" facp="/fishery/facp/JPN/en" un="392">
           <name en="Japan" fr="Japon" es="Japón" ar="اليابان" zh="日 本" ru="Япония"/>
-        </arrayitem>
-        <arrayitem fid="123" mid="13001" iso2="LR" iso3="LBR" facp="http://localhost/fishery/facp/LBR/en" un="430">
+        </member>
+        <member fid="123" mid="13001" iso2="LR" iso3="LBR" facp="/fishery/facp/LBR/en" un="430">
           <name en="Liberia" fr="Libéria" es="Liberia" ar="ليبريا" zh="利比里亚" ru="Либерия"/>
-        </arrayitem>
-        <arrayitem fid="124" mid="13001" iso2="LY" iso3="LBY" facp="http://localhost/fishery/facp/LBY/en" un="434">
+        </member>
+        <member fid="124" mid="13001" iso2="LY" iso3="LBY" facp="/fishery/facp/LBY/en" un="434">
           <name en="Libya" fr="Libye" es="Libia" ar="ليبيا" zh="利比亚" ru="Ливия"/>
-        </arrayitem>
-        <arrayitem fid="143" mid="13001" iso2="MA" iso3="MAR" un="504">
+        </member>
+        <member fid="143" mid="13001" iso2="MA" iso3="MAR" un="504">
           <name en="Morocco" fr="Maroc" es="Marruecos" ar="المملكة المغربية" zh="摩洛哥" ru="Королевство Марокко"/>
-        </arrayitem>
-        <arrayitem fid="136" mid="13001" iso2="MR" iso3="MRT" un="478">
+        </member>
+        <member fid="136" mid="13001" iso2="MR" iso3="MRT" un="478">
           <name en="Mauritania" fr="Mauritanie" es="Mauritania" ar="موريتانيا" zh="毛里塔尼亚伊斯兰共和国" ru="Мавритания"/>
-        </arrayitem>
-        <arrayitem fid="138" mid="13001" iso2="MX" iso3="MEX" facp="http://localhost/fishery/facp/MEX/en" un="484">
+        </member>
+        <member fid="138" mid="13001" iso2="MX" iso3="MEX" facp="/fishery/facp/MEX/en" un="484">
           <name en="Mexico" fr="Mexique" es="México" ar="المكسيك" zh="墨西哥" ru="Мексика"/>
-        </arrayitem>
-        <arrayitem fid="147" mid="13001" iso2="NA" iso3="NAM" facp="http://localhost/fishery/facp/NAM/en" un="516">
+        </member>
+        <member fid="147" mid="13001" iso2="NA" iso3="NAM" facp="/fishery/facp/NAM/en" un="516">
           <name en="Namibia" fr="Namibie" es="Namibia" ar="ناميبيا" zh="纳米比亚" ru="Намибия"/>
-        </arrayitem>
-        <arrayitem fid="157" mid="13001" iso2="NI" iso3="NIC" un="558">
+        </member>
+        <member fid="157" mid="13001" iso2="NI" iso3="NIC" un="558">
           <name en="Nicaragua" fr="Nicaragua" es="Nicaragua" ar="نيكاراغوا" zh="尼加拉瓜共和国" ru="Никарагуа"/>
-        </arrayitem>
-        <arrayitem fid="159" mid="13001" iso2="NG" iso3="NGA" facp="http://localhost/fishery/facp/NGA/en" un="566">
+        </member>
+        <member fid="159" mid="13001" iso2="NG" iso3="NGA" facp="/fishery/facp/NGA/en" un="566">
           <name en="Nigeria" fr="Nigéria" es="Nigeria" ar="نيجيريا" zh="尼日利亚" ru="Нигерия"/>
-        </arrayitem>
-        <arrayitem fid="162" mid="13001" iso2="NO" iso3="NOR" facp="http://localhost/fishery/facp/NOR/en" un="578">
+        </member>
+        <member fid="162" mid="13001" iso2="NO" iso3="NOR" facp="/fishery/facp/NOR/en" un="578">
           <name en="Norway" fr="Norvège" es="Noruega" ar="النرويج" zh="挪 威" ru="Норвегия"/>
-        </arrayitem>
-        <arrayitem fid="166" mid="13001" iso2="PA" iso3="PAN" un="591">
+        </member>
+        <member fid="166" mid="13001" iso2="PA" iso3="PAN" un="591">
           <name en="Panama" fr="Panama" es="Panamá" ar="جمهورية بنما" zh="巴拿马" ru="Панама"/>
-        </arrayitem>
-        <arrayitem fid="171" mid="13001" iso2="PH" iso3="PHL" facp="http://localhost/fishery/facp/PHL/en" un="608">
+        </member>
+        <member fid="171" mid="13001" iso2="PH" iso3="PHL" facp="/fishery/facp/PHL/en" un="608">
           <name en="Philippines" fr="Philippines" es="Filipinas" ar="جمهورية الفلبين" zh="菲律宾共和国" ru="Республика Филиппины"/>
-        </arrayitem>
-        <arrayitem fid="117" mid="13001" iso2="KR" iso3="KOR" facp="http://localhost/fishery/facp/KOR/en" un="410">
+        </member>
+        <member fid="117" mid="13001" iso2="KR" iso3="KOR" facp="/fishery/facp/KOR/en" un="410">
           <name en="Korea, Republic of" fr="République de Corée" es="República de Corea" ar="جمهورية كوريا" zh="大韩民国" ru="Республика Корея"/>
-        </arrayitem>
-        <arrayitem fid="185" mid="13001" iso2="RU" iso3="RUS" facp="http://localhost/fishery/facp/RUS/en" un="643">
+        </member>
+        <member fid="185" mid="13001" iso2="RU" iso3="RUS" facp="/fishery/facp/RUS/en" un="643">
           <name en="Russian Federation" fr="Fédération de Russie" es="Federación de Rusia" ar="الاتحاد الروسي" zh="俄罗斯联邦" ru="Российская Федерация"/>
-        </arrayitem>
-        <arrayitem fid="191" mid="13001" iso2="VC" iso3="VCT" facp="http://localhost/fishery/facp/VCT/en" un="670">
+        </member>
+        <member fid="191" mid="13001" iso2="VC" iso3="VCT" facp="/fishery/facp/VCT/en" un="670">
           <name en="Saint Vincent/Grenadines" fr="Saint-Vincent/Grenadines" es="San Vicente/Grenadinas" ar="سانت فنسنت وجزر غرينادين" zh="圣文森特和格林纳丁斯" ru="Сент-Винсент и Гренадины"/>
-        </arrayitem>
-        <arrayitem fid="193" mid="13001" iso2="ST" iso3="STP" un="678">
+        </member>
+        <member fid="193" mid="13001" iso2="ST" iso3="STP" un="678">
           <name en="Sao Tome and Principe" fr="Sao Tomé-et-Principe" es="Santo Tomé y Príncipe" ar="سان تومي وبرنسيبي" zh="圣多美和普林西比" ru="Сан-Томе и Принсипи"/>
-        </arrayitem>
-        <arrayitem fid="195" mid="13001" iso2="SN" iso3="SEN" un="686">
+        </member>
+        <member fid="195" mid="13001" iso2="SN" iso3="SEN" un="686">
           <name en="Senegal" fr="Sénégal" es="Senegal" ar="السنغال" zh="塞内加尔共和国" ru="Сенегал"/>
-        </arrayitem>
-        <arrayitem fid="197" mid="13001" iso2="SL" iso3="SLE" facp="http://localhost/fishery/facp/SLE/en" un="694">
+        </member>
+        <member fid="197" mid="13001" iso2="SL" iso3="SLE" facp="/fishery/facp/SLE/en" un="694">
           <name en="Sierra Leone" fr="Sierra Leone" es="Sierra Leona" ar="سيراليون" zh="塞拉利昂" ru="Сьерра-Леоне"/>
-        </arrayitem>
-        <arrayitem fid="202" mid="13001" iso2="ZA" iso3="ZAF" facp="http://localhost/fishery/facp/ZAF/en" un="710">
+        </member>
+        <member fid="202" mid="13001" iso2="ZA" iso3="ZAF" facp="/fishery/facp/ZAF/en" un="710">
           <name en="South Africa" fr="Afrique du Sud" es="Sudáfrica" ar="جمهورية جنوب أفريقيا" zh="南 非" ru="Южная Африка"/>
-        </arrayitem>
-        <arrayitem fid="212" mid="13001" iso2="SY" iso3="SYR" facp="http://localhost/fishery/facp/SYR/en" un="760">
+        </member>
+        <member fid="212" mid="13001" iso2="SY" iso3="SYR" facp="/fishery/facp/SYR/en" un="760">
           <name en="Syrian Arab Republic" fr="Rép. arabe syrienne" es="República Árabe Siria" ar="الجمهورية العربية السورية" zh="阿拉伯叙利亚共和国" ru="Сирийская Арабская Республика"/>
-        </arrayitem>
-        <arrayitem fid="220" mid="13001" iso2="TT" iso3="TTO" facp="http://localhost/fishery/facp/TTO/en" un="780">
+        </member>
+        <member fid="220" mid="13001" iso2="TT" iso3="TTO" facp="/fishery/facp/TTO/en" un="780">
           <name en="Trinidad and Tobago" fr="Trinité-et-Tobago" es="Trinidad y Tabago" ar="ترينيداد وتوباغو" zh="特立尼达和多巴哥共和国" ru="Тринидад и Тобаго"/>
-        </arrayitem>
-        <arrayitem fid="222" mid="13001" iso2="TN" iso3="TUN" un="788">
+        </member>
+        <member fid="222" mid="13001" iso2="TN" iso3="TUN" un="788">
           <name en="Tunisia" fr="Tunisie" es="Túnez" ar="تونس" zh="突尼斯" ru="Тунисская Республика"/>
-        </arrayitem>
-        <arrayitem fid="223" mid="13001" iso2="TR" iso3="TUR" facp="http://localhost/fishery/facp/TUR/en" un="792">
+        </member>
+        <member fid="223" mid="13001" iso2="TR" iso3="TUR" facp="/fishery/facp/TUR/en" un="792">
           <name en="Turkey" fr="Turquie" es="Turquía" ar="الجمهورية التركية" zh="土耳其" ru="Турция"/>
-        </arrayitem>
-        <arrayitem fid="229" mid="13001" iso2="GB" iso3="GBR" facp="http://localhost/fishery/facp/GBR/en" un="826">
+        </member>
+        <member fid="229" mid="13001" iso2="GB" iso3="GBR" facp="/fishery/facp/GBR/en" un="826">
           <name en="United Kingdom" fr="Royaume-Uni" es="Reino Unido" ar="المملكة المتحدة" zh="大不列颠及北爱尔兰联合王国" ru="Соединенное Королевство (Великобритании и Северной Ирландии)"/>
-        </arrayitem>
-        <arrayitem fid="231" mid="13001" iso2="US" iso3="USA" facp="http://localhost/fishery/facp/USA/en" un="840">
+        </member>
+        <member fid="231" mid="13001" iso2="US" iso3="USA" facp="/fishery/facp/USA/en" un="840">
           <name en="United States of America" fr="États-Unis d'Amérique" es="EstadosUnidos de América" ar="الولايات المتحدة الأمريكية" zh="美利坚合众国" ru="Соединенные Штаты Америки"/>
-        </arrayitem>
-        <arrayitem fid="234" mid="13001" iso2="UY" iso3="URY" un="858">
+        </member>
+        <member fid="234" mid="13001" iso2="UY" iso3="URY" un="858">
           <name en="Uruguay" fr="Uruguay" es="Uruguay" ar="أوروغواي" zh="乌拉圭东岸共和国" ru="Уругвай"/>
-        </arrayitem>
-        <arrayitem fid="155" mid="13001" iso2="VU" iso3="VUT" facp="http://localhost/fishery/facp/VUT/en" un="548">
+        </member>
+        <member fid="155" mid="13001" iso2="VU" iso3="VUT" facp="/fishery/facp/VUT/en" un="548">
           <name en="Vanuatu" fr="Vanuatu" es="Vanuatu" ar="فانواتو" zh="瓦努阿图共和国" ru="Республика Вануату"/>
-        </arrayitem>
-        <arrayitem fid="236" mid="13001" iso2="VE" iso3="VEN" un="862">
+        </member>
+        <member fid="236" mid="13001" iso2="VE" iso3="VEN" un="862">
           <name en="Venezuela, Boliv Rep of" fr="Venezuela, Rép boliv du" es="Venezuela, Rep Boliv de" ar="جمهورية فنزويلا البوليفارية" zh="委内瑞拉 (玻利瓦尔共和国)" ru="Венесуэла (Боливарианская Республика)"/>
-        </arrayitem>
-        <arrayitem fid="44" mid="13001" iso2="CO" iso3="COL" un="170">
-          <name en="Colombia" fr="Colombie" es="Colombia" ar="جمهورية كولومبيا" zh="哥伦比亚" ru="Колумбия"/>
-        </arrayitem>
-        <arrayitem fid="286" mid="13001" iso2="CW" iso3="CUW" un="531">
-          <name en="Curaçao" fr="Curaçao" es="Curaçao" ar="كوراساو" zh="库拉索" ru="Кюрасао"/>
-        </arrayitem>
-        <arrayitem fid="60" mid="13001" iso2="SV" iso3="SLV" un="222">
-          <name en="El Salvador" fr="El Salvador" es="El Salvador" ar="السلفادور" zh="萨尔瓦多" ru="Сальвадор"/>
-        </arrayitem>
-        <arrayitem fid="207" mid="13001" iso2="SR" iso3="SUR" facp="http://localhost/fishery/facp/SUR/en" un="740">
-          <name en="Suriname" fr="Suriname" es="Suriname" ar="سورينام" zh="苏里南" ru="Суринам"/>
-        </arrayitem>
-        <arrayitem fid="214" mid="13001" iso2="TW" iso3="TWN" un="158">
-          <name en="Taiwan Province of China" fr="Prov. chinoise de Taïwan" es="Prov. china de Taiwán"/>
-        </arrayitem>
+        </member>
       </members>
     </rfb>
   </output>

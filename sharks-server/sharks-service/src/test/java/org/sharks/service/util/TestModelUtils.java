@@ -11,9 +11,8 @@ import java.util.function.Predicate;
 
 import org.sharks.service.geoserver.dto.SpeciesItem;
 import org.sharks.service.geoserver.dto.SpeciesList;
-import org.sharks.service.moniker.dto.FigisDoc;
-import org.sharks.service.moniker.dto.RfbEntry;
-import org.sharks.service.moniker.dto.RfbEntry.RfbMember;
+import org.sharks.service.moniker.dto.Rfb;
+import org.sharks.service.moniker.dto.Rfb.Member;
 import org.sharks.service.refpub.dto.MultiLingualName;
 import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.dto.RefPubSpecies;
@@ -115,24 +114,25 @@ public class TestModelUtils {
 		return new RefPubCountry(unIso3Code, continent, Collections.emptyList(), new MultiLingualName(english, "french", "spanish", "arabic", "chinese", "russian"));
 	}
 	
-	public static FigisDoc createFigisDoc(String acronym, String figisId, String imageId, String website) {
-		FigisDoc doc = new FigisDoc();
-		doc.setAcronym(acronym);
-		doc.setFigisId(figisId);
-		doc.setImageId(imageId);
-		doc.setWebsite(website);
-		return doc;
-	}
-	
-	public static RfbMember createMember(String englishName, String iso3code) {
-		RfbMember member = new RfbMember();
+	public static Member createMember(String englishName, String iso3code) {
+		Member member = new Member();
 		member.setEnglishName(englishName);
 		member.setIso3(iso3code);
 		return member;
 	}
 	
-	public static RfbEntry createRfbEntry(String figisId, String fid, RfbMember...members) {
-		return new RfbEntry(figisId, fid, Arrays.asList(members));
+	public static Rfb createRfb(String fid, String acronym, Member...members) {
+		Rfb rfb = new Rfb();
+		rfb.setFid(fid);
+		rfb.setAcronym(acronym);
+		rfb.setMembers(Arrays.asList(members));
+		return rfb;
+	}
+	
+	public static Rfb createRfbEntry(String figisId) {
+		Rfb rfb = new Rfb();
+		rfb.setFigisId(figisId);
+		return rfb;
 	}
 	
 	public static SpeciesList createSpeciesList(String ... alpha3codes) {

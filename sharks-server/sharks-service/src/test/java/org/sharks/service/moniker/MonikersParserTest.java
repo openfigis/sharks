@@ -11,10 +11,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.sharks.service.moniker.dto.ErrorElement;
 import org.sharks.service.moniker.dto.FaoLexFiDocument;
-import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.MonikerResponse;
-import org.sharks.service.moniker.dto.RfbEntry;
-import org.sharks.service.moniker.dto.RfbEntry.RfbMember;
+import org.sharks.service.moniker.dto.Rfb;
+import org.sharks.service.moniker.dto.Rfb.Member;
 import org.sharks.service.moniker.rest.MonikersParser;
 
 /**
@@ -33,13 +32,13 @@ public class MonikersParserTest {
 	@Test
 	public void testRfb4Iso3ResponseParsing() {
 		String content = getResource("/rfb4iso3.xml");
-		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
+		MonikerResponse<Rfb> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);
 		assertNotNull(response.getOutput());
 		assertFalse(response.getOutput().getItems().isEmpty());
 		
-		RfbEntry first = response.getOutput().getItems().get(0);
+		Rfb first = response.getOutput().getItems().get(0);
 
 		assertNotNull(first.getFigisId());
 	}
@@ -47,32 +46,34 @@ public class MonikersParserTest {
 	@Test
 	public void testRfb4Iso3NotFoundResponseParsing() {
 		String content = getResource("/rfb4iso3_not_found.xml");
-		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
+		MonikerResponse<Rfb> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);
 		assertNotNull(response.getOutput());
 		
-		assertNull(response.getOutput().getItems());
-				
+		assertNull(response.getOutput().getItems());	
 	}
 	
 	@Test
 	public void testRfbResponseParsing() {
 		String content = getResource("/rfb.xml");
-		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
+		MonikerResponse<Rfb> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);
 		assertNotNull(response.getOutput());
 		assertFalse(response.getOutput().getItems().isEmpty());
 		
-		RfbEntry first = response.getOutput().getItems().get(0);
+		Rfb first = response.getOutput().getItems().get(0);
 
 		assertNotNull(first.getFid());
+		assertNotNull(first.getAcronym());
+		assertNotNull(first.getLogo());
+		assertNotNull(first.getWebsite());
 		
 		assertNotNull(first.getMembers());
 		assertFalse(first.getMembers().isEmpty());
 		
-		RfbMember member = first.getMembers().get(0);
+		Member member = first.getMembers().get(0);
 		assertNotNull(member.getIso3());
 		assertNotNull(member.getEnglishName());
 	}
@@ -80,26 +81,13 @@ public class MonikersParserTest {
 	@Test
 	public void testRfbNotFoundResponseParsing() {
 		String content = getResource("/rfb_not_found.xml");
-		MonikerResponse<RfbEntry> response = parser.parseMonikerResponse(content);
+		MonikerResponse<Rfb> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);
 		assertNotNull(response.getOutput());
 		
 		assertNull(response.getOutput().getItems());
 				
-	}
-	
-	@Test
-	public void testFigisDocParsing() {
-		String content = getResource("/figisdoc.xml");
-		FigisDoc doc = parser.parseFigisDoc(content);
-		
-		assertNotNull(doc);
-		
-		assertNotNull(doc.getFigisId());
-		assertNotNull(doc.getAcronym());
-		assertNotNull(doc.getWebsite());
-		assertNotNull(doc.getImageId());
 	}
 	
 	@Test

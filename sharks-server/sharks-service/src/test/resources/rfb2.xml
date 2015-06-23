@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/figis/moniker/xsl/generic.xsl"?>
+<moniker name="rfb" rfb="EIFAAC">
+  <query src="http://localhost/figis/moniker/figismapdata"/>
+  <output>
+    <rfb acronym="EIFAAC" fid="22050" link="http://www.fao.org/fishery/rfb/eifaac/en" src="/figis/moniker/figisdoc/organization/22050" website="http://www.fao.org/fishery/rfb/eifac" logo="http://www.fao.org/figis/servlet/IRS?iid=29717">
+      <name en="European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)" fr="European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)" es="European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)" ar="European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)" zh="European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)" ru="European Inland Fisheries and Aquaculture Advisory Commission (EIFAAC)"/>
+      <members count="34">
+        <member fid="3" mid="13001" iso2="AL" iso3="ALB" facp="/fishery/facp/ALB/en" un="8">
+          <name en="Albania" fr="Albanie" es="Albania" ar="ألبانيا" zh="阿尔巴尼亚共和国" ru="Албания"/>
+        </member>
+        <member fid="11" mid="13001" iso2="AT" iso3="AUT" un="40">
+          <name en="Austria" fr="Autriche" es="Austria" ar="النمسا" zh="奥地利" ru="Австрия"/>
+        </member>
+        <member fid="255" mid="13001" iso2="BE" iso3="BEL" facp="/fishery/facp/BEL/en" un="56">
+          <name en="Belgium" fr="Belgique" es="Bélgica" ar="بلجيكا" zh="比利时" ru="Бельгия"/>
+        </member>
+        <member fid="80" mid="13001" iso2="BA" iso3="BIH" un="70">
+          <name en="Bosnia and Herzegovina" fr="Bosnie-Herzégovine" es="Bosnia y Herzegovina" ar="البوسنة والهرسك" zh="波斯尼亚－黑塞哥维那" ru="Босния и Герцеговина"/>
+        </member>
+        <member fid="27" mid="13001" iso2="BG" iso3="BGR" facp="/fishery/facp/BGR/en" un="100">
+          <name en="Bulgaria" fr="Bulgarie" es="Bulgaria" ar="جمهورية بلغاريا" zh="保加利亚" ru="Болгария"/>
+        </member>
+        <member fid="98" mid="13001" iso2="HR" iso3="HRV" facp="/fishery/facp/HRV/en" un="191">
+          <name en="Croatia" fr="Croatie" es="Croacia" ar="كرواتيا" zh="克罗地亚共和国" ru="Хорватия"/>
+        </member>
+        <member fid="50" mid="13001" iso2="CY" iso3="CYP" facp="/fishery/facp/CYP/en" un="196">
+          <name en="Cyprus" fr="Chypre" es="Chipre" ar="جمهورية قبرص" zh="塞浦路斯共和国" ru="Кипр"/>
+        </member>
+        <member fid="167" mid="13001" iso2="CZ" iso3="CZE" facp="/fishery/facp/CZE/en" un="203">
+          <name en="Czech Republic" fr="République tchèque" es="República Checa" ar="الجمهورية التشيكية" zh="捷克共和国" ru="Чешская Республика"/>
+        </member>
+        <member fid="54" mid="13001" iso2="DK" iso3="DNK" facp="/fishery/facp/DNK/en" un="208">
+          <name en="Denmark" fr="Danemark" es="Dinamarca" ar="مملكة الدانمرك" zh="丹麦王国" ru="Дания"/>
+        </member>
+        <member fid="63" mid="13001" iso2="EE" iso3="EST" facp="/fishery/facp/EST/en" un="233">
+          <name en="Estonia" fr="Estonie" es="Estonia" ar="جمهورية إستونيا" zh="爱沙尼亚" ru="Эстонская Республика"/>
+        </member>
+        <member fid="380" mid="13001" iso2="EU" iso3="EUR" un="0">
+          <name en="European Union" fr="Union Européenne" es="Unión Europea"/>
+        </member>
+        <member fid="67" mid="13001" iso2="FI" iso3="FIN" facp="/fishery/facp/FIN/en" un="246">
+          <name en="Finland" fr="Finlande" es="Finlandia" ar="فنلندا" zh="芬 兰" ru="Финляндия"/>
+        </member>
+        <member fid="68" mid="13001" iso2="FR" iso3="FRA" un="250">
+          <name en="France" fr="France" es="Francia" ar="فرنسا" zh="法  国" ru="Франция"/>
+        </member>
+        <member fid="79" mid="13001" iso2="DE" iso3="DEU" facp="/fishery/facp/DEU/en" un="276">
+          <name en="Germany" fr="Allemagne" es="Alemania" ar="ألمانيا" zh="德意志联邦共和国" ru="Германия"/>
+        </member>
+        <member fid="84" mid="13001" iso2="GR" iso3="GRC" facp="/fishery/facp/GRC/en" un="300">
+          <name en="Greece" fr="Grèce" es="Grecia" ar="اليونان" zh="希 腊" ru="Греция"/>
+        </member>
+        <member fid="97" mid="13001" iso2="HU" iso3="HUN" un="348">
+          <name en="Hungary" fr="Hongrie" es="Hungría" ar="هنغاريا" zh="匈牙利" ru="Венгрия"/>
+        </member>
+        <member fid="99" mid="13001" iso2="IS" iso3="ISL" facp="/fishery/facp/ISL/en" un="352">
+          <name en="Iceland" fr="Islande" es="Islandia" ar="جمهورية آيسلندا" zh="冰 岛" ru="Исландия"/>
+        </member>
+        <member fid="104" mid="13001" iso2="IE" iso3="IRL" facp="/fishery/facp/IRL/en" un="372">
+          <name en="Ireland" fr="Irlande" es="Irlanda" ar="آيرلندا" zh="爱尔兰" ru="Ирландия"/>
+        </member>
+        <member fid="105" mid="13001" iso2="IL" iso3="ISR" facp="/fishery/facp/ISR/en" un="376">
+          <name en="Israel" fr="Israël" es="Israel" ar="دولة إسرائيل" zh="以色列" ru="Израиль"/>
+        </member>
+        <member fid="106" mid="13001" iso2="IT" iso3="ITA" facp="/fishery/facp/ITA/en" un="380">
+          <name en="Italy" fr="Italie" es="Italia" ar="إيطاليا" zh="意大利" ru="Италия"/>
+        </member>
+        <member fid="119" mid="13001" iso2="LV" iso3="LVA" facp="/fishery/facp/LVA/en" un="428">
+          <name en="Latvia" fr="Lettonie" es="Letonia" ar="لاتفيا" zh="拉脱维亚" ru="Латвия"/>
+        </member>
+        <member fid="126" mid="13001" iso2="LT" iso3="LTU" facp="/fishery/facp/LTU/en" un="440">
+          <name en="Lithuania" fr="Lituanie" es="Lituania" ar="ليتوانيا" zh="立陶宛共和国" ru="Литва"/>
+        </member>
+        <member fid="256" mid="13001" iso2="LU" iso3="LUX" un="442">
+          <name en="Luxembourg" fr="Luxembourg" es="Luxemburgo" ar="لكسمبرغ" zh="卢森堡" ru="Великое Герцогство Люксембург"/>
+        </member>
+        <member fid="150" mid="13001" iso2="NL" iso3="NLD" facp="/fishery/facp/NLD/en" un="528">
+          <name en="Netherlands" fr="Pays-Bas" es="Países Bajos" ar="هولندا" zh="荷兰王国" ru="Нидерланды"/>
+        </member>
+        <member fid="162" mid="13001" iso2="NO" iso3="NOR" facp="/fishery/facp/NOR/en" un="578">
+          <name en="Norway" fr="Norvège" es="Noruega" ar="النرويج" zh="挪 威" ru="Норвегия"/>
+        </member>
+        <member fid="173" mid="13001" iso2="PL" iso3="POL" facp="/fishery/facp/POL/en" un="616">
+          <name en="Poland" fr="Pologne" es="Polonia" ar="بولندا" zh="波 兰" ru="Польша"/>
+        </member>
+        <member fid="174" mid="13001" iso2="PT" iso3="PRT" facp="/fishery/facp/PRT/en" un="620">
+          <name en="Portugal" fr="Portugal" es="Portugal" ar="البرتغال" zh="葡萄牙" ru="Португальская Республика"/>
+        </member>
+        <member fid="183" mid="13001" iso2="RO" iso3="ROU" facp="/fishery/facp/ROU/en" un="642">
+          <name en="Romania" fr="Roumanie" es="Rumania" ar="رومانيا" zh="罗马尼亚" ru="Румыния"/>
+        </member>
+        <member fid="199" mid="13001" iso2="SK" iso3="SVK" facp="/fishery/facp/SVK/en" un="703">
+          <name en="Slovakia" fr="Slovaquie" es="Eslovaquia" ar="سلوفاكيا" zh="斯洛伐克" ru="Словакия"/>
+        </member>
+        <member fid="203" mid="13001" iso2="ES" iso3="ESP" un="724">
+          <name en="Spain" fr="Espagne" es="España" ar="مملكة إسبانيا" zh="西班牙" ru="Королевство Испания"/>
+        </member>
+        <member fid="210" mid="13001" iso2="SE" iso3="SWE" facp="/fishery/facp/SWE/en" un="752">
+          <name en="Sweden" fr="Suède" es="Suecia" ar="السويد" zh="瑞 典" ru="Королевство Швеция"/>
+        </member>
+        <member fid="211" mid="13001" iso2="CH" iso3="CHE" un="756">
+          <name en="Switzerland" fr="Suisse" es="Suiza" ar="الاتحاد السويسري" zh="瑞 士" ru="Швейцария"/>
+        </member>
+        <member fid="223" mid="13001" iso2="TR" iso3="TUR" facp="/fishery/facp/TUR/en" un="792">
+          <name en="Turkey" fr="Turquie" es="Turquía" ar="الجمهورية التركية" zh="土耳其" ru="Турция"/>
+        </member>
+        <member fid="229" mid="13001" iso2="GB" iso3="GBR" facp="/fishery/facp/GBR/en" un="826">
+          <name en="United Kingdom" fr="Royaume-Uni" es="Reino Unido" ar="المملكة المتحدة" zh="大不列颠及北爱尔兰联合王国" ru="Соединенное Королевство (Великобритании и Северной Ирландии)"/>
+        </member>
+      </members>
+    </rfb>
+  </output>
+</moniker>

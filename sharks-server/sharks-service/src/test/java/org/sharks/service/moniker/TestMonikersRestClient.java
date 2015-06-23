@@ -10,8 +10,7 @@ import org.junit.Test;
 import org.sharks.service.http.DefaultHttpClient;
 import org.sharks.service.http.HttpClient;
 import org.sharks.service.moniker.dto.FaoLexFiDocument;
-import org.sharks.service.moniker.dto.FigisDoc;
-import org.sharks.service.moniker.dto.RfbEntry;
+import org.sharks.service.moniker.dto.Rfb;
 import org.sharks.service.moniker.rest.MonikersRestClient;
 
 /**
@@ -30,23 +29,23 @@ public class TestMonikersRestClient {
 
 	@Test @Ignore
 	public void testGetRfb4Iso3() {
-		List<RfbEntry> rfbs = client.getRfb4Iso3("USA");
+		List<Rfb> rfbs = client.getRfb4Iso3("USA");
 		assertNotNull(rfbs);
 		System.out.println(rfbs);
 	}
 	
 	@Test @Ignore
-	public void testGetRfb() {
-		RfbEntry rfb = client.getRfb("ICCAT");
+	public void testGetRfbByAcronym() {
+		Rfb rfb = client.getRfbByAcronym("ICCAT");
 		assertNotNull(rfb);
 		System.out.println(rfb);
 	}
 	
 	@Test @Ignore
-	public void testGetFigisDoc() {
-		FigisDoc doc = client.getFigisDoc("9294");
-		assertNotNull(doc);
-		System.out.println(doc);
+	public void testGetRfbByFid() {
+		Rfb rfb = client.getRfbByFid("78");
+		assertNotNull(rfb);
+		System.out.println(rfb);
 	}
 	
 	@Test @Ignore

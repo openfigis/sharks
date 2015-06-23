@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import org.sharks.service.dto.EntityMember;
-import org.sharks.service.moniker.dto.RfbEntry.RfbMember;
+import org.sharks.service.moniker.dto.Rfb.Member;
 import org.sharks.service.producer.EntryProducers.AbstractEntryProducer;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.domain.MgmtEntity;
@@ -17,13 +17,13 @@ import org.sharks.storage.domain.MgmtEntity;
  *
  */
 @Singleton
-public class EntityMemberProducer extends AbstractEntryProducer<RfbMember, EntityMember> {
+public class EntityMemberProducer extends AbstractEntryProducer<Member, EntityMember> {
 	
 	@Inject
 	ManagementEntityDao dao;
 
 	@Override
-	public EntityMember produce(RfbMember member) {
+	public EntityMember produce(Member member) {
 		
 		boolean hasPoAs = false;
 		

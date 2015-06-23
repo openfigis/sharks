@@ -35,8 +35,8 @@ public class MonikersCacheWarmer implements CacheWarmer {
 		log.trace("monikers done");
 		
 		log.trace("entities...");
-		for (MgmtEntity entity:entityDao.list(ManagementEntityDao.RFMO_TYPE)) monikerService.getFigisDocByAcronym(entity.getAcronym());
-		for (MgmtEntity entity:entityDao.list(ManagementEntityDao.INSTITUTION_TYPE)) monikerService.getFigisDocByAcronym(entity.getAcronym());
+		for (MgmtEntity entity:entityDao.list(ManagementEntityDao.RFMO_TYPE)) monikerService.getRfb(entity.getAcronym());
+		for (MgmtEntity entity:entityDao.list(ManagementEntityDao.INSTITUTION_TYPE)) monikerService.getRfb(entity.getAcronym());
 		log.trace("done");
 
 		log.trace("cache warmup complete");

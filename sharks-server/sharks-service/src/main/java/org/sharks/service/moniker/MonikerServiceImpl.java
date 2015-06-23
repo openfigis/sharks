@@ -16,8 +16,7 @@ import org.sharks.service.cache.ServiceCache;
 import org.sharks.service.cache.CacheName;
 import org.sharks.service.cache.ServiceCache.CacheElement;
 import org.sharks.service.moniker.dto.FaoLexFiDocument;
-import org.sharks.service.moniker.dto.FigisDoc;
-import org.sharks.service.moniker.dto.RfbEntry;
+import org.sharks.service.moniker.dto.Rfb;
 import org.sharks.service.moniker.rest.MonikersRestClient;
 
 /**
@@ -31,13 +30,13 @@ public class MonikerServiceImpl implements MonikerService {
 	private MonikersRestClient restClient;
 	
 	@Inject @CacheName("rfb4iso3")
-	private ServiceCache<String, List<RfbEntry>> rfb4Iso3Cache;
+	private ServiceCache<String, List<Rfb>> rfb4Iso3Cache;
 	
 	@Inject @CacheName("rfb")
-	private ServiceCache<String, RfbEntry> rfbCache;
+	private ServiceCache<String, Rfb> rfbCache;
 	
-	@Inject @CacheName("figisdoc")
-	private ServiceCache<String, FigisDoc> figisDocCache;
+	@Inject @CacheName("rfb4fid")
+	private ServiceCache<String, Rfb> rfb4FidCache;
 	
 	@Inject @CacheName("faoLexDocument")
 	private ServiceCache<String, List<FaoLexFiDocument>> faoLexDocumentCache;
@@ -45,19 +44,19 @@ public class MonikerServiceImpl implements MonikerService {
 	@Override
 	public List<String> getRfbsForCountry(String countryIso3) {
 		
-		List<RfbEntry> rfbs = getRfbEntries(countryIso3);
+		List<Rfb> rfbs = getRfbEntries(countryIso3);
 		List<String> acronyms = toAcronyms(rfbs);
 		
 		return acronyms;
 	}
 	
-	private List<RfbEntry> getRfbEntries(String countryIso3) {
+	private List<Rfb> getRfbEntries(String countryIso3) {
 		
-		CacheElement<List<RfbEntry>> cacheElement =  rfb4Iso3Cache.get(countryIso3);
+		CacheElement<List<Rfb>> cacheElement =  rfb4Iso3Cache.get(countryIso3);
 		if (cacheElement.isPresent()) return cacheElement.getValue();
 		
 		try {
-			List<RfbEntry> rfbs = restClient.getRfb4Iso3(countryIso3);
+			List<Rfb> rfbs = restClient.getRfb4Iso3(countryIso3);
 			
 			if (rfbs == null) {
 				log.warn("Rfbs for country "+countryIso3+" not found");
@@ -73,9 +72,9 @@ public class MonikerServiceImpl implements MonikerService {
 		}
 	}
 	
-	private List<String> toAcronyms(List<RfbEntry> rfbs) {
+	private List<String> toAcronyms(List<Rfb> rfbs) {
 		List<String> acronyms = new ArrayList<String>(rfbs.size());
-		for (RfbEntry rfb:rfbs) {
+		for (Rfb rfb:rfbs) {
 			String acronym = toAcronym(rfb.getFigisId());
 			if (acronym!=null) acronyms.add(acronym);
 		}
@@ -84,51 +83,42 @@ public class MonikerServiceImpl implements MonikerService {
 	}
 	
 	private String toAcronym(String figisId) {
-		FigisDoc doc = getFigisDocById(figisId);
-		return doc!=null?doc.getAcronym():null;
+		Rfb rfb = getRfbByFid(figisId);
+		return (rfb!=null)?rfb.getAcronym():null;
 	}
 	
-	private FigisDoc getFigisDocById(String figisId) {
-		
-		CacheElement<FigisDoc> cacheElement =  figisDocCache.get(figisId);
+	private Rfb getRfbByFid(String fid) {
+		CacheElement<Rfb> cacheElement =  rfb4FidCache.get(fid);
 		if (cacheElement.isPresent()) return cacheElement.getValue();
-
+		
 		try {
-			FigisDoc doc = restClient.getFigisDoc(figisId);
+			Rfb rfb = restClient.getRfbByFid(fid);
 			
-			if (doc == null) log.warn("FigisDoc for figisId "+figisId+" not found");
+			if (rfb == null) log.warn("Rfb for fid "+fid+" not found");
 			
-			figisDocCache.put(figisId, doc);
-			return doc;
+			rfb4FidCache.put(fid, rfb);
+			return rfb;
 		} catch(Exception e) {
-			log.error("Failed retrieving FigisDoc for figisId "+figisId, e);
+			log.error("Failed retrieving Rfb for fid "+fid, e);
 			return null;
 		}
-	}
-
-	@Override
-	public FigisDoc getFigisDocByAcronym(String rfbAcronym) {
 		
-		RfbEntry entry = getRfbEntry(rfbAcronym);
-		if (entry == null || entry.getFid() == null) return null;
-		
-		return getFigisDocById(entry.getFid());
 	}
 	
 	@Override
-	public RfbEntry getRfbEntry(String acronym) {
-		CacheElement<RfbEntry> cacheElement =  rfbCache.get(acronym);
+	public Rfb getRfb(String acronym) {
+		CacheElement<Rfb> cacheElement =  rfbCache.get(acronym);
 		if (cacheElement.isPresent()) return cacheElement.getValue();
 
 		try {
-			RfbEntry entry = restClient.getRfb(acronym);
+			Rfb rfb = restClient.getRfbByAcronym(acronym);
 			
-			if (entry == null) log.warn("RfbEntry for acronym "+acronym+" not found");
+			if (rfb == null) log.warn("Rfb for acronym "+acronym+" not found");
 			
-			rfbCache.put(acronym, entry);
-			return entry;
+			rfbCache.put(acronym, rfb);
+			return rfb;
 		} catch(Exception e) {
-			log.error("Failed retrieving RfbEntry for acronym "+acronym, e);
+			log.error("Failed retrieving Rfb for acronym "+acronym, e);
 			return null;
 		}
 	}

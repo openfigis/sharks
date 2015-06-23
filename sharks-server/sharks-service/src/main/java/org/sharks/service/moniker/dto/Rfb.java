@@ -25,28 +25,37 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @XmlRootElement(name="rfb")
 @XmlAccessorType(XmlAccessType.NONE)
-public class RfbEntry {
+public class Rfb {
 	
+	@XmlAttribute
+	private String fid;
+	
+	//used only in rfb4iso3 moniker
 	@XmlAttribute(name="FigisID")
 	private String figisId;
 	
-	@XmlAttribute(name="fid")
-	private String fid;
+	@XmlAttribute
+	private String acronym;
 	
-	@XmlPath("members/arrayitem")
-	private List<RfbMember> members;
+	@XmlAttribute
+	private String website;
+	
+	@XmlAttribute
+	private String logo;
+	
+	@XmlPath("members/member")
+	private List<Member> members;
 	
 	@Data
-	@XmlRootElement(name="arrayitem")
+	@XmlRootElement(name="member")
 	@XmlAccessorType(XmlAccessType.NONE)
-	public static class RfbMember {
+	public static class Member {
 		
 		@XmlAttribute
 		private String iso3;
 		
 		@XmlPath("name/@en")
 		private String englishName;
-		
 	}
 	
 }

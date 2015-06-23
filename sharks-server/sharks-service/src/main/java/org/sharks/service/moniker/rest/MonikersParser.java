@@ -13,9 +13,8 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 import org.sharks.service.moniker.dto.ErrorElement;
 import org.sharks.service.moniker.dto.FaoLexFiDocument;
-import org.sharks.service.moniker.dto.FigisDoc;
 import org.sharks.service.moniker.dto.MonikerResponse;
-import org.sharks.service.moniker.dto.RfbEntry;
+import org.sharks.service.moniker.dto.Rfb;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -27,7 +26,7 @@ public class MonikersParser {
 	
 	public MonikersParser() {
 		try {
-			JAXBContext context = JAXBContext.newInstance(MonikerResponse.class, RfbEntry.class, FigisDoc.class, FaoLexFiDocument.class, ErrorElement.class);
+			JAXBContext context = JAXBContext.newInstance(MonikerResponse.class, Rfb.class, FaoLexFiDocument.class, ErrorElement.class);
 			unmarshaller = context.createUnmarshaller();
 		} catch(Exception e) {
 			throw new RuntimeException("Error initializing JAXB", e);
@@ -40,14 +39,6 @@ public class MonikersParser {
 			return (MonikerResponse<T>) unmarshaller.unmarshal(new StringReader(content));
 		} catch(Exception e) {
 			throw new RuntimeException("Error parsing monikers response", e);
-		}
-	}
-	
-	public FigisDoc parseFigisDoc(String content) {
-		try {
-			return (FigisDoc) unmarshaller.unmarshal(new StringReader(content));
-		} catch(Exception e) {
-			throw new RuntimeException("Error parsing FigisDoc", e);
 		}
 	}
 	

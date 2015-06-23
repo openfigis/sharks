@@ -79,7 +79,7 @@ The application uses the following caches:
  - **species**: cache for the Species concepts coming from RefPub service.
  - **rfb4iso**: cache for the rfb4iso3 moniker.
  - **rfb**: cache for the rfb moniker.
- - **figisdoc**: cache for the figisdoc moniker.
+ - **rfb4fid**: cache for the fid to rgb mapping.
  - **faoLexDocument**: cache for the faoLexFI moniker.
  - **specieslist**: cache for the specieslist from GeoServer.
 

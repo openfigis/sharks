@@ -3,9 +3,11 @@
  */
 package org.sharks.service.moniker;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestUtils.*;
+import static org.sharks.service.util.TestUtils.getResource;
 
 import java.net.URL;
 import java.util.List;
@@ -15,8 +17,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import org.sharks.service.http.HttpClient;
 import org.sharks.service.moniker.dto.FaoLexFiDocument;
-import org.sharks.service.moniker.dto.FigisDoc;
-import org.sharks.service.moniker.dto.RfbEntry;
+import org.sharks.service.moniker.dto.Rfb;
 import org.sharks.service.moniker.rest.MonikersRestClient;
 import org.sharks.service.moniker.rest.MonikersRestClient.MonikersRestClientException;
 
@@ -45,20 +46,13 @@ public class MonikersRestClientTest {
 		
 		content = getResource("/rfb.xml");
 		when(httpClient.get(new URL("http://localhost/rfb/ICCAT"))).thenReturn(content);
+		when(httpClient.get(new URL("http://localhost/rfb/9294"))).thenReturn(content);
 		
 		content = getResource("/rfb_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/rfb/NOT_EXISTS"))).thenReturn(content);
 		
 		when(httpClient.get(new URL("http://localhost/rfb/ERROR"))).thenThrow(new RuntimeException("Get failed"));
 		
-		
-		content = getResource("/figisdoc.xml");
-		when(httpClient.get(new URL("http://localhost/figisdoc/organization/7538"))).thenReturn(content);
-		
-		content = getResource("/figisdoc_not_found.xml");
-		when(httpClient.get(new URL("http://localhost/figisdoc/organization/NOT_EXISTS"))).thenReturn(content);
-		
-		when(httpClient.get(new URL("http://localhost/figisdoc/organization/ERROR"))).thenThrow(new RuntimeException("Get failed"));
 		
 		content = getResource("/faolexfi.xml");
 		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=aus"))).thenReturn(content);
@@ -75,7 +69,7 @@ public class MonikersRestClientTest {
 	 */
 	@Test
 	public void testGetRfb4Iso3() {
-		List<RfbEntry> entries = client.getRfb4Iso3("ALB");
+		List<Rfb> entries = client.getRfb4Iso3("ALB");
 		
 		assertNotNull(entries);
 		assertFalse(entries.isEmpty());
@@ -83,7 +77,7 @@ public class MonikersRestClientTest {
 	
 	@Test
 	public void testGetRfb4Iso3MissingCountry() {
-		List<RfbEntry> entries = client.getRfb4Iso3("NOT_EXISTS");
+		List<Rfb> entries = client.getRfb4Iso3("NOT_EXISTS");
 		
 		assertNull(entries);
 	}
@@ -94,51 +88,52 @@ public class MonikersRestClientTest {
 	}
 	
 	/**
-	 * Test method for {@link org.sharks.service.moniker.rest.MonikersRestClient#getRfb(java.lang.String)}.
+	 * Test method for {@link org.sharks.service.moniker.rest.MonikersRestClient#getRfbByAcronym(java.lang.String)}.
 	 */	
 	@Test
-	public void testGetRfb() {
-		RfbEntry entry = client.getRfb("ICCAT");
+	public void testGetRfbByAcronym() {
+		Rfb entry = client.getRfbByAcronym("ICCAT");
 		
 		assertNotNull(entry);
 		assertNotNull(entry.getFid());
 	}
 	
 	@Test
-	public void testGetRfbMissingCountry() {
-		RfbEntry entry = client.getRfb("NOT_EXISTS");
+	public void testGetRfbByAcronymMissingCountry() {
+		Rfb entry = client.getRfbByAcronym("NOT_EXISTS");
 		
 		assertNull(entry);
 	}
 	
 	@Test(expected=MonikersRestClientException.class)
-	public void testGetRfbConnectionFail() {
-		client.getRfb("ERROR");
+	public void testGetRfbByAcronymConnectionFail() {
+		client.getRfbByAcronym("ERROR");
 	}
-
+	
 	/**
-	 * Test method for {@link org.sharks.service.moniker.rest.MonikersRestClient#getFigisDoc(java.lang.String)}.
-	 */
+	 * Test method for {@link org.sharks.service.moniker.rest.MonikersRestClient#getRfbByFid(java.lang.String)}.
+	 */	
 	@Test
-	public void testGetFigisDoc() {
-		FigisDoc doc = client.getFigisDoc("7538");
+	public void testGetRfbByFid() {
+		Rfb entry = client.getRfbByFid("9294");
 		
-		assertNotNull(doc);
-		assertNotNull(doc.getFigisId());
+		assertNotNull(entry);
+		assertNotNull(entry.getFid());
 	}
 	
 	@Test
-	public void testGetFigisDocWrongOrganization() {
-		FigisDoc doc = client.getFigisDoc("NOT_EXISTS");
+	public void testGetRfbByFidMissingCountry() {
+		Rfb entry = client.getRfbByFid("NOT_EXISTS");
 		
-		assertNull(doc);
+		assertNull(entry);
 	}
 	
 	@Test(expected=MonikersRestClientException.class)
-	public void testGetFigisDocConnectionError() {
-		client.getFigisDoc("ERROR");
+	public void testGetRfbByFidConnectionFail() {
+		client.getRfbByFid("ERROR");
 	}
-	
+
+
 	/**
 	 * Test method for {@link org.sharks.service.moniker.rest.MonikersRestClient#getFaoLexDocuments(java.lang.String)}.
 	 */

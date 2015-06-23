@@ -21,7 +21,7 @@ public class EntityDetails {
 	private final String acronym;
 	private final String name;
 	private final Long type;
-	private final String imageId;
+	private final String logoUrl;
 	private final String webSite;
 	private final List<EntityMember> members;
 	private final List<MeasureEntry> measures;

@@ -6,8 +6,7 @@ package org.sharks.service.moniker;
 import java.util.List;
 
 import org.sharks.service.moniker.dto.FaoLexFiDocument;
-import org.sharks.service.moniker.dto.FigisDoc;
-import org.sharks.service.moniker.dto.RfbEntry;
+import org.sharks.service.moniker.dto.Rfb;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -23,20 +22,11 @@ public interface MonikerService {
 	public List<String> getRfbsForCountry(String countryIso3);
 	
 	/**
-	 * Returns the {@link RfbEntry} associated to the specified RFB acronym.
+	 * Returns the {@link Rfb} associated to the specified RFB acronym.
 	 * @param acronym the RFB acronym.
-	 * @return the {@link RfbEntry} or <code>null</code> if not found.
+	 * @return the {@link Rfb} or <code>null</code> if not found.
 	 */
-	public RfbEntry getRfbEntry(String acronym);
-	
-	
-	/**
-	 * Returns the {@link FigisDoc} associated to the specified RFB acronym.
-	 * @param rfbAcronym the RFB acronym.
-	 * @return the {@link FigisDoc} or <code>null</code> if not found.
-	 */
-	public FigisDoc getFigisDocByAcronym(String rfbAcronym);
-	
+	public Rfb getRfb(String acronym);
 	
 	/**
 	 * Returns a list of {@link FaoLexFiDocument} for the specified country.

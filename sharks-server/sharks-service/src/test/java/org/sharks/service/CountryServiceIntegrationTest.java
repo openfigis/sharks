@@ -65,13 +65,13 @@ public class CountryServiceIntegrationTest {
 		when(httpClient.get(new URL("http://localhost/rfb4iso3/NOT_EXISTS_RFB"))).thenReturn(content);
 		
 		
-		content = getResource("/figisdoc.xml");
-		when(httpClient.get(new URL("http://localhost/figisdoc/organization/9294"))).thenReturn(content);
-		content = getResource("/figisdoc2.xml");
-		when(httpClient.get(new URL("http://localhost/figisdoc/organization/22050"))).thenReturn(content);
+		content = getResource("/rfb.xml");
+		when(httpClient.get(new URL("http://localhost/rfb/9294"))).thenReturn(content);
+		content = getResource("/rfb2.xml");
+		when(httpClient.get(new URL("http://localhost/rfb/22050"))).thenReturn(content);
 		
-		content = getResource("/figisdoc_not_found.xml");
-		when(httpClient.get(new URL("http://localhost/figisdoc/organization/NOT_EXISTS"))).thenReturn(content);
+		content = getResource("/rfb_not_found.xml");
+		when(httpClient.get(new URL("http://localhost/rfb/NOT_EXISTS"))).thenReturn(content);
 		
 		content = getResource("/faolexfi.xml");
 		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=ALB"))).thenReturn(content);

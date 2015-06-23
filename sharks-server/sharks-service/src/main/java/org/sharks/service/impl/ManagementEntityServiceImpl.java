@@ -20,8 +20,7 @@ import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.EntityMember;
 import org.sharks.service.moniker.MonikerService;
-import org.sharks.service.moniker.dto.FigisDoc;
-import org.sharks.service.moniker.dto.RfbEntry;
+import org.sharks.service.moniker.dto.Rfb;
 import org.sharks.service.producer.EntityMemberProducer;
 import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
@@ -49,19 +48,15 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 		MgmtEntity entity = dao.getByAcronym(acronym);
 		if (entity == null) return null;
 		
-		String imageId = null;
+		String logoUrl = null;
 		String website = null;
 		List<EntityMember> members = Collections.emptyList();
 		
-		RfbEntry entry = monikerService.getRfbEntry(acronym);
+		Rfb entry = monikerService.getRfb(acronym);
 		if (entry!=null) {
 			members = convert(entry.getMembers(), memberProducer);
-		}
-		
-		FigisDoc doc = monikerService.getFigisDocByAcronym(acronym);
-		if (doc!=null) {
-			imageId = doc.getImageId();
-			website = doc.getWebsite();
+			logoUrl = entry.getLogo();
+			website = entry.getWebsite();
 		}
 		
 		List<InformationSource> others = onlyOthersOrPoAs(entity.getInformationSources());
@@ -70,7 +65,7 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 				entity.getAcronym(), 
 				entity.getMgmtEntityName(),
 				entity.getMgmtEntityType().getCode(),
-				imageId,
+				logoUrl,
 				website,
 				members,
 				convert(entity.getMeasures(), TO_MEASURE_ENTRY),
