@@ -5,7 +5,6 @@ package org.sharks.service.producer;
 
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -123,11 +122,9 @@ public class EntryProducers {
 					doc.getUri());
 		}
 		
-		private Integer getYear(Date date) {
+		private Integer getYear(Calendar date) {
 			if (date == null) return null;
-			Calendar cal = Calendar.getInstance();
-		    cal.setTime(date);
-		    return cal.get(Calendar.YEAR);
+		    return date.get(Calendar.YEAR);
 		}
 	};
 	

@@ -3,7 +3,7 @@
  */
 package org.sharks.service.moniker.dto;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.eclipse.persistence.oxm.annotations.XmlPath;
-import org.sharks.service.moniker.rest.MonikersParser.DateAdapter;
+import org.sharks.service.moniker.rest.CalendarAdapter;
 
 import lombok.Data;
 
@@ -35,16 +35,16 @@ public class FaoLexFiDocument {
 	private String longTitle;
 	
 	@XmlPath("field[@name='Date_of_Text']/@value")
-	@XmlJavaTypeAdapter(DateAdapter.class)
-	private Date dateOfText;
+	@XmlJavaTypeAdapter(CalendarAdapter.class)
+	private Calendar dateOfText;
 	
 	@XmlPath("field[@name='Date_of_original_Text']/@value")
-	@XmlJavaTypeAdapter(DateAdapter.class)
-	private Date dateOfOriginalText;
+	@XmlJavaTypeAdapter(CalendarAdapter.class)
+	private Calendar dateOfOriginalText;
 	
 	@XmlPath("field[@name='Date_of_Consolidation']/@value")
-	@XmlJavaTypeAdapter(DateAdapter.class)
-	private Date dateOfConsolidation;
+	@XmlJavaTypeAdapter(CalendarAdapter.class)
+	private Calendar dateOfConsolidation;
 	
 	@XmlPath("field[@name='FaolexId']/@value")
 	private String faolexId;
