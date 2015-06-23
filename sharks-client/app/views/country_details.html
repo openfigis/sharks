@@ -61,7 +61,10 @@
         <div class="title">
           <h4>{{doc.title}}</h4>
           <p>{{doc.description}}</p> 
-          <div class="year" ng-if="doc.year!==null">year <b>{{doc.year}} <span ng-if="doc.yearOfConsolidation!==null">({{doc.yearOfConsolidation}})</span></b></div>
+          <div class="year" ng-if="ctrl.getYear(doc) !== null ">
+            <span title="{{ctrl.getYearTitle(doc)}}">year <b>{{ctrl.getYear(doc) | date:'yyyy'}}</b></span> 
+            <span ng-if="doc.dateOfConsolidation!==null" title="Date of consolidation/reprint: {{doc.dateOfConsolidation | date:ctrl.dateFormat}}">(<b>{{doc.dateOfConsolidation | date:'yyyy'}}</b>)</span>
+          </div>
           <div class="download" ng-if="doc.url!==null">
             <a href="{{doc.url}}" target="_blank">
               <img src="images/download-icon.png">

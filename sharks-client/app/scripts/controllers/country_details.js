@@ -1,9 +1,9 @@
 "use strict";
 
 angular.module("sharksClient")
-  .controller("CountryDetailsCtrl", ["routingservice", "pageservice", "imagesservice", "countryprofiles", "faolex", "country",
-                                          function (routingservice, pageservice, imagesservice, countryprofiles, faolex, country) {
-  
+  .controller("CountryDetailsCtrl", ["$filter", "routingservice", "pageservice", "imagesservice", "countryprofiles", "faolex", "country",
+                                          function ($filter, routingservice, pageservice, imagesservice, countryprofiles, faolex, country) {
+	  var self = this;
 	  this.country = country;
 	  this.groupedPoas = Stream(country.poas)
 	  		.sort(function(a, b) {
@@ -23,10 +23,24 @@ angular.module("sharksClient")
 			 })
 			 .toArray();
 	  
+	  this.dateFormat = "dd MMMM yyyy";
+	  
+	  this.getYearTitle = function(doc) {
+		  return doc.dateOfText!==null?"Date of text: " + $filter("date")(doc.dateOfText, self.dateFormat):
+			  doc.dateOfOriginalText!==null?"Date of original text: " + $filter("date")(doc.dateOfOriginalText, self.dateFormat):null;
+	  };
+	  
+	  this.getYear = function(doc) {
+		  return doc.dateOfText!==null?doc.dateOfText:
+			  doc.dateOfOriginalText!==null?doc.dateOfOriginalText:null;
+	  };
+	  
 	  this.docs = Stream(country.faoLexDocuments)
 		.sort(function(a, b) {
-		    if (a.year === b.year) return 0;
-		    if (a.year > b.year) return -1;
+			var aYear = self.getYear(a);
+			var bYear = self.getYear(b);
+		    if (aYear === bYear) return 0;
+		    if (aYear > bYear) return -1;
 		    return 1;
 		 })
 		 .toArray();
@@ -35,6 +49,8 @@ angular.module("sharksClient")
 	  this.noFlagUrl = imagesservice.missingFlagUrl;
 	  this.profileUrl = countryprofiles.profileBaseUrl+country.code+"/en";
 	  this.faoLexUrl = faolex.baseUrl + (country.code === "EUR" ?"EC:":"ISO:") + country.code;
+	  
+
 	  
 	  pageservice.setTitle(country.name);
 	  
