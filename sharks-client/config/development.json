@@ -4,8 +4,7 @@
 		"baseUrl": "/"
 	},
 	"factsheets": {
-		"speciesBaseUrl": "http://www.fao.org/fishery/species/",
-		"rfbBaseUrl": "http://www.fao.org/fishery/rfb/"
+		"speciesBaseUrl": "http://www.fao.org/fishery/species/"
 	},
 	"entityTypes": {
 		"institution": 1,
