@@ -3,7 +3,6 @@
  */
 package org.sharks.service.producer;
 
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
@@ -117,26 +116,12 @@ public class EntryProducers {
 					doc.getFaolexId(),
 					doc.getTitle(), 
 					doc.getLongTitle(), 
-					getYear(firstNotNull(doc.getDateOfText(), doc.getDateOfOriginalText())),
-					getYear(doc.getDateOfConsolidation()),
+					doc.getDateOfText(), 
+					doc.getDateOfOriginalText(),
+					doc.getDateOfConsolidation(),
 					doc.getUri());
 		}
-		
-		private Integer getYear(Calendar date) {
-			if (date == null) return null;
-		    return date.get(Calendar.YEAR);
-		}
 	};
-	
-	@SafeVarargs
-	private static <T> T firstNotNull(T ... values) {
-		for (T value:values) if (value!=null) return value;
-		return null;
-	}
-	
-	
-	
-	
 	
 	public static abstract class AbstractEntryProducer<I,O> implements EntryProducer<I,O> {
 
