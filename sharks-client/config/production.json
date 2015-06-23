@@ -11,9 +11,6 @@
 		"institution": 1,
 		"rfmo": 2
 	},
-	"rfb" : {
-		"logoBaseUrl": "http://www.fao.org/figis/servlet/IRS?iid="
-	},
 	"mapViewer" : {
 		"speciesBaseUrl": "http://www.fao.org/figis/geoserver/factsheets/species.html",
 		"rfbBaseUrl": "http://www.fao.org/fishery/rfb/mapviewer"
