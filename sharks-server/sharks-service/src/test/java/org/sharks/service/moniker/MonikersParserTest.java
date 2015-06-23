@@ -69,6 +69,7 @@ public class MonikersParserTest {
 		assertNotNull(first.getAcronym());
 		assertNotNull(first.getLogo());
 		assertNotNull(first.getWebsite());
+		assertNotNull(first.getLink());
 		
 		assertNotNull(first.getMembers());
 		assertFalse(first.getMembers().isEmpty());

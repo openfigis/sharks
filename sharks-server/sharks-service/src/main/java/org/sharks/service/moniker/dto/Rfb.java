@@ -43,6 +43,9 @@ public class Rfb {
 	@XmlAttribute
 	private String logo;
 	
+	@XmlAttribute
+	private String link;
+	
 	@XmlPath("members/member")
 	private List<Member> members;
 	

@@ -23,6 +23,7 @@ public class EntityDetails {
 	private final Long type;
 	private final String logoUrl;
 	private final String webSite;
+	private final String factsheetUrl;
 	private final List<EntityMember> members;
 	private final List<MeasureEntry> measures;
 	private final List<EntityDocument> others;

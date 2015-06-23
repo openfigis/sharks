@@ -81,7 +81,6 @@ public class ManagementEntityServiceTest {
 	public void testGet() {
 		EntityDetails details = service.get("ICCAT");
 		assertNotNull(details);
-		assertNotNull(details.getWebSite());
 		assertNotNull(details.getMembers());
 		assertFalse(details.getMembers().isEmpty());
 		assertFalse(details.getOthers().isEmpty());

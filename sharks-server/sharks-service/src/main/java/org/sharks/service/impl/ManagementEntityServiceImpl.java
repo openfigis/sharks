@@ -50,6 +50,7 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 		
 		String logoUrl = null;
 		String website = null;
+		String factsheetUrl = null;
 		List<EntityMember> members = Collections.emptyList();
 		
 		Rfb entry = monikerService.getRfb(acronym);
@@ -57,6 +58,7 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 			members = convert(entry.getMembers(), memberProducer);
 			logoUrl = entry.getLogo();
 			website = entry.getWebsite();
+			factsheetUrl = entry.getLink();
 		}
 		
 		List<InformationSource> others = onlyOthersOrPoAs(entity.getInformationSources());
@@ -67,6 +69,7 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 				entity.getMgmtEntityType().getCode(),
 				logoUrl,
 				website,
+				factsheetUrl,
 				members,
 				convert(entity.getMeasures(), TO_MEASURE_ENTRY),
 				convert(others, TO_ENTITY_DOCUMENT)
