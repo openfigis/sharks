@@ -53,12 +53,12 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 		String factsheetUrl = null;
 		List<EntityMember> members = Collections.emptyList();
 		
-		Rfb entry = monikerService.getRfb(acronym);
-		if (entry!=null) {
-			members = convert(entry.getMembers(), memberProducer);
-			logoUrl = entry.getLogo();
-			website = entry.getWebsite();
-			factsheetUrl = entry.getLink();
+		Rfb rfb = monikerService.getRfb(acronym);
+		if (rfb!=null) {
+			members = convert(rfb.getMembers(), memberProducer);
+			logoUrl = rfb.getLogo();
+			website = rfb.getWebsite();
+			factsheetUrl = rfb.getLink();
 		}
 		
 		List<InformationSource> others = onlyOthersOrPoAs(entity.getInformationSources());

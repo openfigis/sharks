@@ -136,7 +136,7 @@ public class CountryServiceIntegrationTest {
 		assertFalse(country.getFaoLexDocuments().isEmpty());
 		
 		FaoLexDocument second = country.getFaoLexDocuments().get(1);
-		assertNotNull(second.getDateOfText());
+		assertNotNull(second.getDateOfOriginalText());
 		
 	}
 	
