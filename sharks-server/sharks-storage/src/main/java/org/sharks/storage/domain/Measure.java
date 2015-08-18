@@ -3,6 +3,7 @@ package org.sharks.storage.domain;
 
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -51,8 +53,14 @@ public class Measure {
     private Date end;
     @Column
     private Integer measureYear;
-    @Column
-    private Long cdMeasureReplaces;
+    
+    /**
+     * Not generated
+     */
+    @OneToOne
+    @JoinColumn(name = "cdMeasureReplaces")
+    private Measure replaces;
+    
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "grpMeasureInformationSource", joinColumns = @JoinColumn(name = "cdMeasure", referencedColumnName = "cdMeasure"), inverseJoinColumns = @JoinColumn(name = "cdInformationSource", referencedColumnName = "cdInformationSource"))
     private List<InformationSource> informationSources;

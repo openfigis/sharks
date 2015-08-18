@@ -36,6 +36,15 @@ public class EntryProducers {
 
 		@Override
 		public MeasureEntry produce(Measure measure) {
+			
+			String replacedMeasureSourceUrl = null;
+			
+			if (measure.getReplaces()!=null) {
+				Measure replaced = measure.getReplaces();
+				List<InformationSource> replacedSources = replaced.getInformationSources();
+				replacedMeasureSourceUrl = !replacedSources.isEmpty()?replacedSources.get(0).getUrl():null;
+			}
+			
 			return new MeasureEntry(measure.getCode(), 
 					measure.getSymbol(), 
 					measure.getTitle(), 
@@ -43,7 +52,8 @@ public class EntryProducers {
 					measure.getMeasureYear(), 
 					measure.getBinding(),
 					findEntityAcronym(measure.getInformationSources()),
-					convert(measure.getInformationSources(),TO_INFORMATION_SOURCE_ENTRY));
+					convert(measure.getInformationSources(),TO_INFORMATION_SOURCE_ENTRY),
+					replacedMeasureSourceUrl);
 		}
 		
 		private String findEntityAcronym(List<InformationSource> sources) {
