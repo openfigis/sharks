@@ -776,6 +776,10 @@ div.logo img{
 	max-width: 100%;
 }
 
+.measure .binding a{
+	outline: none;
+}
+
 .measure .title{
 	color: white;
 	display: inline-block;
