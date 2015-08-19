@@ -24,12 +24,12 @@ public class ConfigurationImpl implements Configuration {
 	public static final String CACHE_WARMUP = "cache.warmup";
 	public static final String CACHE_CLEAN_PASSPHRASE = "cache.cleanPassphrase";
 	public static final String CACHE_REFRESH_DELAY = "cache.refreshDelay";
-	public static final String SHARKS_REST_URL = "service.sharks";
+	public static final String SHARKS_REST_URL = "sharks.rest.url";
 	public static final String SHARKS_CLIENT_URL = "sharks.client.url";
-	public static final String REFPUB_URL = "service.refpub";
-	public static final String MONIKERS_URL = "service.monikers";
-	public static final String GEOSERVER_SPECIES_LIST_URL = "service.geoserver.specieslist";
-	public static final String SOLR_URL = "service.solr";
+	public static final String REFPUB_URL = "refpub.url";
+	public static final String MONIKERS_URL = "monikers.url";
+	public static final String GEOSERVER_SPECIES_LIST_URL = "geoserver.specieslist.url";
+	public static final String SOLR_URL = "solr.url";
 	
 	private Properties properties;
 	

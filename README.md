@@ -65,11 +65,12 @@ The available configuration properties:
   - _**parallel**_: the cache is warmed up calling the external services in parallel.
  - **cache.cleanPassphrase**: the passprhase used to clean the cache from the cache console. Omit it in order to not require a passphrase.
  - **cache.refreshDelay**: the delay between cache auto-refreshes. The delay is specified as value plus time unit separate by a space (for example "60 minutes"). The time unit can be one of DAYS, HOURS, MICROSECONDS, MILLISECONDS, MINUTES, NANOSECONDS, SECONDS. Leave blank or omit to not active the auto-refresh.
- - **service.sharks**: the application REST API base url, used by Swagger.
- - **service.refpub**: the base url of the RefPub service.
- - **service.monikers**: the base url of the Monikers service.
- - **service.geoserver.specieslist**: the url of the species list published by the GeoServer.
- - **service.solr**: the Solr instance url.
+ - **sharks.rest.url**: the application REST API base url, used by Swagger.
+ - **sharks.client.url**: the application client base url, used for sitemap generation.
+ - **refpub.url**: the base url of the RefPub service.
+ - **monikers.url**: the base url of the Monikers service.
+ - **geoserver.specieslist.url**: the url of the species list published by the GeoServer.
+ - **solr.url**: the Solr instance url.
  
 ## Cache configuration
 The cache is configured through an EhCache xml file.
