@@ -75,6 +75,7 @@ public class SitemapService {
 	private Sitemap buildSitemap() {
 		builder.clean();
 		
+		builder.addHomePage();
 		builder.addSelectionPages();
 		
 		for (CountryEntry country:countryService.list(true)) builder.addCountryPage(country);

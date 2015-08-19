@@ -34,6 +34,16 @@ public class SitemapBuilderTest {
 		when(configuration.getSharksClientUrl()).thenReturn(new URL("http://www.example.com"));
 		builder = new SitemapBuilder(configuration);
 	}
+	
+	/**
+	 * Test method for {@link org.sharks.web.sitemap.SitemapBuilder#addHomePage()}.
+	 */
+	@Test
+	public void testAddHomePage() {
+		builder.addHomePage();
+		Sitemap map = builder.build();
+		assertEquals(1, map.getUrls().size());
+	}
 
 	/**
 	 * Test method for {@link org.sharks.web.sitemap.SitemapBuilder#addSelectionPages()}.

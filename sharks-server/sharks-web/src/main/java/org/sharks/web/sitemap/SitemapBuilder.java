@@ -46,6 +46,10 @@ public class SitemapBuilder {
 		urls.clear();
 	}
 	
+	public void addHomePage() {
+		addUrl(baseUrl);
+	}
+	
 	public void addSelectionPages() {
 		addSelectionPage(SPECIES_SELECTION_PATH);
 		addSelectionPage(ENTITY_SELECTION_PATH);
