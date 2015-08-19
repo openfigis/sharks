@@ -34,7 +34,6 @@ public class ManagementEntityResource {
 	@Inject
 	private ManagementEntityService service;
 	
-	
 	@GET
 	@Path("{acronym}")
 	@Produces(MediaType.APPLICATION_JSON)

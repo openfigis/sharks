@@ -8,10 +8,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.jboss.weld.exceptions.IllegalStateException;
 import org.sharks.config.Configuration;
 import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.dto.EntityEntry;
+import org.sharks.service.dto.GroupEntry;
 import org.sharks.service.dto.SpeciesEntry;
 
 /**
@@ -22,6 +25,7 @@ public class SitemapBuilder {
 	
 	private static final String SPECIES_PATH = "species";
 	private static final String SPECIES_SELECTION_PATH = "species";
+	private static final String GROUP_PATH = "group";
 	
 	private static final String ENTITY_PATH = "institution";
 	private static final String ENTITY_SELECTION_PATH = "institutions";
@@ -32,9 +36,14 @@ public class SitemapBuilder {
 	private URL baseUrl;
 	private List<URL> urls;
 	
+	@Inject
 	public SitemapBuilder(Configuration configuration) {
 		baseUrl = configuration.getSharksClientUrl();
 		urls = new ArrayList<URL>();
+	}
+	
+	public void clean() {
+		urls.clear();
 	}
 	
 	public void addSelectionPages() {
@@ -50,6 +59,10 @@ public class SitemapBuilder {
 	
 	public void addSpeciesPage(SpeciesEntry entry) {
 		addEntryPage(SPECIES_PATH, entry.getAlphaCode());
+	}
+	
+	public void addGroupPage(GroupEntry entry) {
+		addEntryPage(GROUP_PATH, String.valueOf(entry.getCode()));
 	}
 	
 	public void addEntityPage(EntityEntry entry) {
@@ -78,8 +91,8 @@ public class SitemapBuilder {
 		}
 	}
 	
-	public SiteMap build() {
-		return new SiteMap(baseUrl, urls);
+	public Sitemap build() {
+		return new Sitemap(baseUrl, urls);
 	}
 
 }

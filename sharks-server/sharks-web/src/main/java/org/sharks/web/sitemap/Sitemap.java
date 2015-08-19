@@ -13,7 +13,7 @@ import lombok.Data;
  *
  */
 @Data
-public class SiteMap {
+public class Sitemap {
 	
 	private final URL baseUrl;
 	private final List<URL> urls;

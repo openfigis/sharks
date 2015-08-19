@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.sharks.config.Configuration;
 import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.dto.EntityEntry;
+import org.sharks.service.dto.GroupEntry;
 import org.sharks.service.dto.SpeciesEntry;
 
 /**
@@ -40,7 +41,7 @@ public class SitemapBuilderTest {
 	@Test
 	public void testAddSelectionPages() {
 		builder.addSelectionPages();
-		SiteMap map = builder.build();
+		Sitemap map = builder.build();
 		assertEquals(3, map.getUrls().size());
 	}
 
@@ -53,11 +54,27 @@ public class SitemapBuilderTest {
 		SpeciesEntry entry = new SpeciesEntry("ABC", null, null, false);
 		
 		builder.addSpeciesPage(entry);
-		SiteMap map = builder.build();
+		Sitemap map = builder.build();
 		
 		assertEquals(1, map.getUrls().size());
 		URL url = map.getUrls().get(0);
 		assertEquals(new URL("http://www.example.com/species/ABC"), url);
+	}
+	
+	/**
+	 * Test method for {@link org.sharks.web.sitemap.SitemapBuilder#addGroupPage(org.sharks.service.dto.SpeciesEntry)}.
+	 * @throws MalformedURLException 
+	 */
+	@Test
+	public void testAddGroupPage() throws MalformedURLException {
+		GroupEntry entry = new GroupEntry(new Long(1), null);
+		
+		builder.addGroupPage(entry);
+		Sitemap map = builder.build();
+		
+		assertEquals(1, map.getUrls().size());
+		URL url = map.getUrls().get(0);
+		assertEquals(new URL("http://www.example.com/group/1"), url);
 	}
 
 	/**
@@ -69,7 +86,7 @@ public class SitemapBuilderTest {
 		EntityEntry entry = new EntityEntry("ABC", null);
 		
 		builder.addEntityPage(entry);
-		SiteMap map = builder.build();
+		Sitemap map = builder.build();
 		
 		assertEquals(1, map.getUrls().size());
 		URL url = map.getUrls().get(0);
@@ -85,11 +102,29 @@ public class SitemapBuilderTest {
 		CountryEntry entry = new CountryEntry("ABC", null, null);
 		
 		builder.addCountryPage(entry);
-		SiteMap map = builder.build();
+		Sitemap map = builder.build();
 		
 		assertEquals(1, map.getUrls().size());
 		URL url = map.getUrls().get(0);
 		assertEquals(new URL("http://www.example.com/country/ABC"), url);
+	}
+	
+	/**
+	 * Test method for {@link org.sharks.web.sitemap.SitemapBuilder#clear()}.
+	 * @throws MalformedURLException 
+	 */
+	@Test
+	public void testClear() throws MalformedURLException {
+		
+		builder.addSelectionPages();
+		Sitemap map = builder.build();
+		assertEquals(3, map.getUrls().size());
+		
+		builder.clean();
+		
+		map = builder.build();
+		
+		assertTrue(map.getUrls().isEmpty());
 	}
 
 }

@@ -18,7 +18,7 @@ public class SitemapXmlGenerator {
 	
 	private static final ChangeFreq frequency = ChangeFreq.DAILY;
 	
-	public String toXml(SiteMap siteMap) {
+	public String toXml(Sitemap siteMap) {
 		WebSitemapGenerator generator = new WebSitemapGenerator(siteMap.getBaseUrl());
 		
 		for (URL url:siteMap.getUrls()) addUrl(generator, url);
