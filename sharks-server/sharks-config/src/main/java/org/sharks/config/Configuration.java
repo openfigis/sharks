@@ -26,7 +26,7 @@ public interface Configuration {
 
 	public URL getSharksRestUrl();
 	
-	public URL getSharksUrl();
+	public URL getSharksClientUrl();
 	
 	public String getSpeciesListUrl();
 	

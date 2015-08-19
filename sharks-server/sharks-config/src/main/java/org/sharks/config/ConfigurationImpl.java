@@ -105,7 +105,7 @@ public class ConfigurationImpl implements Configuration {
 	}
 
 	@Override
-	public URL getSharksUrl() {
+	public URL getSharksClientUrl() {
 		return getUrl(SHARKS_CLIENT_URL);
 	}
 	
