@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 
 /**
@@ -29,6 +30,7 @@ import lombok.EqualsAndHashCode;
 @Entity(name = "tbMeasure")
 @XmlRootElement
 @EqualsAndHashCode(of = "code")
+@ToString(exclude={"replaces"})
 public class Measure {
 
     @Id
@@ -60,6 +62,12 @@ public class Measure {
     @OneToOne
     @JoinColumn(name = "cdMeasureReplaces")
     private Measure replaces;
+    
+    /**
+     * Not generated
+     */
+    @OneToOne(mappedBy="replaces")
+    private Measure replacedBy;
     
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "grpMeasureInformationSource", joinColumns = @JoinColumn(name = "cdMeasure", referencedColumnName = "cdMeasure"), inverseJoinColumns = @JoinColumn(name = "cdInformationSource", referencedColumnName = "cdInformationSource"))

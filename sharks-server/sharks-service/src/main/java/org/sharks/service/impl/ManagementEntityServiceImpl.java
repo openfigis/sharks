@@ -7,6 +7,7 @@ import static org.sharks.service.producer.EntryProducers.TO_ENTITY_DOCUMENT;
 import static org.sharks.service.producer.EntryProducers.TO_ENTITY_ENTRY;
 import static org.sharks.service.producer.EntryProducers.TO_MEASURE_ENTRY;
 import static org.sharks.service.producer.EntryProducers.convert;
+import static org.sharks.service.util.MeasuresUtil.filterReplacedMeasures;
 
 import java.util.Collections;
 import java.util.List;
@@ -71,7 +72,7 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 				website,
 				factsheetUrl,
 				members,
-				convert(entity.getMeasures(), TO_MEASURE_ENTRY),
+				convert(filterReplacedMeasures(entity.getMeasures()), TO_MEASURE_ENTRY),
 				convert(others, TO_ENTITY_DOCUMENT)
 				);
 	}

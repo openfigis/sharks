@@ -25,6 +25,7 @@ import org.sharks.storage.domain.Species;
 
 import static org.sharks.service.producer.EntryProducers.*;
 import static org.sharks.service.util.ConversionUtil.*;
+import static org.sharks.service.util.MeasuresUtil.*;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -72,7 +73,7 @@ public class SpeciesServiceImpl implements SpeciesService {
 				figisId,
 				hasDistributionMap,
 				officialNames,
-				convert(measures, TO_MEASURE_ENTRY));
+				convert(filterReplacedMeasures(measures), TO_MEASURE_ENTRY));
 	}
 	
 	private Set<Measure> extractMeasures(Species species) {
@@ -82,7 +83,6 @@ public class SpeciesServiceImpl implements SpeciesService {
 		
 		return measures;
 	}
-	
 
 	@Override
 	public List<SpeciesEntry> list(boolean onlyWithMeasure) {

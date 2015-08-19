@@ -6,6 +6,7 @@ package org.sharks.service.impl;
 import static org.sharks.service.producer.EntryProducers.TO_GROUP_ENTRY;
 import static org.sharks.service.producer.EntryProducers.TO_MEASURE_ENTRY;
 import static org.sharks.service.producer.EntryProducers.convert;
+import static org.sharks.service.util.MeasuresUtil.filterReplacedMeasures;
 
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class GroupServiceImpl implements GroupService {
 				group.getCustomSpeciesGrp(),
 				group.getAddInfo(),
 				convert(group.getSpecies(), speciesEntryProducer),
-				convert(group.getMeasures(), TO_MEASURE_ENTRY));
+				convert(filterReplacedMeasures(group.getMeasures()), TO_MEASURE_ENTRY));
 	}
 
 }
