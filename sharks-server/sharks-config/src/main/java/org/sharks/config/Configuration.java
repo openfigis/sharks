@@ -30,6 +30,8 @@ public interface Configuration {
 	
 	public String getSpeciesListUrl();
 	
+	public String getCitesPartiesUrl();
+	
 	public enum CacheWarmupType {
 		NONE,
 		SEQUENTIAL,

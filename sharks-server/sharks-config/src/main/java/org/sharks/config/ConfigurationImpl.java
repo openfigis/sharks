@@ -29,6 +29,7 @@ public class ConfigurationImpl implements Configuration {
 	public static final String REFPUB_URL = "refpub.url";
 	public static final String MONIKERS_URL = "monikers.url";
 	public static final String GEOSERVER_SPECIES_LIST_URL = "geoserver.specieslist.url";
+	public static final String CITES_PARTIES_URL = "cites.parties.url";
 	public static final String SOLR_URL = "solr.url";
 	
 	private Properties properties;
@@ -118,6 +119,11 @@ public class ConfigurationImpl implements Configuration {
 		} catch (Exception e) {
 			throw new RuntimeException("Wrong URL value for property "+propertyName, e);
 		}
+	}
+
+	@Override
+	public String getCitesPartiesUrl() {
+		return properties.getProperty(CITES_PARTIES_URL);
 	}
 
 }

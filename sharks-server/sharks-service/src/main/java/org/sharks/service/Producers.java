@@ -17,6 +17,7 @@ import org.sharks.service.cache.warmer.CacheWarmingExecutor;
 import org.sharks.service.cache.warmer.NopCacheWarmingExecutor;
 import org.sharks.service.cache.warmer.ParallelCacheWarmingExecutor;
 import org.sharks.service.cache.warmer.SequentialCacheWarmerExecutor;
+import org.sharks.service.cites.rest.CitesRestClient;
 import org.sharks.service.geoserver.rest.GeoServerRestClient;
 import org.sharks.service.http.HttpClient;
 import org.sharks.service.indexing.IndexingService;
@@ -45,8 +46,13 @@ public class Producers {
 	}
 	
 	@Produces @Singleton
-	public GeoServerRestClient getGeoServerService(Configuration configuration, HttpClient httpClient) {
+	public GeoServerRestClient getGeoServerRestClient(Configuration configuration, HttpClient httpClient) {
 		return new GeoServerRestClient(httpClient, configuration.getSpeciesListUrl());
+	}
+	
+	@Produces @Singleton
+	public CitesRestClient getCitesRestClient(Configuration configuration, HttpClient httpClient) {
+		return new CitesRestClient(httpClient, configuration.getCitesPartiesUrl());
 	}
 	
 	@Produces @Singleton

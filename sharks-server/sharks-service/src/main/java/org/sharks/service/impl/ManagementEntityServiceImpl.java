@@ -17,11 +17,14 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import org.sharks.service.ManagementEntityService;
+import org.sharks.service.cites.CitesService;
+import org.sharks.service.cites.dto.CitesCountry;
 import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.EntityMember;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.moniker.dto.Rfb;
+import org.sharks.service.producer.CitesEntityMemberProducer;
 import org.sharks.service.producer.EntityMemberProducer;
 import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
@@ -44,8 +47,15 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 	@Inject
 	private EntityMemberProducer memberProducer;
 	
+	@Inject
+	private CitesService citesService;
+	
+	@Inject
+	private CitesEntityMemberProducer citesMemberProducer;
+	
 	@Override
 	public EntityDetails get(String acronym) {
+		
 		MgmtEntity entity = dao.getByAcronym(acronym);
 		if (entity == null) return null;
 		
@@ -62,6 +72,8 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 			factsheetUrl = rfb.getLink();
 		}
 		
+		if (isCites(acronym)) members = getCitesMembers();
+		
 		List<InformationSource> others = onlyOthersOrPoAs(entity.getInformationSources());
 		
 		return new EntityDetails(entity.getCode(), 
@@ -75,6 +87,21 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 				convert(filterReplacedMeasures(entity.getMeasures()), TO_MEASURE_ENTRY),
 				convert(others, TO_ENTITY_DOCUMENT)
 				);
+	}
+	
+	private boolean isCites(String acronym) {
+		return "CITES".equalsIgnoreCase(acronym);
+	}
+	
+	private List<EntityMember> getCitesMembers() {
+		
+		List<CitesCountry> citesParties = citesService.getParties();
+		
+		return convert(filterMissingIso3(citesParties), citesMemberProducer);
+	}
+	
+	private List<CitesCountry> filterMissingIso3(List<CitesCountry> parties) {
+		return parties.stream().filter(country->country.getIso3()!=null).collect(Collectors.toList());
 	}
 	
 	private List<InformationSource> onlyOthersOrPoAs(List<InformationSource> sources) {
