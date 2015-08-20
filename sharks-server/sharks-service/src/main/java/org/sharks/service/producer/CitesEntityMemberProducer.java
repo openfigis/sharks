@@ -35,7 +35,10 @@ public class CitesEntityMemberProducer extends AbstractEntryProducer<CitesCountr
 		if (entity!=null) {
 			hasPoAs = !entity.getPoAs().isEmpty();
 			name = entity.getMgmtEntityName();
-		} else log.warn("Unknown country "+country);
+		} else {
+			name = country.getName();
+			log.warn("Unknown country "+country);
+		}
 		
 		return new EntityMember(country.getIso3(), name, hasPoAs);
 	}

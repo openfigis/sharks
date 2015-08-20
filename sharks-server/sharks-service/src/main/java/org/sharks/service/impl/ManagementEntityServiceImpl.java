@@ -16,7 +16,12 @@ import java.util.stream.Collectors;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.sharks.service.ManagementEntityService;
+import org.sharks.service.cache.CacheName;
+import org.sharks.service.cache.ServiceCache;
+import org.sharks.service.cache.ServiceCache.CacheElement;
 import org.sharks.service.cites.CitesService;
 import org.sharks.service.cites.dto.CitesCountry;
 import org.sharks.service.dto.EntityDetails;
@@ -35,6 +40,7 @@ import org.sharks.storage.domain.MgmtEntity;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
+@Slf4j
 @Singleton
 public class ManagementEntityServiceImpl implements ManagementEntityService {
 	
@@ -53,6 +59,9 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 	@Inject
 	private CitesEntityMemberProducer citesMemberProducer;
 	
+	@Inject @CacheName("entityMembers")
+	private ServiceCache<String, List<EntityMember>> membersCache;
+	
 	@Override
 	public EntityDetails get(String acronym) {
 		
@@ -62,17 +71,15 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 		String logoUrl = null;
 		String website = null;
 		String factsheetUrl = null;
-		List<EntityMember> members = Collections.emptyList();
 		
 		Rfb rfb = monikerService.getRfb(acronym);
 		if (rfb!=null) {
-			members = convert(rfb.getMembers(), memberProducer);
 			logoUrl = rfb.getLogo();
 			website = rfb.getWebsite();
 			factsheetUrl = rfb.getLink();
 		}
 		
-		if (isCites(acronym)) members = getCitesMembers();
+		List<EntityMember> members = getMembers(acronym);
 		
 		List<InformationSource> others = onlyOthersOrPoAs(entity.getInformationSources());
 		
@@ -89,6 +96,22 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 				);
 	}
 	
+	private List<EntityMember> getMembers(String acronym) {
+		CacheElement<List<EntityMember>> element = membersCache.get(acronym);
+		if (element.isPresent()) return element.getValue();
+		
+		List<EntityMember> members = Collections.emptyList();
+		
+		if (isCites(acronym)) members = getCitesMembers();
+		else {
+			Rfb rfb = monikerService.getRfb(acronym);
+			if (rfb!=null) members = convert(rfb.getMembers(), memberProducer);
+		}
+		
+		membersCache.put(acronym, members);
+		return members;
+	}
+	
 	private boolean isCites(String acronym) {
 		return "CITES".equalsIgnoreCase(acronym);
 	}
@@ -96,11 +119,14 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 	private List<EntityMember> getCitesMembers() {
 		
 		List<CitesCountry> citesParties = citesService.getParties();
-		
-		return convert(filterMissingIso3(citesParties), citesMemberProducer);
+		log.trace("starting conversion");
+		List<EntityMember> members = convert(filterMissingIso3(citesParties), citesMemberProducer);
+		log.trace("conversion complete");
+		return members;
 	}
 	
 	private List<CitesCountry> filterMissingIso3(List<CitesCountry> parties) {
+		parties.stream().filter(country->country.getIso3()==null).forEach(country->System.out.println(country));
 		return parties.stream().filter(country->country.getIso3()!=null).collect(Collectors.toList());
 	}
 	
