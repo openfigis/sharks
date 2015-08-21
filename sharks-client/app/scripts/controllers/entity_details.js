@@ -24,6 +24,8 @@ angular.module("sharksClient")
 	  
 	  this.hasCompentenceAreaMap = entity.type === entityTypes.rfmo; 
 	  
+	  this.members = Stream(entity.members).sorted("name").toArray();
+	  
 	  pageservice.setTitle(entity.acronym);
 	  
 	  this.showCountry = function(country) {
