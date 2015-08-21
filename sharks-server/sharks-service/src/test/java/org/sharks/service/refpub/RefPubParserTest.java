@@ -28,7 +28,7 @@ public class RefPubParserTest {
 	
 	@Test
 	public void testRefPubCountryParsing() throws JAXBException {
-		String content = getResource("/refpub/country.xml");
+		String content = getResource("/refpub/country_iso3.xml");
 		RefPubCountry country = parser.parseCountry(content);
 		
 		assertNotNull(country);

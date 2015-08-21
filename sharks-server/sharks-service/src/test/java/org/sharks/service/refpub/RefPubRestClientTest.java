@@ -35,7 +35,7 @@ public class RefPubRestClientTest {
 	public static void setUpBeforeClass() throws Exception {
 		HttpClient httpClient = Mockito.mock(HttpClient.class);
 		
-		String content = getResource("/refpub/country.xml");
+		String content = getResource("/refpub/country_iso3.xml");
 		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO3/code/ALB/xml"))).thenReturn(content);
 		
 		content = getResource("/refpub/country_not_found.xml");
