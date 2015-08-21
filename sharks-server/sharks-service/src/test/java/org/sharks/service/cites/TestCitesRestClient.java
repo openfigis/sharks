@@ -3,6 +3,7 @@ package org.sharks.service.cites;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.sharks.service.cites.dto.CitesParties;
 import org.sharks.service.cites.rest.CitesRestClient;
@@ -23,7 +24,7 @@ public class TestCitesRestClient {
 		client = new CitesRestClient(httpClient, "https://cites.org/ws/parties");
 	}
 
-	@Test
+	@Test @Ignore
 	public void testGetParties() {
 		CitesParties parties = client.getParties();
 		assertNotNull(parties);
