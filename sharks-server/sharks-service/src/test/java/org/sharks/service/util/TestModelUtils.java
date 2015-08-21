@@ -111,7 +111,7 @@ public class TestModelUtils {
 	}
 	
 	public static RefPubCountry createRefPubCountry(String unIso3Code, String continent, String english) {
-		return new RefPubCountry(unIso3Code, continent, Collections.emptyList(), new MultiLingualName(english, "french", "spanish", "arabic", "chinese", "russian"));
+		return new RefPubCountry(unIso3Code, "", continent, Collections.emptyList(), new MultiLingualName(english, "french", "spanish", "arabic", "chinese", "russian"));
 	}
 	
 	public static Member createMember(String englishName, String iso3code) {

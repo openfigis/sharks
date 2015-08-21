@@ -24,10 +24,15 @@ public class RefPubConverter {
 	}
 	
 	public RefPubCountry toCountry(RefPubConcept concept) {
-		Code code = concept.findCode("UN-ISO3");
+		Code iso3code = concept.findCode("UN-ISO3");
+		Code iso2code = concept.findCode("UN-ISO2");
 		String continent = concept.findParents("Continent").stream().map(parent -> parent.getMultilingualName().getEnglish()).findFirst().orElse(null);
 		List<String> fisheryCommissions = concept.findParents("Fishery commission").stream().map(parent -> parent.getMultilingualName().getEnglish()).collect(Collectors.toList());
-		return new RefPubCountry(code!=null?code.getConcept():null, continent, fisheryCommissions, concept.getMultilingualOfficialName());
+		return new RefPubCountry(toConcept(iso3code), toConcept(iso2code), continent, fisheryCommissions, concept.getMultilingualOfficialName());
+	}
+	
+	private String toConcept(Code code) {
+		return code!=null?code.getConcept():null;
 	}
 
 }

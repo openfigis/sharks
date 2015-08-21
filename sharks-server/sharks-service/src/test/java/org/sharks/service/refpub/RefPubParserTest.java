@@ -34,6 +34,7 @@ public class RefPubParserTest {
 		assertNotNull(country);
 		assertNotNull(country.getMultilingualOfficialName());
 		assertNotNull(country.getUnIso3Code());
+		assertNotNull(country.getUnIso2Code());
 		
 		assertNotNull(country.getFisheryCommissions());
 		assertFalse(country.getFisheryCommissions().isEmpty());
