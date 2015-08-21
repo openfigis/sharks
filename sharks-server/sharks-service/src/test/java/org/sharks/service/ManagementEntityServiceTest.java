@@ -8,10 +8,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.buildEntity;
-import static org.sharks.service.util.TestModelUtils.buildInformationSource;
-import static org.sharks.service.util.TestModelUtils.buildMeasure;
+import static org.mockito.Mockito.*;
 import static org.sharks.service.util.TestModelUtils.*;
 
 import java.util.Arrays;
@@ -24,11 +21,12 @@ import org.jglue.cdiunit.AdditionalClasses;
 import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
+import org.sharks.service.cites.CitesService;
 import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.impl.ManagementEntityServiceImpl;
 import org.sharks.service.moniker.MonikerService;
+import org.sharks.service.util.NoCache;
 import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.domain.MgmtEntity;
@@ -38,7 +36,7 @@ import org.sharks.storage.domain.MgmtEntity;
  *
  */
 @RunWith(CdiRunner.class)
-@AdditionalClasses({ManagementEntityServiceImpl.class})
+@AdditionalClasses({ManagementEntityServiceImpl.class, NoCache.class})
 public class ManagementEntityServiceTest {
 	
 	@Inject
@@ -46,7 +44,7 @@ public class ManagementEntityServiceTest {
 	
 	@Produces
 	private ManagementEntityDao setupManagementEntityDao() {
-		ManagementEntityDao dao = Mockito.mock(ManagementEntityDao.class);
+		ManagementEntityDao dao = mock(ManagementEntityDao.class);
 		
 		MgmtEntity entity = buildEntity(0, "ICCAT", buildInformationSource(InformationSourceDao.OTHER_TYPE));
 		entity.setMeasures(Arrays.asList(buildMeasure(0, "sym")));
@@ -66,12 +64,17 @@ public class ManagementEntityServiceTest {
 	
 	@Produces
 	private MonikerService setupMonikerService() {
-		MonikerService service = Mockito.mock(MonikerService.class);
+		MonikerService service = mock(MonikerService.class);
 		
 		when(service.getRfb("ICCAT")).thenReturn(createRfb("1234", "1234", createMember("Italy", "ITA")));
 		
 		
 		return service;
+	}
+	
+	@Produces
+	private CitesService setupCitesService() {
+		return mock(CitesService.class);
 	}
 
 	/**
