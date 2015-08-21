@@ -30,7 +30,7 @@ public class GeoServerParserTest {
 	 */
 	@Test
 	public void testParseSpeciesList() {
-		String content = getResource("/specieslist.xml");
+		String content = getResource("/geoserver/specieslist.xml");
 		SpeciesList list = parser.parseSpeciesList(content);
 		
 		assertNotNull(list);

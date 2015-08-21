@@ -35,10 +35,10 @@ public class RefPubRestClientTest {
 	public static void setUpBeforeClass() throws Exception {
 		HttpClient httpClient = Mockito.mock(HttpClient.class);
 		
-		String content = getResource("/country.xml");
+		String content = getResource("/refpub/country.xml");
 		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO3/code/ALB/xml"))).thenReturn(content);
 		
-		content = getResource("/country_not_found.xml");
+		content = getResource("/refpub/country_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO3/code/NOT_EXISTS/xml"))).thenReturn(content);
 		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO3/code/N%2FA/xml"))).thenReturn(content);
 		
@@ -46,10 +46,10 @@ public class RefPubRestClientTest {
 		.thenThrow(new RuntimeException("Get failed"));
 		
 		
-		content = getResource("/species.xml");
+		content = getResource("/refpub/species.xml");
 		when(httpClient.get(new URL("http://localhost/concept/Species/codesystem/ASFIS/code/ALV/xml"))).thenReturn(content);
 		
-		content = getResource("/species_not_found.xml");
+		content = getResource("/refpub/species_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/concept/Species/codesystem/ASFIS/code/NOT_EXISTS/xml"))).thenReturn(content);
 		when(httpClient.get(new URL("http://localhost/concept/Species/codesystem/ASFIS/code/N%2FA/xml"))).thenReturn(content);
 		

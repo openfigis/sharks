@@ -57,24 +57,24 @@ public class CountryServiceIntegrationTest {
 	private MonikersRestClient setUpBMonikersRestClient() throws MalformedURLException {
 		HttpClient httpClient = Mockito.mock(HttpClient.class);
 		
-		String content = getResource("/rfb4iso3.xml");
+		String content = getResource("/monikers/rfb4iso3.xml");
 		when(httpClient.get(new URL("http://localhost/rfb4iso3/ALB"))).thenReturn(content);
 		
-		content = getResource("/rfb4iso3_not_found.xml");
+		content = getResource("/monikers/rfb4iso3_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/rfb4iso3/NOT_EXISTS_RFB"))).thenReturn(content);
 		
 		
-		content = getResource("/rfb.xml");
+		content = getResource("/monikers/rfb.xml");
 		when(httpClient.get(new URL("http://localhost/rfb/9294"))).thenReturn(content);
-		content = getResource("/rfb2.xml");
+		content = getResource("/monikers/rfb2.xml");
 		when(httpClient.get(new URL("http://localhost/rfb/22050"))).thenReturn(content);
 		
-		content = getResource("/rfb_not_found.xml");
+		content = getResource("/monikers/rfb_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/rfb/NOT_EXISTS"))).thenReturn(content);
 		
-		content = getResource("/faolexfi.xml");
+		content = getResource("/monikers/faolexfi.xml");
 		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=ALB"))).thenReturn(content);
-		content = getResource("/faolexfi_not_found.xml");
+		content = getResource("/monikers/faolexfi_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=NOT_EXISTS_RFB"))).thenReturn(content);
 		
 		return new MonikersRestClient("http://localhost/", httpClient);
@@ -84,10 +84,10 @@ public class CountryServiceIntegrationTest {
 	private RefPubRestClient setUpBeforeClass() throws Exception {
 		HttpClient httpClient = Mockito.mock(HttpClient.class);
 		
-		String content = getResource("/country.xml");
+		String content = getResource("/refpub/country.xml");
 		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO3/code/ALB/xml"))).thenReturn(content);
 		
-		content = getResource("/country_not_found.xml");
+		content = getResource("/refpub/country_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO3/code/NOT_EXISTS/xml"))).thenReturn(content);
 		
 		return new RefPubRestClient("http://localhost/", httpClient);

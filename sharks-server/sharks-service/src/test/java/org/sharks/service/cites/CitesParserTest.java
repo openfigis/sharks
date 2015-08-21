@@ -26,7 +26,7 @@ public class CitesParserTest {
 
 	@Test
 	public void testRfb4Iso3ResponseParsing() {
-		String content = getResource("/cites_parties.xml");
+		String content = getResource("/cites/cites_parties.xml");
 		CitesParties parties = parser.parseParties(content);
 		
 		assertNotNull(parties);
