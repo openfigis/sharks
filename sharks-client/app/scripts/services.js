@@ -199,11 +199,11 @@ services.factory("searchservice", ["$log", "$q", "speciesservice", "groupsservic
 		};
 		
 		//{"alphaCode":"ALV","scientificName":"Alopias vulpinus","englishName":"Thresher","hasMeasures":true}
-		var speciesFilter = function(species, term) {
+		/*var speciesFilter = function(species, term) {
 			return compare(species.alphaCode, term) || 
 			compare(species.englishName, term) || 
 			compare(species.scientificName, term);
-		};
+		};*/
 		
 		//{"code":1,"name":"Sharks"}
 		var groupFilter = function(group, term) {
@@ -237,18 +237,67 @@ services.factory("searchservice", ["$log", "$q", "speciesservice", "groupsservic
 				var results = [];
 				
 				var species = data[0];
-				Stream(species)
-					.filter(function(species){
-						return speciesFilter(species, term);
-					})
-					.forEach(function(species){
+				Stream(species).forEach(function(species){
+					
+					var title = null;
+					
+					if (compare(species.englishName, term) || 
+						compare(species.alphaCode, term) ||
+						compare(species.scientificName, term)) {
+							results.push({
+								entry: species,
+								title: species.englishName,
+								description: species.scientificName,
+								type: "species"
+							});
+					}
+					
+					if (compare(species.frenchName, term)) {
 						results.push({
 							entry: species,
-							title: species.englishName,
+							title: species.frenchName,
 							description: species.scientificName,
 							type: "species"
 						});
-					});
+					}
+					
+					if (compare(species.spanishName, term)) {
+						results.push({
+							entry: species,
+							title: species.spanishName,
+							description: species.scientificName,
+							type: "species"
+						});
+					}
+					
+					if (compare(species.arabicName, term)) {
+						results.push({
+							entry: species,
+							title: species.arabicName,
+							description: species.scientificName,
+							type: "species"
+						});
+					}
+					
+					if (compare(species.chineseName, term)) {
+						results.push({
+							entry: species,
+							title: species.chineseName,
+							description: species.scientificName,
+							type: "species"
+						});
+					}
+					
+					if (compare(species.russianName, term)) {
+						results.push({
+							entry: species,
+							title: species.russianName,
+							description: species.scientificName,
+							type: "species"
+						});
+					}
+
+				});
 				
 				var groups = data[1];
 				Stream(groups)
