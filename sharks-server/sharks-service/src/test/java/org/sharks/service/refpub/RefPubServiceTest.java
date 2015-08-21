@@ -37,6 +37,10 @@ public class RefPubServiceTest {
 		when(client.getCountryByIso3("NOT_EXISTS")).thenReturn(null);
 		when(client.getCountryByIso3("ERROR")).thenThrow(new RefPubRestClientException("Get error",null));
 		
+		when(client.getCountryByIso2("AF")).thenReturn(aRefPubCountry());
+		when(client.getCountryByIso2("NOT_EXISTS")).thenReturn(null);
+		when(client.getCountryByIso2("ERROR")).thenThrow(new RefPubRestClientException("Get error",null));
+		
 		when(client.getSpecies("ALV")).thenReturn(aRefPubSpecies());
 		when(client.getSpecies("NOT_EXISTS")).thenReturn(null);
 		when(client.getSpecies("ERROR")).thenThrow(new RefPubRestClientException("Get error",null));
@@ -60,6 +64,25 @@ public class RefPubServiceTest {
 	@Test
 	public void testGetCountryByIso3ConnectionError() {
 		RefPubCountry country = service.getCountryByIso3("ERROR");
+		assertNull(country);
+	}
+	
+	
+	@Test
+	public void testGetCountryByIso2() {
+		RefPubCountry country = service.getCountryByIso2("AF");
+		assertNotNull(country);
+	}
+	
+	@Test
+	public void testGetCountryByIso2MissingCountry() {
+		RefPubCountry country = service.getCountryByIso2("NOT_EXISTS");
+		assertNull(country);
+	}
+	
+	@Test
+	public void testGetCountryByIso2ConnectionError() {
+		RefPubCountry country = service.getCountryByIso2("ERROR");
 		assertNull(country);
 	}
 

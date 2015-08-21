@@ -14,8 +14,11 @@
 	
 	<!-- ### RefPub ### -->
 	
-	<!-- cache for Country concepts coming from RefPub service -->
-	<cache name="country" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
+	<!-- cache for Country concepts retrieved from RefPub service using iso3 code-->
+	<cache name="countryIso3" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
+	
+	<!-- cache for Country concepts retrieved from RefPub service using iso2 code-->
+	<cache name="countryIso2" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
 	
 	<!-- cache for Species concepts coming from RefPub service -->
 	<cache name="species" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>

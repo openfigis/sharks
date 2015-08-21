@@ -76,7 +76,8 @@ The available configuration properties:
 The cache is configured through an EhCache xml file.
 	
 The application uses the following caches:
- - **country**: cache for the Country concepts coming from RefPub service.
+ - **countryIso3**: cache for the Country concepts retrieved from RefPub service using ISO3 code.
+ - **countryIso2**: cache for the Country concepts retrieved from RefPub service using ISO2 code.
  - **species**: cache for the Species concepts coming from RefPub service.
  - **rfb4iso**: cache for the rfb4iso3 moniker.
  - **rfb**: cache for the rfb moniker.

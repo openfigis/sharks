@@ -46,6 +46,16 @@ public class RefPubRestClientTest {
 		.thenThrow(new RuntimeException("Get failed"));
 		
 		
+		content = getResource("/refpub/country_iso2.xml");
+		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO2/code/AL/xml"))).thenReturn(content);
+		
+		content = getResource("/refpub/country_not_found.xml");
+		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO2/code/NOT_EXISTS/xml"))).thenReturn(content);
+		
+		when(httpClient.get(new URL("http://localhost/concept/Country/codesystem/UN-ISO2/code/ERROR/xml")))
+		.thenThrow(new RuntimeException("Get failed"));
+		
+		
 		content = getResource("/refpub/species.xml");
 		when(httpClient.get(new URL("http://localhost/concept/Species/codesystem/ASFIS/code/ALV/xml"))).thenReturn(content);
 		
@@ -86,6 +96,29 @@ public class RefPubRestClientTest {
 		RefPubCountry country = client.getCountryByIso3("N/A");
 		
 		assertNull(country);
+	}
+	
+	/**
+	 * Test method for {@link org.sharks.service.refpub.rest.RefPubRestClient#getCountryByIso2(java.lang.String)}.
+	 */
+	@Test
+	public void testGetCountryByIso2() {
+		RefPubCountry country = client.getCountryByIso2("AL");
+		
+		assertNotNull(country);
+		assertEquals("AL", country.getUnIso2Code());
+	}
+	
+	@Test
+	public void testGetCountryByIso2Missing() {
+		RefPubCountry country = client.getCountryByIso2("NOT_EXISTS");
+		
+		assertNull(country);
+	}
+	
+	@Test(expected=RefPubRestClientException.class)
+	public void testGetCountryByIso2ConnectionError() {
+		client.getCountryByIso2("ERROR");
 	}
 
 	/**
