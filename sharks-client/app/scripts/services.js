@@ -66,15 +66,15 @@ services.factory("entitiesservice", ["entitiesresource", function(entitiesresour
 	
 }]);
 
-services.factory("searchservice", ["searchresource",  function(searchresource) {
+services.factory("advancedsearchservice", ["searchresource",  function(searchresource) {
 	
-	function SearchService() {
+	function AdvancedSearchService() {
 		
 		this.query = function(query) {
 			return searchresource.query({q:query}).$promise;
 		};
 	}
-	return new SearchService();
+	return new AdvancedSearchService();
 	
 }]);
 
@@ -184,5 +184,126 @@ services.factory("imagesservice", ["countryprofiles",function(countryprofiles) {
 	
 	}
 	return new ImagesService();
+	
+}]);
+
+
+services.factory("searchservice", ["$log", "$q", "speciesservice", "groupsservice", "countriesservice", "entitiesservice",
+                                   function($log, $q, speciesservice, groupsservice, countriesservice, entitiesservice) {
+	
+	function SearchService() {
+		
+		var compare = function(a,b) {
+			if (a === null || b === null) return false;
+			return a.toLowerCase().indexOf(b) !== -1;
+		};
+		
+		//{"alphaCode":"ALV","scientificName":"Alopias vulpinus","englishName":"Thresher","hasMeasures":true}
+		var speciesFilter = function(species, term) {
+			return compare(species.alphaCode, term) || 
+			compare(species.englishName, term) || 
+			compare(species.scientificName, term);
+		};
+		
+		//{"code":1,"name":"Sharks"}
+		var groupFilter = function(group, term) {
+			return compare(group.name, term);
+		};
+		
+		//{"acronym":"ICCAT","type":2}
+		var entityFilter = function(entity, term) {
+			return compare(entity.acronym, term);
+		};
+		
+		//{"code":"EUR","name":"European Union","continent":null}
+		var countryFilter = function(country, term) {
+			return compare(country.code, term) || 
+			compare(country.name, term);
+		};
+		
+		this.search = function(query) {
+			$log.info("search", query);
+			
+			var term = query.toLowerCase();
+			var deferred = $q.defer();
+			
+			var speciesPromise = speciesservice.list();
+			var groupsPromise = groupsservice.list();
+			var entitiesPromise = entitiesservice.list();
+			var countriesPromise = countriesservice.list();
+			
+			$q.all([speciesPromise, groupsPromise, entitiesPromise, countriesPromise]).then(function(data){
+				
+				var results = [];
+				
+				var species = data[0];
+				Stream(species)
+					.filter(function(species){
+						return speciesFilter(species, term);
+					})
+					.forEach(function(species){
+						results.push({
+							entry: species,
+							title: species.englishName,
+							description: species.scientificName,
+							type: "species"
+						});
+					});
+				
+				var groups = data[1];
+				Stream(groups)
+					.filter(function(group){
+						return groupFilter(group, term);
+					})
+					.forEach(function(group){
+						results.push({
+							entry: group,
+							title: group.name,
+							description: "",
+							type: "groups"
+						});
+					});
+				
+				var entities = data[2];
+				Stream(entities)
+					.filter(function(entity){
+						return entityFilter(entity, term);
+					})
+					.forEach(function(entity){
+						results.push({
+							entry: entity,
+							title: entity.acronym,
+							description: "",
+							type: "entities"
+						});
+					});
+				
+				var countries = data[3];
+				Stream(countries)
+					.filter(function(country){
+						return countryFilter(country, term);
+					})
+					.forEach(function(country){
+						results.push({
+							entry: country,
+							title: country.name,
+							description: country.continent,
+							type: "countries"
+						});
+					});
+
+				
+				deferred.resolve({
+					data:results
+				});
+			});
+
+			
+			return deferred.promise;
+		};
+		
+		
+	}
+	return new SearchService();
 	
 }]);
