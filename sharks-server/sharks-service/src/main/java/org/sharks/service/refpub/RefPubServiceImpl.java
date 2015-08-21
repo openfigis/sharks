@@ -34,12 +34,12 @@ public class RefPubServiceImpl implements RefPubService {
 	private ServiceCache<String, RefPubSpecies> speciesCache;
 
 	@Override
-	public RefPubCountry getCountry(String iso3Code) {
+	public RefPubCountry getCountryByIso3(String iso3Code) {
 		CacheElement<RefPubCountry> cacheElement = countriesCache.get(iso3Code);
 		if (cacheElement.isPresent()) return cacheElement.getValue();
 		
 		try {
-			RefPubCountry country = restClient.getCountry(iso3Code);
+			RefPubCountry country = restClient.getCountryByIso3(iso3Code);
 			
 			countriesCache.put(iso3Code, country);
 			

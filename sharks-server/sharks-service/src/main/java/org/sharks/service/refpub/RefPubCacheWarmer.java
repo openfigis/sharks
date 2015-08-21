@@ -40,7 +40,7 @@ public class RefPubCacheWarmer implements CacheWarmer {
 		log.trace("done");
 		
 		log.trace("countries...");
-		for (MgmtEntity country:entityDao.list(ManagementEntityDao.COUNTRY_TYPE)) refPubService.getCountry(country.getAcronym());
+		for (MgmtEntity country:entityDao.list(ManagementEntityDao.COUNTRY_TYPE)) refPubService.getCountryByIso3(country.getAcronym());
 		log.trace("done");
 
 		log.trace("cache warmup complete");

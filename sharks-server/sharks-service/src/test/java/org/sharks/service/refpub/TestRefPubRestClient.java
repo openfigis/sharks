@@ -27,7 +27,7 @@ public class TestRefPubRestClient {
 
 	@Test @Ignore
 	public void testGetCountry() {
-		RefPubCountry country = client.getCountry("ALB");
+		RefPubCountry country = client.getCountryByIso3("ALB");
 		assertNotNull(country);
 		System.out.println(country);
 		System.out.println(country.getFisheryCommissions());

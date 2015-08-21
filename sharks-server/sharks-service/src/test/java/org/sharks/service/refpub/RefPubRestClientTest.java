@@ -59,31 +59,31 @@ public class RefPubRestClientTest {
 	}
 
 	/**
-	 * Test method for {@link org.sharks.service.refpub.rest.RefPubRestClient#getCountry(java.lang.String)}.
+	 * Test method for {@link org.sharks.service.refpub.rest.RefPubRestClient#getCountryByIso3(java.lang.String)}.
 	 */
 	@Test
-	public void testGetCountry() {
-		RefPubCountry country = client.getCountry("ALB");
+	public void testGetCountryByIso3() {
+		RefPubCountry country = client.getCountryByIso3("ALB");
 		
 		assertNotNull(country);
 		assertEquals("ALB", country.getUnIso3Code());
 	}
 	
 	@Test
-	public void testGetCountryMissing() {
-		RefPubCountry country = client.getCountry("NOT_EXISTS");
+	public void testGetCountryByIso3Missing() {
+		RefPubCountry country = client.getCountryByIso3("NOT_EXISTS");
 		
 		assertNull(country);
 	}
 	
 	@Test(expected=RefPubRestClientException.class)
-	public void testGetCountryConnectionError() {
-		client.getCountry("ERROR");
+	public void testGetCountryByIso3ConnectionError() {
+		client.getCountryByIso3("ERROR");
 	}
 	
 	@Test
-	public void testGetCountryWithDisallowedCharInCode() {
-		RefPubCountry country = client.getCountry("N/A");
+	public void testGetCountryByIso3WithDisallowedCharInCode() {
+		RefPubCountry country = client.getCountryByIso3("N/A");
 		
 		assertNull(country);
 	}

@@ -17,7 +17,7 @@ public interface RefPubService {
 	 * @param iso3Code the country code.
 	 * @return the found {@link RefPubCountry} or <code>null</code> if not found.
 	 */
-	RefPubCountry getCountry(String iso3Code);
+	RefPubCountry getCountryByIso3(String iso3Code);
 	
 	/**
 	 * Returns the {@link RefPubSpecies} with the specified Alpha3 code.

@@ -33,9 +33,9 @@ public class RefPubServiceTest {
 	private RefPubRestClient setupRefPubRestClient() {
 		RefPubRestClient client = Mockito.mock(RefPubRestClient.class);
 		
-		when(client.getCountry("AFG")).thenReturn(aRefPubCountry());
-		when(client.getCountry("NOT_EXISTS")).thenReturn(null);
-		when(client.getCountry("ERROR")).thenThrow(new RefPubRestClientException("Get error",null));
+		when(client.getCountryByIso3("AFG")).thenReturn(aRefPubCountry());
+		when(client.getCountryByIso3("NOT_EXISTS")).thenReturn(null);
+		when(client.getCountryByIso3("ERROR")).thenThrow(new RefPubRestClientException("Get error",null));
 		
 		when(client.getSpecies("ALV")).thenReturn(aRefPubSpecies());
 		when(client.getSpecies("NOT_EXISTS")).thenReturn(null);
@@ -46,20 +46,20 @@ public class RefPubServiceTest {
 	
 
 	@Test
-	public void testGetCountry() {
-		RefPubCountry country = service.getCountry("AFG");
+	public void testGetCountryByIso3() {
+		RefPubCountry country = service.getCountryByIso3("AFG");
 		assertNotNull(country);
 	}
 	
 	@Test
-	public void testGetCountryMissingCountry() {
-		RefPubCountry country = service.getCountry("NOT_EXISTS");
+	public void testGetCountryByIso3MissingCountry() {
+		RefPubCountry country = service.getCountryByIso3("NOT_EXISTS");
 		assertNull(country);
 	}
 	
 	@Test
-	public void testGetCountryConnectionError() {
-		RefPubCountry country = service.getCountry("ERROR");
+	public void testGetCountryByIso3ConnectionError() {
+		RefPubCountry country = service.getCountryByIso3("ERROR");
 		assertNull(country);
 	}
 

@@ -31,9 +31,9 @@ public class RefPubRestClient {
 		this.parser = new RefPubParser();
 	}
 
-	public RefPubCountry getCountry(String iso3Code) {
+	public RefPubCountry getCountryByIso3(String iso3Code) {
 		try {
-			URL countryUrl = getCountryUrl(iso3Code);
+			URL countryUrl = getCountryUrlFromIso3(iso3Code);
 			
 			log.trace("getting country {} from {}", iso3Code, countryUrl);
 			String content = httpClient.get(countryUrl);
@@ -61,7 +61,7 @@ public class RefPubRestClient {
 	}
 
 	//http://figisapps.fao.org/refpub-web/rest/concept/Country/codesystem/UN-ISO3/code/AFG/xml
-	private URL getCountryUrl(String iso3Code) throws MalformedURLException, UnsupportedEncodingException {
+	private URL getCountryUrlFromIso3(String iso3Code) throws MalformedURLException, UnsupportedEncodingException {
 		return new URL(restUrl+"concept/Country/codesystem/UN-ISO3/code/"+URLEncoder.encode(iso3Code, "UTF-8")+"/xml");
 	}
 	
