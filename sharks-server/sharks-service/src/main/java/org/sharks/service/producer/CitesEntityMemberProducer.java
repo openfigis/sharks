@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.sharks.service.cites.dto.CitesCountry;
 import org.sharks.service.dto.EntityMember;
 import org.sharks.service.producer.EntryProducers.AbstractEntryProducer;
+import org.sharks.service.refpub.RefPubService;
+import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.domain.MgmtEntity;
 
@@ -23,7 +25,10 @@ import org.sharks.storage.domain.MgmtEntity;
 public class CitesEntityMemberProducer extends AbstractEntryProducer<CitesCountry, EntityMember> {
 	
 	@Inject
-	ManagementEntityDao dao;
+	private ManagementEntityDao dao;
+	
+	@Inject
+	private RefPubService refPub;
 
 	@Override
 	public EntityMember produce(CitesCountry country) {
@@ -31,7 +36,14 @@ public class CitesEntityMemberProducer extends AbstractEntryProducer<CitesCountr
 		boolean hasPoAs = false;
 		String name = null;
 		
-		MgmtEntity entity = dao.getByAcronym(country.getIso3());
+		String iso3code = country.getIso3();
+		
+		if (iso3code == null) {
+			RefPubCountry refPubCountry = refPub.getCountryByIso2(country.getIso2());
+			if (refPubCountry!=null) iso3code = refPubCountry.getUnIso3Code();
+		}
+		
+		MgmtEntity entity = dao.getByAcronym(iso3code);
 		if (entity!=null) {
 			hasPoAs = !entity.getPoAs().isEmpty();
 			name = entity.getMgmtEntityName();
@@ -40,7 +52,7 @@ public class CitesEntityMemberProducer extends AbstractEntryProducer<CitesCountr
 			log.warn("Unknown country "+country);
 		}
 		
-		return new EntityMember(country.getIso3(), name, hasPoAs);
+		return new EntityMember(iso3code, name, hasPoAs);
 	}
 
 }

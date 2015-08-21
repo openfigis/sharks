@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 
+import org.sharks.service.cites.dto.CitesCountry;
 import org.sharks.service.geoserver.dto.SpeciesItem;
 import org.sharks.service.geoserver.dto.SpeciesList;
 import org.sharks.service.moniker.dto.Rfb;
@@ -146,6 +147,14 @@ public class TestModelUtils {
 		list.setItems(items);
 		
 		return list;
+	}
+	
+	public static CitesCountry createCitesCountry(String iso3, String iso2, String name) {
+		CitesCountry country = new CitesCountry();
+		country.setIso2(iso2);
+		country.setIso3(iso3);
+		country.setName(name);		
+		return country;
 	}
 	
 	public static <T> T findFirst(List<T> items, Predicate<T> predicate) {

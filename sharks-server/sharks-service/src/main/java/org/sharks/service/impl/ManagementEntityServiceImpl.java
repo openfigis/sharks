@@ -120,14 +120,9 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 		
 		List<CitesCountry> citesParties = citesService.getParties();
 		log.trace("starting conversion");
-		List<EntityMember> members = convert(filterMissingIso3(citesParties), citesMemberProducer);
+		List<EntityMember> members = convert(citesParties, citesMemberProducer);
 		log.trace("conversion complete");
 		return members;
-	}
-	
-	private List<CitesCountry> filterMissingIso3(List<CitesCountry> parties) {
-		parties.stream().filter(country->country.getIso3()==null).forEach(country->System.out.println(country));
-		return parties.stream().filter(country->country.getIso3()!=null).collect(Collectors.toList());
 	}
 	
 	private List<InformationSource> onlyOthersOrPoAs(List<InformationSource> sources) {
