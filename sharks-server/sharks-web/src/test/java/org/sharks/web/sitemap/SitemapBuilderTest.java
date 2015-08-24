@@ -61,7 +61,7 @@ public class SitemapBuilderTest {
 	 */
 	@Test
 	public void testAddSpeciesPage() throws MalformedURLException {
-		SpeciesEntry entry = new SpeciesEntry("ABC", null, null, false);
+		SpeciesEntry entry = new SpeciesEntry("ABC", null, null, null, null, null, null, null, false);
 		
 		builder.addSpeciesPage(entry);
 		Sitemap map = builder.build();
