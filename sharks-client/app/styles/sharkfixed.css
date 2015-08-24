@@ -236,6 +236,11 @@ p{
     font-size: 14px;
 }
 
+.angucomplete-selected-row {
+	background-color: rgb(96, 156, 203) !important;	
+	opacity: 0.8;
+}
+
 
 
 div#topMenu ul li a{
