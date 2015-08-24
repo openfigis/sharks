@@ -731,6 +731,7 @@ div.logo{
 
 div.logo img{
 	text-align: right;
+	margin: 22px auto 15px !important;
 }
 
 
@@ -933,3 +934,4 @@ div.logo img{
 .noTransformation {
 	text-transform: none !important;
 }
+
