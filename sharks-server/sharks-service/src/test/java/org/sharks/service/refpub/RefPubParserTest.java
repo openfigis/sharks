@@ -28,12 +28,13 @@ public class RefPubParserTest {
 	
 	@Test
 	public void testRefPubCountryParsing() throws JAXBException {
-		String content = getResource("/country.xml");
+		String content = getResource("/refpub/country_iso3.xml");
 		RefPubCountry country = parser.parseCountry(content);
 		
 		assertNotNull(country);
 		assertNotNull(country.getMultilingualOfficialName());
 		assertNotNull(country.getUnIso3Code());
+		assertNotNull(country.getUnIso2Code());
 		
 		assertNotNull(country.getFisheryCommissions());
 		assertFalse(country.getFisheryCommissions().isEmpty());
@@ -43,7 +44,7 @@ public class RefPubParserTest {
 	
 	@Test
 	public void testRefPubCountryNotFoundParsing() throws JAXBException {
-		String content = getResource("/country_not_found.xml");
+		String content = getResource("/refpub/country_not_found.xml");
 		RefPubCountry country = parser.parseCountry(content);
 		
 		assertNull(country);
@@ -51,7 +52,7 @@ public class RefPubParserTest {
 	
 	@Test
 	public void testRefPubSpeciesParsing() throws JAXBException {
-		String content = getResource("/species.xml");
+		String content = getResource("/refpub/species.xml");
 		RefPubSpecies species = parser.parseSpecies(content);
 		
 		assertNotNull(species);
@@ -61,7 +62,7 @@ public class RefPubParserTest {
 	
 	@Test
 	public void testRefPubSpeciesNotFoundParsing() throws JAXBException {
-		String content = getResource("/species_not_found.xml");
+		String content = getResource("/refpub/species_not_found.xml");
 		RefPubSpecies species = parser.parseSpecies(content);
 		
 		assertNull(species);

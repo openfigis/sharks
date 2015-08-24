@@ -31,7 +31,7 @@ public class MonikersParserTest {
 
 	@Test
 	public void testRfb4Iso3ResponseParsing() {
-		String content = getResource("/rfb4iso3.xml");
+		String content = getResource("/monikers/rfb4iso3.xml");
 		MonikerResponse<Rfb> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);
@@ -45,7 +45,7 @@ public class MonikersParserTest {
 	
 	@Test
 	public void testRfb4Iso3NotFoundResponseParsing() {
-		String content = getResource("/rfb4iso3_not_found.xml");
+		String content = getResource("/monikers/rfb4iso3_not_found.xml");
 		MonikerResponse<Rfb> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);
@@ -56,7 +56,7 @@ public class MonikersParserTest {
 	
 	@Test
 	public void testRfbResponseParsing() {
-		String content = getResource("/rfb.xml");
+		String content = getResource("/monikers/rfb.xml");
 		MonikerResponse<Rfb> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);
@@ -81,7 +81,7 @@ public class MonikersParserTest {
 	
 	@Test
 	public void testRfbNotFoundResponseParsing() {
-		String content = getResource("/rfb_not_found.xml");
+		String content = getResource("/monikers/rfb_not_found.xml");
 		MonikerResponse<Rfb> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);
@@ -93,7 +93,7 @@ public class MonikersParserTest {
 	
 	@Test
 	public void testFaoLexFIResponseParsing() {
-		String content = getResource("/faolexfi.xml");
+		String content = getResource("/monikers/faolexfi.xml");
 		MonikerResponse<FaoLexFiDocument> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);
@@ -118,7 +118,7 @@ public class MonikersParserTest {
 	
 	@Test
 	public void testFaoLexFINotFoundResponseParsing() {
-		String content = getResource("/faolexfi_not_found.xml");
+		String content = getResource("/monikers/faolexfi_not_found.xml");
 		MonikerResponse<FaoLexFiDocument> response = parser.parseMonikerResponse(content);
 		
 		assertNotNull(response);

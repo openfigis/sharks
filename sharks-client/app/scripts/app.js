@@ -13,6 +13,7 @@ angular
     "ngResource",
     "ngRoute",
     "ngSanitize",
+    "angucomplete-alt",
     "resources",
     "services"
   ])

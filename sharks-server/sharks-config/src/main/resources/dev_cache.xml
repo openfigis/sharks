@@ -5,10 +5,20 @@
 	
 	<diskStore path="java.io.tmpdir"/>
 	
+		
+	<!-- ### Sharks services -->
+	
+	<!-- cache for entity members, ManagementEntityService -->
+	<cache name="entityMembers" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>	
+	
+	
 	<!-- ### RefPub ### -->
 	
-	<!-- cache for Country concepts coming from RefPub service -->
-	<cache name="country" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
+	<!-- cache for Country concepts retrieved from RefPub service using iso3 code-->
+	<cache name="countryIso3" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
+	
+	<!-- cache for Country concepts retrieved from RefPub service using iso2 code-->
+	<cache name="countryIso2" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
 	
 	<!-- cache for Species concepts coming from RefPub service -->
 	<cache name="species" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
@@ -28,9 +38,15 @@
 	<!-- cache for faoLexFI moniker -->
 	<cache name="faoLexDocument" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
 	
+	
 	<!-- ### GeoServer ### -->
 	
 	<!-- cache for specieslist -->
 	<cache name="specieslist" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>	
+	
+	
+	<!-- ### sitemap ### -->
+	
+	<cache name="sitemap" maxEntriesLocalHeap="0" diskPersistent="true" eternal="true" memoryStoreEvictionPolicy="FIFO"/>	
 
 </ehcache>

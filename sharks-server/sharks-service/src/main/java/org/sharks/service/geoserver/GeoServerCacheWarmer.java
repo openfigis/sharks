@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import org.sharks.service.cache.warmer.CacheWarmer;
+import org.sharks.service.cache.warmer.CacheWarmer.HighPriority;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@Slf4j @Singleton
+@Slf4j @Singleton @HighPriority
 public class GeoServerCacheWarmer implements CacheWarmer {
 	
 	@Inject

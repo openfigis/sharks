@@ -15,6 +15,7 @@ import lombok.Data;
 public class RefPubCountry {
 	
 	private final String unIso3Code;
+	private final String unIso2Code;
 	private final String continent;
 	private final List<String> fisheryCommissions;
 	private final MultiLingualName multilingualOfficialName;

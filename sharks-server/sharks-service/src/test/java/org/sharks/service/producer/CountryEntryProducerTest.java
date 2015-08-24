@@ -38,7 +38,7 @@ public class CountryEntryProducerTest {
 	protected RefPubService setupRefPubService() {
 		RefPubService service = Mockito.mock(RefPubService.class);
 		aCountry = aRefPubCountry();
-		when(service.getCountry("AFG")).thenReturn(aCountry);
+		when(service.getCountryByIso3("AFG")).thenReturn(aCountry);
 		return service;
 	}
 

@@ -26,7 +26,11 @@ public interface Configuration {
 
 	public URL getSharksRestUrl();
 	
+	public URL getSharksClientUrl();
+	
 	public String getSpeciesListUrl();
+	
+	public String getCitesPartiesUrl();
 	
 	public enum CacheWarmupType {
 		NONE,

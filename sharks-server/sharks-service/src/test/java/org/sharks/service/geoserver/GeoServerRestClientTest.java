@@ -39,7 +39,7 @@ public class GeoServerRestClientTest {
 	 */
 	@Test
 	public void testGetSpeciesList() throws MalformedURLException {
-		String content = getResource("/specieslist.xml");
+		String content = getResource("/geoserver/specieslist.xml");
 		reset(httpClient);
 		when(httpClient.get(new URL("http://figisapps.fao.org/figis/geoserver/factsheets/js/specieslist.xml"))).thenReturn(content);
 

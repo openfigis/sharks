@@ -24,11 +24,13 @@ public class ConfigurationImpl implements Configuration {
 	public static final String CACHE_WARMUP = "cache.warmup";
 	public static final String CACHE_CLEAN_PASSPHRASE = "cache.cleanPassphrase";
 	public static final String CACHE_REFRESH_DELAY = "cache.refreshDelay";
-	public static final String SHARKS_URL = "service.sharks";
-	public static final String REFPUB_URL = "service.refpub";
-	public static final String MONIKERS_URL = "service.monikers";
-	public static final String GEOSERVER_SPECIES_LIST_URL = "service.geoserver.specieslist";
-	public static final String SOLR_URL = "service.solr";
+	public static final String SHARKS_REST_URL = "sharks.rest.url";
+	public static final String SHARKS_CLIENT_URL = "sharks.client.url";
+	public static final String REFPUB_URL = "refpub.url";
+	public static final String MONIKERS_URL = "monikers.url";
+	public static final String GEOSERVER_SPECIES_LIST_URL = "geoserver.specieslist.url";
+	public static final String CITES_PARTIES_URL = "cites.parties.url";
+	public static final String SOLR_URL = "solr.url";
 	
 	private Properties properties;
 	
@@ -54,14 +56,7 @@ public class ConfigurationImpl implements Configuration {
 	
 	@Override
 	public URL getSharksRestUrl() {
-		String sharksRestUrlProperty = properties.getProperty(SHARKS_URL);
-		if (sharksRestUrlProperty == null) return null;
-		
-		try {
-			return new URL(sharksRestUrlProperty);
-		} catch (Exception e) {
-			throw new RuntimeException("Wrong Sharks URL value in configuration "+sharksRestUrlProperty, e);
-		}
+		return getUrl(SHARKS_REST_URL);
 	}
 	
 	@Override
@@ -108,6 +103,27 @@ public class ConfigurationImpl implements Configuration {
 	@Override
 	public String getCacheRefreshDelay() {
 		return properties.getProperty(CACHE_REFRESH_DELAY);
+	}
+
+	@Override
+	public URL getSharksClientUrl() {
+		return getUrl(SHARKS_CLIENT_URL);
+	}
+	
+	private URL getUrl(String propertyName) {
+		String urlValue = properties.getProperty(propertyName);
+		if (urlValue == null) return null;
+		
+		try {
+			return new URL(urlValue);
+		} catch (Exception e) {
+			throw new RuntimeException("Wrong URL value for property "+propertyName, e);
+		}
+	}
+
+	@Override
+	public String getCitesPartiesUrl() {
+		return properties.getProperty(CITES_PARTIES_URL);
 	}
 
 }

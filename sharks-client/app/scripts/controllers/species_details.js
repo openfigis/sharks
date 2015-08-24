@@ -17,9 +17,6 @@ angular.module("sharksClient")
 	  
 	  this.species = species;
 	  this.ems = Stream(species.measures)
-		  .filter(function (measure) {
-			  return measure.entityAcronym !== "CITES" && measure.entityAcronym !== "CMS";
-		  })
 		  .sort(function(a, b) {
 		      if (a.year === b.year) return 0;
 		      if (a.year > b.year) return -1;
@@ -28,9 +25,6 @@ angular.module("sharksClient")
 		  .groupBy(function (measure) {
 		      return measure.entityAcronym;
 		  });
-	  
-	  this.showCitesLink = Stream(species.measures).anyMatch({entityAcronym:"CITES"});
-	  this.showCmsLink = Stream(species.measures).anyMatch({entityAcronym:"CMS"});
 	  
 	  this.factsheetsUrl = species.figisId !== null? factsheets.speciesBaseUrl + species.figisId : null;
 	  

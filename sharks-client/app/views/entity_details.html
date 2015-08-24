@@ -51,7 +51,7 @@
       <div id="memberCountries" ng-if="ctrl.entity.members.length!=0">
         <h2>Members</h2>	
         <ul class="list">
-          <li ng-repeat="member in ctrl.entity.members">
+          <li ng-repeat="member in ctrl.members">
             <a ng-click="ctrl.showCountry(member)" ng-class="{disabled:!member.hasPoAs}">{{member.name}}</a>
           </li>	
         </ul>

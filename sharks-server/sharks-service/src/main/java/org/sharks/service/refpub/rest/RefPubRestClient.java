@@ -31,9 +31,9 @@ public class RefPubRestClient {
 		this.parser = new RefPubParser();
 	}
 
-	public RefPubCountry getCountry(String iso3Code) {
+	public RefPubCountry getCountryByIso3(String iso3Code) {
 		try {
-			URL countryUrl = getCountryUrl(iso3Code);
+			URL countryUrl = getCountryUrlFromIso3(iso3Code);
 			
 			log.trace("getting country {} from {}", iso3Code, countryUrl);
 			String content = httpClient.get(countryUrl);
@@ -42,7 +42,22 @@ public class RefPubRestClient {
 			return country;
 			
 		} catch(Exception e) {
-			throw new RefPubRestClientException("Error retrieving country "+iso3Code, e);
+			throw new RefPubRestClientException("Error retrieving country with iso3 "+iso3Code, e);
+		}
+	}
+	
+	public RefPubCountry getCountryByIso2(String iso2Code) {
+		try {
+			URL countryUrl = getCountryUrlFromIso2(iso2Code);
+			
+			log.trace("getting country {} from {}", iso2Code, countryUrl);
+			String content = httpClient.get(countryUrl);
+			
+			RefPubCountry country = parser.parseCountry(content);
+			return country;
+			
+		} catch(Exception e) {
+			throw new RefPubRestClientException("Error retrieving country  with iso2 "+iso2Code, e);
 		}
 	}
 	
@@ -61,8 +76,13 @@ public class RefPubRestClient {
 	}
 
 	//http://figisapps.fao.org/refpub-web/rest/concept/Country/codesystem/UN-ISO3/code/AFG/xml
-	private URL getCountryUrl(String iso3Code) throws MalformedURLException, UnsupportedEncodingException {
+	private URL getCountryUrlFromIso3(String iso3Code) throws MalformedURLException, UnsupportedEncodingException {
 		return new URL(restUrl+"concept/Country/codesystem/UN-ISO3/code/"+URLEncoder.encode(iso3Code, "UTF-8")+"/xml");
+	}
+	
+	//http://figisapps.fao.org/refpub-web/rest/concept/Country/codesystem/UN-ISO2/code/AF/xml
+	private URL getCountryUrlFromIso2(String iso2Code) throws MalformedURLException, UnsupportedEncodingException {
+		return new URL(restUrl+"concept/Country/codesystem/UN-ISO2/code/"+URLEncoder.encode(iso2Code, "UTF-8")+"/xml");
 	}
 	
 	//http://figisapps.fao.org/refpub-web/rest/concept/Country/codesystem/UN-ISO3/code/AFG/xml

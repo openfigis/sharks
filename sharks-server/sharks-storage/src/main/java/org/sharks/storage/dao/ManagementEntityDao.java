@@ -24,6 +24,9 @@ public interface ManagementEntityDao {
 	 */
 	public MgmtEntity getByAcronym(String acronym);
 
+	/**
+	 * FIXME should we remove this method?
+	 */
 	public List<MgmtEntity> list(long type);
 	
 	/**

@@ -36,27 +36,27 @@ public class MonikersRestClientTest {
 	public static void setUpBeforeClass() throws Exception {
 		HttpClient httpClient = Mockito.mock(HttpClient.class);
 		
-		String content = getResource("/rfb4iso3.xml");
+		String content = getResource("/monikers/rfb4iso3.xml");
 		when(httpClient.get(new URL("http://localhost/rfb4iso3/ALB"))).thenReturn(content);
 		
-		content = getResource("/rfb4iso3_not_found.xml");
+		content = getResource("/monikers/rfb4iso3_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/rfb4iso3/NOT_EXISTS"))).thenReturn(content);
 		
 		when(httpClient.get(new URL("http://localhost/rfb4iso3/ERROR"))).thenThrow(new RuntimeException("Get failed"));
 		
-		content = getResource("/rfb.xml");
+		content = getResource("/monikers/rfb.xml");
 		when(httpClient.get(new URL("http://localhost/rfb/ICCAT"))).thenReturn(content);
 		when(httpClient.get(new URL("http://localhost/rfb/9294"))).thenReturn(content);
 		
-		content = getResource("/rfb_not_found.xml");
+		content = getResource("/monikers/rfb_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/rfb/NOT_EXISTS"))).thenReturn(content);
 		
 		when(httpClient.get(new URL("http://localhost/rfb/ERROR"))).thenThrow(new RuntimeException("Get failed"));
 		
 		
-		content = getResource("/faolexfi.xml");
+		content = getResource("/monikers/faolexfi.xml");
 		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=aus"))).thenReturn(content);
-		content = getResource("/faolexfi_not_found.xml");
+		content = getResource("/monikers/faolexfi_not_found.xml");
 		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=NOT_EXISTS"))).thenReturn(content);
 		when(httpClient.get(new URL("http://localhost/faolexfi/kwid=089/iso3=ERROR"))).thenThrow(new RuntimeException("Get failed"));
 

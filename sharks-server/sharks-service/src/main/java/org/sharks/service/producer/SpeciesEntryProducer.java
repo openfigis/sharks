@@ -31,6 +31,11 @@ public class SpeciesEntryProducer extends AbstractEntryProducer<Species, Species
 		
 		String scientificName = species.getScientificName();
 		String englishName = species.getNameEn();
+		String frenchName = null;
+		String spanishName = null;
+		String arabicName = null;
+		String chineseName = null;
+		String russianName = null;
 		
 		boolean hasMeasures = hasMeasures(species);
 		
@@ -38,10 +43,27 @@ public class SpeciesEntryProducer extends AbstractEntryProducer<Species, Species
 		if (refPubSpecies!=null) {
 			scientificName = refPubSpecies.getScientificName();
 			MultiLingualName longNames = refPubSpecies.getLongNames();
-			if (longNames!=null) englishName = longNames.getEnglish();
+			if (longNames!=null) {
+				englishName = longNames.getEnglish();
+				frenchName = longNames.getFrench();
+				spanishName = longNames.getSpanish();
+				arabicName = longNames.getArabic();
+				chineseName = longNames.getChinese();
+				russianName = longNames.getRussian();
+			}
 		}
 		
-		return new SpeciesEntry(species.getAlphaCode(), scientificName, englishName, hasMeasures);
+		return new SpeciesEntry(
+				species.getAlphaCode(),
+				scientificName, 
+				englishName,
+				frenchName,
+				spanishName,
+				arabicName,
+				chineseName,
+				russianName,
+				hasMeasures
+				);
 	}
 	
 	private boolean hasMeasures(Species species) {

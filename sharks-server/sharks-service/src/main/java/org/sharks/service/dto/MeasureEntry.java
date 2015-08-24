@@ -27,5 +27,6 @@ public class MeasureEntry {
 	private final boolean binding;
 	private final String entityAcronym;
 	private final List<InformationSourceEntry> sources;
+	private final String replacedMeasureSourceUrl;
 	
 }
