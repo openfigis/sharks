@@ -16,6 +16,7 @@ import lombok.Data;
 public class EntityEntry {
 	
 	private final String acronym;
+	private final String name;
 	private final Long type;
 
 }

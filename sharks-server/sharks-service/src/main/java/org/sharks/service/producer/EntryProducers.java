@@ -101,7 +101,7 @@ public class EntryProducers {
 
 		@Override
 		public EntityEntry produce(MgmtEntity entity) {
-			return new EntityEntry(entity.getAcronym(), entity.getMgmtEntityType().getCode());
+			return new EntityEntry(entity.getAcronym(), entity.getMgmtEntityName(), entity.getMgmtEntityType().getCode());
 		}
 
 	};
