@@ -26,6 +26,7 @@ import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.impl.ManagementEntityServiceImpl;
 import org.sharks.service.moniker.MonikerService;
+import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.util.NoCache;
 import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
@@ -70,6 +71,11 @@ public class ManagementEntityServiceTest {
 		
 		
 		return service;
+	}
+	
+	@Produces
+	protected RefPubService setupRefPubService() {
+		return mock(RefPubService.class);
 	}
 	
 	@Produces

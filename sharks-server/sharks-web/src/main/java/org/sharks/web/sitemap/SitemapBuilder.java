@@ -10,7 +10,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.jboss.weld.exceptions.IllegalStateException;
 import org.sharks.config.Configuration;
 import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.dto.EntityEntry;

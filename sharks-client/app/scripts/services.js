@@ -239,8 +239,6 @@ services.factory("searchservice", ["$log", "$q", "speciesservice", "groupsservic
 				var species = data[0];
 				Stream(species).forEach(function(species){
 					
-					var title = null;
-					
 					if (compare(species.englishName, term) || 
 						compare(species.alphaCode, term) ||
 						compare(species.scientificName, term)) {
