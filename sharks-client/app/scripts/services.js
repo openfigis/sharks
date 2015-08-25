@@ -193,17 +193,14 @@ services.factory("searchservice", ["$log", "$q", "speciesservice", "groupsservic
 	
 	function SearchService() {
 		
-		var compare = function(a,b) {
-			if (a === null || b === null) return false;
-			return a.toLowerCase().indexOf(b) !== -1;
+		var isUndefinedOrNull = function(value) {
+			return value === null || value === undefined;
 		};
 		
-		//{"alphaCode":"ALV","scientificName":"Alopias vulpinus","englishName":"Thresher","hasMeasures":true}
-		/*var speciesFilter = function(species, term) {
-			return compare(species.alphaCode, term) || 
-			compare(species.englishName, term) || 
-			compare(species.scientificName, term);
-		};*/
+		var compare = function(a,b) {
+			if (isUndefinedOrNull(a) || isUndefinedOrNull(b)) return false;
+			return a.toLowerCase().indexOf(b) !== -1;
+		};
 		
 		//{"code":1,"name":"Sharks"}
 		var groupFilter = function(group, term) {
@@ -212,7 +209,8 @@ services.factory("searchservice", ["$log", "$q", "speciesservice", "groupsservic
 		
 		//{"acronym":"ICCAT","type":2}
 		var entityFilter = function(entity, term) {
-			return compare(entity.acronym, term);
+			return compare(entity.acronym, term) ||
+			compare(entity.name, term);
 		};
 		
 		//{"code":"EUR","name":"European Union","continent":null}
@@ -320,7 +318,7 @@ services.factory("searchservice", ["$log", "$q", "speciesservice", "groupsservic
 						results.push({
 							entry: entity,
 							title: entity.acronym,
-							description: "",
+							description: entity.name,
 							type: "entities"
 						});
 					});

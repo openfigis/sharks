@@ -9,7 +9,7 @@ mainArea {
     height: auto;
     margin-left: auto;
     margin-right: auto;
-    min-height: 100%;
+    min-height: 200px;
     background-image:url("../images/underwaterbackground.jpg");
     background-attachment: fixed;
     -webkit-background-size: cover;
@@ -84,7 +84,7 @@ h2.pagetitle{
 	font-size: 2em;
 	margin-bottom: 10px;
 	text-transform: none;
-	width: 60%;
+	width: auto;
 	z-index: 10;
 	position: relative;
 	color: #077ab3;
@@ -336,53 +336,7 @@ ul.bxslider {margin: 0;}
 .mobile{display: none;}
 
 
-/* Country selector */
 
-#countriesMap{
-	width: 100%;
-	max-width: 1200px;
-}
-
-#countriesMap ul li{
-	list-style-type: none;
-	padding: 4px 6px;
-	margin:  2px;
-	border-radius: 3px;
-	float: left;
-	font-size: 12px;
-	background-color: rgba(255, 255, 255, 1);
-	cursor: pointer;
-	
-}
-
-#countriesMap ul .EUR{
-	margin-left: 10px;	
-}
-
-#countriesMap ul li:hover{
-	color: #f90;	
-}
-
-#countriesMap ul{
-	padding: 0px 0px 0px;
-	margin: 0.5%;
-	width: 19%;
-	float: left;
-	height:98%;
-	border-radius: 3px;
-}
-
-#countriesMap ul h2{
-	font-size: 23px;
-	padding: 0;
-	margin: 30px 0 0;
-	font-weight: 300;
-	color: rgba(255,255,255,1)
-}
-
-#countriesMap{
-
-}
 
 .spacer{margin: 5px;}
 
@@ -427,12 +381,15 @@ footer ul.links li{
 	display: table-cell;
 	max-width: 760px;
     padding: 0;
+    width: 760px;
+	padding-bottom: 50px;
 }
 
-#main header{
+#main header {
 	height: 160px;
-	margin-top: 0;
-	padding: 0
+    min-height: 200px;
+    margin-top: 0;
+    padding: 0;
 }
 
 .group-page #main header{
@@ -444,14 +401,25 @@ footer ul.links li{
 
 .country-page #main header{
 	height: auto;
-	margin-bottom: 0;
+	min-height: 80px;
+	margin-bottom: -20px;
+}
+
+.country-page section.pagetitle{
+	position: absolute;
+	top: 0
 }
 
 .entity-page #main header{
 	height: auto;
-	margin-bottom: 30px;
+	min-height: 80px;
+	margin-bottom: -20px;
 }
 
+.entity-page section.pagetitle {
+	position: absolute;
+	top: 0
+}
 
 #main div.H1{
 	background-color: rgba(255, 255, 255, 0.5);
@@ -469,6 +437,7 @@ footer ul.links li{
 #main H2{
 	color: #52463e;
 	font-weight: 500;
+	background-color: rgba(255,255,255,0.6);
 }
 
 #primary{
@@ -531,10 +500,16 @@ footer ul.links li{
 /* INFO BOX */
 
 section#infoBox{
-	position: absolute;
+	position: relative;
+	top: 0;
 	z-index: 0;
-	width: 100%;
-	top: 10px;
+}
+
+.entity-page #main section#infoBox{
+	
+	width: 25%;
+    float: right;
+    text-align: center;
 }
 
 .group-page section#infoBox{
@@ -546,9 +521,9 @@ section#infoBox{
 
 #main .sharkPict{
 	width: 75%;
+	position: relative;
 	float: left;
-	position: absolute;
-	top: 0;
+	top: 15px;
 	left: 0;
 }
 
@@ -558,8 +533,16 @@ section#infoBox{
 
 #main .sharkInfo{
 	width: 25%;
-	position: absolute;
+	position: relative;
+	float: right;
 	right: 0
+}
+
+div#sharksInfo{
+	width: auto;
+position: absolute;
+right: -80px;
+bottom: -50px;
 }
 
 #main .sharkInfo ul.commonNames{
@@ -729,6 +712,15 @@ div.logo{
 	float: right;
 }
 
+.country-page div.logo img{
+	border: 1px solid gray;
+}
+
+.entity-page #main div.logo{
+	float: none;
+	margin: auto;
+}
+
 div.logo img{
 	text-align: right;
 	margin: 22px auto 15px !important;
@@ -746,6 +738,7 @@ div.logo img{
 
 .measure{
 	width: 100%;
+	min-height: 50px;
 	position: relative;
 	margin-bottom: 2px;
 	border-bottom: 1px solid white;
@@ -813,7 +806,7 @@ div.logo img{
 .measure .title{
 	color: white;
 	display: inline-block;
-	padding: 10px 80px 6px 10px;
+	padding: 10px 65px 6px 10px;
 	margin-left: 0px;
 }
 
@@ -860,12 +853,12 @@ div.logo img{
 #secondary ul.list li{
 	list-style-type: none;
 	position: relative;
-	display: block;
+	display: inline-block;
 	padding: 5px 10px;
-	margin-bottom: -1px;
-	background-color: #ffffff;
-	border: 1px solid #dddddd;
+	background-color: #fff;
+	border: 1px solid #ddd;
 	color: #999;
+	margin: 0 5px 5px 0;
 }
 
 #secondary ul.list li i{

@@ -1,7 +1,6 @@
 /*
 	Species SELECTOR
 */
-
 #SpeciesSelector{
 	height: 400px;
 	width: 100%;
@@ -31,14 +30,15 @@
 	box-shadow: 1px 1px 1px black;
 	float: left;
 	position:relative;
+	overflow: hidden;
 }
 
 #SpeciesSelector ul .selectorhover{
 	background-image: url(../images/download-icon.png);
 	background-color: rgb(96, 156, 203);
 	opacity: 0.8;
-  	background-size: 100% 100%;
-  	background-position: 0px 0px;
+  	background-size: 65%;
+  	background-position: center center;
   	background-repeat: no-repeat;
   	border-radius: 5px;
   	z-index: 10;
@@ -66,10 +66,10 @@
 }
 
 div#sharksIllu{
-	width: 60%;
-	margin:  5px 20%;
+	margin: 20px 15% 0;
 	position: absolute;
 	top: 0;
+	height: 200px;
 }
 
 div#sharksInfo{
@@ -195,4 +195,61 @@ div.eye:hover{
   bottom: 19px;
   right: 0;
 }
+
+
+/* Country selector */
+
+#countriesMap{
+	width: 100%;
+	max-width: 1200px;
+}
+
+#countriesMap ul li{
+	list-style-type: none;
+	padding: 4px 6px;
+	margin:  2px;
+	border-radius: 3px;
+	float: left;
+	font-size: 12px;
+	background-color: rgba(255, 255, 255, 1);
+	cursor: pointer;
+	
+}
+
+#countriesMap ul .EUR{
+	margin-left: 10px;	
+}
+
+#countriesMap ul li:hover{
+	color: #f90;	
+}
+
+#countriesMap ul{
+	padding: 5px;
+	margin: 5px 10px 2px 110px;
+	width:620px;
+	float: left;
+	height:98%;
+	border-radius: 3px;
+	position: relative;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+#countriesMap ul h2{
+	font-size: 17px;
+	padding: 0;
+	margin: 0px 0 0;
+	font-weight: 300;
+	color: rgba(255,255,255,1);
+	position: absolute;
+	left: -105px;
+	width: 95px;
+	text-align: right;	
+	text-transform: capitalize;
+}
+
+#countriesMap ul div.spacer{
+	margin: 0;
+}
+
 

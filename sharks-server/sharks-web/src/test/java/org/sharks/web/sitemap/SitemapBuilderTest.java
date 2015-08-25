@@ -93,7 +93,7 @@ public class SitemapBuilderTest {
 	 */
 	@Test
 	public void testAddEntityPage() throws MalformedURLException {
-		EntityEntry entry = new EntityEntry("ABC", null);
+		EntityEntry entry = new EntityEntry("ABC", null, null);
 		
 		builder.addEntityPage(entry);
 		Sitemap map = builder.build();
