@@ -533,8 +533,14 @@ footer ul.links li{
 section#infoBox{
 	position: absolute;
 	z-index: 0;
-	width: 100%;
 	top: 10px;
+}
+
+.entity-page #main section#infoBox{
+	
+	width: 25%;
+    float: right;
+    text-align: center;
 }
 
 .group-page section#infoBox{
@@ -727,6 +733,11 @@ section#infoBox{
 
 div.logo{
 	float: right;
+}
+
+.entity-page #main div.logo{
+	float: none;
+	margin: auto;
 }
 
 div.logo img{
