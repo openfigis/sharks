@@ -66,7 +66,7 @@
         </hashTree>
       </hashTree>
       <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <boolProp name="ResultCollector.error_logging">true</boolProp>
         <objProp>
           <name>saveConfig</name>
           <value class="SampleSaveConfiguration">
@@ -74,7 +74,7 @@
             <latency>false</latency>
             <timestamp>true</timestamp>
             <success>true</success>
-            <label>false</label>
+            <label>true</label>
             <code>true</code>
             <message>false</message>
             <threadName>true</threadName>
@@ -84,9 +84,9 @@
             <subresults>true</subresults>
             <responseData>false</responseData>
             <samplerData>false</samplerData>
-            <xml>false</xml>
+            <xml>true</xml>
             <fieldNames>false</fieldNames>
-            <responseHeaders>false</responseHeaders>
+            <responseHeaders>true</responseHeaders>
             <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
             <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
@@ -124,7 +124,7 @@
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">/home/lavoro/git/sharks/sharks-server/jmeter/errors.csv</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">

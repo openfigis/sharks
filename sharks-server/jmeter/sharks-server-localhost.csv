@@ -1,0 +1,8 @@
+http://localhost:8080/sharks-web/rest/countries?onlyWithPoAs=false
+http://localhost:8080/sharks-web/rest/countries/NLD
+http://localhost:8080/sharks-web/rest/groups
+http://localhost:8080/sharks-web/rest/groups/4
+http://localhost:8080/sharks-web/rest/managemententities?onlyWithMeasures=false
+http://localhost:8080/sharks-web/rest/managemententities/GFCM
+http://localhost:8080/sharks-web/rest/species?onlyWithMeasure=false
+http://localhost:8080/sharks-web/rest/species/PTH
