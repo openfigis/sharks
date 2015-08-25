@@ -212,7 +212,8 @@ services.factory("searchservice", ["$log", "$q", "speciesservice", "groupsservic
 		
 		//{"acronym":"ICCAT","type":2}
 		var entityFilter = function(entity, term) {
-			return compare(entity.acronym, term);
+			return compare(entity.acronym, term) ||
+			compare(entity.name, term);
 		};
 		
 		//{"code":"EUR","name":"European Union","continent":null}
@@ -320,7 +321,7 @@ services.factory("searchservice", ["$log", "$q", "speciesservice", "groupsservic
 						results.push({
 							entry: entity,
 							title: entity.acronym,
-							description: "",
+							description: entity.name,
 							type: "entities"
 						});
 					});
