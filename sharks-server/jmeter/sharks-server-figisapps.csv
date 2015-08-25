@@ -1,0 +1,8 @@
+http://figisapps.fao.org/figis/sharks/rest/countries?onlyWithPoAs=false
+http://figisapps.fao.org/figis/sharks/rest/countries/NLD
+http://figisapps.fao.org/figis/sharks/rest/groups
+http://figisapps.fao.org/figis/sharks/rest/groups/4
+http://figisapps.fao.org/figis/sharks/rest/managemententities?onlyWithMeasures=false
+http://figisapps.fao.org/figis/sharks/rest/managemententities/GFCM
+http://figisapps.fao.org/figis/sharks/rest/species?onlyWithMeasure=false
+http://figisapps.fao.org/figis/sharks/rest/species/PTH
