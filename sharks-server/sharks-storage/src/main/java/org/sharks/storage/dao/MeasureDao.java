@@ -9,6 +9,8 @@ import org.sharks.storage.domain.Measure;
  *
  */
 public interface MeasureDao {
+	
+	public Measure get(Long code);
 
 	public List<Measure> list();
 
