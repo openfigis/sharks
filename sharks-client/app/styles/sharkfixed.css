@@ -512,6 +512,13 @@ section#infoBox{
     text-align: center;
 }
 
+.country-page #main section#infoBox{
+	
+	width: 25%;
+    float: right;
+    text-align: center;
+}
+
 .group-page section#infoBox{
 	position: relative;
 	z-index: 0;
@@ -712,13 +719,22 @@ div.logo{
 	float: right;
 }
 
+.entity-page #main div.logo{
+	float: none;
+	margin: auto;
+}
+
+.country-page #main div.logo{
+	float: none;
+	margin: auto;
+}
+
 .country-page div.logo img{
 	border: 1px solid gray;
 }
 
-.entity-page #main div.logo{
-	float: none;
-	margin: auto;
+div.logo a {
+	outline: none;
 }
 
 div.logo img{
