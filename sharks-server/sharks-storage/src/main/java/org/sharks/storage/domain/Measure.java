@@ -55,6 +55,8 @@ public class Measure {
     private Date end;
     @Column
     private Integer measureYear;
+    @Column(name="fgHide")
+    private Boolean hide;
     
     /**
      * Not generated
