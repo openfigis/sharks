@@ -544,7 +544,7 @@ FileETag None
 
 
 # ------------------------------------------------------------------------------
-# | rewrite rule for HTML5 browser history URL bookmarkability                 |
+# | rewrite rule for HTML5 browser history URL bookmarkability  and for sitemap|
 # ------------------------------------------------------------------------------
 
 
@@ -558,17 +558,9 @@ FileETag None
 
     # Rewrite everything else to index.html to allow html5 state links
     RewriteRule ^ index.html [L]
+    
+    RewriteRule "sitemap.xml"  "http://figisapps.fao.org/figis/sharks/rest/sitemap" [P]
+    
 </IfModule>
 
-
-# ------------------------------------------------------------------------------
-# | rewrite rule for sitemap 								                   |
-# ------------------------------------------------------------------------------
-
-
-<IfModule mod_rewrite.c>
-    RewriteEngine on
-
-    RewriteRule "sitemap.xml"  "http://figisapps.fao.org/figis/sharks/rest/sitemap" 
-</IfModule>
 
