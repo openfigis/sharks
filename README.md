@@ -97,4 +97,4 @@ The cache console lets the user manage the application cache. The console offers
  - **cache cleaning**: clean the application cache and warms it up if the warms options is active.
 
 #Environment setup
-In order to contribute to the project you need to [configure your environment](ENVIRONMENT_SETUP). 
+In order to contribute to the project you need to [configure your environment](ENVIRONMENT_SETUP.md). 
