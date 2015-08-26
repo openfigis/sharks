@@ -73,7 +73,7 @@ public class SpeciesServiceImpl implements SpeciesService {
 				figisId,
 				hasDistributionMap,
 				officialNames,
-				convert(filterReplacedMeasures(measures), TO_MEASURE_ENTRY));
+				convert(filterReplacedAndHiddenMeasures(measures), TO_MEASURE_ENTRY));
 	}
 	
 	private Set<Measure> extractMeasures(Species species) {

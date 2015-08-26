@@ -14,8 +14,11 @@ import org.sharks.storage.domain.Measure;
  */
 public class MeasuresUtil {
 	
-	public static Collection<Measure> filterReplacedMeasures(Collection<Measure> measures) {
-		return measures.stream().filter((m)->m.getReplacedBy()==null).collect(Collectors.toList());
+	public static Collection<Measure> filterReplacedAndHiddenMeasures(Collection<Measure> measures) {
+		return measures.stream()
+				.filter((m)->m.getReplacedBy()==null)
+				.filter((m)->m.getHide() == null || !m.getHide())
+				.collect(Collectors.toList());
 	}
 
 }

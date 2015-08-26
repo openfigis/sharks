@@ -100,6 +100,7 @@ public class TestModelUtils {
 		measure.setCode(code);
 		measure.setSymbol(symbol);
 		measure.setBinding(false);
+		measure.setHide(false);
 		measure.setInformationSources(Collections.emptyList());
 		return measure;
 	}
