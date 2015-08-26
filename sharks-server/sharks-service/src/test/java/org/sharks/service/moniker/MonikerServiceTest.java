@@ -8,9 +8,9 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.createMember;
-import static org.sharks.service.util.TestModelUtils.createRfb;
-import static org.sharks.service.util.TestModelUtils.createRfbEntry;
+import static org.sharks.service.test.util.TestModelUtils.createMember;
+import static org.sharks.service.test.util.TestModelUtils.createRfb;
+import static org.sharks.service.test.util.TestModelUtils.createRfbEntry;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +27,7 @@ import org.sharks.service.moniker.dto.FaoLexFiDocument;
 import org.sharks.service.moniker.dto.Rfb;
 import org.sharks.service.moniker.rest.MonikersRestClient;
 import org.sharks.service.moniker.rest.MonikersRestClient.MonikersRestClientException;
-import org.sharks.service.util.NoCache;
+import org.sharks.service.test.util.NoCache;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"

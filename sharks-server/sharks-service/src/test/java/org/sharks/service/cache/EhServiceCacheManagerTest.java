@@ -2,7 +2,7 @@ package org.sharks.service.cache;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import static org.sharks.service.util.TestUtils.*;
+import static org.sharks.service.test.util.TestUtils.*;
 import net.sf.ehcache.Ehcache;
 
 import org.junit.BeforeClass;

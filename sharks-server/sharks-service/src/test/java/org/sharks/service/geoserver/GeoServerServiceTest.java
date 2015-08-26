@@ -7,7 +7,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.createSpeciesList;
+import static org.sharks.service.test.util.TestModelUtils.createSpeciesList;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;

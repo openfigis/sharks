@@ -5,7 +5,7 @@ package org.sharks.service.producer;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.*;
+import static org.sharks.service.test.util.TestModelUtils.*;
 
 import java.util.Collections;
 

@@ -2,7 +2,7 @@ package org.sharks.service.refpub;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.*;
+import static org.sharks.service.test.util.TestModelUtils.*;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
@@ -16,7 +16,7 @@ import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.service.refpub.dto.RefPubSpecies;
 import org.sharks.service.refpub.rest.RefPubRestClient;
 import org.sharks.service.refpub.rest.RefPubRestClient.RefPubRestClientException;
-import org.sharks.service.util.NoCache;
+import org.sharks.service.test.util.NoCache;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"

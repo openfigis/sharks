@@ -8,7 +8,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.buildEntity;
+import static org.sharks.service.test.util.TestModelUtils.buildEntity;
 
 import java.util.Collections;
 

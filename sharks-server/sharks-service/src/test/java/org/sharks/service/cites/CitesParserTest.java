@@ -2,7 +2,7 @@ package org.sharks.service.cites;
 
 
 import static org.junit.Assert.*;
-import static org.sharks.service.util.TestUtils.getResource;
+import static org.sharks.service.test.util.TestUtils.getResource;
 
 import org.junit.BeforeClass;
 import org.junit.Test;

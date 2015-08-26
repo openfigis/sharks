@@ -9,7 +9,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
-import static org.sharks.service.util.TestModelUtils.*;
+import static org.sharks.service.test.util.TestModelUtils.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +27,7 @@ import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.impl.ManagementEntityServiceImpl;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.refpub.RefPubService;
-import org.sharks.service.util.NoCache;
+import org.sharks.service.test.util.NoCache;
 import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.domain.MgmtEntity;

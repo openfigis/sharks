@@ -3,7 +3,7 @@ package org.sharks.service.refpub;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.sharks.service.util.TestUtils.getResource;
+import static org.sharks.service.test.util.TestUtils.getResource;
 
 import javax.xml.bind.JAXBException;
 

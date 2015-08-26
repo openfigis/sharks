@@ -5,7 +5,7 @@ package org.sharks.service.geoserver;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import static org.sharks.service.util.TestUtils.getResource;
+import static org.sharks.service.test.util.TestUtils.getResource;
 
 import java.net.MalformedURLException;
 import java.net.URL;

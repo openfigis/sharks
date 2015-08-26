@@ -2,7 +2,7 @@ package org.sharks.service;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.*;
+import static org.sharks.service.test.util.TestModelUtils.*;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.sharks.service.util;
+package org.sharks.service.test.util;
 
 import java.io.InputStream;
 

@@ -8,9 +8,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestModelUtils.aRefPubSpecies;
-import static org.sharks.service.util.TestModelUtils.aSpecies;
-import static org.sharks.service.util.TestModelUtils.buildCustomSpeciesGrp;
+import static org.sharks.service.test.util.TestModelUtils.aRefPubSpecies;
+import static org.sharks.service.test.util.TestModelUtils.aSpecies;
+import static org.sharks.service.test.util.TestModelUtils.buildCustomSpeciesGrp;
 
 import java.util.Arrays;
 import java.util.List;

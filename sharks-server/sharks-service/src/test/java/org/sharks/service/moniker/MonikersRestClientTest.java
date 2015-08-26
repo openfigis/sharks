@@ -7,7 +7,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.when;
-import static org.sharks.service.util.TestUtils.getResource;
+import static org.sharks.service.test.util.TestUtils.getResource;
 
 import java.net.URL;
 import java.util.List;
