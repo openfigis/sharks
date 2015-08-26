@@ -555,11 +555,11 @@ FileETag None
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
+    
+    RewriteRule "sitemap.xml"  "http://figisapps.fao.org/figis/sharks/rest/sitemap" [P]
 
     # Rewrite everything else to index.html to allow html5 state links
     RewriteRule ^ index.html [L]
-    
-    RewriteRule "sitemap.xml"  "http://figisapps.fao.org/figis/sharks/rest/sitemap" [P]
     
 </IfModule>
 
