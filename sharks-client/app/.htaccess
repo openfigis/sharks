@@ -561,3 +561,14 @@ FileETag None
 </IfModule>
 
 
+# ------------------------------------------------------------------------------
+# | rewrite rule for sitemap 								                   |
+# ------------------------------------------------------------------------------
+
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    RewriteRule "sitemap.xml"  "http://figisapps.fao.org/figis/sharks/rest/sitemap" 
+</IfModule>
+
