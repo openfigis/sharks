@@ -96,3 +96,5 @@ The Swagger console let also to call the single operation with the parameters if
 The cache console lets the user manage the application cache. The console offers these operations:
  - **cache cleaning**: clean the application cache and warms it up if the warms options is active.
 
+#Environment setup
+In order to contribute to the project you need to [configure your environment](ENVIRONMENT_SETUP). 
