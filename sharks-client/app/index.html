@@ -74,14 +74,45 @@
     <div id="primaryContainer" class="primaryContainer clearfix mainArea">
     
       <header>   
-        <ng-include src="'partials/header.html'"></ng-include>
+        <div ng-controller="HeaderCtrl as ctrl">
+          <h1>{{ctrl.title.text}}</h1>
+          <h1>{{ctrl.test}}</h1>
+        </div>
       </header>
 
-      <ng-include src="'partials/navbar.html'"></ng-include>
+      <!-- NAV BAR -->
+      <div id="topMenu" ng-controller="NavigationBarCtrl as ctrl">
+        <ul>
+          <li class="menuItem" ng-mouseover="mouseOver = true" ng-mouseleave="mouseOver = false"><a href="."><img ng-src="{{ctrl.isActive(ctrl.paths.home) || mouseOver?'images/home-w.png':'images/home-g.png'}}"></a></li> 
+          <li class="menuItem"><a id="show" ng-href="{{ctrl.href(ctrl.paths.browse)}}" ng-class="{ active: ctrl.isActive(ctrl.paths.browse)}">☰ <b>browse</b></a></li>
+          <li>
+          <angucomplete-alt id="sharksSearchBox"
+                    placeholder="Search..."
+                    pause="100"
+                    selected-object="ctrl.selectedItem"
+                    clear-selected="true"
+                    remote-api-handler="ctrl.search"
+                    title-field="title"
+                    description-field="description"
+                    minlength="1"
+                    input-class="searchBox"/>
+          </li>
+        </ul>
+      </div>
+      
+      <!--  three labels for the tabbing nav -->
+      <div id="bx-pager" ng-controller="NavigationBarCtrl as ctrl">
+        <div class="label"><a ng-href="{{ctrl.href(ctrl.paths.species)}}" ng-class="{ active: ctrl.isActive(ctrl.paths.species)}">Species</a></div>
+        <div class="label"><a ng-href="{{ctrl.href(ctrl.paths.entities)}}" ng-class="{ active: ctrl.isActive(ctrl.paths.entities)}">Institutions</a></div>
+        <div class="label"><a ng-href="{{ctrl.href(ctrl.paths.countries)}}" ng-class="{ active: ctrl.isActive(ctrl.paths.countries)}">Countries</a></div>
+      </div>
+      
       <div class="bx-pager-divider"></div>
 
       <div>
-        <loader></loader>
+        <div ng-controller="LoaderCtrl as ctrl">
+          <img class="loader" src="images/loader.gif" alt="loader" ng-show="ctrl.showLoader"/>
+        </div>
         <div ng-view=""></div>
       </div>
 
