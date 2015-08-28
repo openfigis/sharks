@@ -26,6 +26,8 @@ angular.module("sharksClient")
 	  
 	  this.members = Stream(entity.members).sorted("name").toArray();
 	  
+	  this.isCites = entity.acronym === "CITES";
+	  
 	  pageservice.setTitle(entity.acronym);
 	  
 	  this.showCountry = function(country) {
