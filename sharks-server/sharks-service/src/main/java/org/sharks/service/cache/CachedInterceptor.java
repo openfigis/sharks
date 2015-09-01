@@ -12,6 +12,7 @@ import javax.interceptor.InvocationContext;
 
 import org.sharks.service.Service;
 import org.sharks.service.cache.ServiceCache.CacheElement;
+import org.sharks.service.cache.ServiceCacheManager.ServiceInfo;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -26,10 +27,10 @@ public class CachedInterceptor {
 	@AroundInvoke
 	public Object manageCached(InvocationContext ctx) throws Exception {
 
-		String serviceName = getServiceName(ctx.getMethod().getDeclaringClass());
+		ServiceInfo service = getServiceInfo(ctx.getMethod().getDeclaringClass());
 		String cacheName = getCacheName(ctx.getMethod());
 		
-		ServiceCache<Object, Object> cache = cacheManager.getOrCreateCache(serviceName, cacheName);
+		ServiceCache<Object, Object> cache = cacheManager.getOrCreateCache(service, cacheName);
 		
 		Object key = getKey(ctx.getParameters());
 		
@@ -44,10 +45,10 @@ public class CachedInterceptor {
 		return value;
 	}
 	
-	private String getServiceName(Class<?> target) {
+	private ServiceInfo getServiceInfo(Class<?> target) {
 		Service service = target.getAnnotation(Service.class);
 		if (service == null) throw new IllegalArgumentException("Missing "+Service.class.getSimpleName()+" annotation in class "+target.getClass());
-		return service.name();
+		return new ServiceInfo(service.name(), service.type());
 	}
 	
 	private String getCacheName(Method method) {

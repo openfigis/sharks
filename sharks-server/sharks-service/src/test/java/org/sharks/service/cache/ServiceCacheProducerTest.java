@@ -2,6 +2,7 @@ package org.sharks.service.cache;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.sharks.service.test.util.TestUtils.getService;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
@@ -39,7 +40,7 @@ public class ServiceCacheProducerTest {
 
 	@Test
 	public void test() {
-		verify(manager, times(1)).getOrCreateCache("myTest","myCache");
+		verify(manager, times(1)).getOrCreateCache(getService("myTest"),"myCache");
 	}
 
 }

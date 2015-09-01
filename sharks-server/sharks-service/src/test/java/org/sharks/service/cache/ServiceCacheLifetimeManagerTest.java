@@ -38,7 +38,7 @@ public class ServiceCacheLifetimeManagerTest {
 	@Test
 	public void testScheduleExpiration() throws InterruptedException {
 		manager.scheduleExpiration("myservice", new Time(1,TimeUnit.SECONDS));
-		Thread.sleep(1000);
+		Thread.sleep(1500);
 		verify(serviceCacheManager).clearCaches("myservice");
 	}
 

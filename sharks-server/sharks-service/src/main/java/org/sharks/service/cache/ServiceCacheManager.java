@@ -3,6 +3,10 @@
  */
 package org.sharks.service.cache;
 
+import lombok.Data;
+
+import org.sharks.service.Service.ServiceType;
+
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -10,10 +14,16 @@ package org.sharks.service.cache;
  */
 public interface ServiceCacheManager {
 	
-	public <K,V> ServiceCache<K, V> getOrCreateCache(String serviceName, String name);
+	public <K,V> ServiceCache<K, V> getOrCreateCache(ServiceInfo service, String name);
 	
 	public void clearCaches(String ... services);
 	
 	public void flushCaches(String ... services);
+	
+	@Data
+	public static class ServiceInfo {
+		private final String name;
+		private final ServiceType type;
+	}
 
 }

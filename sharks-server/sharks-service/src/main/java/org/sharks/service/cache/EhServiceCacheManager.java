@@ -28,12 +28,12 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 	private Event<CacheEvent> events;
 	@Inject
 	private CacheManager cacheManager;
-	private Map<String, List<EhServiceCache<?,?>>> servicesCaches = new HashMap<String, List<EhServiceCache<?,?>>>();
+	private Map<ServiceInfo, List<EhServiceCache<?,?>>> servicesCaches = new HashMap<ServiceInfo, List<EhServiceCache<?,?>>>();
 
 	@Override
-	public <K, V> ServiceCache<K, V> getOrCreateCache(String serviceName, String cacheName) {
+	public <K, V> ServiceCache<K, V> getOrCreateCache(ServiceInfo service, String cacheName) {
 		
-		String ehCacheName = getEhCacheName(serviceName, cacheName);
+		String ehCacheName = getEhCacheName(service.getName(), cacheName);
 		
 		boolean newCache = !cacheManager.cacheExists(ehCacheName);
 		
@@ -42,8 +42,8 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 		EhServiceCache<K,V> cache = new EhServiceCache<K, V>(cacheManager.getCache(ehCacheName));
 		
 		if (newCache) {
-			addCache(serviceName, cache);
-			events.fire(new CacheEvent.CacheAdded(serviceName, cacheName));
+			addCache(service, cache);
+			events.fire(new CacheEvent.CacheAdded(service.getName(), cacheName));
 		}
 		
 		return cache;
@@ -53,20 +53,22 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 		return serviceName + "." + cacheName;
 	}
 	
-	private void addCache(String serviceName, EhServiceCache<?, ?> cache) {
-		List<EhServiceCache<?, ?>> caches = servicesCaches.get(serviceName);
+	private void addCache(ServiceInfo service, EhServiceCache<?, ?> cache) {
+		List<EhServiceCache<?, ?>> caches = servicesCaches.get(service);
 		
 		if (caches == null) {
 			caches = new ArrayList<EhServiceCache<?,?>>();
-			servicesCaches.put(serviceName, caches);
+			servicesCaches.put(service, caches);
 		}
 		
 		caches.add(cache);
 	}
 	
 	private List<EhServiceCache<?, ?>> getServiceCaches(String serviceName) {
-		List<EhServiceCache<?, ?>> caches = servicesCaches.get(serviceName);
-		return caches!=null?caches:Collections.emptyList();
+		for (ServiceInfo service:servicesCaches.keySet()) {
+			if (service.getName().equals(serviceName)) return servicesCaches.get(service);
+		}
+		return Collections.emptyList();
 	}
 	
 	@PreDestroy
@@ -76,7 +78,7 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 	}
 
 	@Override
-	public void clearCaches(String... services) {
+	public void clearCaches(String ... services) {
 		for (String service:services) {
 			List<EhServiceCache<?, ?>> caches = getServiceCaches(service);
 			for (EhServiceCache<?,?> cache:caches) cache.clear();
@@ -86,7 +88,7 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 	}
 
 	@Override
-	public void flushCaches(String... services) {
+	public void flushCaches(String ... services) {
 		for (String service:services) {
 			List<EhServiceCache<?, ?>> caches = getServiceCaches(service);
 			for (EhServiceCache<?,?> cache:caches) cache.flush();

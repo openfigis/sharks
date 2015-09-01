@@ -8,6 +8,7 @@ import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 
 import org.sharks.service.Service;
+import org.sharks.service.cache.ServiceCacheManager.ServiceInfo;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -25,10 +26,9 @@ public class ServiceCacheProducer {
 		CacheName cacheNameAnnotation = injectionPoint.getAnnotated().getAnnotation(CacheName.class);
 		if (cacheNameAnnotation == null) throw new IllegalArgumentException("The injection point "+injectionPoint+" is missing the "+CacheName.class.getSimpleName()+" annotation");
 				
-		String serviceName = service.name();
 		String cacheName = cacheNameAnnotation.value();
 
-		return cacheManager.getOrCreateCache(serviceName, cacheName);
+		return cacheManager.getOrCreateCache(new ServiceInfo(service.name(), service.type()), cacheName);
 	}
 
 }

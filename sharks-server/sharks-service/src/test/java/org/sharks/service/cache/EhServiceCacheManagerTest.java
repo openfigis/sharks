@@ -8,6 +8,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.sharks.service.test.util.TestUtils.getService;
 
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Produces;
@@ -68,15 +69,15 @@ public class EhServiceCacheManagerTest {
 	 */
 	@Test
 	public void testGetOrCreateCache() {
-		ServiceCache<String, String> cache = manager.getOrCreateCache("myservice", "mycache");
+		ServiceCache<String, String> cache = manager.getOrCreateCache(getService("myservice"), "mycache");
 		assertNotNull(cache);
 		assertEquals(1, added);
 	}
 	
 	@Test
 	public void testGetOrCreateCacheDifferentServices() {
-		ServiceCache<String, String> cache1 = manager.getOrCreateCache("myservice", "mycache");
-		ServiceCache<String, String> cache2 = manager.getOrCreateCache("myotherservice", "mycache");
+		ServiceCache<String, String> cache1 = manager.getOrCreateCache(getService("myservice"), "mycache");
+		ServiceCache<String, String> cache2 = manager.getOrCreateCache(getService("myotherservice"), "mycache");
 		
 		assertNotEquals(reveal(cache1).hashCode(), reveal(cache2).hashCode());
 		assertEquals(2, added);
@@ -84,8 +85,8 @@ public class EhServiceCacheManagerTest {
 	
 	@Test
 	public void testGetOrCreateCacheSameServices() {
-		ServiceCache<String, String> cache1 = manager.getOrCreateCache("myservice", "mycache");
-		ServiceCache<String, String> cache2 = manager.getOrCreateCache("myservice", "mycache");
+		ServiceCache<String, String> cache1 = manager.getOrCreateCache(getService("myservice"), "mycache");
+		ServiceCache<String, String> cache2 = manager.getOrCreateCache(getService("myservice"), "mycache");
 		
 		assertEquals(reveal(cache1).hashCode(), reveal(cache2).hashCode());
 		assertEquals(1, added);
@@ -96,7 +97,7 @@ public class EhServiceCacheManagerTest {
 	 */
 	@Test
 	public void testClearCaches() {
-		ServiceCache<String, String> cache = manager.getOrCreateCache("myservice", "mycache");
+		ServiceCache<String, String> cache = manager.getOrCreateCache(getService("myservice"), "mycache");
 		cache.put("mykey", "myvalue");
 		assertTrue(cache.get("mykey").isPresent());
 		
@@ -111,7 +112,7 @@ public class EhServiceCacheManagerTest {
 	 */
 	@Test
 	public void testFlushCaches() {
-		ServiceCache<String, String> cache = manager.getOrCreateCache("myservice", "mycache");
+		ServiceCache<String, String> cache = manager.getOrCreateCache(getService("myservice"), "mycache");
 		cache.put("mykey", "myvalue");
 		assertTrue(cache.get("mykey").isPresent());
 		

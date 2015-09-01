@@ -6,6 +6,8 @@ package org.sharks.service.test.util;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
+import org.sharks.service.Service.ServiceType;
+import org.sharks.service.cache.ServiceCacheManager.ServiceInfo;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -28,6 +30,10 @@ public class TestUtils {
 		} catch(Exception e) {
 			throw new RuntimeException("Failed getting resource path with name: "+name);
 		}
+	}
+	
+	public static ServiceInfo getService(String name) {
+		return new ServiceInfo(name, ServiceType.INTERNAL);
 	}
 
 }

@@ -4,6 +4,7 @@
 package org.sharks.service.cache;
 
 import static org.junit.Assert.*;
+import static org.sharks.service.test.util.TestUtils.getService;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
@@ -35,14 +36,14 @@ public class CachedInterceptorTest {
 	@Produces @Singleton
 	private ServiceCacheManager setupServiceCacheManager() {
 		ServiceCacheManager manager = mock(ServiceCacheManager.class);
-		when(manager.getOrCreateCache("myservice", "mycache")).thenReturn(new InMemoryCache<Object, Object>());
+		when(manager.getOrCreateCache(getService("myservice"), "mycache")).thenReturn(new InMemoryCache<Object, Object>());
 		return manager;
 	}
 
 	@Test
 	public void test() {
 		int value = service.get("mykey");
-		verify(manager).getOrCreateCache("myservice", "mycache");
+		verify(manager).getOrCreateCache(getService("myservice"), "mycache");
 		assertEquals(0, value);
 		
 		value = service.get("mykey");

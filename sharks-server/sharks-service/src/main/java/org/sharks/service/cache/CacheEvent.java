@@ -10,7 +10,7 @@ public interface CacheEvent {
 	
 	@Data
 	public class CacheAdded implements CacheEvent {
-		private final String service;
+		private final String serviceName;
 		private final String cacheName;
 	}
 
