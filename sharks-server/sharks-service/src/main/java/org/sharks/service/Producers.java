@@ -13,10 +13,6 @@ import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
 import org.sharks.config.Configuration;
-import org.sharks.service.cache.warmer.CacheWarmingExecutor;
-import org.sharks.service.cache.warmer.NopCacheWarmingExecutor;
-import org.sharks.service.cache.warmer.ParallelCacheWarmingExecutor;
-import org.sharks.service.cache.warmer.SequentialCacheWarmerExecutor;
 import org.sharks.service.cites.rest.CitesRestClient;
 import org.sharks.service.geoserver.rest.GeoServerRestClient;
 import org.sharks.service.http.HttpClient;
@@ -47,27 +43,13 @@ public class Producers {
 	
 	@Produces @Singleton
 	public GeoServerRestClient getGeoServerRestClient(Configuration configuration, HttpClient httpClient) {
-		return new GeoServerRestClient(httpClient, configuration.getSpeciesListUrl());
+		return new GeoServerRestClient(httpClient, configuration.getGeoServerSpeciesListUrl());
 	}
 	
 	@Produces @Singleton
 	public CitesRestClient getCitesRestClient(Configuration configuration, HttpClient httpClient) {
 		return new CitesRestClient(httpClient, configuration.getCitesPartiesUrl());
 	}
-	
-	@Produces @Singleton
-	public CacheWarmingExecutor getCacheWarmingExecutor(Configuration configuration) {
-		switch (configuration.getCacheWarmupType()) {
-			case NONE: return new NopCacheWarmingExecutor();
-			case SEQUENTIAL: return new SequentialCacheWarmerExecutor();
-			case PARALLEL: return new ParallelCacheWarmingExecutor();
-			default: {
-				log.error("Unkknow cache warmup option "+configuration.getCacheWarmupType());
-				return new NopCacheWarmingExecutor();
-			}
-		}
-	}
-	
 
 	@Produces
 	public IndexingService getIndexingService(Configuration configuration) {

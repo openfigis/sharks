@@ -6,12 +6,12 @@ package org.sharks.service.impl;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.sharks.service.ManagementEntityService;
 import org.sharks.service.cache.warmer.CacheWarmer;
 import org.sharks.storage.dao.ManagementEntityDao;
 import org.sharks.storage.domain.MgmtEntity;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"

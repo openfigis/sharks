@@ -14,6 +14,9 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import org.sharks.service.GroupService;
+import org.sharks.service.Service;
+import org.sharks.service.Service.ServiceType;
+import org.sharks.service.cache.Cached;
 import org.sharks.service.dto.GroupDetails;
 import org.sharks.service.dto.GroupEntry;
 import org.sharks.service.producer.SpeciesEntryProducer;
@@ -25,6 +28,7 @@ import org.sharks.storage.domain.CustomSpeciesGrp;
  *
  */
 @Singleton
+@Service(name="group",type=ServiceType.INTERNAL)
 public class GroupServiceImpl implements GroupService {
 	
 	@Inject
@@ -33,14 +37,14 @@ public class GroupServiceImpl implements GroupService {
 	@Inject
 	private SpeciesEntryProducer speciesEntryProducer;
 	
-	@Override
+	@Override @Cached("get")
 	public GroupDetails get(long code) {
 		CustomSpeciesGrp group = dao.get(code);
 		if (group==null) return null;
 		return toDetails(group);
 	}
 
-	@Override
+	@Override @Cached("list")
 	public List<GroupEntry> list() {
 		return convert(dao.list(), TO_GROUP_ENTRY);
 	}

@@ -5,6 +5,7 @@ package org.sharks.service.cache;
 
 import javax.enterprise.inject.Alternative;
 
+import lombok.Getter;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.Element;
 
@@ -13,9 +14,10 @@ import net.sf.ehcache.Element;
  *
  */
 @Alternative
+@Getter
 public class EhServiceCache<K, V> implements ServiceCache<K, V> {
 	
-	Cache cache;
+	private Cache cache;
 	
 	public EhServiceCache(Cache cache) {
 		this.cache = cache;
@@ -39,4 +41,12 @@ public class EhServiceCache<K, V> implements ServiceCache<K, V> {
 		return cache.getSize();
 	}
 
+	@Override
+	public void clear() {
+		cache.removeAll();
+	}
+	
+	public void flush() {
+		cache.flush();
+	}
 }

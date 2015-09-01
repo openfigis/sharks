@@ -14,8 +14,6 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
 import org.sharks.service.CacheService;
-import org.sharks.service.CacheService.ClearCacheStatus;
-import org.sharks.service.CacheService.WrongPasswordException;
 
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -33,7 +31,7 @@ public class CacheResource {
 	@Inject
 	private CacheService service;
 	
-	@POST
+	/*@POST
 	@Path("clear")
 	@Produces(MediaType.APPLICATION_JSON)
 	@ApiOperation(value = "clear the application caches. The passphrase is required if set in the configuration file.", response = ClearCacheStatus.class)
@@ -54,6 +52,6 @@ public class CacheResource {
 	@ApiOperation(value = "Returns the clean cache status.", response = ClearCacheStatus.class)
 	public ClearCacheStatus status() {
 		return service.getClearCacheStatus();
-	}
+	}*/
 
 }

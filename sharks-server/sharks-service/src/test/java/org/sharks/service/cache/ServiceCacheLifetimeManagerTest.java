@@ -1,7 +1,9 @@
 package org.sharks.service.cache;
 
-import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+
+import java.util.concurrent.TimeUnit;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
@@ -11,9 +13,7 @@ import org.jglue.cdiunit.AdditionalClasses;
 import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.sharks.service.Service;
-import org.sharks.service.Service.ServiceType;
+import org.sharks.config.Configuration.Time;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -21,25 +21,25 @@ import org.sharks.service.Service.ServiceType;
  */
 @RunWith(CdiRunner.class)
 @AdditionalClasses({ServiceCacheProducer.class})
-@Service(name="myTest",type=ServiceType.INTERNAL)
-public class ServiceCacheProducerTest {
-	
-	@Inject @CacheName("myCache")
-	ServiceCache<Long, String> namedCache;
+public class ServiceCacheLifetimeManagerTest {
 	
 	@Inject
-	ServiceCacheManager manager;
+	private ServiceCacheLifetimeManager manager;
+	
+	@Inject
+	private ServiceCacheManager serviceCacheManager;
 	
 	@Produces @Singleton
 	private ServiceCacheManager setupServiceCacheManager() {
-		ServiceCacheManager manager = Mockito.mock(ServiceCacheManager.class);
-
-		return manager;
+		return mock(ServiceCacheManager.class);
 	}
 
+
 	@Test
-	public void test() {
-		verify(manager, times(1)).getOrCreateCache("myTest","myCache");
+	public void testScheduleExpiration() throws InterruptedException {
+		manager.scheduleExpiration("myservice", new Time(1,TimeUnit.SECONDS));
+		Thread.sleep(1000);
+		verify(serviceCacheManager).clearCaches("myservice");
 	}
 
 }

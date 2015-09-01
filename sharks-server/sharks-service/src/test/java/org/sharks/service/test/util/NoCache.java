@@ -25,4 +25,12 @@ public class NoCache<K, V> implements ServiceCache<K, V> {
 		return 0;
 	}
 
+	@Override
+	public void clear() {
+	}
+
+	@Override
+	public void flush() {
+	}
+
 }

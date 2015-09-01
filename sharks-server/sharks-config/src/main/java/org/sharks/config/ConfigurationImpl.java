@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import javax.enterprise.inject.Alternative;
 
@@ -20,16 +21,18 @@ import javax.enterprise.inject.Alternative;
 public class ConfigurationImpl implements Configuration {
 	
 	public static final String DB_FILE_LOCATION = "storage.dbfile";
-	public static final String CACHE_CONFIG = "cache.config";
-	public static final String CACHE_WARMUP = "cache.warmup";
 	public static final String CACHE_CLEAN_PASSPHRASE = "cache.cleanPassphrase";
-	public static final String CACHE_REFRESH_DELAY = "cache.refreshDelay";
+	public static final String CACHE_LOCATION = "cache.location";
 	public static final String SHARKS_REST_URL = "sharks.rest.url";
 	public static final String SHARKS_CLIENT_URL = "sharks.client.url";
 	public static final String REFPUB_URL = "refpub.url";
+	public static final String REFPUB_CACHE_EXPIRATION = "refpub.cacheExpiration";
 	public static final String MONIKERS_URL = "monikers.url";
+	public static final String MONIKERS_CACHE_EXPIRATION = "monikers.cacheExpiration";
 	public static final String GEOSERVER_SPECIES_LIST_URL = "geoserver.specieslist.url";
+	public static final String GEOSERVER_CACHE_EXPIRATION = "geoserver.cacheExpiration";
 	public static final String CITES_PARTIES_URL = "cites.parties.url";
+	public static final String CITES_CACHE_EXPIRATION = "cites.cacheExpiration";
 	public static final String SOLR_URL = "solr.url";
 	
 	private Properties properties;
@@ -75,34 +78,13 @@ public class ConfigurationImpl implements Configuration {
 	}
 
 	@Override
-	public String getCacheConfiguration() {
-		return properties.getProperty(CACHE_CONFIG);
-	}
-
-	@Override
-	public CacheWarmupType getCacheWarmupType() {
-		String value = properties.getProperty(CACHE_WARMUP);
-		if (value == null) throw new RuntimeException("Cache warmup option \""+CACHE_WARMUP+"\" not specified");
-		try {
-			return CacheWarmupType.valueOf(value.toUpperCase());
-		} catch(Exception e) {
-			throw new RuntimeException("Wrong \""+CACHE_WARMUP+"\" value \""+value+"\" expected one of "+Arrays.toString(CacheWarmupType.values()));
-		}
-	}
-
-	@Override
 	public String getCacheCleaningPassphrase() {
 		return properties.getProperty(CACHE_CLEAN_PASSPHRASE);
 	}
 
 	@Override
-	public String getSpeciesListUrl() {
+	public String getGeoServerSpeciesListUrl() {
 		return properties.getProperty(GEOSERVER_SPECIES_LIST_URL);
-	}
-
-	@Override
-	public String getCacheRefreshDelay() {
-		return properties.getProperty(CACHE_REFRESH_DELAY);
 	}
 
 	@Override
@@ -124,6 +106,58 @@ public class ConfigurationImpl implements Configuration {
 	@Override
 	public String getCitesPartiesUrl() {
 		return properties.getProperty(CITES_PARTIES_URL);
+	}
+
+	@Override
+	public String getCacheLocation() {
+		return properties.getProperty(CACHE_LOCATION);
+	}
+
+	@Override
+	public Time getRefPubCacheExpiration() {
+		return getTime(REFPUB_CACHE_EXPIRATION);
+	}
+
+	@Override
+	public Time getMonikersCacheExpiration() {
+		return getTime(MONIKERS_CACHE_EXPIRATION);
+	}
+
+	@Override
+	public Time getGeoServerCacheExpiration() {
+		return getTime(GEOSERVER_CACHE_EXPIRATION);
+	}
+
+	@Override
+	public Time getCitesExpiration() {
+		return getTime(CITES_CACHE_EXPIRATION);
+	}
+	
+	private Time getTime(String propertyName) {
+		String timeValue = properties.getProperty(propertyName);
+		if (timeValue == null) return null;
+		
+		String[] tokens = timeValue.split(" ");
+		if (tokens.length!=2) throw new IllegalArgumentException("Wrong time value for property "+propertyName+", expected value and time unit separate by a space");
+		
+		String valueToken = tokens[0];
+		String unitToken = tokens[1];
+		
+		long value = -1;
+		try {
+			value = Long.parseLong(valueToken);
+		} catch(Exception e) {
+			throw new IllegalArgumentException("Invalid numeric value \""+valueToken+"\" for property "+propertyName, e);
+		}
+		
+		TimeUnit unit = null;
+		try {
+			unit = TimeUnit.valueOf(unitToken.toUpperCase().trim());
+		} catch(Exception e) {
+			throw new IllegalArgumentException("Invalid time unit value \""+unitToken+"\" for property "+propertyName+" accepted values are "+Arrays.toString(TimeUnit.values()), e);
+		}
+		
+		return new Time(value, unit);
 	}
 
 }

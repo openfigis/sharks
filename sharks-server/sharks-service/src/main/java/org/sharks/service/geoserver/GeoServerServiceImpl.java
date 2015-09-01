@@ -8,6 +8,8 @@ import javax.inject.Singleton;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.sharks.service.Service;
+import org.sharks.service.Service.ServiceType;
 import org.sharks.service.cache.CacheName;
 import org.sharks.service.cache.ServiceCache;
 import org.sharks.service.cache.ServiceCache.CacheElement;
@@ -19,7 +21,9 @@ import org.sharks.service.geoserver.rest.GeoServerRestClient;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@Slf4j @Singleton
+@Slf4j 
+@Singleton 
+@Service(name="geoserver", type=ServiceType.EXTERNAL)
 public class GeoServerServiceImpl implements GeoServerService {
 	
 	private boolean chacheLoaded = false;

@@ -1,6 +1,9 @@
 package org.sharks.config;
 
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
+import lombok.Data;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -10,32 +13,41 @@ public interface Configuration {
 
 	public String getDbFileLocation();
 	
-	public String getCacheConfiguration();
-	
-	public CacheWarmupType getCacheWarmupType();
-	
 	public String getCacheCleaningPassphrase();
 	
-	public String getCacheRefreshDelay();
-
-	public String getRefPubUrl();
-
-	public String getMonikersUrl();
+	public String getCacheLocation();
 	
-	public String getSolrUrl();
-
+	
 	public URL getSharksRestUrl();
 	
 	public URL getSharksClientUrl();
 	
-	public String getSpeciesListUrl();
+
+	public String getRefPubUrl();
+	public Time getRefPubCacheExpiration();
+
+	public String getMonikersUrl();
+	public Time getMonikersCacheExpiration();
+	
+	public String getGeoServerSpeciesListUrl();
+	public Time getGeoServerCacheExpiration();
 	
 	public String getCitesPartiesUrl();
+	public Time getCitesExpiration();
+	
+	
+	public String getSolrUrl();
 	
 	public enum CacheWarmupType {
 		NONE,
 		SEQUENTIAL,
 		PARALLEL;
+	}
+	
+	@Data
+	public class Time {
+		private final long value;
+		private final TimeUnit unit;
 	}
 
 }

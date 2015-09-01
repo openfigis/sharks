@@ -12,7 +12,10 @@ import java.util.Set;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import org.sharks.service.Service;
 import org.sharks.service.SpeciesService;
+import org.sharks.service.Service.ServiceType;
+import org.sharks.service.cache.Cached;
 import org.sharks.service.dto.SpeciesDetails;
 import org.sharks.service.dto.SpeciesEntry;
 import org.sharks.service.geoserver.GeoServerService;
@@ -32,6 +35,7 @@ import static org.sharks.service.util.MeasuresUtil.*;
  *
  */
 @Singleton
+@Service(name="species",type=ServiceType.INTERNAL)
 public class SpeciesServiceImpl implements SpeciesService {
 	
 	@Inject
@@ -46,7 +50,7 @@ public class SpeciesServiceImpl implements SpeciesService {
 	@Inject
 	private GeoServerService geoServerService;
 	
-	@Override
+	@Override @Cached("get")
 	public SpeciesDetails getSpecies(String alpha3Code) {
 		
 		Species species = dao.getByAlphaCode(alpha3Code);
@@ -84,7 +88,7 @@ public class SpeciesServiceImpl implements SpeciesService {
 		return measures;
 	}
 
-	@Override
+	@Override @Cached("list")
 	public List<SpeciesEntry> list(boolean onlyWithMeasure) {
 		List<Species> species = onlyWithMeasure?dao.listWithMeasures():dao.list();
 		return convert(species, speciesEntryProducer);

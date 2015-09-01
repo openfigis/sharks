@@ -15,6 +15,9 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import org.sharks.service.CountryService;
+import org.sharks.service.Service;
+import org.sharks.service.Service.ServiceType;
+import org.sharks.service.cache.Cached;
 import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.moniker.MonikerService;
@@ -31,6 +34,7 @@ import org.sharks.storage.domain.MgmtEntity;
  *
  */
 @Singleton
+@Service(name="country",type=ServiceType.INTERNAL)
 public class CountryServiceImpl implements CountryService {
 	
 	@Inject
@@ -45,9 +49,9 @@ public class CountryServiceImpl implements CountryService {
 	@Inject
 	private CountryEntityProducer entityEntryProducer;
 	
-	@Override
+	@Override @Cached("get")
 	public CountryDetails get(String code) {
-		
+
 		MgmtEntity country = dao.getByAcronym(code);
 		if (country == null) return null;
 		
@@ -67,15 +71,14 @@ public class CountryServiceImpl implements CountryService {
 	private List<InformationSource> onlyOthers(List<InformationSource> sources) {
 		return sources.stream()
 				.filter(source->source.getInformationType().getCode().equals(InformationSourceDao.OTHER_TYPE))
-				.collect(Collectors.toList());
-				
-				
+				.collect(Collectors.toList());		
 	}
 
-	@Override
+	@Override @Cached("list")
 	public List<CountryEntry> list(boolean onlyWithPoAs) {
 		List<MgmtEntity> countries = dao.listCountries(onlyWithPoAs, false);
-		return convert(countries, entryProducer);
+		List<CountryEntry> entries = convert(countries, entryProducer);
+		return entries;
 	}
 
 }

@@ -1,71 +1,128 @@
+/**
+ * 
+ */
 package org.sharks.service.cache;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-import static org.sharks.service.test.util.TestUtils.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import javax.enterprise.event.Observes;
+import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Ehcache;
 
-import org.junit.BeforeClass;
+import org.jglue.cdiunit.AdditionalClasses;
+import org.jglue.cdiunit.CdiRunner;
+import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
-import org.sharks.config.Configuration;
+import org.junit.runner.RunWith;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
+@RunWith(CdiRunner.class)
+@AdditionalClasses({ServiceCacheProducer.class})
 public class EhServiceCacheManagerTest {
-
-	private static EhServiceCacheManager manager;
 	
-	@BeforeClass
-	public static void setupManager() {
-		
-		Configuration configuration = Mockito.mock(Configuration.class);
-		when(configuration.getCacheConfiguration()).thenReturn(getResourcePath("/test_cache.xml"));
-		
-		manager = new EhServiceCacheManager(configuration);
+	@Inject
+	private EhServiceCacheManager manager;
+
+	@Produces @Singleton
+	private CacheManager setupCacheManager() {
+		return CacheManager.newInstance();
 	}
 	
+	int added = 0;
+	int cleaned = 0;
+	int flushed = 0;
 	
+	void cacheAdded(@Observes CacheEvent.CacheAdded event){
+		added++;
+	}
+	
+	void cacheCleaned(@Observes CacheEvent.CachesCleaned event){
+		cleaned++;
+	}
+	
+	void cacheFlushed(@Observes CacheEvent.CachesFlushed event){
+		flushed++;
+	}
+
+	@Before
+	public void cleanCounters() {
+		added = 0;
+		cleaned = 0;
+		flushed = 0;
+	}
+
+
+	/**
+	 * Test method for {@link org.sharks.service.cache.EhServiceCacheManager#getOrCreateCache(java.lang.String, java.lang.String)}.
+	 */
 	@Test
 	public void testGetOrCreateCache() {
-		ServiceCache<String, String> ehcache = manager.getOrCreateCache("ehcache");
-		assertNotNull(ehcache);
-		
-		ServiceCache<String, String> inmemorycache = manager.getOrCreateCache("inmemorycache");
-		assertNotNull(inmemorycache);
-		
-		assertNotEquals(reveal(ehcache).hashCode(), reveal(inmemorycache).hashCode());
+		ServiceCache<String, String> cache = manager.getOrCreateCache("myservice", "mycache");
+		assertNotNull(cache);
+		assertEquals(1, added);
 	}
 	
 	@Test
-	public void testGetOrCreateCacheSameCache() {
-		ServiceCache<String, String> ehcache = manager.getOrCreateCache("ehcache");
-		ServiceCache<String, String> ehcache2 = manager.getOrCreateCache("ehcache");
-		assertEquals(reveal(ehcache).hashCode(), reveal(ehcache2).hashCode());
+	public void testGetOrCreateCacheDifferentServices() {
+		ServiceCache<String, String> cache1 = manager.getOrCreateCache("myservice", "mycache");
+		ServiceCache<String, String> cache2 = manager.getOrCreateCache("myotherservice", "mycache");
 		
-		ServiceCache<String, String> inmemorycache = manager.getOrCreateCache("inmemorycache");
-		ServiceCache<String, String> inmemorycache2 = manager.getOrCreateCache("inmemorycache");
-		assertEquals(reveal(inmemorycache).hashCode(), reveal(inmemorycache2).hashCode());
+		assertNotEquals(reveal(cache1).hashCode(), reveal(cache2).hashCode());
+		assertEquals(2, added);
+	}
+	
+	@Test
+	public void testGetOrCreateCacheSameServices() {
+		ServiceCache<String, String> cache1 = manager.getOrCreateCache("myservice", "mycache");
+		ServiceCache<String, String> cache2 = manager.getOrCreateCache("myservice", "mycache");
+		
+		assertEquals(reveal(cache1).hashCode(), reveal(cache2).hashCode());
+		assertEquals(1, added);
 	}
 
+	/**
+	 * Test method for {@link org.sharks.service.cache.EhServiceCacheManager#clearCaches(java.lang.String[])}.
+	 */
 	@Test
-	public void testClearAllCaches() {
-		ServiceCache<String, String> ehcache = manager.getOrCreateCache("ehcache");
-		ehcache.put("key", "value");
+	public void testClearCaches() {
+		ServiceCache<String, String> cache = manager.getOrCreateCache("myservice", "mycache");
+		cache.put("mykey", "myvalue");
+		assertTrue(cache.get("mykey").isPresent());
 		
-		ServiceCache<String, String> inmemorycache = manager.getOrCreateCache("inmemorycache");
-		inmemorycache.put("key", "value");
+		manager.clearCaches("myservice");
 		
-		manager.clearAllCaches();
-		assertEquals(0, ehcache.size());
-		assertEquals(0, inmemorycache.size());
+		assertFalse(cache.get("mykey").isPresent());
+		assertEquals(1, cleaned);
 	}
-	
+
+	/**
+	 * Test method for {@link org.sharks.service.cache.EhServiceCacheManager#flushCaches(java.lang.String[])}.
+	 */
+	@Test
+	public void testFlushCaches() {
+		ServiceCache<String, String> cache = manager.getOrCreateCache("myservice", "mycache");
+		cache.put("mykey", "myvalue");
+		assertTrue(cache.get("mykey").isPresent());
+		
+		manager.flushCaches("myservice");
+		
+		assertTrue(cache.get("mykey").isPresent());
+		assertEquals(1, flushed);
+	}
+
 	private static Ehcache reveal(ServiceCache<?,?> cache) {
-		return ((EhServiceCache<?,?>)cache).cache;
+		return ((EhServiceCache<?,?>)cache).getCache();
 	}
-	
 
 }

@@ -32,4 +32,13 @@ public class InMemoryCache<K, V> implements ServiceCache<K, V> {
 		return cache.size();
 	}
 
+	@Override
+	public void clear() {
+		cache.clear();
+	}
+
+	@Override
+	public void flush() {
+	}
+
 }

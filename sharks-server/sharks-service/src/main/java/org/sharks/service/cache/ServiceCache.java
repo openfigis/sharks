@@ -17,6 +17,10 @@ public interface ServiceCache<K,V> {
 	
 	public int size();
 	
+	public void clear();
+	
+	public void flush();
+	
 	@Data
 	public static class CacheElement<V> {
 		
