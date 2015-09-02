@@ -63,12 +63,17 @@ public class CachesServiceImpl implements CacheService {
 	
 	private synchronized void loadCaches() {
 		log.info("loading caches");
+		
 		log.trace("cleaning internal caches");
 		cacheManager.clearCaches(ServiceType.INTERNAL);
+		
 		log.trace("running cache warmers");
 		cachesWarmer.warmupCaches();
-		log.trace("flushing external caches");
+		
+		log.trace("flushing external caches (free mem. {} bytes)",Runtime.getRuntime().freeMemory());
 		cacheManager.flushCaches(ServiceType.EXTERNAL);
+		log.trace("flush complete (free mem. {} bytes)",Runtime.getRuntime().freeMemory());
+		
 		log.info("cache loading complete");
 	}
 	
