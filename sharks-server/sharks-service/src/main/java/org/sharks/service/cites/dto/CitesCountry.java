@@ -3,6 +3,8 @@
  */
 package org.sharks.service.cites.dto;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -18,8 +20,10 @@ import org.eclipse.persistence.oxm.annotations.XmlPath;
 @Data
 @XmlRootElement(name="Row")
 @XmlAccessorType(XmlAccessType.NONE)
-public class CitesCountry {
+public class CitesCountry implements Serializable {
 	
+	private static final long serialVersionUID = -4735045081956627221L;
+
 	@XmlPath("Entry[@type='country']/@ISO3")
 	private String iso3;
 	

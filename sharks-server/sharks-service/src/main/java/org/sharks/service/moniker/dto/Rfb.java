@@ -3,6 +3,7 @@
  */
 package org.sharks.service.moniker.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -25,8 +26,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @XmlRootElement(name="rfb")
 @XmlAccessorType(XmlAccessType.NONE)
-public class Rfb {
+public class Rfb implements Serializable {
 	
+	private static final long serialVersionUID = -5002136723077810901L;
+
 	@XmlAttribute
 	private String fid;
 	
@@ -52,8 +55,10 @@ public class Rfb {
 	@Data
 	@XmlRootElement(name="member")
 	@XmlAccessorType(XmlAccessType.NONE)
-	public static class Member {
+	public static class Member implements Serializable {
 		
+		private static final long serialVersionUID = 5978821966908190147L;
+
 		@XmlAttribute
 		private String iso3;
 		

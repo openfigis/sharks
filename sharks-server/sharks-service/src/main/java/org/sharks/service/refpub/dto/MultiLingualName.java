@@ -3,6 +3,8 @@
  */
 package org.sharks.service.refpub.dto;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -21,8 +23,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.NONE)
-public class MultiLingualName {
+public class MultiLingualName implements Serializable {
 	
+	private static final long serialVersionUID = 2161184315595293377L;
+
 	@XmlElement(name="EN")
 	private String english;
 	

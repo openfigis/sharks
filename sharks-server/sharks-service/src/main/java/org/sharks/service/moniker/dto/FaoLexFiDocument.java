@@ -3,6 +3,7 @@
  */
 package org.sharks.service.moniker.dto;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -23,8 +24,10 @@ import lombok.Data;
 @Data
 @XmlRootElement(name="document")
 @XmlAccessorType(XmlAccessType.NONE)
-public class FaoLexFiDocument {
+public class FaoLexFiDocument implements Serializable {
 	
+	private static final long serialVersionUID = 8659505324482127912L;
+
 	@XmlAttribute
 	private String uri;
 	

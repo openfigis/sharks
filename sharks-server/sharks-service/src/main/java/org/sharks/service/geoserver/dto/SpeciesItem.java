@@ -1,5 +1,7 @@
 package org.sharks.service.geoserver.dto;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -14,8 +16,10 @@ import lombok.Data;
 @Data
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.NONE)
-public class SpeciesItem {
+public class SpeciesItem implements Serializable {
 	
+	private static final long serialVersionUID = 7678331428284389660L;
+
 	@XmlAttribute(name="a3c")
 	private String alphaCode;
 	
