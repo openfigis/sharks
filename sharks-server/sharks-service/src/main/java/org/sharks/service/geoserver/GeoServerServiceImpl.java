@@ -3,6 +3,10 @@
  */
 package org.sharks.service.geoserver;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -26,39 +30,46 @@ import org.sharks.service.geoserver.rest.GeoServerRestClient;
 @Service(name="geoserver", type=ServiceType.EXTERNAL)
 public class GeoServerServiceImpl implements GeoServerService {
 	
-	private boolean chacheLoaded = false;
+	private static final String CACHE_KEY = "list";
 	
 	@Inject @CacheName("specieslist")
-	private ServiceCache<String, Boolean> speciesList;
+	private ServiceCache<String, Set<String>> speciesListCache;
 	
 	@Inject
 	private GeoServerRestClient client;
 
 	@Override
 	public boolean hasSpeciesDistributionMap(String alpha3code) {
-		checkCache();
-		CacheElement<Boolean> element = speciesList.get(alpha3code);
-		return element.isPresent() && element.getValue();
+		Set<String> speciesList = getSpeciesList();
+		return speciesList.contains(alpha3code);
 	}
 	
-	private void checkCache() {
-		if (!chacheLoaded) loadCache();
+	private Set<String> getSpeciesList() {
+		
+		CacheElement<Set<String>> element = speciesListCache.get(CACHE_KEY);
+		if (element.isPresent()) return element.getValue();
+		
+		SpeciesList list = getList();
+		
+		if (list!=null) {
+			
+			Set<String> species = new HashSet<String>();
+			for (SpeciesItem item:list.getItems()) species.add(item.getAlphaCode());
+			speciesListCache.put(CACHE_KEY, species);
+			return species;
+			
+		} else return Collections.emptySet();
 	}
 
-	private void loadCache() {
-		log.trace("loading species list cache");
+	private SpeciesList getList() {
+		log.trace("getting species list");
 		
 		try {
 			SpeciesList list = client.getSpeciesList();
-			for (SpeciesItem item:list.getItems()) {
-				speciesList.put(item.getAlphaCode(), true);
-			}
-			chacheLoaded = true;
-			log.trace("load complete");
+			return list;
 		} catch(Exception e) {
 			log.error("Failed loading the species list", e);
-		} finally {
-			chacheLoaded = true;
+			return null;
 		}
 	}
 }

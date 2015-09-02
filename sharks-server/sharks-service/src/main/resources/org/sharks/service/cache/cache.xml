@@ -48,7 +48,13 @@
 	<!-- ### GeoServer ### -->
 	
 	<!-- cache for specieslist -->
-	<cache name="geoserver.specieslist" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>	
+	<cache name="geoserver.specieslist" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>
+	
+	
+	<!-- ### CITES ### -->
+	
+	<!-- cache for parties -->
+	<cache name="cites.parties" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>
 	
 	
 	<!-- ### sitemap ### -->

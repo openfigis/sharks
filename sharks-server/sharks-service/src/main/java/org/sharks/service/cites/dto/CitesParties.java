@@ -3,6 +3,7 @@
  */
 package org.sharks.service.cites.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -21,8 +22,10 @@ import org.eclipse.persistence.oxm.annotations.XmlPath;
 @Data
 @XmlRootElement(name="Document")
 @XmlAccessorType(XmlAccessType.NONE)
-public class CitesParties {
+public class CitesParties implements Serializable {
 
+	private static final long serialVersionUID = -1226814243690739548L;
+	
 	@XmlPath("Treaty/Participants/Table/Tbody/Rows/Row")
 	private List<CitesCountry> countries;
 

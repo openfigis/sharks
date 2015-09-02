@@ -16,8 +16,6 @@ import java.util.stream.Collectors;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import lombok.extern.slf4j.Slf4j;
-
 import org.sharks.service.ManagementEntityService;
 import org.sharks.service.Service;
 import org.sharks.service.Service.ServiceType;
@@ -40,7 +38,6 @@ import org.sharks.storage.domain.MgmtEntity;
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
-@Slf4j
 @Singleton
 @Service(name="managemententity",type=ServiceType.INTERNAL)
 public class ManagementEntityServiceImpl implements ManagementEntityService {
