@@ -134,12 +134,9 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 	
 	private List<ServiceInfo> getServicesByName(List<String> names) {
 		List<ServiceInfo> services = new ArrayList<ServiceInfo>();
-		log.trace("current services "+servicesCaches.keySet());
 		for (ServiceInfo service:servicesCaches.keySet()) {
-			log.trace("service "+service.getName());
 			if (names.contains(service.getName())) services.add(service);
 		}
-		
 		return services;
 	}
 	

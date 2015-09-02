@@ -7,16 +7,16 @@ import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  */
+@Slf4j
 @Singleton
 public class CachesWarmer {
 	
-	@Inject
-	private Instance<CacheWarmer> highPriorityWarmers;
-
 	@Inject
 	private Instance<CacheWarmer> warmers;
 	
@@ -24,11 +24,13 @@ public class CachesWarmer {
 	private CacheWarmingExecutor executor;
 	
 	public void warmupCaches() {
-		for (CacheWarmer warmer:highPriorityWarmers) executor.warm(()->warmer.warmup());
+		for (CacheWarmer warmer:warmers) {
+			log.trace(warmer.getClass().getSimpleName()+" started warming...");
+			executor.warm(()->warmer.warmup());
+		}
+		log.trace("waiting for warmup completion");
 		executor.waitCompletion();
-		
-		for (CacheWarmer warmer:warmers) executor.warm(()->warmer.warmup());
-		executor.waitCompletion();
+		log.trace("warmup complete");
 	}
 	
 }
