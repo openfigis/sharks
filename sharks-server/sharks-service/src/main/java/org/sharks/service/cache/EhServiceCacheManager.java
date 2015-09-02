@@ -38,8 +38,6 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 	@SuppressWarnings("unchecked")
 	@Override
 	public <K, V> ServiceCache<K, V> getOrCreateCache(ServiceInfo service, String cacheName) {
-		log.trace("getOrCreateCache {} {}", service, cacheName);
-		
 		String ehCacheName = getEhCacheName(service, cacheName);
 		
 		EhServiceCache<?,?> cache = caches.get(ehCacheName);
@@ -83,28 +81,24 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 
 	@Override
 	public void clearCaches(String ... servicesNames) {
-		log.trace("clearCaches " + Arrays.toString(servicesNames));
 		List<ServiceInfo> services = getServicesByName(Arrays.asList(servicesNames));
 		clear(services);		
 	}
 	
 	@Override
 	public void flushCaches(String ... servicesNames) {
-		log.trace("flushCaches " + servicesNames);
 		List<ServiceInfo> services = getServicesByName(Arrays.asList(servicesNames));
 		flush(services);
 	}
 
 	@Override
 	public void clearCaches(ServiceType ... types) {
-		log.trace("clearCaches " + types);
 		List<ServiceInfo> services = getServicesByType(Arrays.asList(types));
 		clear(services);
 	}
 
 	@Override
 	public void flushCaches(ServiceType ... types) {
-		log.trace("flushCaches " + types);
 		List<ServiceInfo> services = getServicesByType(Arrays.asList(types));
 		flush(services);
 	}
