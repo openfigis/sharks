@@ -31,10 +31,10 @@ public class EhCacheManagerProducer {
 		net.sf.ehcache.config.Configuration cacheConfiguration = ConfigurationFactory.parseConfiguration(cacheConfigurationStream);
 		
 		String cacheLocation = configuration.getCacheLocation();
-		if (cacheLocation!=null) {
+		if (cacheLocation!=null && !cacheLocation.isEmpty()) {
 			log.info("Setting cache location to {}", cacheLocation);
 			cacheConfiguration.getDiskStoreConfiguration().setPath(cacheLocation);
-		}
+		} else log.trace("cache location {}", cacheConfiguration.getDiskStoreConfiguration().getPath());
 		
 		return CacheManager.newInstance(cacheConfiguration);
 	}

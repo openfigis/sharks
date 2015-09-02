@@ -61,7 +61,7 @@ public class CachesServiceImpl implements CacheService {
 		if (external) loadCaches();
 	}
 	
-	private void loadCaches() {
+	private synchronized void loadCaches() {
 		log.info("loading caches");
 		log.trace("cleaning internal caches");
 		cacheManager.clearCaches(ServiceType.INTERNAL);

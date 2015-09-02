@@ -45,7 +45,9 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 		EhServiceCache<?,?> cache = caches.get(ehCacheName);
 		if (cache!=null) return (ServiceCache<K, V>) cache;
 		
-		if (!cacheManager.cacheExists(ehCacheName)) cacheManager.addCache(ehCacheName);
+		synchronized (cacheManager) {
+			if (!cacheManager.cacheExists(ehCacheName)) cacheManager.addCache(ehCacheName);
+		}
 		
 		Cache ehCache = cacheManager.getCache(ehCacheName);
 		cache = new EhServiceCache<K, V>(ehCache);
@@ -73,8 +75,6 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 		caches.add(cache);
 	}
 	
-
-	
 	@PreDestroy
 	private void shutdownCacheManager() {
 		log.info("shutting down the cache manager");
@@ -94,7 +94,6 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 		List<ServiceInfo> services = getServicesByName(Arrays.asList(servicesNames));
 		flush(services);
 	}
-	
 
 	@Override
 	public void clearCaches(ServiceType ... types) {
@@ -154,6 +153,4 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 		List<EhServiceCache<?, ?>> caches = servicesCaches.get(service);
 		return caches!=null?caches:Collections.emptyList();
 	}
-
-
 }

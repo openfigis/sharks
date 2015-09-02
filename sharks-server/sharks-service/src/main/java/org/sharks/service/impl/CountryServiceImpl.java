@@ -18,7 +18,6 @@ import org.sharks.service.CountryService;
 import org.sharks.service.Service;
 import org.sharks.service.Service.ServiceType;
 import org.sharks.service.cache.Cached;
-import org.sharks.service.cache.warmer.CacheWarmer;
 import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.dto.CountryEntry;
 import org.sharks.service.moniker.MonikerService;
@@ -80,21 +79,6 @@ public class CountryServiceImpl implements CountryService {
 		List<MgmtEntity> countries = dao.listCountries(onlyWithPoAs, false);
 		List<CountryEntry> entries = convert(countries, entryProducer);
 		return entries;
-	}
-	
-	public static class CountryCacheWarmer implements CacheWarmer {
-		
-		@Inject
-		CountryService service;
-
-		@Override
-		public void warmup() {
-			service.list(true);
-			for (CountryEntry entry:service.list(false)) {
-				service.get(entry.getCode());
-			}
-		}
-		
 	}
 
 }

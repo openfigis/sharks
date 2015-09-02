@@ -3,7 +3,7 @@
 	<diskStore path="java.io.tmpdir"/>
 	
 	<!-- default cache settings -->
-	<defaultCache maxEntriesLocalHeap="2000" maxEntriesLocalDisk="2000" eternal="true"/>	
+	<defaultCache maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" eternal="true"/>	
 
 	
 	<!-- ### Sharks services ### -->
@@ -21,34 +21,34 @@
 	<!-- ### RefPub ### -->
 	
 	<!-- cache for Country concepts retrieved from RefPub service using iso3 code-->
-	<cache name="refpub.countryIso3" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="2000" eternal="true"/>
+	<cache name="refpub.countryIso3" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>
 	
 	<!-- cache for Country concepts retrieved from RefPub service using iso2 code-->
-	<cache name="refpub.countryIso2" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="2000" eternal="true"/>
+	<cache name="refpub.countryIso2" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>
 	
 	<!-- cache for Species concepts coming from RefPub service -->
-	<cache name="refpub.species" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="2000" eternal="true"/>
+	<cache name="refpub.species" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>
 	
 	
 	<!-- ### Monikers ### -->
 	
 	<!-- cache for rfb4iso3 moniker -->
-	<cache name="monikers.rfb4iso3" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="2000" eternal="true"/>
+	<cache name="monikers.rfb4iso3" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>
 	
 	<!-- cache for rfb moniker -->
-	<cache name="monikers.rfb" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="2000" eternal="true"/>
+	<cache name="monikers.rfb" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>
 	
 	<!-- cache for fid to rfb mapping -->
-	<cache name="monikers.rfb4fid" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="2000" eternal="true"/>
+	<cache name="monikers.rfb4fid" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>
 	
 	<!-- cache for faoLexFI moniker -->
-	<cache name="monikers.faoLexDocument" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="2000" eternal="true"/>
+	<cache name="monikers.faoLexDocument" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>
 	
 	
 	<!-- ### GeoServer ### -->
 	
 	<!-- cache for specieslist -->
-	<cache name="geoserver.specieslist" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="2000" eternal="true"/>	
+	<cache name="geoserver.specieslist" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>	
 	
 	
 	<!-- ### sitemap ### -->
