@@ -112,11 +112,8 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 	}
 	
 	private List<EntityMember> getCitesMembers() {
-		
 		List<CitesCountry> citesParties = citesService.getParties();
-		log.trace("starting conversion");
 		List<EntityMember> members = convert(citesParties, citesMemberProducer);
-		log.trace("conversion complete");
 		return members;
 	}
 	
