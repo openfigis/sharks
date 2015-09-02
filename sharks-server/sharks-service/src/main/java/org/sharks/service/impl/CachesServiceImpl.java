@@ -3,6 +3,9 @@
  */
 package org.sharks.service.impl;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -17,6 +20,7 @@ import org.sharks.service.cache.CacheEvent;
 import org.sharks.service.cache.ServiceCacheLifetimeManager;
 import org.sharks.service.cache.ServiceCacheManager;
 import org.sharks.service.cache.warmer.CachesWarmer;
+import org.sharks.service.dto.ClearCacheStatus;
 import org.sharks.service.event.ApplicationEvent;
 
 /**
@@ -26,6 +30,8 @@ import org.sharks.service.event.ApplicationEvent;
 @Singleton @Slf4j
 public class CachesServiceImpl implements CacheService {
 	
+	private final ExecutorService cleanExecutor = Executors.newFixedThreadPool(1);
+	
 	@Inject
 	private ServiceCacheManager cacheManager;
 	
@@ -34,6 +40,8 @@ public class CachesServiceImpl implements CacheService {
 	
 	@Inject
 	private CachesWarmer cachesWarmer;
+	
+	private ClearCacheStatus cleaningStatus = ClearCacheStatus.IDLE;
 	
 	void setupCacheExpirations(@Observes ApplicationEvent.Startup startup, Configuration configuration) {
 		log.trace("setting up cache expirations");
@@ -62,6 +70,7 @@ public class CachesServiceImpl implements CacheService {
 	}
 	
 	private synchronized void loadCaches() {
+		cleaningStatus = ClearCacheStatus.ONGOING;
 		log.info("loading caches");
 		
 		log.trace("cleaning internal caches");
@@ -74,17 +83,48 @@ public class CachesServiceImpl implements CacheService {
 		cacheManager.flushCaches(ServiceType.EXTERNAL);
 		log.trace("flush complete (free mem. {} bytes)",Runtime.getRuntime().freeMemory());
 		
+		cleaningStatus = ClearCacheStatus.IDLE;
 		log.info("cache loading complete");
 	}
 	
 	@Override
 	public void clearCaches(String ... services) {
+		cleaningStatus = ClearCacheStatus.ONGOING;
 		cacheManager.clearCaches(services);
 	}
+	
+	@Override
+	public void clearExternalCaches() {
+		cleaningStatus = ClearCacheStatus.ONGOING;
+		cacheManager.clearCaches(ServiceType.EXTERNAL);
+	}
+	
+	@Override
+	public synchronized void asyncClearExternalCaches() {
+		
+		if (!(cleaningStatus != ClearCacheStatus.ONGOING)) return;
+		
+		log.info("submitting cache cleaning");
+		cleaningStatus = ClearCacheStatus.ONGOING;
+		
+		cleanExecutor.submit(new Runnable() {
+			
+			@Override
+			public void run() {
+				clearExternalCaches();
+			}
+		});
+	}
+	
 
 	@Override
 	public void flushCaches(String ... services) {
-		cacheManager.clearCaches(services);
+		cacheManager.flushCaches(services);
+	}
+	
+	@Override
+	public ClearCacheStatus getClearCacheStatus() {
+		return cleaningStatus;
 	}
 
 }
