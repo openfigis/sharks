@@ -53,7 +53,7 @@ public class EhServiceCacheManager implements ServiceCacheManager {
 		caches.put(ehCacheName, cache);
 		addServiceCache(service, cache);
 		
-		events.fire(new CacheEvent.CacheAdded(service.getName(), cacheName));
+		events.fire(new CacheEvent.CacheAdded(service, cacheName));
 		
 		return (ServiceCache<K, V>) cache;
 	}
