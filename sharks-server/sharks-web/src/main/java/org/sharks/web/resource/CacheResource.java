@@ -29,9 +29,11 @@ import com.wordnik.swagger.annotations.ApiParam;
  */
 @Slf4j
 @ApplicationScoped
-@Path("/caches")
+@Path(CacheResource.CACHES_PATH)
 @Api(value = "caches", description = "Operations about caches")
 public class CacheResource {
+	
+	public static final String CACHES_PATH = "/caches";
 
 	@Inject
 	private CacheService service;

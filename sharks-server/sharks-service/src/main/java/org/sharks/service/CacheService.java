@@ -7,12 +7,16 @@ import org.sharks.service.dto.ClearCacheStatus;
  *
  */
 public interface CacheService {
-	
+
 	public void clearExternalCaches();
 	public void clearCaches(String ... services);
 	public void flushCaches(String ... services);
-	
+
 	ClearCacheStatus getClearCacheStatus();
 	public void asyncClearExternalCaches();
+
+
+	public class CacheLoadedEvent {
+	}
 
 }

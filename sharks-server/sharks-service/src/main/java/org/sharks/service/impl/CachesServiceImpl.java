@@ -6,6 +6,7 @@ package org.sharks.service.impl;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -40,6 +41,9 @@ public class CachesServiceImpl implements CacheService {
 	
 	@Inject
 	private CachesWarmer cachesWarmer;
+	
+	@Inject
+	private Event<CacheLoadedEvent> event;
 	
 	private ClearCacheStatus cleaningStatus = ClearCacheStatus.IDLE;
 	
@@ -85,6 +89,8 @@ public class CachesServiceImpl implements CacheService {
 		
 		cleaningStatus = ClearCacheStatus.IDLE;
 		log.info("cache loading complete");
+		
+		event.fire(new CacheLoadedEvent());
 	}
 	
 	@Override
