@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import org.sharks.service.CountryService;
 import org.sharks.service.GroupService;
 import org.sharks.service.ManagementEntityService;
+import org.sharks.service.Service;
+import org.sharks.service.Service.ServiceType;
 import org.sharks.service.SpeciesService;
 import org.sharks.service.cache.CacheName;
 import org.sharks.service.cache.ServiceCache;
@@ -24,6 +26,7 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 @Slf4j
+@Service(name="sitemap",type=ServiceType.INTERNAL)
 public class SitemapService {
 	
 	private static final String CACHE_KEY = "sitemap";
@@ -34,7 +37,7 @@ public class SitemapService {
 	@Inject
 	private SitemapXmlGenerator generator;
 	
-	@Inject @CacheName("sitemap")
+	@Inject @CacheName("map")
 	private ServiceCache<String, String> cache;
 	
 	@Inject

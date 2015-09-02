@@ -8,14 +8,10 @@
 	
 	<!-- ### Sharks services ### -->
 	
-	<!-- cache for entity members, ManagementEntityService -->
-<!-- 	<cache name="entityMembers" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>	 -->
-	
-	
 	<!-- ### Sharks Web ### -->
 	
 	<!-- cache for Rest -->
-<!-- 	<cache name="restCache" maxEntriesLocalHeap="3000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>	 -->
+ 	<cache name="restCache" maxEntriesLocalHeap="10000" eternal="true" memoryStoreEvictionPolicy="FIFO"/>
 	
 	
 	<!-- ### RefPub ### -->
@@ -48,17 +44,17 @@
 	<!-- ### GeoServer ### -->
 	
 	<!-- cache for specieslist -->
-	<cache name="geoserver.specieslist" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>
+	<cache name="geoserver.specieslist" eternal="true" maxEntriesLocalHeap="1" maxEntriesLocalDisk="2" diskPersistent="true"/>
 	
 	
 	<!-- ### CITES ### -->
 	
 	<!-- cache for parties -->
-	<cache name="cites.parties" eternal="true" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="3000" diskPersistent="true"/>
+	<cache name="cites.parties" eternal="true" maxEntriesLocalHeap="1" maxEntriesLocalDisk="2" diskPersistent="true"/>
 	
 	
 	<!-- ### sitemap ### -->
 	
-<!-- 	<cache name="sitemap" maxEntriesLocalHeap="2000" maxEntriesLocalDisk="2000" eternal="true""/>	 -->
+	<cache name="sitemap.map" eternal="true" maxEntriesLocalHeap="1" maxEntriesLocalDisk="2" />	
 
 </ehcache>
