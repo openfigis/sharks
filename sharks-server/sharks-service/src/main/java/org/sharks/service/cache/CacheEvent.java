@@ -1,5 +1,9 @@
 package org.sharks.service.cache;
 
+import java.util.List;
+
+import org.sharks.service.cache.ServiceCacheManager.ServiceInfo;
+
 import lombok.Data;
 
 /**
@@ -16,12 +20,12 @@ public interface CacheEvent {
 
 	@Data
 	public class CachesCleaned implements CacheEvent {
-		private final String[] services;
+		private final List<ServiceInfo> services;
 	}
 	
 	@Data
 	public class CachesFlushed implements CacheEvent {
-		private final String[] services;
+		private final List<ServiceInfo> services;
 	}
 
 }

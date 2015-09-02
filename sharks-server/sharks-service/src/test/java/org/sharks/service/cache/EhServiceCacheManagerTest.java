@@ -23,6 +23,7 @@ import org.jglue.cdiunit.CdiRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.sharks.service.Service.ServiceType;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -96,12 +97,24 @@ public class EhServiceCacheManagerTest {
 	 * Test method for {@link org.sharks.service.cache.EhServiceCacheManager#clearCaches(java.lang.String[])}.
 	 */
 	@Test
-	public void testClearCaches() {
+	public void testClearCachesByNames() {
 		ServiceCache<String, String> cache = manager.getOrCreateCache(getService("myservice"), "mycache");
 		cache.put("mykey", "myvalue");
 		assertTrue(cache.get("mykey").isPresent());
 		
 		manager.clearCaches("myservice");
+		
+		assertFalse(cache.get("mykey").isPresent());
+		assertEquals(1, cleaned);
+	}
+	
+	@Test
+	public void testClearCachesByTypes() {
+		ServiceCache<String, String> cache = manager.getOrCreateCache(getService("myservice", ServiceType.INTERNAL), "mycache");
+		cache.put("mykey", "myvalue");
+		assertTrue(cache.get("mykey").isPresent());
+		
+		manager.clearCaches(ServiceType.INTERNAL);
 		
 		assertFalse(cache.get("mykey").isPresent());
 		assertEquals(1, cleaned);

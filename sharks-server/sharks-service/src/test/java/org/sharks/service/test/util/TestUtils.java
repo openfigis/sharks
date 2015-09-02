@@ -32,8 +32,8 @@ public class TestUtils {
 		}
 	}
 	
-	public static ServiceInfo getService(String name) {
-		return new ServiceInfo(name, ServiceType.INTERNAL);
+	public static ServiceInfo getService(String name, ServiceType ... types) {
+		return new ServiceInfo(name, types.length==0?ServiceType.INTERNAL:types[0]);
 	}
 
 }

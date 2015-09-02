@@ -21,4 +21,5 @@ import javax.interceptor.InterceptorBinding;
 @Retention(RUNTIME)
 public @interface Cached {
 	@Nonbinding String value() default "";
+	@Nonbinding String staticKey() default "";
 }

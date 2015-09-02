@@ -15,6 +15,8 @@ public interface Configuration {
 	
 	public String getCacheCleaningPassphrase();
 	
+	public CacheWarmupType getCacheWarmupType();
+	
 	public String getCacheLocation();
 	
 	

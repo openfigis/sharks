@@ -37,11 +37,12 @@ public class CachedInterceptorTest {
 	private ServiceCacheManager setupServiceCacheManager() {
 		ServiceCacheManager manager = mock(ServiceCacheManager.class);
 		when(manager.getOrCreateCache(getService("myservice"), "mycache")).thenReturn(new InMemoryCache<Object, Object>());
+		when(manager.getOrCreateCache(getService("myservice"), "myOtherCache")).thenReturn(new InMemoryCache<Object, Object>());
 		return manager;
 	}
 
 	@Test
-	public void test() {
+	public void testWithKey() {
 		int value = service.get("mykey");
 		verify(manager).getOrCreateCache(getService("myservice"), "mycache");
 		assertEquals(0, value);
@@ -53,14 +54,30 @@ public class CachedInterceptorTest {
 		assertEquals(1, value);
 	}
 	
+	@Test
+	public void testWithStaticKey() {
+		int value = service.list();
+		verify(manager).getOrCreateCache(getService("myservice"), "myOtherCache");
+		assertEquals(0, value);
+		
+		value = service.list();
+		assertEquals(0, value);
+	}
+	
 	@Service(name="myservice",type=ServiceType.INTERNAL)
 	public static class MyService {
 		
-		int counter = 0;
+		int getCounter = 0;
+		int listCounter = 0;
 		
 		@Cached("mycache")
 		public int get(String key) {
-			return counter++;
+			return getCounter++;
+		}
+		
+		@Cached(value="myOtherCache",staticKey="mykey")
+		public int list() {
+			return listCounter++;
 		}
 	}
 

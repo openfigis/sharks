@@ -26,7 +26,7 @@ public class EhCacheManagerProducer {
 	
 	@Produces @Singleton
 	public CacheManager produce(Configuration configuration) {
-		InputStream cacheConfigurationStream = EhServiceCacheManagerTest.class.getResourceAsStream("cache.xml");
+		InputStream cacheConfigurationStream = EhServiceCacheManager.class.getResourceAsStream("cache.xml");
 		
 		net.sf.ehcache.config.Configuration cacheConfiguration = ConfigurationFactory.parseConfiguration(cacheConfigurationStream);
 		

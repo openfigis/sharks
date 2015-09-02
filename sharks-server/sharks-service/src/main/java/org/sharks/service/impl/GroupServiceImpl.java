@@ -17,6 +17,7 @@ import org.sharks.service.GroupService;
 import org.sharks.service.Service;
 import org.sharks.service.Service.ServiceType;
 import org.sharks.service.cache.Cached;
+import org.sharks.service.cache.warmer.CacheWarmer;
 import org.sharks.service.dto.GroupDetails;
 import org.sharks.service.dto.GroupEntry;
 import org.sharks.service.producer.SpeciesEntryProducer;
@@ -44,7 +45,7 @@ public class GroupServiceImpl implements GroupService {
 		return toDetails(group);
 	}
 
-	@Override @Cached("list")
+	@Override @Cached(value="list", staticKey="key")
 	public List<GroupEntry> list() {
 		return convert(dao.list(), TO_GROUP_ENTRY);
 	}
@@ -58,4 +59,17 @@ public class GroupServiceImpl implements GroupService {
 				convert(filterReplacedAndHiddenMeasures(group.getMeasures()), TO_MEASURE_ENTRY));
 	}
 
+	public static final class GroupCachesWarmer implements CacheWarmer {
+
+		@Inject
+		GroupService service;
+		
+		@Override
+		public void warmup() {
+			for (GroupEntry entry:service.list()) {
+				service.get(entry.getCode());
+			}
+		}
+		
+	}
 }

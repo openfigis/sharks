@@ -28,12 +28,18 @@ public class CachedInterceptor {
 	public Object manageCached(InvocationContext ctx) throws Exception {
 
 		ServiceInfo service = getServiceInfo(ctx.getMethod().getDeclaringClass());
-		String cacheName = getCacheName(ctx.getMethod());
+		
+		Cached cached = getCachedAnnotation(ctx.getMethod());
+		String cacheName = cached.value();
+		String staticKey = cached.staticKey();
+		
+		Object[] parameters = ctx.getParameters();
+		if (parameters.length!=1 && staticKey.isEmpty()) throw new IllegalArgumentException("Expected one parameter or static key, found "+parameters.length+" parameters in service: "+service+", cacheName: "+cacheName+", method: "+ctx.getMethod());
+		
+		Object key = !staticKey.isEmpty()?staticKey:parameters[0];
 		
 		ServiceCache<Object, Object> cache = cacheManager.getOrCreateCache(service, cacheName);
-		
-		Object key = getKey(ctx.getParameters());
-		
+				
 		CacheElement<Object> element = cache.get(key);
 		
 		if (element.isPresent()) return element.getValue();
@@ -51,16 +57,11 @@ public class CachedInterceptor {
 		return new ServiceInfo(service.name(), service.type());
 	}
 	
-	private String getCacheName(Method method) {
+	private Cached getCachedAnnotation(Method method) {
 		Cached cached = method.getAnnotation(Cached.class);
 		if (cached == null) throw new IllegalArgumentException("Missing "+Cached.class.getSimpleName()+" annotation in method "+method.getName());
 		if (cached.value().isEmpty()) throw new IllegalArgumentException("Missing value attribute in "+Cached.class.getSimpleName()+" annotation in method "+method.getName());
-		return cached.value();
-	}
-	
-	private Object getKey(Object[] parameters) {
-		if (parameters.length!=1) throw new IllegalArgumentException("Expected one parameter found "+parameters.length);
-		return parameters[0];
+		return cached;
 	}
 
 }

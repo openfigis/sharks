@@ -22,6 +22,7 @@ public class ConfigurationImpl implements Configuration {
 	
 	public static final String DB_FILE_LOCATION = "storage.dbfile";
 	public static final String CACHE_CLEAN_PASSPHRASE = "cache.cleanPassphrase";
+	public static final String CACHE_WARMUP = "cache.warmup";
 	public static final String CACHE_LOCATION = "cache.location";
 	public static final String SHARKS_REST_URL = "sharks.rest.url";
 	public static final String SHARKS_CLIENT_URL = "sharks.client.url";
@@ -80,6 +81,17 @@ public class ConfigurationImpl implements Configuration {
 	@Override
 	public String getCacheCleaningPassphrase() {
 		return properties.getProperty(CACHE_CLEAN_PASSPHRASE);
+	}
+	
+	@Override
+	public CacheWarmupType getCacheWarmupType() {
+		String value = properties.getProperty(CACHE_WARMUP);
+		if (value == null) return CacheWarmupType.PARALLEL;
+		try {
+			return CacheWarmupType.valueOf(value.toUpperCase());
+		} catch(Exception e) {
+			throw new RuntimeException("Wrong \""+CACHE_WARMUP+"\" value \""+value+"\" expected one of "+Arrays.toString(CacheWarmupType.values()));
+		}
 	}
 
 	@Override

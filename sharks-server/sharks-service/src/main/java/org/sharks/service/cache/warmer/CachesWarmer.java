@@ -7,8 +7,6 @@ import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import org.sharks.service.cache.warmer.CacheWarmer.HighPriority;
-
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
@@ -16,7 +14,7 @@ import org.sharks.service.cache.warmer.CacheWarmer.HighPriority;
 @Singleton
 public class CachesWarmer {
 	
-	@Inject @HighPriority
+	@Inject
 	private Instance<CacheWarmer> highPriorityWarmers;
 
 	@Inject

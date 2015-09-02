@@ -20,6 +20,9 @@ public interface ServiceCacheManager {
 	
 	public void flushCaches(String ... services);
 	
+	public void clearCaches(ServiceType ... types);
+	public void flushCaches(ServiceType ... types);
+	
 	@Data
 	public static class ServiceInfo {
 		private final String name;
