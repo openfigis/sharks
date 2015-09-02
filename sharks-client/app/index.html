@@ -111,7 +111,7 @@
 
       <div>
         <div ng-controller="LoaderCtrl as ctrl">
-          <img class="loader" src="images/loader.gif" alt="loader" ng-show="ctrl.showLoader"/>
+          <div class="loader" ng-show="ctrl.showLoader">Loading...</div>
         </div>
         <div ng-view=""></div>
       </div>
