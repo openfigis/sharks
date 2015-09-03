@@ -22,9 +22,11 @@ import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.sharks.service.cites.CitesService;
+import org.sharks.service.cms.CmsService;
 import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.impl.ManagementEntityServiceImpl;
+import org.sharks.service.kor.KorService;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.test.util.NoCache;
@@ -81,6 +83,16 @@ public class ManagementEntityServiceTest {
 	@Produces
 	private CitesService setupCitesService() {
 		return mock(CitesService.class);
+	}
+	
+	@Produces
+	private CmsService setupCmsService() {
+		return mock(CmsService.class);
+	}
+	
+	@Produces
+	private KorService setupKorService() {
+		return mock(KorService.class);
 	}
 
 	/**
