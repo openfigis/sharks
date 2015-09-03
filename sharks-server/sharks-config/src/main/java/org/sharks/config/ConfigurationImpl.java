@@ -34,6 +34,8 @@ public class ConfigurationImpl implements Configuration {
 	public static final String GEOSERVER_CACHE_EXPIRATION = "geoserver.cacheExpiration";
 	public static final String CITES_PARTIES_URL = "cites.parties.url";
 	public static final String CITES_CACHE_EXPIRATION = "cites.cacheExpiration";
+	public static final String CMS_PARTIES_URL = "cms.parties.url";
+	public static final String CMS_CACHE_EXPIRATION = "cms.cacheExpiration";
 	public static final String SOLR_URL = "solr.url";
 	
 	private Properties properties;
@@ -170,6 +172,16 @@ public class ConfigurationImpl implements Configuration {
 		}
 		
 		return new Time(value, unit);
+	}
+
+	@Override
+	public String getCmsPartiesUrl() {
+		return properties.getProperty(CMS_PARTIES_URL);
+	}
+
+	@Override
+	public Time getCmsExpiration() {
+		return getTime(CMS_CACHE_EXPIRATION);
 	}
 
 }

@@ -37,6 +37,9 @@ public interface Configuration {
 	public String getCitesPartiesUrl();
 	public Time getCitesExpiration();
 	
+	public String getCmsPartiesUrl();
+	public Time getCmsExpiration();
+	
 	
 	public String getSolrUrl();
 	

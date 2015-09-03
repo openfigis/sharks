@@ -22,7 +22,7 @@ import org.sharks.storage.domain.MgmtEntity;
  */
 @Slf4j
 @Singleton
-public class CitesEntityMemberProducer extends AbstractEntryProducer<InformeaCountry, EntityMember> {
+public class InformeaEntityMemberProducer extends AbstractEntryProducer<InformeaCountry, EntityMember> {
 	
 	@Inject
 	private ManagementEntityDao dao;

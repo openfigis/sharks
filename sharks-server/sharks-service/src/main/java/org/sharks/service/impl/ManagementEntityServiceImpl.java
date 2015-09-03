@@ -21,13 +21,14 @@ import org.sharks.service.Service;
 import org.sharks.service.Service.ServiceType;
 import org.sharks.service.cache.Cached;
 import org.sharks.service.cites.CitesService;
+import org.sharks.service.cms.CmsService;
 import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.EntityMember;
 import org.sharks.service.informea.dto.InformeaCountry;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.moniker.dto.Rfb;
-import org.sharks.service.producer.CitesEntityMemberProducer;
+import org.sharks.service.producer.InformeaEntityMemberProducer;
 import org.sharks.service.producer.EntityMemberProducer;
 import org.sharks.storage.dao.InformationSourceDao;
 import org.sharks.storage.dao.ManagementEntityDao;
@@ -55,7 +56,10 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 	private CitesService citesService;
 	
 	@Inject
-	private CitesEntityMemberProducer citesMemberProducer;
+	private InformeaEntityMemberProducer informeaMemberProducer;
+	
+	@Inject
+	private CmsService cmsService;
 	
 	@Override @Cached("get")
 	public EntityDetails get(String acronym) {
@@ -95,22 +99,27 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 		
 		List<EntityMember> members = Collections.emptyList();
 		
-		if (isCites(acronym)) members = getCitesMembers();
-		else {
-			Rfb rfb = monikerService.getRfb(acronym);
-			if (rfb!=null) members = convert(rfb.getMembers(), memberProducer);
+		switch (acronym.toUpperCase()) {
+			case "CITES": members = getCitesMembers(); break;
+			case "CMS": members = getCmsMembers(); break;
+			default:{
+				Rfb rfb = monikerService.getRfb(acronym);
+				if (rfb!=null) members = convert(rfb.getMembers(), memberProducer);
+			} break;
 		}
 
 		return members;
 	}
 	
-	private boolean isCites(String acronym) {
-		return "CITES".equalsIgnoreCase(acronym);
+	private List<EntityMember> getCitesMembers() {
+		List<InformeaCountry> parties = citesService.getParties();
+		List<EntityMember> members = convert(parties, informeaMemberProducer);
+		return members;
 	}
 	
-	private List<EntityMember> getCitesMembers() {
-		List<InformeaCountry> citesParties = citesService.getParties();
-		List<EntityMember> members = convert(citesParties, citesMemberProducer);
+	private List<EntityMember> getCmsMembers() {
+		List<InformeaCountry> parties = cmsService.getParties();
+		List<EntityMember> members = convert(parties, informeaMemberProducer);
 		return members;
 	}
 	

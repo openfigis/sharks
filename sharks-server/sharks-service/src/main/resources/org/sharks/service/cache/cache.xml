@@ -51,6 +51,11 @@
 	
 	<!-- cache for parties -->
 	<cache name="cites.parties" eternal="true" maxEntriesLocalHeap="1" maxEntriesLocalDisk="2" diskPersistent="true"/>
+		
+	<!-- ### CMS ### -->
+	
+	<!-- cache for parties -->
+	<cache name="cms.parties" eternal="true" maxEntriesLocalHeap="1" maxEntriesLocalDisk="2" diskPersistent="true"/>
 	
 	
 	<!-- ### sitemap ### -->

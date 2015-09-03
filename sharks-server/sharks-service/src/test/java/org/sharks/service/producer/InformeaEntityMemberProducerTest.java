@@ -27,10 +27,10 @@ import org.sharks.storage.domain.MgmtEntity;
  *
  */
 @RunWith(CdiRunner.class)
-public class CitesEntityMemberProducerTest {
+public class InformeaEntityMemberProducerTest {
 	
 	@Inject
-	CitesEntityMemberProducer producer;
+	InformeaEntityMemberProducer producer;
 	
 	RefPubCountry aCountry;
 	
