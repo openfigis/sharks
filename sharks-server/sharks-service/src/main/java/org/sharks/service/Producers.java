@@ -23,6 +23,8 @@ import org.sharks.service.indexing.IndexingService;
 import org.sharks.service.indexing.SolrDocumentProviders;
 import org.sharks.service.indexing.SolrIndexingService;
 import org.sharks.service.indexing.SolrIndexingService.SolrDocumentProvider;
+import org.sharks.service.kor.rest.KorParser;
+import org.sharks.service.kor.rest.KorRestClient;
 import org.sharks.service.moniker.rest.MonikersRestClient;
 import org.sharks.service.refpub.rest.RefPubRestClient;
 
@@ -47,6 +49,11 @@ public class Producers {
 	@Produces @Singleton
 	public GeoServerRestClient getGeoServerRestClient(Configuration configuration, HttpClient httpClient) {
 		return new GeoServerRestClient(httpClient, configuration.getGeoServerSpeciesListUrl());
+	}
+	
+	@Produces @Singleton
+	public KorRestClient getKorRestClient(Configuration configuration, HttpClient httpClient, KorParser parser) {
+		return new KorRestClient(httpClient, configuration.getKorResourcesUrl(), parser);
 	}
 	
 	@Produces @Singleton

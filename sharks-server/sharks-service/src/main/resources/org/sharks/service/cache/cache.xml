@@ -57,6 +57,11 @@
 	<!-- cache for parties -->
 	<cache name="cms.parties" eternal="true" maxEntriesLocalHeap="1" maxEntriesLocalDisk="2" diskPersistent="true"/>
 	
+	<!-- ### KOR ### -->
+	
+	<!-- cache for parties -->
+	<cache name="kor.resources" eternal="true" maxEntriesLocalHeap="2" maxEntriesLocalDisk="3" diskPersistent="true"/>
+	
 	
 	<!-- ### sitemap ### -->
 	

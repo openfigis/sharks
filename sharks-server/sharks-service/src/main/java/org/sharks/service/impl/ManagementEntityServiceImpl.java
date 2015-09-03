@@ -26,6 +26,8 @@ import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.EntityMember;
 import org.sharks.service.informea.dto.InformeaCountry;
+import org.sharks.service.kor.KorService;
+import org.sharks.service.kor.dto.KorResource;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.moniker.dto.Rfb;
 import org.sharks.service.producer.InformeaEntityMemberProducer;
@@ -42,46 +44,67 @@ import org.sharks.storage.domain.MgmtEntity;
 @Singleton
 @Service(name="managemententity",type=ServiceType.INTERNAL)
 public class ManagementEntityServiceImpl implements ManagementEntityService {
-	
+
 	@Inject
 	private ManagementEntityDao dao;
-	
+
 	@Inject
 	private MonikerService monikerService;
-	
+
 	@Inject
 	private EntityMemberProducer memberProducer;
-	
+
 	@Inject
 	private CitesService citesService;
-	
+
 	@Inject
 	private InformeaEntityMemberProducer informeaMemberProducer;
-	
+
 	@Inject
 	private CmsService cmsService;
-	
+
+	@Inject
+	private KorService korService;
+
 	@Override @Cached("get")
 	public EntityDetails get(String acronym) {
-		
+
 		MgmtEntity entity = dao.getByAcronym(acronym);
 		if (entity == null) return null;
-		
+
 		String logoUrl = null;
 		String website = null;
 		String factsheetUrl = null;
-		
-		Rfb rfb = monikerService.getRfb(acronym);
-		if (rfb!=null) {
-			logoUrl = rfb.getLogo();
-			website = rfb.getWebsite();
-			factsheetUrl = rfb.getLink();
+
+		switch (acronym.toUpperCase()) {
+			case "CITES": {
+				KorResource resource = korService.getResource(acronym);
+				if (resource != null) {
+					logoUrl = resource.getIconUrl();
+					website = resource.getUri();
+				}
+			} break;
+			case "CMS": {
+				KorResource resource = korService.getResource(acronym);
+				if (resource != null) {
+					logoUrl = resource.getIconUrl();
+					website = resource.getUri();
+				}
+			} break;
+			default: {
+				Rfb rfb = monikerService.getRfb(acronym);
+				if (rfb!=null) {
+					logoUrl = rfb.getLogo();
+					website = rfb.getWebsite();
+					factsheetUrl = rfb.getLink();
+				}
+			}
 		}
-		
+
 		List<EntityMember> members = getMembers(acronym);
-		
+
 		List<InformationSource> others = onlyOthersOrPoAs(entity.getInformationSources());
-		
+
 		return new EntityDetails(entity.getCode(), 
 				entity.getAcronym(), 
 				entity.getMgmtEntityName(),
@@ -94,46 +117,43 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 				convert(others, TO_ENTITY_DOCUMENT)
 				);
 	}
-	
+
 	private List<EntityMember> getMembers(String acronym) {
-		
-		List<EntityMember> members = Collections.emptyList();
-		
+
 		switch (acronym.toUpperCase()) {
-			case "CITES": members = getCitesMembers(); break;
-			case "CMS": members = getCmsMembers(); break;
+			case "CITES": return getCitesMembers();
+			case "CMS": return getCmsMembers();
 			default:{
 				Rfb rfb = monikerService.getRfb(acronym);
-				if (rfb!=null) members = convert(rfb.getMembers(), memberProducer);
-			} break;
+				if (rfb!=null) return convert(rfb.getMembers(), memberProducer);
+				else return Collections.emptyList();
+			}
 		}
-
-		return members;
 	}
-	
+
 	private List<EntityMember> getCitesMembers() {
 		List<InformeaCountry> parties = citesService.getParties();
 		List<EntityMember> members = convert(parties, informeaMemberProducer);
 		return members;
 	}
-	
+
 	private List<EntityMember> getCmsMembers() {
 		List<InformeaCountry> parties = cmsService.getParties();
 		List<EntityMember> members = convert(parties, informeaMemberProducer);
 		return members;
 	}
-	
+
 	private List<InformationSource> onlyOthersOrPoAs(List<InformationSource> sources) {
 		return sources.stream()
 				.filter(
 						source->source.getInformationType().getCode().equals(InformationSourceDao.POA_TYPE)
 						|| source.getInformationType().getCode().equals(InformationSourceDao.OTHER_TYPE))
-				.collect(Collectors.toList());
+						.collect(Collectors.toList());
 	}
 
 	@Override @Cached("list")
 	public List<EntityEntry> list(boolean onlyWithMeasures) {
 		return convert(dao.listRFMOsAndInstitutions(onlyWithMeasures, false), TO_ENTITY_ENTRY);
 	}
-	
+
 }

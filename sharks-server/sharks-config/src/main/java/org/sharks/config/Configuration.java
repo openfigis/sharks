@@ -40,6 +40,9 @@ public interface Configuration {
 	public String getCmsPartiesUrl();
 	public Time getCmsExpiration();
 	
+	public String getKorResourcesUrl();
+	public Time getKorExpiration();
+	
 	
 	public String getSolrUrl();
 	

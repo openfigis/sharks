@@ -36,6 +36,8 @@ public class ConfigurationImpl implements Configuration {
 	public static final String CITES_CACHE_EXPIRATION = "cites.cacheExpiration";
 	public static final String CMS_PARTIES_URL = "cms.parties.url";
 	public static final String CMS_CACHE_EXPIRATION = "cms.cacheExpiration";
+	public static final String KOR_RESOURCES_URL = "kor.resources.url";
+	public static final String KOR_CACHE_EXPIRATION = "kor.cacheExpiration";
 	public static final String SOLR_URL = "solr.url";
 	
 	private Properties properties;
@@ -182,6 +184,16 @@ public class ConfigurationImpl implements Configuration {
 	@Override
 	public Time getCmsExpiration() {
 		return getTime(CMS_CACHE_EXPIRATION);
+	}
+
+	@Override
+	public String getKorResourcesUrl() {
+		return properties.getProperty(KOR_RESOURCES_URL);
+	}
+
+	@Override
+	public Time getKorExpiration() {
+		return getTime(KOR_CACHE_EXPIRATION);
 	}
 
 }

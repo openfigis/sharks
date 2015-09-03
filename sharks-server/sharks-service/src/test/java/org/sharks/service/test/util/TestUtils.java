@@ -15,6 +15,14 @@ import org.sharks.service.cache.ServiceCacheManager.ServiceInfo;
  */
 public class TestUtils {
 	
+	public static InputStream getResourceAsStream(String name) {
+		try {
+			return TestUtils.class.getResourceAsStream(name);
+		} catch(Exception e) {
+			throw new RuntimeException("Failed getting resource "+name);
+		}
+	}
+	
 	public static String getResource(String name) {
 		try {
 			InputStream file = TestUtils.class.getResourceAsStream(name);
