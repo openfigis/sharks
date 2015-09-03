@@ -253,3 +253,8 @@ div.eye:hover{
 }
 
 
+@-moz-document url-prefix() {
+    div #sharksIllu {
+        margin: 20px 92px 0;
+    }
+}
