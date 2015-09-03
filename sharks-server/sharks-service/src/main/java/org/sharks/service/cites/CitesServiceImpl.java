@@ -11,14 +11,16 @@ import javax.inject.Singleton;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.sharks.config.Configuration;
 import org.sharks.service.Service;
 import org.sharks.service.Service.ServiceType;
 import org.sharks.service.cache.CacheName;
 import org.sharks.service.cache.ServiceCache;
 import org.sharks.service.cache.ServiceCache.CacheElement;
-import org.sharks.service.cites.dto.CitesCountry;
-import org.sharks.service.cites.dto.CitesParties;
-import org.sharks.service.cites.rest.CitesRestClient;
+import org.sharks.service.http.HttpClient;
+import org.sharks.service.informea.dto.InformeaCountry;
+import org.sharks.service.informea.dto.InformeaParties;
+import org.sharks.service.informea.rest.InformeaRestClient;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -31,19 +33,23 @@ public class CitesServiceImpl implements CitesService {
 	
 	private final static String CACHE_KEY = "parties";
 	
-	@Inject
-	private CitesRestClient restClient;
+	private InformeaRestClient restClient;
 	
 	@Inject @CacheName("parties")
-	private ServiceCache<String, CitesParties> cache;
+	private ServiceCache<String, InformeaParties> cache;
+	
+	@Inject
+	public CitesServiceImpl(HttpClient httpClient, Configuration configuration) {
+		restClient = new InformeaRestClient(httpClient, configuration.getCitesPartiesUrl());
+	}
 
 	@Override
-	public List<CitesCountry> getParties() {
+	public List<InformeaCountry> getParties() {
 		
-		CacheElement<CitesParties> element = cache.get(CACHE_KEY);
+		CacheElement<InformeaParties> element = cache.get(CACHE_KEY);
 		if (element.isPresent()) return element.getValue().getCountries();
 		
-		CitesParties parties = getCitesParties();
+		InformeaParties parties = getCitesParties();
 		
 		if (parties==null) return Collections.emptyList(); 
 			
@@ -52,7 +58,7 @@ public class CitesServiceImpl implements CitesService {
 		return parties.getCountries();
 	}
 	
-	private CitesParties getCitesParties() {
+	private InformeaParties getCitesParties() {
 		try {
 			return restClient.getParties();
 		} catch(Exception e) {

@@ -8,8 +8,8 @@ import javax.inject.Singleton;
 
 import lombok.extern.slf4j.Slf4j;
 
-import org.sharks.service.cites.dto.CitesCountry;
 import org.sharks.service.dto.EntityMember;
+import org.sharks.service.informea.dto.InformeaCountry;
 import org.sharks.service.producer.EntryProducers.AbstractEntryProducer;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.refpub.dto.RefPubCountry;
@@ -22,7 +22,7 @@ import org.sharks.storage.domain.MgmtEntity;
  */
 @Slf4j
 @Singleton
-public class CitesEntityMemberProducer extends AbstractEntryProducer<CitesCountry, EntityMember> {
+public class CitesEntityMemberProducer extends AbstractEntryProducer<InformeaCountry, EntityMember> {
 	
 	@Inject
 	private ManagementEntityDao dao;
@@ -31,7 +31,7 @@ public class CitesEntityMemberProducer extends AbstractEntryProducer<CitesCountr
 	private RefPubService refPub;
 
 	@Override
-	public EntityMember produce(CitesCountry country) {
+	public EntityMember produce(InformeaCountry country) {
 		
 		boolean hasPoAs = false;
 		String name = null;

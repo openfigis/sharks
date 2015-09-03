@@ -15,8 +15,8 @@ import javax.inject.Inject;
 import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.sharks.service.cites.dto.CitesCountry;
 import org.sharks.service.dto.EntityMember;
+import org.sharks.service.informea.dto.InformeaCountry;
 import org.sharks.service.refpub.RefPubService;
 import org.sharks.service.refpub.dto.RefPubCountry;
 import org.sharks.storage.dao.ManagementEntityDao;
@@ -56,7 +56,7 @@ public class CitesEntityMemberProducerTest {
 	 */
 	@Test
 	public void testProduce() {
-		CitesCountry country = createCitesCountry("AFG", "AF", "Afghanistan");
+		InformeaCountry country = createCitesCountry("AFG", "AF", "Afghanistan");
 		
 		EntityMember member = producer.produce(country);
 		assertNotNull(member);
@@ -69,7 +69,7 @@ public class CitesEntityMemberProducerTest {
 	 */
 	@Test
 	public void testProduceWithMissingIso2() {
-		CitesCountry country = createCitesCountry(null, "AF", "Afghanistan");
+		InformeaCountry country = createCitesCountry(null, "AF", "Afghanistan");
 		
 		EntityMember member = producer.produce(country);
 		assertNotNull(member);

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.sharks.service.cites.dto;
+package org.sharks.service.informea.dto;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,11 +22,11 @@ import org.eclipse.persistence.oxm.annotations.XmlPath;
 @Data
 @XmlRootElement(name="Document")
 @XmlAccessorType(XmlAccessType.NONE)
-public class CitesParties implements Serializable {
+public class InformeaParties implements Serializable {
 
 	private static final long serialVersionUID = -1226814243690739548L;
 	
 	@XmlPath("Treaty/Participants/Table/Tbody/Rows/Row")
-	private List<CitesCountry> countries;
+	private List<InformeaCountry> countries;
 
 }

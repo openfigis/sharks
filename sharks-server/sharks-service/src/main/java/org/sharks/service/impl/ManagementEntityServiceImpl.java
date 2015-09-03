@@ -21,10 +21,10 @@ import org.sharks.service.Service;
 import org.sharks.service.Service.ServiceType;
 import org.sharks.service.cache.Cached;
 import org.sharks.service.cites.CitesService;
-import org.sharks.service.cites.dto.CitesCountry;
 import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.EntityMember;
+import org.sharks.service.informea.dto.InformeaCountry;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.moniker.dto.Rfb;
 import org.sharks.service.producer.CitesEntityMemberProducer;
@@ -109,7 +109,7 @@ public class ManagementEntityServiceImpl implements ManagementEntityService {
 	}
 	
 	private List<EntityMember> getCitesMembers() {
-		List<CitesCountry> citesParties = citesService.getParties();
+		List<InformeaCountry> citesParties = citesService.getParties();
 		List<EntityMember> members = convert(citesParties, citesMemberProducer);
 		return members;
 	}

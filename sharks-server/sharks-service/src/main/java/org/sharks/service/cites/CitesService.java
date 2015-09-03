@@ -5,7 +5,7 @@ package org.sharks.service.cites;
 
 import java.util.List;
 
-import org.sharks.service.cites.dto.CitesCountry;
+import org.sharks.service.informea.dto.InformeaCountry;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
@@ -13,5 +13,5 @@ import org.sharks.service.cites.dto.CitesCountry;
  */
 public interface CitesService {
 	
-	public List<CitesCountry> getParties();
+	public List<InformeaCountry> getParties();
 }

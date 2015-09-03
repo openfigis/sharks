@@ -9,9 +9,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 
-import org.sharks.service.cites.dto.CitesCountry;
 import org.sharks.service.geoserver.dto.SpeciesItem;
 import org.sharks.service.geoserver.dto.SpeciesList;
+import org.sharks.service.informea.dto.InformeaCountry;
 import org.sharks.service.moniker.dto.Rfb;
 import org.sharks.service.moniker.dto.Rfb.Member;
 import org.sharks.service.refpub.dto.MultiLingualName;
@@ -150,8 +150,8 @@ public class TestModelUtils {
 		return list;
 	}
 	
-	public static CitesCountry createCitesCountry(String iso3, String iso2, String name) {
-		CitesCountry country = new CitesCountry();
+	public static InformeaCountry createCitesCountry(String iso3, String iso2, String name) {
+		InformeaCountry country = new InformeaCountry();
 		country.setIso2(iso2);
 		country.setIso3(iso3);
 		country.setName(name);		
