@@ -1,11 +1,9 @@
 package org.sharks.service.informea;
 
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.sharks.service.test.util.TestUtils.getResource;
-
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -55,26 +53,6 @@ public class InformeaParserTest {
 		assertNotNull(country.getIso2());
 		assertNotNull(country.getIso3());
 		assertNotNull(country.getName());
-		
+	}
 
-	}
-	
-	@Test
-	public void diff() {
-		String content = getResource("/informea/cites_parties.xml");
-		InformeaParties citesParties = parser.parseParties(content);
-		
-		content = getResource("/informea/cms_parties.xml");
-		InformeaParties cmsParties = parser.parseParties(content);
-		
-		System.out.println("cites: "+citesParties.getCountries().size());
-		System.out.println("cms: "+cmsParties.getCountries().size());
-		
-		Set<String> cites = citesParties.getCountries().stream().map((c)->c.getIso3()).collect(Collectors.toSet());
-		Set<String> cms = cmsParties.getCountries().stream().map((c)->c.getIso3()).collect(Collectors.toSet());
-		
-		cites.removeAll(cms);
-		System.out.println(cites);
-		
-	}
 }
