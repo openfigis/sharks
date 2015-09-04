@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js" ng-app="sharksClient" ng-controller="TitleCtrl">
+<html class="no-js" ng-app="sharksClient" ng-controller="HeadCtrl">
 
   <head>
     <meta charset="utf-8">
     
     <title ng-bind="page.title"></title>
     
-    <meta name="description" content="">
+    <meta name="description" content="{{page.description}}">
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0">
     
     <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
@@ -134,7 +134,7 @@
     <script src="scripts/resources.js"></script>
     <script src="scripts/services.js"></script>
     <script src="scripts/config.js"></script>
-    <script src="scripts/controllers/title.js"></script>
+    <script src="scripts/controllers/head.js"></script>
     <script src="scripts/controllers/header.js"></script>
     <script src="scripts/controllers/navigation_bar.js"></script>
     <script src="scripts/controllers/view_footer.js"></script>

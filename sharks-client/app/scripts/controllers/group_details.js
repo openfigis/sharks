@@ -12,6 +12,7 @@ angular.module("sharksClient")
                                           function (routingservice, imagesservice, pageservice, group) {
 	  
 	  pageservice.setTitle(group.name);
+	  pageservice.setDescription("Measures for species group "+group.name);
 	  
 	  this.group = group;
 	  this.ems = Stream(group.measures)

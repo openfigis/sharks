@@ -4,6 +4,9 @@ angular.module("sharksClient")
   .controller("EntityDetailsCtrl", ["routingservice", "pageservice", "entityTypes", "mapViewer", "entity",
                                           function (routingservice, pageservice, entityTypes, mapViewer, entity) {
 	  
+	  pageservice.setTitle(entity.acronym);
+	  pageservice.setDescription("Measures for institution "+entity.acronym);
+	  
 	  this.entity = entity;
 	  
 	  this.ems = Stream(entity.measures)
@@ -28,7 +31,7 @@ angular.module("sharksClient")
 	  
 	  this.isCites = entity.acronym === "CITES";
 	  
-	  pageservice.setTitle(entity.acronym);
+
 	  
 	  this.showCountry = function(country) {
 		routingservice.toSingle("countries", country);  

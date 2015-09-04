@@ -14,6 +14,7 @@ angular.module("sharksClient")
                                         		  factsheets, mapViewer, species) {
 	  
 	  pageservice.setTitle(species.officialNames.en);
+	  pageservice.setDescription("Measures for species "+species.officialNames.en);
 	  
 	  this.species = species;
 	  this.ems = Stream(species.measures)

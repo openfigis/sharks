@@ -95,13 +95,20 @@ services.factory("pageservice", ["titleComponents",  function(titleComponents) {
 	function PageService() {
 		
 		this.title = "";
+		this.description = "";
 		
 		this.setTitle = function(part) {
 			this.title = titleComponents.base + " - " + titleComponents.middle + " - "+part;
+			this.description = "";
 		};
 		
 		this.setHomeTitle = function() {
 			this.title = titleComponents.base + " - " + titleComponents.home;
+			this.description = "";
+		};
+		
+		this.setDescription = function(description) {
+			this.description = description;
 		};
 	}
 	return new PageService();

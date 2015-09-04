@@ -5,6 +5,11 @@ angular.module("sharksClient")
                                           function ($filter, routingservice, pageservice, imagesservice, countryprofiles, faolex, country) {
 	  var self = this;
 	  this.country = country;
+	  
+	  pageservice.setTitle(country.name);
+	  pageservice.setDescription("PoAs for country "+country.name);
+	  
+	  
 	  this.groupedPoas = Stream(country.poas)
 	  		.sort(function(a, b) {
 	  			if (a.poAYear === b.poAYear) return 0;
@@ -49,10 +54,6 @@ angular.module("sharksClient")
 	  this.noFlagUrl = imagesservice.missingFlagUrl;
 	  this.profileUrl = countryprofiles.profileBaseUrl+country.code+"/en";
 	  this.faoLexUrl = faolex.baseUrl + (country.code === "EUR" ?"EC:":"ISO:") + country.code;
-	  
-
-	  
-	  pageservice.setTitle(country.name);
 	  
 	  this.showPoa = function(poa) {
 		routingservice.toSingle("poas", poa);  
