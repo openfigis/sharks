@@ -10,17 +10,6 @@
         <div class="sharkPict">
           <img ng-src="{{ctrl.imageUrl(ctrl.group)}}" err-src="{{ctrl.missingImageUrl}}">
         </div>
-          
-        <div class="sharkInfo">
-           
-          <footer>
-            <ul class="links">
-              <li ng-if="ctrl.showCitesLink"><a ng-click="ctrl.showEntity('CITES')">Cites</a></li>  
-              <li ng-if="ctrl.showCmsLink"><a ng-click="ctrl.showEntity('CMS')">CMS Appendix 2 species</a></li>
-            </ul>
-          </footer>
-        </div>
-        
       </section>
      
       

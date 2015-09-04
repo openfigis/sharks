@@ -20,15 +20,9 @@ angular.module("sharksClient")
 		      if (a.year > b.year) return -1;
 		      return 1;
 		   })
-	  .filter(function (measure) {
-		  return measure.entityAcronym !== "CITES" && measure.entityAcronym !== "CMS";
-	  })
 	  .groupBy(function (measure) {
 	      return measure.entityAcronym;
 	  });
-	  
-	  this.showCitesLink = Stream(group.measures).anyMatch({entityAcronym:"CITES"});
-	  this.showCmsLink = Stream(group.measures).anyMatch({entityAcronym:"CMS"});
 	  
 	  this.showEntity = function(acronym) {
 		  routingservice.toSingleById("entities",acronym);
