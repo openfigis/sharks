@@ -66,7 +66,7 @@
 }
 
 div#sharksIllu{
-	margin: 20px 15% 0;
+    margin: 20px 114px 0 114px;
 	position: absolute;
 	top: 0;
 	height: 200px;
@@ -75,8 +75,8 @@ div#sharksIllu{
 div#sharksInfo{
 	width: auto;
 	position: absolute;
-	right: -100px;
-	bottom: 0
+    top: 162px;
+    right: 14px;
 }
 div#sharksInfo h1{
 	padding: 0;
@@ -85,6 +85,11 @@ div#sharksInfo h1{
 	font-weight: 300;
 	font-size: 2em;
 }
+
+div#sharksInfo .singleName {
+    margin-top: 26px;
+}
+
 div#sharksInfo h2{
 	padding: 0;
 	margin: 0;
@@ -250,11 +255,4 @@ div.eye:hover{
 
 #countriesMap ul div.spacer{
 	margin: 0;
-}
-
-
-@-moz-document url-prefix() {
-    div #sharksIllu {
-        margin: 20px 92px 0;
-    }
 }

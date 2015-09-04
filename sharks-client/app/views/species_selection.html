@@ -2,11 +2,11 @@
 <section id="SpeciesSelector">
   <div id="sharksIllu">
     <img ng-src="{{ctrl.imgUrl}}" err-src="{{ctrl.missingImgUrl}}">
-    <div id="sharksInfo">
-      <h1>{{ctrl.title}}</h1>
+  </div> 
+  <div id="sharksInfo">
+      <h1 ng-class="{singleName:ctrl.subTitle===''}">{{ctrl.title}}</h1>
       <h2>{{ctrl.subTitle}}</h2>
-    </div>
-  </div>  
+    </div> 
   
   <ul>
     <li class="selectorspecies selectorfamily" 
