@@ -8,8 +8,10 @@
  * Controller of the sharksClient
  */
 angular.module("sharksClient")
-  .controller("GroupDetailsCtrl", ["routingservice", "imagesservice", "group",   
-                                          function (routingservice, imagesservice, group) {
+  .controller("GroupDetailsCtrl", ["routingservice", "imagesservice", "pageservice", "group",   
+                                          function (routingservice, imagesservice, pageservice, group) {
+	  
+	  pageservice.setTitle(group.name);
 	  
 	  this.group = group;
 	  this.ems = Stream(group.measures)
