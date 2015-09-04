@@ -55,35 +55,66 @@ The server side is deployed in a Tomcat instance through the built war.
 ## Configuration file
 The application is configured using a property-value file.
 The configuration file location is passed to the application through the *system* or *env* property _**SHARKS_CONFIG**_.
+
+The cache expiration times are specified as value plus time unit separate by a space (for example "60 minutes"). The time unit can be one of DAYS, HOURS, MICROSECONDS, MILLISECONDS, MINUTES, NANOSECONDS, SECONDS.
  
 The available configuration properties:
  - **storage.dbfile**: the access db location as absolute path
- - **cache.config**: the cache configuration file location as absolute path
- - **cache.warmup**: the type of cache warmup. The available types are:
-  - _**none**_: no cache warmup is made. Note: this will slowdown the application performance.
+ - **cache.warmup**: the type of cache warmup. The available types are (default: parallel):
+  - _**none**_: no cache warmup is made. Note: use this option only for test purpose.
   - _**sequential**_: the cache is warmed up calling all the external services sequentially.
   - _**parallel**_: the cache is warmed up calling the external services in parallel.
- - **cache.cleanPassphrase**: the passprhase used to clean the cache from the cache console. Omit it in order to not require a passphrase.
- - **cache.refreshDelay**: the delay between cache auto-refreshes. The delay is specified as value plus time unit separate by a space (for example "60 minutes"). The time unit can be one of DAYS, HOURS, MICROSECONDS, MILLISECONDS, MINUTES, NANOSECONDS, SECONDS. Leave blank or omit to not active the auto-refresh.
+ - **cache.cleanPassphrase**: the passphrase used to clean the cache from the cache console. Omit it in order to not require a passphrase.
+ - **cache.location**: the cache storage location (default system tmp).
+ 
  - **sharks.rest.url**: the application REST API base url, used by Swagger.
  - **sharks.client.url**: the application client base url, used for sitemap generation.
- - **refpub.url**: the base url of the RefPub service.
- - **monikers.url**: the base url of the Monikers service.
- - **geoserver.specieslist.url**: the url of the species list published by the GeoServer.
- - **solr.url**: the Solr instance url.
  
-## Cache configuration
-The cache is configured through an EhCache xml file.
+ - **refpub.url**: the base url of the RefPub service.
+ - **refpub.cacheExpiration**: the refpub cache expiration time.
+ 
+ - **monikers.url**: the base url of the Monikers service.
+ - **monikers.cacheExpiration**: the monikers cache expiration time.
+ 
+ - **geoserver.specieslist.url**: the url of the species list published by the GeoServer.
+ - **geoserver.cacheExpiration**: the geoserver cache expiration time. 
+ 
+ - **cites.parties.url**: the url to the CITES InforMEA endpoint.
+ - **cites.cacheExpiration**: the cites cache expiration time.
+
+ - **cms.parties.url**: the url to the CMS InforMEA endpoint. 
+ - **cms.cacheExpiration**: the cms cache expiration time.
+
+ - **kor.resources.url**: the url to the KOR service. The resource id will be appended to the end.
+ - **kor.cacheExpiration**: the kor cache expiration time.
+ 
+ - **solr.url**: the Solr instance url.
+
+ 
+## Internal: Cache configuration
+The cache is configured through an EhCache xml file. It is stored as code resource.
 	
 The application uses the following caches:
- - **countryIso3**: cache for the Country concepts retrieved from RefPub service using ISO3 code.
- - **countryIso2**: cache for the Country concepts retrieved from RefPub service using ISO2 code.
- - **species**: cache for the Species concepts coming from RefPub service.
- - **rfb4iso**: cache for the rfb4iso3 moniker.
- - **rfb**: cache for the rfb moniker.
- - **rfb4fid**: cache for the fid to rgb mapping.
- - **faoLexDocument**: cache for the faoLexFI moniker.
- - **specieslist**: cache for the specieslist from GeoServer.
+ - **refpub.countryIso3**: cache for the Country concepts retrieved from RefPub service using ISO3 code.
+ - **refpub.countryIso2**: cache for the Country concepts retrieved from RefPub service using ISO2 code.
+ - **refpub.species**: cache for the Species concepts coming from RefPub service.
+ 
+ - **monikers.rfb4iso**: cache for the rfb4iso3 moniker.
+ - **monikers.rfb**: cache for the rfb moniker.
+ - **monikers.rfb4fid**: cache for the fid to rgb mapping.
+ - **monikers.faoLexDocument**: cache for the faoLexFI moniker.
+ 
+ - **geoserver.specieslist**: cache for the specieslist from GeoServer.
+ 
+ - **cites.parties**: cache for CITES parties
+	
+ - **cms.parties**: cache for CMS parties
+	
+ - **kor.resources**: cache for kor resources
+	
+ - **sitemap.map**: cache for generated sitemap
+ 
+ - **restCache**: cache for rest replies
 
 #Instance documentation
 
