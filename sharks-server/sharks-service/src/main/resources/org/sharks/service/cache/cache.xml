@@ -59,7 +59,7 @@
 	
 	<!-- ### KOR ### -->
 	
-	<!-- cache for parties -->
+	<!-- cache for resources -->
 	<cache name="kor.resources" eternal="true" maxEntriesLocalHeap="2" maxEntriesLocalDisk="3" diskPersistent="true"/>
 	
 	
