@@ -467,7 +467,7 @@ footer ul.links li{
 .country-page #secondary{
 	float: left;
 	width: 25%;
-	padding-top: 35px;
+	padding-top: 4px;
 }
 
 .entity-page #primary{
@@ -480,7 +480,7 @@ footer ul.links li{
 .entity-page #secondary{
 	float: left;
 	width: 25%;
-	padding-top: 45px;
+	padding-top: 26px;
 }
 
 .group-page #primary{
@@ -495,7 +495,6 @@ footer ul.links li{
 	width: 25%;
 	padding-top: 45px;
 }
-
 
 /* INFO BOX */
 
