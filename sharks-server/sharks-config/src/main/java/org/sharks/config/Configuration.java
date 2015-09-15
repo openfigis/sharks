@@ -12,46 +12,47 @@ import lombok.Data;
 public interface Configuration {
 
 	public String getDbFileLocation();
-	
+
 	public String getCacheCleaningPassphrase();
-	
+
 	public CacheWarmupType getCacheWarmupType();
-	
+
 	public String getCacheLocation();
-	
-	
+
 	public URL getSharksRestUrl();
-	
+
 	public URL getSharksClientUrl();
-	
 
 	public String getRefPubUrl();
+
 	public Time getRefPubCacheExpiration();
 
 	public String getMonikersUrl();
+
 	public Time getMonikersCacheExpiration();
-	
+
 	public String getGeoServerSpeciesListUrl();
+
 	public Time getGeoServerCacheExpiration();
-	
+
 	public String getCitesPartiesUrl();
+
 	public Time getCitesExpiration();
-	
+
 	public String getCmsPartiesUrl();
+
 	public Time getCmsExpiration();
-	
+
 	public String getKorResourcesUrl();
+
 	public Time getKorExpiration();
-	
-	
+
 	public String getSolrUrl();
-	
+
 	public enum CacheWarmupType {
-		NONE,
-		SEQUENTIAL,
-		PARALLEL;
+		NONE, SEQUENTIAL, PARALLEL;
 	}
-	
+
 	@Data
 	public class Time {
 		private final long value;

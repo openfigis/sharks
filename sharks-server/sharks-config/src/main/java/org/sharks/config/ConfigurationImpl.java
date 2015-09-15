@@ -19,7 +19,7 @@ import javax.enterprise.inject.Alternative;
  */
 @Alternative
 public class ConfigurationImpl implements Configuration {
-	
+
 	public static final String DB_FILE_LOCATION = "storage.dbfile";
 	public static final String CACHE_CLEAN_PASSPHRASE = "cache.cleanPassphrase";
 	public static final String CACHE_WARMUP = "cache.warmup";
@@ -39,39 +39,42 @@ public class ConfigurationImpl implements Configuration {
 	public static final String KOR_RESOURCES_URL = "kor.resources.url";
 	public static final String KOR_CACHE_EXPIRATION = "kor.cacheExpiration";
 	public static final String SOLR_URL = "solr.url";
-	
+
 	private Properties properties;
-	
+
 	public ConfigurationImpl() {
 		properties = new Properties();
 	}
-	
+
 	public void load(String propertiesFileLocation) {
 		File propertiesFile = new File(propertiesFileLocation);
-		if (!propertiesFile.exists()) throw new IllegalStateException("Configuration file with path \""+propertiesFileLocation+"\" does not exists");
-		
+		if (!propertiesFile.exists()) {
+			throw new IllegalStateException(
+					"Configuration file with path \"" + propertiesFileLocation + "\" does not exists");
+		}
+
 		try (InputStream is = new FileInputStream(propertiesFile)) {
 			properties.load(is);
 		} catch (Exception e) {
-			throw new RuntimeException("Failed reading configuration file "+propertiesFileLocation, e);
+			throw new RuntimeException("Failed reading configuration file " + propertiesFileLocation, e);
 		}
 	}
-	
+
 	@Override
 	public String getDbFileLocation() {
 		return properties.getProperty(DB_FILE_LOCATION);
 	}
-	
+
 	@Override
 	public URL getSharksRestUrl() {
 		return getUrl(SHARKS_REST_URL);
 	}
-	
+
 	@Override
 	public String getRefPubUrl() {
 		return properties.getProperty(REFPUB_URL);
 	}
-	
+
 	@Override
 	public String getMonikersUrl() {
 		return properties.getProperty(MONIKERS_URL);
@@ -86,15 +89,17 @@ public class ConfigurationImpl implements Configuration {
 	public String getCacheCleaningPassphrase() {
 		return properties.getProperty(CACHE_CLEAN_PASSPHRASE);
 	}
-	
+
 	@Override
 	public CacheWarmupType getCacheWarmupType() {
 		String value = properties.getProperty(CACHE_WARMUP);
-		if (value == null) return CacheWarmupType.PARALLEL;
+		if (value == null)
+			return CacheWarmupType.PARALLEL;
 		try {
 			return CacheWarmupType.valueOf(value.toUpperCase());
-		} catch(Exception e) {
-			throw new RuntimeException("Wrong \""+CACHE_WARMUP+"\" value \""+value+"\" expected one of "+Arrays.toString(CacheWarmupType.values()));
+		} catch (Exception e) {
+			throw new RuntimeException("Wrong \"" + CACHE_WARMUP + "\" value \"" + value + "\" expected one of "
+					+ Arrays.toString(CacheWarmupType.values()));
 		}
 	}
 
@@ -107,15 +112,16 @@ public class ConfigurationImpl implements Configuration {
 	public URL getSharksClientUrl() {
 		return getUrl(SHARKS_CLIENT_URL);
 	}
-	
+
 	private URL getUrl(String propertyName) {
 		String urlValue = properties.getProperty(propertyName);
-		if (urlValue == null) return null;
-		
+		if (urlValue == null)
+			return null;
+
 		try {
 			return new URL(urlValue);
 		} catch (Exception e) {
-			throw new RuntimeException("Wrong URL value for property "+propertyName, e);
+			throw new RuntimeException("Wrong URL value for property " + propertyName, e);
 		}
 	}
 
@@ -148,31 +154,36 @@ public class ConfigurationImpl implements Configuration {
 	public Time getCitesExpiration() {
 		return getTime(CITES_CACHE_EXPIRATION);
 	}
-	
+
 	private Time getTime(String propertyName) {
 		String timeValue = properties.getProperty(propertyName);
-		if (timeValue == null) return null;
-		
+		if (timeValue == null)
+			return null;
+
 		String[] tokens = timeValue.split(" ");
-		if (tokens.length!=2) throw new IllegalArgumentException("Wrong time value for property "+propertyName+", expected value and time unit separate by a space");
-		
+		if (tokens.length != 2)
+			throw new IllegalArgumentException("Wrong time value for property " + propertyName
+					+ ", expected value and time unit separate by a space");
+
 		String valueToken = tokens[0];
 		String unitToken = tokens[1];
-		
+
 		long value = -1;
 		try {
 			value = Long.parseLong(valueToken);
-		} catch(Exception e) {
-			throw new IllegalArgumentException("Invalid numeric value \""+valueToken+"\" for property "+propertyName, e);
+		} catch (Exception e) {
+			throw new IllegalArgumentException(
+					"Invalid numeric value \"" + valueToken + "\" for property " + propertyName, e);
 		}
-		
+
 		TimeUnit unit = null;
 		try {
 			unit = TimeUnit.valueOf(unitToken.toUpperCase().trim());
-		} catch(Exception e) {
-			throw new IllegalArgumentException("Invalid time unit value \""+unitToken+"\" for property "+propertyName+" accepted values are "+Arrays.toString(TimeUnit.values()), e);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Invalid time unit value \"" + unitToken + "\" for property "
+					+ propertyName + " accepted values are " + Arrays.toString(TimeUnit.values()), e);
 		}
-		
+
 		return new Time(value, unit);
 	}
 

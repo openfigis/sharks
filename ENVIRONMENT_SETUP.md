@@ -27,6 +27,13 @@ Here some instruction on how to setup the environment to contribute to Sharks pr
 6. Install [lombok](https://projectlombok.org/ "lombok project"): 
   *   download the lombok jar
   *   run the jar
+  
+  
+## Eclipse Tomcat setup  
+1.	Configure the Tomcat 8 Java 8 server
+2.	Go to Run/Run Configurations.. and add an environment variable with name SHARKS_CONFIG and for a value something like 	C:\Users\vaningen\git\sharks\sharks-deploy\conf\dev\sharks.properties
+  
+  
 
 ## NodeJs, npm and bower
 

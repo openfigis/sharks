@@ -1,1 +1,1 @@
-{"ide":{"scriptPaths":[{"type":"FOLDER","path":"bower_components"},{"type":"FOLDER","path":"app"}]},"plugins":{"guess-types":{},"jasmine":{},"grunt":{},"angular":{}},"libs":["ecma5","browser"]}
+{"ide":{"scriptPaths":[{"type":"FOLDER","path":"app"}]},"plugins":{"guess-types":{},"jasmine":{},"grunt":{},"angular":{}},"libs":["ecma5","browser"]}

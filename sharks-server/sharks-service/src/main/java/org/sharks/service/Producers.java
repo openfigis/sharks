@@ -10,8 +10,6 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import lombok.extern.slf4j.Slf4j;
-
 import org.sharks.config.Configuration;
 import org.sharks.service.cache.warmer.CacheWarmingExecutor;
 import org.sharks.service.cache.warmer.NopCacheWarmingExecutor;
@@ -28,6 +26,9 @@ import org.sharks.service.kor.rest.KorRestClient;
 import org.sharks.service.moniker.rest.MonikersRestClient;
 import org.sharks.service.refpub.rest.RefPubRestClient;
 
+import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
@@ -36,36 +37,44 @@ import org.sharks.service.refpub.rest.RefPubRestClient;
 @Slf4j
 public class Producers {
 
-	@Produces @Singleton
+	@Produces
+	@Singleton
 	public RefPubRestClient getRefPubRestClient(Configuration configuration, HttpClient httpClient) {
 		return new RefPubRestClient(configuration.getRefPubUrl(), httpClient);
 	}
 
-	@Produces @Singleton
+	@Produces
+	@Singleton
 	public MonikersRestClient getMonikerRestClient(Configuration configuration, HttpClient httpClient) {
 		return new MonikersRestClient(configuration.getMonikersUrl(), httpClient);
 	}
-	
-	@Produces @Singleton
+
+	@Produces
+	@Singleton
 	public GeoServerRestClient getGeoServerRestClient(Configuration configuration, HttpClient httpClient) {
 		return new GeoServerRestClient(httpClient, configuration.getGeoServerSpeciesListUrl());
 	}
-	
-	@Produces @Singleton
+
+	@Produces
+	@Singleton
 	public KorRestClient getKorRestClient(Configuration configuration, HttpClient httpClient, KorParser parser) {
 		return new KorRestClient(httpClient, configuration.getKorResourcesUrl(), parser);
 	}
-	
-	@Produces @Singleton
+
+	@Produces
+	@Singleton
 	public CacheWarmingExecutor getCacheWarmingExecutor(Configuration configuration) {
 		switch (configuration.getCacheWarmupType()) {
-			case NONE: return new NopCacheWarmingExecutor();
-			case SEQUENTIAL: return new SequentialCacheWarmerExecutor();
-			case PARALLEL: return new ParallelCacheWarmingExecutor();
-			default: {
-				log.error("Unkknow cache warmup option "+configuration.getCacheWarmupType());
-				return new NopCacheWarmingExecutor();
-			}
+		case NONE:
+			return new NopCacheWarmingExecutor();
+		case SEQUENTIAL:
+			return new SequentialCacheWarmerExecutor();
+		case PARALLEL:
+			return new ParallelCacheWarmingExecutor();
+		default: {
+			log.error("Unkknow cache warmup option " + configuration.getCacheWarmupType());
+			return new NopCacheWarmingExecutor();
+		}
 		}
 	}
 
@@ -76,13 +85,15 @@ public class Producers {
 			return null;
 		}
 
-		List<SolrDocumentProvider<?>> providers = Arrays.asList(SolrDocumentProviders.MEASURE, SolrDocumentProviders.POA);
+		List<SolrDocumentProvider<?>> providers = Arrays.asList(SolrDocumentProviders.MEASURE,
+				SolrDocumentProviders.POA);
 		log.trace("providers:");
-		for (SolrDocumentProvider<?> provider:providers) log.trace("provider for {}",provider.getType().getSimpleName());
+		for (SolrDocumentProvider<?> provider : providers)
+			log.trace("provider for {}", provider.getType().getSimpleName());
 
 		try {
 			return new SolrIndexingService(configuration.getSolrUrl(), providers);
-		} catch(Exception e) {
+		} catch (Exception e) {
 			log.error("Solar indexing service failed", e);
 			return null;
 		}

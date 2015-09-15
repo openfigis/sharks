@@ -3,6 +3,7 @@
  */
 package org.sharks.storage.dao;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,15 +14,15 @@ import javax.inject.Singleton;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import lombok.extern.slf4j.Slf4j;
-
 import org.sharks.config.Configuration;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author "Federico De Faveri federico.defaveri@fao.org"
  *
  *
- *         http://stackoverflow.com/questions/4543947/when-should-entitymanagerfactory-instance-be-created-opened?rq=1
+ *         http://stackoverflow.com/questions/4543947/when-should- entitymanagerfactory-instance-be-created-opened?rq=1
  *
  *
  */
@@ -37,6 +38,12 @@ public class Producers {
 
 			String dbLocation = configuration.getDbFileLocation();
 			log.trace("dbLocation {}", dbLocation);
+
+			File file = new File(dbLocation);
+			if (!file.exists()) {
+				throw new SharksStorageException("File does not exist" + dbLocation + " " + file.getAbsolutePath() + " "
+						+ file.getCanonicalPath());
+			}
 
 			Map<String, String> properties = new HashMap<String, String>();
 			properties.put("javax.persistence.jdbc.url", "jdbc:ucanaccess://" + dbLocation);
