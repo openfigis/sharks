@@ -5,7 +5,7 @@ version 0.11.1.
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview. Do note that http://0.0.0.0:9000 often does not work in your browser, go instead to http://localhost:9000/
+Run `grunt` for building and `grunt serve` for preview. Do note that http://0.0.0.0:9000 often does not work in your browser, go instead to http://localhost:9000
 
 ## Testing
 
