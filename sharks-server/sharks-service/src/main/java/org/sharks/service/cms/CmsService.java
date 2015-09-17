@@ -1,19 +1,7 @@
-/**
- * 
- */
 package org.sharks.service.cms;
 
-import java.util.List;
+import org.sharks.service.external.ExternalService;
 
-import org.sharks.service.informea.dto.InformeaCountry;
+public interface CmsService extends ExternalService {
 
-/**
- * @author "Federico De Faveri federico.defaveri@fao.org"
- *
- */
-public interface CmsService {
-
-	public List<InformeaCountry> getParties();
-
-	public boolean isMember(String iso3);
 }

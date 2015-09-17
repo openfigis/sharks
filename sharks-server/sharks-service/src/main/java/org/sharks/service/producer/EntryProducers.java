@@ -32,6 +32,13 @@ public class EntryProducers {
 		return input.stream().map(converter).collect(Collectors.toList());
 	}
 
+	public static final EntryProducer<EntityEntry, EntityDocument> TO_ENTITY_DOC = new AbstractEntryProducer<EntityEntry, EntityDocument>() {
+		@Override
+		public EntityDocument produce(EntityEntry item) {
+			return new EntityDocument(item.getName(), 0, null, null, item.getAcronym());
+		}
+	};
+
 	public static final EntryProducer<Measure, MeasureEntry> TO_MEASURE_ENTRY = new AbstractEntryProducer<Measure, MeasureEntry>() {
 
 		@Override

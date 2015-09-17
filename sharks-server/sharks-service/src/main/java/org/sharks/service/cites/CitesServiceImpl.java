@@ -5,6 +5,7 @@ package org.sharks.service.cites;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -71,9 +72,9 @@ public class CitesServiceImpl implements CitesService {
 	}
 
 	@Override
-	public boolean isMember(String iso3) {
+	public Optional<InformeaCountry> getMember(String iso3) {
 		List<InformeaCountry> parties = getParties();
-		return parties.stream().filter(t -> t.getIso3() != null && t.getIso3().equals(iso3)).count() == 1;
+		return parties.stream().filter(t -> t.getIso3() != null && t.getIso3().equals(iso3)).findFirst();
 	}
 
 }

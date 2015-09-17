@@ -1,19 +1,7 @@
-/**
- * 
- */
 package org.sharks.service.cites;
 
-import java.util.List;
+import org.sharks.service.external.ExternalService;
 
-import org.sharks.service.informea.dto.InformeaCountry;
+public interface CitesService extends ExternalService {
 
-/**
- * @author "Federico De Faveri federico.defaveri@fao.org"
- *
- */
-public interface CitesService {
-
-	public List<InformeaCountry> getParties();
-
-	public boolean isMember(String iso3);
 }

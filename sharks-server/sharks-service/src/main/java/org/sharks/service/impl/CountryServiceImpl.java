@@ -3,6 +3,7 @@
  */
 package org.sharks.service.impl;
 
+import static org.sharks.service.producer.EntryProducers.TO_ENTITY_DOC;
 import static org.sharks.service.producer.EntryProducers.TO_ENTITY_DOCUMENT;
 import static org.sharks.service.producer.EntryProducers.TO_FAOLEX_DOCUMENT;
 import static org.sharks.service.producer.EntryProducers.TO_POA_ENTRY;
@@ -20,6 +21,8 @@ import org.sharks.service.Service.ServiceType;
 import org.sharks.service.cache.Cached;
 import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.dto.CountryEntry;
+import org.sharks.service.dto.EntityEntry;
+import org.sharks.service.informea.CountryManagmentEntityService;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.moniker.dto.FaoLexFiDocument;
 import org.sharks.service.producer.CountryEntityProducer;
@@ -34,47 +37,52 @@ import org.sharks.storage.domain.MgmtEntity;
  *
  */
 @Singleton
-@Service(name="country",type=ServiceType.INTERNAL)
+@Service(name = "country", type = ServiceType.INTERNAL)
 public class CountryServiceImpl implements CountryService {
-	
+
 	@Inject
 	private ManagementEntityDao dao;
-	
+
 	@Inject
 	private CountryEntryProducer entryProducer;
-	
+
 	@Inject
 	private MonikerService monikers;
-	
+
 	@Inject
 	private CountryEntityProducer entityEntryProducer;
-	
-	@Override @Cached("get")
+
+	@Inject
+	private CountryManagmentEntityService countryManagmentEntityService;
+
+	@Override
+	@Cached("get")
 	public CountryDetails get(String code) {
 
 		MgmtEntity country = dao.getByAcronym(code);
-		if (country == null) return null;
-		
+		if (country == null)
+			return null;
+
 		List<String> rfbs = monikers.getRfbsForCountry(code);
 		List<FaoLexFiDocument> docs = monikers.getFaoLexDocumentsForCountry(code);
-		
-		CountryDetails details = new CountryDetails(country.getAcronym(), 
-				country.getMgmtEntityName(), 
-				convert(rfbs, entityEntryProducer),
+		List<EntityEntry> mes = countryManagmentEntityService.getMesForCountry(code);
+
+		CountryDetails details = new CountryDetails(country.getAcronym(), country.getMgmtEntityName(),
+				convert(rfbs, entityEntryProducer), convert(mes, TO_ENTITY_DOC),
 				convert(country.getPoAs(), TO_POA_ENTRY),
 				convert(onlyOthers(country.getInformationSources()), TO_ENTITY_DOCUMENT),
-				convert(docs, TO_FAOLEX_DOCUMENT)
-				);
+				convert(docs, TO_FAOLEX_DOCUMENT));
 		return details;
 	}
-	
+
 	private List<InformationSource> onlyOthers(List<InformationSource> sources) {
 		return sources.stream()
-				.filter(source->source.getInformationType().getCode().equals(InformationSourceDao.OTHER_TYPE))
-				.collect(Collectors.toList());		
+				.filter(source -> source.getInformationType().getCode().equals(InformationSourceDao.OTHER_TYPE))
+				.collect(Collectors.toList());
 	}
 
-	@Override @Cached("list")
+	@Override
+	@Cached("list")
 	public List<CountryEntry> list(boolean onlyWithPoAs) {
 		List<MgmtEntity> countries = dao.listCountries(onlyWithPoAs, false);
 		List<CountryEntry> entries = convert(countries, entryProducer);

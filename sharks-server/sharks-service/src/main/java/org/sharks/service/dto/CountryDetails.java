@@ -20,6 +20,7 @@ public class CountryDetails {
 	private final String code;
 	private final String name;
 	private final List<CountryEntity> rfbs;
+	private final List<EntityDocument> memberships;
 	private final List<PoAEntry> poas;
 	private final List<EntityDocument> others;
 	private final List<FaoLexDocument> faoLexDocuments;
