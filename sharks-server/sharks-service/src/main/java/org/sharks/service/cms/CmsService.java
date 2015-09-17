@@ -12,6 +12,8 @@ import org.sharks.service.informea.dto.InformeaCountry;
  *
  */
 public interface CmsService {
-	
+
 	public List<InformeaCountry> getParties();
+
+	public boolean isMember(String iso3);
 }

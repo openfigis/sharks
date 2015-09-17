@@ -8,24 +8,26 @@ import org.jglue.cdiunit.AdditionalClasses;
 import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.sharks.service.cms.CmsService;
+import org.sharks.service.cms.CmsServiceImpl;
 
 @RunWith(CdiRunner.class)
-@AdditionalClasses(CitesServiceImpl.class)
-public class CitesServiceImplTest extends Base {
+@AdditionalClasses({ CmsServiceImpl.class })
+public class CmsServiceImplTest extends Base {
 
-	String iso3 = "DEU";
+	String iso3 = "deu";
 
 	@Inject
-	CitesService citesService;
+	CmsService cmsService;
 
 	@Test
 	public void isMember() {
-		assertTrue(citesService.isMember(iso3));
+		assertTrue(cmsService.isMember(iso3));
 	}
 
 	@Test
 	public void getParties() {
-		assertTrue(citesService.getParties().size() > 175);
+		assertTrue(cmsService.getParties().size() > 115);
 	}
 
 }
