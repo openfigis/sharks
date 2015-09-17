@@ -12,6 +12,8 @@ import org.sharks.service.informea.dto.InformeaCountry;
  *
  */
 public interface CitesService {
-	
+
 	public List<InformeaCountry> getParties();
+
+	public boolean isMember(String iso3);
 }

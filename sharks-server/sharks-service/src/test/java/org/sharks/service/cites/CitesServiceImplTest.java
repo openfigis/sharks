@@ -1,7 +1,5 @@
 package org.sharks.service.cites;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import javax.enterprise.inject.Produces;
@@ -21,10 +19,15 @@ import org.sharks.service.http.DefaultHttpClient;
 @AdditionalClasses({ CitesServiceImpl.class, DefaultHttpClient.class, ConfigurationProducer.class })
 public class CitesServiceImplTest {
 
+	String iso3 = "DEU";
+
 	@Test
 	public void isMember() {
-		assertNotNull(citesService);
-		assertEquals(citesService.getParties().size(), 181);
+		assertTrue(citesService.isMember(iso3));
+	}
+
+	@Test
+	public void getParties() {
 		assertTrue(citesService.getParties().size() > 175);
 	}
 
