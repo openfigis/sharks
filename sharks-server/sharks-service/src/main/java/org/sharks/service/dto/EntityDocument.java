@@ -14,9 +14,10 @@ import lombok.Data;
 @Data
 @XmlRootElement
 public class EntityDocument {
-	
+
 	private final String title;
 	private final Integer year;
 	private final String type;
 	private final String url;
+	private final String symbol;
 }

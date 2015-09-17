@@ -1,101 +1,116 @@
 <div class="country-page">
-  <div id="main">
-    <header>
-      <section class="pagetitle">
-        <h2 class="pagetitle">{{ctrl.country.name}}</h2>
-      </section>
-      
-      <section id="infoBox">
-        <div class="logo">
-          <a ng-href="{{ctrl.profileUrl}}"><img ng-src="{{ctrl.flagUrl}}" err-src="{{ctrl.noFlagUrl}}"></a>
-        </div>
-      </section>
-      
-      <div class="clear"></div>
-    </header>
-  
-    <section id="primary">
-    
-      <section ng-repeat="(type, poas) in ctrl.groupedPoas">
-        <h2 class="noTransformation">{{type}}</h2>
-        <section class="measure" ng-repeat="poa in poas" ng-click="ctrl.showPoa(poa)">
-          <div class="symbol">
-            <ul>
-              <li class="binding">{{poa.status}}</li>
-            </ul>
-          </div> 
-          <div class="title">
-            <h4>{{poa.title}}</h4> 
-            <div class="year">year <b>{{poa.poAYear}}</b></div>
-            <div ng-repeat="source in poa.sources">
-              <div class="download" ng-if="source.url!==null">
-                <a href="{{source.url}}" target="_blank">
-                  <img src="images/download-icon.png">
-                </a>
-              </div>
-            </div>
-           </div> 
-        </section>
-      </section>
-      
-      <h2 ng-if="ctrl.others.length!=0" class="noTransformation">Related Documents</h2>
-      <section class="measure" ng-repeat="other in ctrl.others" >
-        <div class="title">
-          <p>{{other.title}}</p> 
-          <div class="year">year <b>{{other.year}}</b></div>
-          <div class="download" ng-if="other.url!==null">
-            <a href="{{other.url}}" >
-              <img src="images/download-icon.png">
-            </a>
-          </div>
-        </div>
-      </section>
-  
-      <h2 class="noTransformation" ng-if="ctrl.docs.length!=0">Legislation on Sharks (FAOLEX)</h2>
-      <section class="measure" ng-repeat="doc in ctrl.docs" > 
-        <div class="symbol">
-          <ul>
-            <li ng-if="doc.faolexId!==null">{{doc.faolexId}}</li>
-          </ul>
-        </div> 
-        <div class="title">
-          <h4>{{doc.title}}</h4>
-          <p>{{doc.description}}</p> 
-          <div class="year" ng-if="ctrl.getYear(doc) !== null ">
-            <span title="{{ctrl.getYearTitle(doc)}}">year <b>{{ctrl.getYear(doc) | date:'yyyy'}}</b></span> 
-            <span ng-if="doc.dateOfConsolidation!==null" title="Date of consolidation/reprint: {{doc.dateOfConsolidation | date:ctrl.dateFormat}}">(<b>{{doc.dateOfConsolidation | date:'yyyy'}}</b>)</span>
-          </div>
-          <div class="download" ng-if="doc.url!==null">
-            <a href="{{doc.url}}" target="_blank">
-              <img src="images/download-icon.png">
-            </a>
-          </div>
-        </div> 
-      </section>
-      
-      <h2 class="noTransformation">Legislation (FAOLEX)</h2>
-      <section class="measure"> 
-        <div class="title">
-          <p>Fisheries Legislation for {{ctrl.country.name}}</p> 
-          <div class="download">
-            <a ng-href="{{ctrl.faoLexUrl}}" target="_blank">
-              <img src="images/download-icon.png">
-            </a>
-          </div>
-        </div> 
-      </section>
-   
-    </section>
-  
-    <section id="secondary">
-      <div id="listOfRFBs">
-        <h2 ng-if="ctrl.country.rfbs.length!=0">RFB membership</h2> 
-        <ul class="list">
-          <li ng-repeat="rfb in ctrl.country.rfbs">
-            <a ng-click="ctrl.showEntity(rfb)" ng-class="{disabled:!rfb.hasMeasures}">{{rfb.acronym}}</a>
-          </li>  
-        </ul>
-      </div>
-    </section>
-  </div>
+	<div id="main">
+		<header>
+			<section class="pagetitle">
+				<h2 class="pagetitle">{{ctrl.country.name}}</h2>
+			</section>
+
+			<section id="infoBox">
+				<div class="logo">
+					<a ng-href="{{ctrl.profileUrl}}"><img ng-src="{{ctrl.flagUrl}}"
+						err-src="{{ctrl.noFlagUrl}}"></a>
+				</div>
+			</section>
+
+			<div class="clear"></div>
+		</header>
+
+		<section id="primary">
+
+			<section ng-repeat="(type, poas) in ctrl.groupedPoas">
+				<h2 class="noTransformation">{{type}}</h2>
+				<section class="measure" ng-repeat="poa in poas"
+					ng-click="ctrl.showPoa(poa)">
+					<div class="symbol">
+						<ul>
+							<li class="binding">{{poa.status}}</li>
+						</ul>
+					</div>
+					<div class="title">
+						<h4>{{poa.title}}</h4>
+						<div class="year">
+							year <b>{{poa.poAYear}}</b>
+						</div>
+						<div ng-repeat="source in poa.sources">
+							<div class="download" ng-if="source.url!==null">
+								<a href="{{source.url}}" target="_blank"> <img
+									src="images/download-icon.png">
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+
+			<h2 ng-if="ctrl.others.length!=0" class="noTransformation">Related
+				Documents</h2>
+			<section class="measure" ng-repeat="other in ctrl.others">
+				<div class="symbol">
+					<ul>
+						<li class="binding">{{other.symbol}}</li>
+					</ul>
+				</div>
+				<div class="title">
+					<p>{{other.title}}</p>
+					<div class="year">
+						year <b>{{other.year}}</b>
+					</div>
+					<div class="download" ng-if="other.url!==null">
+						<a href="{{other.url}}"> <img src="images/download-icon.png">
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<h2 class="noTransformation" ng-if="ctrl.docs.length!=0">Legislation
+				on Sharks (FAOLEX)</h2>
+			<section class="measure" ng-repeat="doc in ctrl.docs">
+				<div class="symbol">
+					<ul>
+						<li ng-if="doc.faolexId!==null">{{doc.faolexId}}</li>
+					</ul>
+				</div>
+				<div class="title">
+					<h4>{{doc.title}}</h4>
+					<p>{{doc.description}}</p>
+					<div class="year" ng-if="ctrl.getYear(doc) !== null ">
+						<span title="{{ctrl.getYearTitle(doc)}}">year <b>{{ctrl.getYear(doc)
+								| date:'yyyy'}}</b></span> <span ng-if="doc.dateOfConsolidation!==null"
+							title="Date of consolidation/reprint: {{doc.dateOfConsolidation | date:ctrl.dateFormat}}">(<b>{{doc.dateOfConsolidation
+								| date:'yyyy'}}</b>)
+						</span>
+					</div>
+					<div class="download" ng-if="doc.url!==null">
+						<a href="{{doc.url}}" target="_blank"> <img
+							src="images/download-icon.png">
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<h2 class="noTransformation">Legislation (FAOLEX)</h2>
+			<section class="measure">
+				<div class="title">
+					<p>Fisheries Legislation for {{ctrl.country.name}}</p>
+					<div class="download">
+						<a ng-href="{{ctrl.faoLexUrl}}" target="_blank"> <img
+							src="images/download-icon.png">
+						</a>
+					</div>
+				</div>
+			</section>
+
+		</section>
+
+		<section id="secondary">
+			<div id="listOfRFBs">
+				<h2 ng-if="ctrl.country.rfbs.length!=0">RFB membership</h2>
+				<ul class="list">
+					<li ng-repeat="rfb in ctrl.country.rfbs"><a
+						ng-click="ctrl.showEntity(rfb)"
+						ng-class="{disabled:!rfb.hasMeasures}">{{rfb.acronym}}</a></li>
+				</ul>
+			</div>
+		</section>
+	</div>
 </div>
