@@ -111,6 +111,14 @@
 						ng-class="{disabled:!rfb.hasMeasures}">{{rfb.acronym}}</a></li>
 				</ul>
 			</div>
+			<div id="listOfOtherMemeberships">
+				<h2 ng-if="ctrl.country.memberships.length!=0">Other
+					membership(s)</h2>
+				<ul class="list">
+					<li ng-repeat="mes in ctrl.country.memberships"><a
+						ng-href="{{mes.url}}">{{mes.title}}</a></li>
+				</ul>
+			</div>
 		</section>
 	</div>
 </div>

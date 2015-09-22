@@ -34,7 +34,7 @@ public class CountryManagmentEntityServiceImpl implements CountryManagmentEntity
 
 		Optional<InformeaCountry> cites = cmsService.getMember(iso3.toLowerCase());
 		if (cites.isPresent()) {
-			EntityDetails ed = managementEntityService.get("CITES");
+			EntityDetails ed = managementEntityService.get("CMS");
 			found.add(ed);
 		}
 		Optional<InformeaCountry> cms = citesService.getMember(iso3.toUpperCase());
