@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityDocument;
-import org.sharks.service.dto.EntityEntry;
 
 public class EntryProducersTest {
 
@@ -22,9 +22,10 @@ public class EntryProducersTest {
 
 	@Test
 	public void TO_ENTITY_DOC() {
-		List<EntityEntry> mes = new ArrayList<EntityEntry>();
-		mes.add(new EntityEntry(acronym, name, type));
-		mes.add(new EntityEntry(acronym, name, type));
+		List<EntityDetails> mes = new ArrayList<EntityDetails>();
+		mes.add(new EntityDetails(0l, "", "", 0l, "", "", "", null, null, null));
+		mes.add(new EntityDetails(0l, "", "", 0l, "", "", "", null, null, null));
+
 		List<EntityDocument> memberships = convert(mes, TO_ENTITY_DOC);
 		assertEquals(memberships.size(), 2);
 	}

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.dto.EntityDocument;
 import org.sharks.service.dto.EntityEntry;
 import org.sharks.service.dto.FaoLexDocument;
@@ -32,10 +33,28 @@ public class EntryProducers {
 		return input.stream().map(converter).collect(Collectors.toList());
 	}
 
-	public static final EntryProducer<EntityEntry, EntityDocument> TO_ENTITY_DOC = new AbstractEntryProducer<EntityEntry, EntityDocument>() {
+	public static final EntryProducer<EntityDetails, EntityDocument> TO_ENTITY_DOC = new AbstractEntryProducer<EntityDetails, EntityDocument>() {
 		@Override
-		public EntityDocument produce(EntityEntry item) {
-			return new EntityDocument(item.getName(), 0, null, null, item.getAcronym());
+		public EntityDocument produce(EntityDetails item) {
+
+			// private final long id;
+			// private final String acronym;
+			// private final String name;
+			// private final Long type;
+			// private final String logoUrl;
+			// private final String webSite;
+			// private final String factsheetUrl;
+			// private final List<EntityMember> members;
+			// private final List<MeasureEntry> measures;
+			// private final List<EntityDocument> others;
+
+			// private final String title;
+			// private final Integer year;
+			// private final String type;
+			// private final String url;
+			// private final String symbol;
+
+			return new EntityDocument(item.getAcronym(), 0, item.getType().toString(), item.getWebSite(), null);
 		}
 	};
 

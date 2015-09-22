@@ -21,7 +21,7 @@ import org.sharks.service.Service.ServiceType;
 import org.sharks.service.cache.Cached;
 import org.sharks.service.dto.CountryDetails;
 import org.sharks.service.dto.CountryEntry;
-import org.sharks.service.dto.EntityEntry;
+import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.informea.CountryManagmentEntityService;
 import org.sharks.service.moniker.MonikerService;
 import org.sharks.service.moniker.dto.FaoLexFiDocument;
@@ -65,7 +65,7 @@ public class CountryServiceImpl implements CountryService {
 
 		List<String> rfbs = monikers.getRfbsForCountry(code);
 		List<FaoLexFiDocument> docs = monikers.getFaoLexDocumentsForCountry(code);
-		List<EntityEntry> mes = countryManagmentEntityService.getMesForCountry(code);
+		List<EntityDetails> mes = countryManagmentEntityService.getMesForCountry(code);
 
 		CountryDetails details = new CountryDetails(country.getAcronym(), country.getMgmtEntityName(),
 				convert(rfbs, entityEntryProducer), convert(mes, TO_ENTITY_DOC),

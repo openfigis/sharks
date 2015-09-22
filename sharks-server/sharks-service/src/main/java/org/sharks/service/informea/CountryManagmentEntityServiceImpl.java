@@ -6,10 +6,10 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 
+import org.sharks.service.ManagementEntityService;
 import org.sharks.service.cites.CitesServiceImpl;
 import org.sharks.service.cms.CmsServiceImpl;
-import org.sharks.service.dto.EntityEntry;
-import org.sharks.service.external.ExternalService;
+import org.sharks.service.dto.EntityDetails;
 import org.sharks.service.informea.dto.InformeaCountry;
 
 /**
@@ -23,22 +23,26 @@ public class CountryManagmentEntityServiceImpl implements CountryManagmentEntity
 	CitesServiceImpl citesService;
 
 	@Inject
+	ManagementEntityService managementEntityService;
+
+	@Inject
 	CmsServiceImpl cmsService;
 
 	@Override
-	public List<EntityEntry> getMesForCountry(String iso3) {
-		List<EntityEntry> found = new ArrayList<EntityEntry>();
-		add(iso3.toLowerCase(), cmsService, found);
-		add(iso3.toUpperCase(), citesService, found);
-		return found;
-	}
+	public List<EntityDetails> getMesForCountry(String iso3) {
+		List<EntityDetails> found = new ArrayList<EntityDetails>();
 
-	private void add(String iso3, ExternalService service, List<EntityEntry> found) {
-		Optional<InformeaCountry> o = service.getMember(iso3);
-		if (o.isPresent()) {
-			InformeaCountry ic = o.get();
-			found.add(new EntityEntry(ic.getIso3(), ic.getName(), 3l));
+		Optional<InformeaCountry> cites = cmsService.getMember(iso3.toLowerCase());
+		if (cites.isPresent()) {
+			EntityDetails ed = managementEntityService.get("CITES");
+			found.add(ed);
 		}
+		Optional<InformeaCountry> cms = citesService.getMember(iso3.toUpperCase());
+		if (cms.isPresent()) {
+			EntityDetails ed = managementEntityService.get("CITES");
+			found.add(ed);
+		}
+		return found;
 	}
 
 }
