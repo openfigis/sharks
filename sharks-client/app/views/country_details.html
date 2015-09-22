@@ -107,7 +107,7 @@
 				<h2 ng-if="ctrl.country.rfbs.length!=0">RFB membership</h2>
 				<ul class="list">
 					<li ng-repeat="rfb in ctrl.country.rfbs"><a
-						ng-click="ctrl.showEntity(rfb)"
+						ng-click="ctrl.showEntityById(rfb)"
 						ng-class="{disabled:!rfb.hasMeasures}">{{rfb.acronym}}</a></li>
 				</ul>
 			</div>
@@ -116,7 +116,7 @@
 					membership(s)</h2>
 				<ul class="list">
 					<li ng-repeat="mes in ctrl.country.memberships"><a
-						ng-href="{{mes.url}}">{{mes.title}}</a></li>
+						ng-click="ctrl.showEntityById(mes.title)">{{mes.title}}</a></li>
 				</ul>
 			</div>
 		</section>

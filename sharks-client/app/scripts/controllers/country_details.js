@@ -59,8 +59,9 @@ angular.module("sharksClient")
 		routingservice.toSingle("poas", poa);  
 	  };
 	  
-	  this.showEntity = function(rfb) {
-		routingservice.toSingleById("entities", rfb.acronym);  
+	  
+	  this.showEntityById = function(acronym) {
+		  routingservice.toSingleById("entities", acronym);
 	  };
 
   }]);
