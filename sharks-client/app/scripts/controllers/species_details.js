@@ -17,9 +17,9 @@ angular.module("sharksClient").controller(
 				function(routingservice, imagesservice, pageservice, factsheets, mapViewer, species) {
 
 					pageservice.setTitle(species.officialNames.en);
-					pageservice.setDescription("List of conservation and management measures for "
-							+ species.officialNames.en
-							+ " issued by regional fisheries bodies or relevant conventions");
+					pageservice.setDescription("List of conservation and management measures for " +
+							 species.officialNames.en +
+							 " issued by regional fisheries bodies or relevant conventions");
 
 					this.species = species;
 					this.ems = Stream(species.measures).sort(function(a, b) {

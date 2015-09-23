@@ -19,9 +19,9 @@ angular
 
 							pageservice.setTitle(country.name);
 							pageservice
-									.setDescription("List of "
-											+ country.name
-											+ "National Plan of Action (NPOA), relevant documents and related national legislation.");
+									.setDescription("List of " + 
+											country.name +
+											"National Plan of Action (NPOA), relevant documents and related national legislation.");
 
 							this.groupedPoas = Stream(country.poas).sort(function(a, b) {
 								if (a.poAYear === b.poAYear)
