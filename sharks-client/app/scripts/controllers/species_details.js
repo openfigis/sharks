@@ -32,8 +32,8 @@ angular.module("sharksClient").controller(
 						return measure.entityAcronym;
 					});
 
-					this.factsheetsUrl = species.figisId !== null ? factsheets.speciesBaseUrl
-							+ species.figisId : null;
+					this.factsheetsUrl = species.figisId !== null ? factsheets.speciesBaseUrl +
+							 species.figisId : null;
 
 					this.showEntity = function(acronym) {
 						routingservice.toSingleById("entities", acronym);

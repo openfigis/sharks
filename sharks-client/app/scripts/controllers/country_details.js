@@ -44,10 +44,10 @@ angular
 							this.dateFormat = "dd MMMM yyyy";
 
 							this.getYearTitle = function(doc) {
-								return doc.dateOfText !== null ? "Date of text: "
-										+ $filter("date")(doc.dateOfText, self.dateFormat)
-										: doc.dateOfOriginalText !== null ? "Date of original text: "
-												+ $filter("date")(doc.dateOfOriginalText, self.dateFormat) : null;
+								return doc.dateOfText !== null ? "Date of text: " +
+										$filter("date")(doc.dateOfText, self.dateFormat)
+										: doc.dateOfOriginalText !== null ? "Date of original text: " + 
+												$filter("date")(doc.dateOfOriginalText, self.dateFormat) : null;
 							};
 
 							this.getYear = function(doc) {
@@ -68,8 +68,8 @@ angular
 							this.flagUrl = imagesservice.countryFlagUrl(country);
 							this.noFlagUrl = imagesservice.missingFlagUrl;
 							this.profileUrl = countryprofiles.profileBaseUrl + country.code + "/en";
-							this.faoLexUrl = faolex.baseUrl + (country.code === "EUR" ? "EC:" : "ISO:")
-									+ country.code;
+							this.faoLexUrl = faolex.baseUrl + (country.code === "EUR" ? "EC:" : "ISO:") +
+									 country.code;
 
 							this.showPoa = function(poa) {
 								routingservice.toSingle("poas", poa);
