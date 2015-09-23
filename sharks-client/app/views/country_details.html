@@ -47,7 +47,7 @@
 			<section class="measure" ng-repeat="other in ctrl.others">
 				<div class="symbol">
 					<ul>
-						<li class="binding">{{other.symbol}}</li>
+						<li ng-if="other.symbol!==null" class="binding">{{other.symbol}}</li>
 					</ul>
 				</div>
 				<div class="title">
@@ -112,8 +112,7 @@
 				</ul>
 			</div>
 			<div id="listOfOtherMemeberships">
-				<h2 ng-if="ctrl.country.memberships.length!=0">Other
-					membership</h2>
+				<h2 ng-if="ctrl.country.memberships.length!=0">Other membership</h2>
 				<ul class="list">
 					<li ng-repeat="mes in ctrl.country.memberships"><a
 						ng-click="ctrl.showEntityById(mes.title)">{{mes.title}}</a></li>
