@@ -42,12 +42,13 @@
 				</section>
 			</section>
 
-			<h2 ng-if="ctrl.others.length!=0" class="noTransformation">Related
-				Documents</h2>
+
+
+			<h2 ng-if="ctrl.others.length!=0" class="noTransformation">Related Documents</h2>
 			<section class="measure" ng-repeat="other in ctrl.others">
 				<div class="symbol">
 					<ul>
-						<li ng-if="other.symbol!==null" class="binding">{{other.symbol}}</li>
+						<li class="binding" ng-if="other.symbol!==null">{{other.symbol}}</li>
 					</ul>
 				</div>
 				<div class="title">
@@ -67,7 +68,7 @@
 			<section class="measure" ng-repeat="doc in ctrl.docs">
 				<div class="symbol">
 					<ul>
-						<li ng-if="doc.faolexId!==null">{{doc.faolexId}}</li>
+						<li class="binding" ng-if="doc.faolexId!==null">{{doc.faolexId}}</li>
 					</ul>
 				</div>
 				<div class="title">
