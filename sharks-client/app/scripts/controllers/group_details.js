@@ -7,11 +7,16 @@
  */
 angular.module("sharksClient").controller(
 		"GroupDetailsCtrl",
-		[ "routingservice", "imagesservice", "pageservice", "group",
+		[
+				"routingservice",
+				"imagesservice",
+				"pageservice",
+				"group",
 				function(routingservice, imagesservice, pageservice, group) {
 
 					pageservice.setTitle(group.name);
-					pageservice.setDescription("Measures for species group " + group.name);
+					pageservice.setDescription("List of conservation and management measures for " + 
+							 group.name + " issued by regional fisheries bodies or relevant conventions");
 
 					this.group = group;
 					this.ems = Stream(group.measures).sort(function(a, b) {
