@@ -14,7 +14,7 @@ angular
 
 							pageservice.setTitle(entity.acronym);
 							pageservice
-									.setDescription("List of measures for the conservation and management of sharks issued by  " +
+									.setDescription("List of measures for the conservation and management of sharks issued by " +
 											 entity.acronym + ", a regional fishery body or relevant global convention.");
 
 							this.entity = entity;
