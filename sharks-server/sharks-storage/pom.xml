@@ -18,7 +18,7 @@
 		</repository>
 	</repositories>
 	<properties>
-		<hibernate.version>4.3.8.Final</hibernate.version>
+		<hibernate.version>5.0.3.Final</hibernate.version>
 	</properties>
 
 
