@@ -39,8 +39,8 @@ public class RefPubServiceImpl implements RefPubService {
 	@CacheName("countryIso2")
 	private ServiceCache<String, RefPubCountry> iso2CountriesCache;
 
-	@Inject
 	@CacheName("species")
+	@Inject
 	private ServiceCache<String, RefPubSpecies> speciesCache;
 
 	@Override
@@ -82,18 +82,17 @@ public class RefPubServiceImpl implements RefPubService {
 	@Override
 	public RefPubSpecies getSpecies(String alpha3Code) {
 		CacheElement<RefPubSpecies> cacheElement = speciesCache.get(alpha3Code);
-		if (cacheElement.isPresent())
-			return cacheElement.getValue();
-
-		try {
-			RefPubSpecies species = restClient.getSpecies(alpha3Code);
-
-			speciesCache.put(alpha3Code, species);
-
-			return species;
-		} catch (Exception e) {
-			log.error("Error getting species " + alpha3Code + " from refPub", e);
-			return null;
+		RefPubSpecies species = null;
+		if (cacheElement.isPresent()) {
+			species = cacheElement.getValue();
+		} else {
+			try {
+				species = restClient.getSpecies(alpha3Code);
+				speciesCache.put(alpha3Code, species);
+			} catch (Exception e) {
+				log.error("Error getting species " + alpha3Code + " from refPub", e);
+			}
 		}
+		return species;
 	}
 }
