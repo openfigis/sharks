@@ -3,8 +3,6 @@
  */
 package org.sharks.config;
 
-import java.io.File;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
@@ -45,12 +43,12 @@ public class ConfigurationProducer {
 		if (location == null) {
 			location = System.getProperty(CONFIG_LOCATION_PROPERTY_NAME);
 			log.trace("system property {} = {}", CONFIG_LOCATION_PROPERTY_NAME, location);
-
 		}
 
-		System.out.println(location);
-		File file = new File(location);
-		System.out.println(file.getAbsolutePath());
+		if (location == null) {
+			log.error("system property {} = {}", CONFIG_LOCATION_PROPERTY_NAME, location);
+			throw new RuntimeException("Location CONFIG_LOCATION_PROPERTY_NAME not specified.");
+		}
 
 		return location;
 	}
