@@ -34,7 +34,14 @@ public class ServiceCacheProducer {
 
 		String cacheName = cacheNameAnnotation.value();
 
-		return cacheManager.getOrCreateCache(new ServiceInfo(service.name(), service.type()), cacheName);
+		System.out.println(service.name() + " " + service.type() + " " + cacheName);
+
+		ServiceCache<K, V> sc = cacheManager.getOrCreateCache(new ServiceInfo(service.name(), service.type()),
+				cacheName);
+		if (sc == null) {
+			throw new RuntimeException("result is null, did not manage to produce correctly");
+		}
+		return sc;
 	}
 
 }
