@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import org.jglue.cdiunit.CdiRunner;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -31,6 +32,7 @@ public class ConfigurationProducerTest {
 	 * 
 	 */
 	@Test
+	@Ignore
 	public void buildConfiguration() {
 		Configuration config = p.buildConfiguration();
 		assertNotNull(config);
