@@ -27,7 +27,7 @@ public class EntryProducersTest {
 	String name = "name";
 	long type = 1l;
 
-	// @Test
+	@Test
 	public void TO_ENTITY_DOC() {
 		List<EntityDetails> mes = new ArrayList<EntityDetails>();
 		mes.add(new EntityDetails(0l, "", "", 0l, "", "", "", null, null, null));
