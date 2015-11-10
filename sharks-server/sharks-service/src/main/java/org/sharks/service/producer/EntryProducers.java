@@ -73,19 +73,20 @@ public class EntryProducers {
 
 			return new MeasureEntry(measure.getCode(), measure.getSymbol(), measure.getTitle(),
 					measure.getDocumentType() != null ? measure.getDocumentType().getDescription() : null,
-					measure.getMeasureYear(), measure.getBinding(), findEntityAcronym(measure.getInformationSources()),
+					measure.getMeasureYear(), measure.getBinding(), measure.getMgmtEntity().getAcronym(),
 					convert(measure.getInformationSources(), TO_INFORMATION_SOURCE_ENTRY), replacedMeasureSourceUrl);
 		}
 
-		private String findEntityAcronym(List<InformationSource> sources) {
-			for (InformationSource source : sources) {
-				for (MgmtEntity mgmtEntity : source.getMgmtEntities()) {
-					if (mgmtEntity != null && mgmtEntity.getAcronym() != null)
-						return mgmtEntity.getAcronym();
-				}
-			}
-			return null;
-		}
+		// private String findEntityAcronym(List<InformationSource> sources) {
+		// for (InformationSource source : sources) {
+		// for (MgmtEntity mgmtEntity : source.getMgmtEntities()) {
+		// if (mgmtEntity != null && mgmtEntity.getAcronym() != null)
+		// return mgmtEntity.getAcronym();
+		// }
+		// }
+		// // return "werkelijk niks";
+		// return null;
+		// }
 	};
 
 	public static final EntryProducer<InformationSource, InformationSourceEntry> TO_INFORMATION_SOURCE_ENTRY = new AbstractEntryProducer<InformationSource, InformationSourceEntry>() {
