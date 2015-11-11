@@ -1,24 +1,25 @@
-
 <section class="measure">
-  <div class="symbol">
-    <ul>
-      <li ng-if="value.symbol!==null">{{value.symbol}}</li>
-      <li class="binding">{{value.binding?'Binding':'Non Binding'}}</li>
-      <li ng-if="value.replacedMeasureSourceUrl!==null" class="binding">
-        <a href="{{value.replacedMeasureSourceUrl}}" target="_blank">Replaces</a>
-      </li>
-    </ul>
-  </div> 
-  <div class="title">
-    <h4>{{value.documentType}}</h4> 
-    <p>{{value.title}}</p> 
-    <div class="year">year <b>{{value.year}}</b></div>
-    <div ng-repeat="source in value.sources">
-      <div class="download" ng-if="source.url!==null">
-        <a href="{{source.url}}" target="_blank">
-          <img src="images/download-icon.png">
-        </a>
-      </div>
-    </div>
-   </div> 
+	<div class="symbol">
+		<ul>
+			<li ng-if="value.symbol!==null">{{value.symbol}}</li>
+			<li class="binding">{{value.binding?'Binding'}}</li>
+			<li ng-if="value.replacedMeasureSourceUrl!==null" class="binding">
+				<a href="{{value.replacedMeasureSourceUrl}}" target="_blank">Replaces</a>
+			</li>
+		</ul>
+	</div>
+	<div class="title">
+		<h4>{{value.documentType}}</h4>
+		<p>{{value.title}}</p>
+		<div class="year">
+			year <b>{{value.year}}</b>
+		</div>
+		<div ng-repeat="source in value.sources">
+			<div class="download" ng-if="source.url!==null">
+				<a href="{{source.url}}" target="_blank"> <img
+					src="images/download-icon.png">
+				</a>
+			</div>
+		</div>
+	</div>
 </section>
