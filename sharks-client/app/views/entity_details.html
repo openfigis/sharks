@@ -1,63 +1,71 @@
 <div class="entity-page">
-  <div id="main">
-    <header>
-      <section class="pagetitle">
-        <h2 class="pagetitle">{{ctrl.entity.acronym}}</h2> 
-        <h3 class="subtitle">{{ctrl.entity.name}}</h3>
-      </section>
-            
-      <section id="infoBox">
-        <div class="logo">
-          <a ng-if="ctrl.entity.webSite!==null" ng-href="{{ctrl.entity.webSite}}" target="_blank"><img ng-src="{{ctrl.entity.logoUrl}}"></a>
-          <div class="factSheet" ng-if="ctrl.entity.factsheetUrl!==null"><a ng-href="{{ctrl.entity.factsheetUrl}}">FAO RFB fact sheet</a></div> 
-          <div class="factSheet cites" ng-if="ctrl.isCites"><a href="http://www.cites.org/prog/shark" target="_blank">CITES web portal</a></div> 
-        </div>
-      </section>
-  
-      <div class="clear"></div>
-    </header>
-  
-    <section id="primary">
-      <h2>Measures</h2>
-      
-      <measure ng-repeat="measure in ctrl.ems" value="measure">
-      </measure>
-      
-      <h2 ng-if="ctrl.others.length!=0">Related Documents</h2>
-      <section class="measure" ng-repeat="other in ctrl.others" >
-        <div class="title">
-          <p>{{other.title}}</p> 
-          <div class="year">year <b>{{other.year}}</b></div>
-  		<div class="download" ng-if="other.url!==null">
-            <a href="{{other.url}}" >
-              <img src="images/download-icon.png">
-            </a>
-          </div>
-        </div>
-      </section>
-      
-      
-      <div id="sidemap" ng-show="ctrl.hasCompentenceAreaMap">
-        <h2>{{ctrl.entity.acronym}} area of competence</h2>  
-        <div id="areaMap" class="FigisMap"></div>
-        <div class="figisMapLink">
-          <a ng-href="{{ctrl.mapUrl}}" target="_blank">Launch the RFBs map viewer</a>   
-        </div> 
-      </div>
-  
-    </section>
-  
-    <section id="secondary">
-    
-      <div id="memberCountries" ng-if="ctrl.entity.members.length!=0">
-        <h2>Members</h2>	
-        <ul class="list">
-          <li ng-repeat="member in ctrl.members">
-            <a ng-click="ctrl.showCountry(member)" ng-class="{disabled:!member.hasPoAs}">{{member.name}}</a>
-          </li>	
-        </ul>
-      </div>
-  
-    </section>
-  </div> 
-</div> 
+	<div id="main">
+		<header>
+			<section class="pagetitle">
+				<h2 class="pagetitle">{{ctrl.entity.acronym}}</h2>
+				<h3 class="subtitle">{{ctrl.entity.name}}</h3>
+			</section>
+
+			<section id="infoBox">
+				<div class="logo">
+					<a ng-if="ctrl.entity.webSite!==null"
+						ng-href="{{ctrl.entity.webSite}}" target="_blank"><img
+						ng-src="{{ctrl.entity.logoUrl}}"></a>
+					<div class="factSheet" ng-if="ctrl.entity.factsheetUrl!==null">
+						<a ng-href="{{ctrl.entity.factsheetUrl}}">FAO RFB fact sheet</a>
+					</div>
+					<div class="factSheet cites" ng-if="ctrl.isCites">
+						<a href="http://www.cites.org/prog/shark" target="_blank">CITES
+							web portal</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="clear"></div>
+		</header>
+
+		<section id="primary">
+			<h2>Measures</h2>
+
+			<measure ng-repeat="measure in ctrl.ems" value="measure"> </measure>
+
+			<h2 ng-if="ctrl.others.length!=0">Related Documents</h2>
+			<section class="measure" ng-repeat="other in ctrl.others">
+				<div class="title">
+					<p>{{other.title}}</p>
+					<div class="year">
+						year <b>{{other.year}}</b>
+					</div>
+					<div class="download" ng-if="other.url!==null">
+						<a href="{{other.url}}"> <img src="images/download-icon.png">
+						</a>
+					</div>
+				</div>
+			</section>
+
+
+			<div id="sidemap" ng-show="ctrl.hasCompentenceAreaMap">
+				<h2>{{ctrl.entity.acronym}} area of competence</h2>
+				<div id="areaMap" class="FigisMap"></div>
+				<div class="figisMapLink">
+					<a ng-href="{{ctrl.mapUrl}}" target="_blank">Launch the RFBs
+						map viewer</a>
+				</div>
+				<p ng-bind-html="ctrl.disclaimer.text"></p>
+			</div>
+		</section>
+
+		<section id="secondary">
+
+			<div id="memberCountries" ng-if="ctrl.entity.members.length!=0">
+				<h2>Members</h2>
+				<ul class="list">
+					<li ng-repeat="member in ctrl.members"><a
+						ng-click="ctrl.showCountry(member)"
+						ng-class="{disabled:!member.hasPoAs}">{{member.name}}</a></li>
+				</ul>
+			</div>
+
+		</section>
+	</div>
+</div>
