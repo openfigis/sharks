@@ -12,8 +12,7 @@ angular.module("sharksClient").controller(
         function(routingservice, pageservice, entityTypes, mapViewer, entity, contentservice) {
 
           pageservice.setTitle(entity.acronym);
-          pageservice.setDescription("List of measures for the conservation and management of sharks issued by "
-              + entity.name + " " + entity.acronym);
+          pageservice.setDescription("List of measures for the conservation and management of sharks issued by " + entity.name + " " + entity.acronym);
 
           this.entity = entity;
 
