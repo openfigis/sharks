@@ -40,6 +40,8 @@ import org.sharks.storage.domain.MgmtEntity;
 @Service(name = "country", type = ServiceType.INTERNAL)
 public class CountryServiceImpl implements CountryService {
 
+	private static String EXCLUDE = "TWN";
+
 	@Inject
 	private ManagementEntityDao dao;
 
@@ -85,6 +87,10 @@ public class CountryServiceImpl implements CountryService {
 	@Cached("list")
 	public List<CountryEntry> list(boolean onlyWithPoAs) {
 		List<MgmtEntity> countries = dao.listCountries(onlyWithPoAs, false);
+
+		// Excluding Taiwan
+		countries.removeIf(p -> (p.getAcronym() != null && p.getAcronym().equals(EXCLUDE)));
+
 		List<CountryEntry> entries = convert(countries, entryProducer);
 		return entries;
 	}
