@@ -1,4 +1,4 @@
-<div class="entity-page"  >
+<div class="entity-page">
 	<div id="main">
 		<header>
 			<section class="pagetitle">
@@ -55,6 +55,7 @@
 
 			<div id="memberCountries" ng-if="ctrl.entity.members.length!=0">
 				<h2>Members</h2>
+				<a ng-click="gotoBottom()">Disclaimer</a>
 				<ul class="list">
 					<li ng-repeat="member in ctrl.members"><a ng-click="ctrl.showCountry(member)"
 						ng-class="{disabled:!member.hasPoAs}">{{member.name}}</a></li>
@@ -63,9 +64,10 @@
 
 		</section>
 	</div>
-	
+
 	<!-- TODO: the style here needs to be moved to a CSS.  -->
-	<div style="display: table; background-color: white; font-size: 0.7em; font-family: verdana, sans-serif;">
+	<div id="disclaimer"
+		style="display: table; background-color: white; font-size: 0.7em; font-family: verdana, sans-serif;">
 		<p ng-bind-html="ctrl.disclaimer.text" />
 	</div>
 

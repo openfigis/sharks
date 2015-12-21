@@ -9,7 +9,20 @@ angular.module("sharksClient").controller(
         "mapViewer",
         "entity",
         "contentservice",
-        function(routingservice, pageservice, entityTypes, mapViewer, entity, contentservice) {
+        "$scope",
+        "$location",
+        "$anchorScroll",
+        function(routingservice, pageservice, entityTypes, mapViewer, entity, contentservice, $scope, $location,
+            $anchorScroll) {
+
+          $scope.gotoBottom = function() {
+            // set the location.hash to the id of
+            // the element you wish to scroll to.
+            $location.hash("disclaimer");
+
+            // call $anchorScroll()
+            $anchorScroll();
+          };
 
           pageservice.setTitle(entity.acronym);
           pageservice.setDescription("List of measures for the conservation and management of sharks issued by " + entity.name + " " + entity.acronym);
