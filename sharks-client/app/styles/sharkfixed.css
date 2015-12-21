@@ -109,6 +109,7 @@ h2.pagetitle {
 ablue {
 	color: blue;
 	font-style: italic;
+	cursor:pointer;
 }
 
 .entity-page h2.pagetitle, .country-page h2.pagetitle {
@@ -400,7 +401,6 @@ footer ul.links li {
 	max-width: 760px;
 	padding: 0;
 	width: 760px;
-	padding-bottom: 50px;
 }
 
 #main header {
