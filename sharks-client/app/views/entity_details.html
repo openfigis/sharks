@@ -8,15 +8,13 @@
 
 			<section id="infoBox">
 				<div class="logo">
-					<a ng-if="ctrl.entity.webSite!==null"
-						ng-href="{{ctrl.entity.webSite}}" target="_blank"><img
+					<a ng-if="ctrl.entity.webSite!==null" ng-href="{{ctrl.entity.webSite}}" target="_blank"><img
 						ng-src="{{ctrl.entity.logoUrl}}"></a>
 					<div class="factSheet" ng-if="ctrl.entity.factsheetUrl!==null">
 						<a ng-href="{{ctrl.entity.factsheetUrl}}">FAO RFB fact sheet</a>
 					</div>
 					<div class="factSheet cites" ng-if="ctrl.isCites">
-						<a href="http://www.cites.org/prog/shark" target="_blank">CITES
-							web portal</a>
+						<a href="http://www.cites.org/prog/shark" target="_blank">CITES web portal</a>
 					</div>
 				</div>
 			</section>
@@ -48,10 +46,8 @@
 				<h2>{{ctrl.entity.acronym}} area of competence</h2>
 				<div id="areaMap" class="FigisMap"></div>
 				<div class="figisMapLink">
-					<a ng-href="{{ctrl.mapUrl}}" target="_blank">Launch the RFBs
-						map viewer</a>
+					<a ng-href="{{ctrl.mapUrl}}" target="_blank">Launch the RFBs map viewer</a>
 				</div>
-				<disclaimer ng-bind-html="ctrl.disclaimer.text" />
 			</div>
 		</section>
 
@@ -60,12 +56,15 @@
 			<div id="memberCountries" ng-if="ctrl.entity.members.length!=0">
 				<h2>Members</h2>
 				<ul class="list">
-					<li ng-repeat="member in ctrl.members"><a
-						ng-click="ctrl.showCountry(member)"
+					<li ng-repeat="member in ctrl.members"><a ng-click="ctrl.showCountry(member)"
 						ng-class="{disabled:!member.hasPoAs}">{{member.name}}</a></li>
 				</ul>
 			</div>
 
 		</section>
 	</div>
+	<div style="background-color: white" >
+		<p ng-bind-html="ctrl.disclaimer.text" />
+	</div>
+
 </div>
