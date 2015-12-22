@@ -67,6 +67,7 @@ angular.module("sharksClient").controller(
 
             });
             this.disclaimer = contentservice.get("INSTITUTION_BOTTOM");
+            this.disclaimerText = "Disclaimer";
           }
 
         } ]);
