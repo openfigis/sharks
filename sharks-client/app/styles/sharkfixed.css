@@ -109,7 +109,8 @@ h2.pagetitle {
 ablue {
 	color: blue;
 	font-style: italic;
-	cursor:pointer;
+	cursor: pointer;
+	font-size: 0.6em;
 }
 
 .entity-page h2.pagetitle, .country-page h2.pagetitle {
