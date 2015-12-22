@@ -68,7 +68,7 @@
 	</div>
 
 	<!-- TODO: the style here needs to be moved to a CSS.  -->
-	<div id="disclaimer" ng-if="!ctrl.entity.disclaimerText"
+	<div id="disclaimer" ng-show="ctrl.disclaimerText != null" 
 		style="display: table; background-color: white; font-size: 0.8em; font-family: verdana, sans-serif;">
 		<p ng-bind-html="ctrl.disclaimer.text" />
 	</div>
