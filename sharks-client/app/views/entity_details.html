@@ -56,7 +56,7 @@
 
 			<div id="memberCountries" ng-if="ctrl.entity.members.length!=0">
 				<h2>Members</h2>
-				<ablue ng-click="gotoBottom()">{{ctrl.entity.disclaimerText}}</a>
+				<ablue ng-click="gotoBottom()">{{ctrl.disclaimerText}}</a>
 
 				<ul class="list">
 					<li ng-repeat="member in ctrl.members"><a ng-click="ctrl.showCountry(member)"
@@ -68,7 +68,7 @@
 	</div>
 
 	<!-- TODO: the style here needs to be moved to a CSS.  -->
-	<div id="disclaimer"
+	<div id="disclaimer" ng-if="!ctrl.entity.disclaimerText"
 		style="display: table; background-color: white; font-size: 0.8em; font-family: verdana, sans-serif;">
 		<p ng-bind-html="ctrl.disclaimer.text" />
 	</div>
