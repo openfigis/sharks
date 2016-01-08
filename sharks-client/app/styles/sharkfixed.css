@@ -110,7 +110,6 @@ ablue {
 	color: blue;
 	font-style: italic;
 	cursor: pointer;
-	font-size: 0.6em;
 }
 
 .entity-page h2.pagetitle, .country-page h2.pagetitle {
@@ -877,7 +876,7 @@ div.logo img {
 	padding: 0;
 	text-transform: uppercase;
 	color: #666;
-	font-size: 0.7em;
+	font-size: 0.4em;
 	font-weight: 500;
 }
 
