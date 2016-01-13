@@ -15,7 +15,9 @@ angular
     "ngSanitize",
     "angucomplete-alt",
     "resources",
-    "services"
+    "services",
+    "angulartics", 
+    "angulartics.google.analytics"    
   ])
   .constant("paths", {
 				home: {
@@ -193,6 +195,10 @@ angular
   })
   .config(function ($locationProvider) {
 	  $locationProvider.html5Mode(true);
+  })
+  .config(function ($analyticsProvider) {
+    $analyticsProvider.firstPageview(true); /* Records pages that don't use $state or $route */
+    $analyticsProvider.withAutoBase(true);  /* Records full path */
   })
   //missing images handling
   .directive("errSrc", function() {
