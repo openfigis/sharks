@@ -34,29 +34,7 @@ Here some instruction on how to setup the environment to contribute to Sharks pr
 2.	Go to Run/Run Configurations.. and add an environment variable with name SHARKS_CONFIG and for a value something like 	C:\Users\vaningen\git\sharks\sharks-deploy\conf\dev\sharks.properties
   
   
-
-## NodeJs, npm and bower
-
-Here how to install [NodeJs](https://nodejs.org/) and [npm](https://www.npmjs.com/) in Ubuntu:
-
-
-	curl -sL https://deb.nodesource.com/setup | sudo bash -
-	sudo apt-get install nodejs
-
-Setup for global installation ([source](http://stackoverflow.com/questions/18212175/npm-yeoman-install-generator-angular-without-sudo/18277225#18277225)):
-
-	echo prefix = ~/.node >> ~/.npmrc
-	
-Edit '~/.bashrc' and add:
-
-	export PATH="$PATH:$HOME/.node/bin"
-	NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
-	
-[Bower](http://bower.io/) global installation:
-
-	sudo npm install -g bower
-	
-	
-
-
+[See more info for the Sharks Client setup here](../sharks-client/README)
+  
+  
 
