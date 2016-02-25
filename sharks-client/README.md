@@ -1,8 +1,3 @@
-
-
-
-
-
 # sharks-client
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
@@ -14,10 +9,6 @@ install nodejs by downloading it. Nodejs comes in stable or LTS version, so far 
 Then run on the CLI: 
 npm install 
   
- 
-
-
-
   
 
 ## NodeJs, npm and bower
@@ -41,24 +32,6 @@ Edit '~/.bashrc' and add:
 
 	sudo npm install -g bower
 	
-	
-
-
-
-
-
-## installing grunt
-Sharks depends on Grunt. Installing grunt can be done by installing nodejs, subsequently: 
-npm install grunt-autoprefixer
-
-Problems like 
->> Local Npm module "grunt-autoprefixer" not found. Is it installed?
-may occur. 
-
-I fixed them one by one with these commands:
-npm install grunt-autoprefixer
-(I am sure there should be a more intelligent way of doing this)
-
 
 ## Build & development
 
