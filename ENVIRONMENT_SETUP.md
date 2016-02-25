@@ -34,7 +34,7 @@ Here some instruction on how to setup the environment to contribute to Sharks pr
 2.	Go to Run/Run Configurations.. and add an environment variable with name SHARKS_CONFIG and for a value something like 	C:\Users\vaningen\git\sharks\sharks-deploy\conf\dev\sharks.properties
   
   
-[See more info for the Sharks Client setup here](../sharks-client/README)
+[See more info for the Sharks Client setup here](/sharks-client/README)
   
   
 
