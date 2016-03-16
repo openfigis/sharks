@@ -15,8 +15,9 @@ mainArea {
 	background-size: cover;
 	background-position: 0% 0%;
 	background-repeat: inherit inherit;
-	/*max-width: 760px;
-	width: 760px;*/
+	/*max-width: 920px;*/
+	max-width: 100%;
+	width: 100%;
 	
 }
 
@@ -398,11 +399,11 @@ footer ul.links li {
 	border-top: 3px solid #5b7c06;
 	position: relative;
 	height: auto;
-	padding: 0;
-	/*
 	display: table-cell;
-	max-width: 760px;
-	width: 760px;*/
+	padding: 0;
+	/*max-width: 760px;*/
+	max-width: 95%;
+	width: 95%;
 }
 
 #main header {
@@ -923,7 +924,7 @@ div.logo img {
 
 .FigisMap {
 	border: 1px solid black;
-	width: 100%;
+	width: 720px;
 	height: 400px;
 }
 
