@@ -9,7 +9,6 @@ install nodejs by downloading it. Nodejs comes in stable or LTS version, so far 
 Then run on the CLI: 
 npm install 
   
-  
 
 ## NodeJs, npm and bower
 
@@ -31,6 +30,11 @@ Edit '~/.bashrc' and add:
 [Bower](http://bower.io/) global installation:
 
 	sudo npm install -g bower
+	
+	sudo npm install -g grunt
+	
+	sudo npm install -g grunt-cli
+
 	
 
 ## Build & development

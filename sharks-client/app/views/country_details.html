@@ -7,7 +7,7 @@
 
 			<section id="infoBox">
 				<div class="logo">
-					<a ng-href="{{ctrl.profileUrl}}"><img ng-src="{{ctrl.flagUrl}}"
+					<a ng-href="{{ctrl.profileUrl}}" target="_blank"><img ng-src="{{ctrl.flagUrl}}"
 						err-src="{{ctrl.noFlagUrl}}"></a>
 				</div>
 			</section>
@@ -71,7 +71,6 @@
 					<ul>
 						<li ng-if="doc.faolexId!==null">{{doc.faolexId}}</li>
 					</ul>
-				</div>
 				<div class="title">
 					<h4>{{doc.title}}</h4>
 					<p>{{doc.description}}</p>

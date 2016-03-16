@@ -12,7 +12,7 @@
   <div id="legend">
     <ul>          
       <li ng-repeat="entity in ctrl.rfmos">
-        <a class="entity" ng-click="ctrl.show(entity)">{{entity.acronym}}</a>
+        <a target="_new" class="entity" ng-click="ctrl.show(entity)">{{entity.acronym}}</a>
         <div class="eye" ng-click="ctrl.toggleInMap(entity)">
           <img id="eye" ng-src="images/{{ctrl.isInMap(entity)?'eye':'neye'}}.png">
         </div>
@@ -21,7 +21,7 @@
     <div class="divider"></div>
     <ul>
       <li ng-repeat="entity in ctrl.institutions">
-        <a class="entity" ng-click="ctrl.show(entity)">{{entity.acronym}}</a>
+        <a target="_new" class="entity" ng-click="ctrl.show(entity)">{{entity.acronym}}</a>
       </li>
     </ul>
   </div>            
