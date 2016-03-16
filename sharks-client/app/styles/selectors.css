@@ -232,7 +232,7 @@ div.eye:hover{
 #countriesMap ul{
 	padding: 5px;
 	margin: 5px 10px 2px 110px;
-	width:620px;
+	/*width:620px;*/
 	float: left;
 	height:98%;
 	border-radius: 3px;

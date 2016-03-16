@@ -15,8 +15,9 @@ mainArea {
 	background-size: cover;
 	background-position: 0% 0%;
 	background-repeat: inherit inherit;
-	max-width: 760px;
-	width: 760px;
+	/*max-width: 760px;
+	width: 760px;*/
+	
 }
 
 header {
@@ -397,10 +398,11 @@ footer ul.links li {
 	border-top: 3px solid #5b7c06;
 	position: relative;
 	height: auto;
+	padding: 0;
+	/*
 	display: table-cell;
 	max-width: 760px;
-	padding: 0;
-	width: 760px;
+	width: 760px;*/
 }
 
 #main header {
