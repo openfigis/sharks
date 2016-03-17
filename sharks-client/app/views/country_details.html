@@ -58,7 +58,7 @@
 						year <b>{{other.year}}</b>
 					</div>
 					<div class="download" ng-if="other.url!==null">
-						<a href="{{other.url}}"> <img src="images/download-icon.png">
+						<a href="{{other.url}}" target="_blank"> <img src="images/download-icon.png">
 						</a>
 					</div>
 				</div>
@@ -71,19 +71,18 @@
 					<ul>
 						<li ng-if="doc.faolexId!==null">{{doc.faolexId}}</li>
 					</ul>
+				</div>
 				<div class="title">
+					<p>
 					<h4>{{doc.title}}</h4>
-					<p>{{doc.description}}</p>
+					{{doc.description}}</p>
 					<div class="year" ng-if="ctrl.getYear(doc) !== null ">
-						<span title="{{ctrl.getYearTitle(doc)}}">year <b>{{ctrl.getYear(doc)
-								| date:'yyyy'}}</b></span> <span ng-if="doc.dateOfConsolidation!==null"
-							title="Date of consolidation/reprint: {{doc.dateOfConsolidation | date:ctrl.dateFormat}}">(<b>{{doc.dateOfConsolidation
-								| date:'yyyy'}}</b>)
-						</span>
+						year <b><span ng-if="ctrl.getYear(doc)!==null" title="{{ctrl.getYearTitle(doc)}}">{{ctrl.getYear(doc)| date:'yyyy'}}</span>
+						<span ng-if="doc.dateOfConsolidation!==null" title="Date of consolidation/reprint: {{doc.dateOfConsolidation | date:ctrl.dateFormat}}">({{doc.dateOfConsolidation| date:'yyyy'}})</span>
+						</b>
 					</div>
 					<div class="download" ng-if="doc.url!==null">
-						<a href="{{doc.url}}" target="_blank"> <img
-							src="images/download-icon.png">
+						<a href="{{doc.url}}" target="_blank"> <img src="images/download-icon.png">
 						</a>
 					</div>
 				</div>
