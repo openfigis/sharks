@@ -73,10 +73,9 @@
 					</ul>
 				</div>
 				<div class="title">
-					<p>
 					<h4>{{doc.title}}</h4>
-					{{doc.description}}</p>
-					<div class="year" ng-if="ctrl.getYear(doc) !== null ">
+					<p>{{doc.description}}</p>
+					<div class="year" ng-if="ctrl.getYear(doc)!==null">
 						year <b><span ng-if="ctrl.getYear(doc)!==null" title="{{ctrl.getYearTitle(doc)}}">{{ctrl.getYear(doc)| date:'yyyy'}}</span>
 						<span ng-if="doc.dateOfConsolidation!==null" title="Date of consolidation/reprint: {{doc.dateOfConsolidation | date:ctrl.dateFormat}}">({{doc.dateOfConsolidation| date:'yyyy'}})</span>
 						</b>
