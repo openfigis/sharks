@@ -27,7 +27,7 @@
 		"home": "Database of measures on conservation and management of Sharks"
 	},
 	"rest": {
-		"baseUrl": "http://localhost:8080/sharks-web/rest/"
+		"baseUrl": "http://figisapps.fao.org/figis/sharks-web/rest/"
 	},
 	"solr": {
 		"baseUrl": "http://localhost:8983/solr/sharks/"
