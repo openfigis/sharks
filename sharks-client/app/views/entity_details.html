@@ -56,7 +56,7 @@
 
 			<div id="memberCountries" ng-if="ctrl.entity.members.length!=0">
 				<h2>Members</h2>
-				<a ng-click="gotoBottom()">&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160{{ctrl.disclaimerText}}</a>
+				<a style="color:blue" ng-click="gotoBottom()">&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160{{ctrl.disclaimerText}}</a>
 
 				<ul class="list">
 					<li ng-repeat="member in ctrl.members"><a ng-click="ctrl.showCountry(member)"
