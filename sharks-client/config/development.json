@@ -1,7 +1,7 @@
 {
 	"env": {
 		"name": "development",
-		"baseUrl": "/"
+		"baseUrl": "/fishery/ipoa-sharks/measures/"
 	},
 	"factsheets": {
 		"speciesBaseUrl": "http://www.fao.org/fishery/species/"
@@ -27,7 +27,7 @@
 		"home": "Database of measures on conservation and management of Sharks"
 	},
 	"rest": {
-		"baseUrl": "http://figisapps.fao.org/figis/sharks-web/rest/"
+		"baseUrl": "http://figisapps.fao.org/figis/sharks/rest/"
 	},
 	"solr": {
 		"baseUrl": "http://localhost:8983/solr/sharks/"
