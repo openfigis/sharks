@@ -32,4 +32,5 @@
 	"solr": {
 		"baseUrl": "http://localhost:8983/solr/sharks/"
 	}
+	
 }
