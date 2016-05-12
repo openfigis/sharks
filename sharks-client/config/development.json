@@ -1,7 +1,7 @@
 {
 	"env": {
 		"name": "development",
-		"baseUrl": "/fishery/ipoa-sharks/measures/"
+		"baseUrl": "/fishery/ipoa-sharks/measures/sharks-client/"
 	},
 	"factsheets": {
 		"speciesBaseUrl": "http://www.fao.org/fishery/species/"
