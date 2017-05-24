@@ -74,7 +74,8 @@ public class CitesServiceImpl implements CitesService {
 	@Override
 	public Optional<InformeaCountry> getMember(String iso3) {
 		List<InformeaCountry> parties = getParties();
-		return parties.stream().filter(t -> t.getIso3() != null && t.getIso3().equals(iso3)).findFirst();
+		//Kiran : Added a hardcoded fix for EU to work as there is not iso3 code named EUR in the cites
+		return parties.stream().filter(t -> (t.getIso3() != null && t.getIso3().equals(iso3)) || (iso3!=null && iso3.equalsIgnoreCase("eur") && t.getIso2().equalsIgnoreCase("eu"))).findFirst();
 	}
 
 }
